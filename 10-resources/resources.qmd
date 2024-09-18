@@ -79,6 +79,13 @@ To join, please write me on Teams with these informations
 
 A public repository with most materials is on [github.com/ale65/learn-coding](https://github.com/ale66/learn-coding)
 
+---
+
+## Pythontutor
+
+Step-by-step execution of simple codes with a nice visualisation of what happense in the computer memory.
+
+[pythontutor.com](https://pythontutor.com/)
 
 
 # Install components
@@ -103,6 +110,9 @@ For iOs: start ``Terminal`` then ``su``
 
 For Linux: you don't need me :smile:
 
+These installations may require time. 
+
+For a quick start, use the [online VS Code tool](https://vscode.dev/)
 
 ---
 
