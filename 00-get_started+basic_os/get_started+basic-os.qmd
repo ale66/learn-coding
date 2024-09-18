@@ -1,0 +1,309 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale6/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Welcome
+
+<br/>
+
+::: {.incremental}
+- Introduction :wave:
+- Materials :arrow_down:
+- Break :clock9:
+- Placement test :heavy_check_mark:
+- Some homework :clipboard:
+:::
+
+---
+
+## Today's plan
+
+<br/>
+
+::: {.incremental}
+1. What is Coding? Why should I learn it?
+2. A tour of computers
+3. A tour of the [online] resources
+4. A peek at topics
+:::
+
+# What is Coding?
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+---
+
+## What is Coding?
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+
+::: {style="text-align: center"}
+A creative activity where computers are instructed directly to perform useful, step-by-step operations. 
+:::
+
+---
+
+## Yes, but how?
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+
+In music we go from *imagined* sounds to music score to execution (press piano keys, blow air in trumpet, harp on strings) to actual, perceived sounds.
+
+Humans communicate on three levels: natural language, the music score and the execution. 
+
+---
+
+## Methaphorically
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+- the music score represents the code. 
+
+- execution on a specific instrument represents executable code, e.g., file [chrome.exe]() on your computer  
+
+- the hearing *experience* represents the changes that take place on your data.
+
+<br>
+
+. . .
+
+Coding in some ways is like [music composition]{style="color:#cc0000"} 
+
+---
+
+## Un-metaphorically...
+
+- an informal language will describe algorithms on paper, on whiteboard etc.
+
+- a formal language, Python or SQL or Markdown, will describe code.
+
+- special interpretation/compilation software will take code and execute it.
+
+- we need to supply *data* and store results.
+
+---
+
+## Algorithms, by example
+
+the Farenheit temperature in Milan can be obtaied by 
+
+1. taking the current temperature in Celsius degrees
+
+2. rescale it by $\frac{5}{9}$
+    
+3. re-center it by adding 32
+
+---
+
+## Code 
+
+```python
+my_celsius = int(input('Please enter the current temperature in Milan:'))
+
+my_farenheit = (my_celsius * 9/5) + 32
+
+print(f'Today we have {my_farenheit} Farenheit degrees in Milan')
+```
+
+Reading this syntax requires training.
+
+---
+
+## Implementation: compilation
+
+```bash
+>python -m py_compile my_converter.py -o converter.exe
+
+>converter.exe
+
+>Please enter the temperature in Milan now: 
+```
+
+file [converter.exe]() is for computers, not humans.
+
+---
+
+## Implementation: interpretation 
+
+```bash
+>python my_converter.py
+>Please enter the current temperature in Milan: 
+```
+
+# Computers
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+
+---
+
+## Computers
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+
+::: columns
+::: {.column width="33%"}
+::: {style="font-size: 1em; text-align: center"}
+Electronics, <br /> networks
+:::
+:::
+
+::: {.column width="34%"}
+::: {style="font-size: 1em; text-align: center"}
+Operating system
+:::
+:::
+
+::: {.column width="33%"}
+::: {style="font-size: 1em"}
+Software
+:::
+:::
+:::
+
+---
+
+## Operating Systems
+
+- computers/smartphones come with a pre-loaded set of executable files that create the *operating system environment*
+
+- create an abstract view of the computer: specific hardware details are now trasparent
+  
+- special abstraction: __the file system__
+
+- all of them offer basic functionalities for coding
+
+- let's get started with the __file system__ and the __command line interface__
+
+---
+
+![](./imgs/layers-of-computer-system-l.jpg)
+
+
+---
+
+## And what's a File?
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+- computer memory is best seen as a long ribbon where, at different times, we write sequences of bytes, called *files*
+  
+- a file is i) a unique name, ii) a memory address inside the compuhardware iii) a sequence of bits, the actual content, iv) ownership information (for later) and v) a format that guides the interpretation of the bits: are they color pixels? Characters? Numbers? 
+
+
+---
+
+## The File System
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+- the Os shows files are organised in a hyerachical structure of *manila folders*
+
+![](./imgs/manila-folders.png)
+
+- hyerarchy is not about importance. It rather creates *locality*
+  
+
+--
+
+## The file system
+
+- a special file, called folder, contains the names and physical addresses of the files within
+  
+- each folder contains two special (and secret) files: ``.`` and ``..``
+  
+- file ``.`` contains a reference to the actual positioning of the folder on the memory device
+  
+- file ``..`` contains a reference to the *containing* folder
+
+---
+
+## The CLI: command-line interface
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
+:::
+:::
+
+- iOs: ``Terminal``
+- Win: ``Cmd`` or ``Powershell`` or ``Windows terminal``
+- Linux/Android: ``sh`` or ``bash``
+  
+Structure:
+
+```bash
+>pwd
+>dir
+>notepad my_converter.py
+>cd ..
+>dir
+>pwd
+>notepad my_converter.py
+```
+
+## Paths
+
+File must have unique names.
+
+No repeated names in the same folder
+
+Ok to repeated names in different folders, how?
+
+*absolute path:* ``C:\Users\ale\git\learn-coding\00-create_platform\my_converter.py``
+
+*relative path:* ``.\my_converter.py``
+
+More relative paths: 
+
+```bash
+>pwd
+C:\Users\ale\git\learn-coding\10-first_steps
+>python ..\00-create_platform\my_converter.py
+```

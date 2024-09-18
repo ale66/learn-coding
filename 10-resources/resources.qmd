@@ -1,0 +1,248 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale6/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Resources
+
+<br/>
+
+::: {.incremental}
+- Online materials
+- install components :arrow_down:
+- Break :clock9:
+- Placement test :heavy_check_mark:
+- Some homework :clipboard:
+:::
+
+# Online materials
+
+---
+
+## Online materials
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 ]{style="opacity:0.25"}
+:::
+:::
+
+- MyAriel web page
+  
+- MS Teams channel
+
+- online textbook
+
+- GitHub presence
+
+---
+
+## MyAriel web page
+
+- pending
+
+- contains the syllabus and detailed exam instructions
+  
+---
+
+## MS Teams channel
+
+Live broadcast and recording from the [C3CSS-2024-25](https://teams.microsoft.com/l/team/19%3AprBgt0YtNPUznXJDxJLeB9DLlvqvPadqr8bGgdBwZrg1%40thread.tacv2/conversations?groupId=42391c8e-5b5a-4a33-96d8-e78b91f652fe&tenantId=13b55eef-7018-4674-a3d7-cc0db06d545c) team
+
+write on Teams to request inclusion
+
+---
+
+## online textbook
+
+As reference reading we will use an *active textbook* version of __Think Python__ from 
+
+[Runestone academy](https://runestone.academy/ns/books/published/C4CSS-2024-25/index.html)
+
+To join, please write me on Teams with these informations
+
+![](./imgs/register-students.png)
+
+---
+
+## GitHub presence
+
+A public repository with most materials is on [github.com/ale65/learn-coding](https://github.com/ale66/learn-coding)
+
+
+
+# Install components
+
+---
+
+## Install components
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 2 []{style="opacity:0.25"}
+:::
+:::
+
+### Install needed components
+
+These operations often require *admin* access.
+
+For Win: start ``Windows PowerShell`` with rigth-clik+'Run as admin'
+
+For iOs: start ``Terminal`` then ``su``
+
+For Linux: you don't need me :smile:
+
+
+---
+
+#### Python
+
+<img src="./imgs/python.png" height="150">
+
+* install from [www.python.org/](https://www.python.org/)
+
+* no need for Anaconda virtual env. (yet)
+
+---
+
+#### VS Code
+
+<img src="./imgs/vscode.png" height="300">
+
+* Free and light
+
+* lots of extensions allow customisation
+
+---
+
+###### VS Code Extensions
+
+<img src="./imgs/vscode-extensions.png" height="120">
+
+__CTRL+Shift+x__ to the markeplace
+
+* Python, by Microsoft
+
+* Jupyter, by Microsoft
+
+* Markdown All-in-one
+
+* Simple CSV editor
+
+---
+
+#### PIP
+
+an external command for your Terminal/Powershell
+
+fetch+install *packages* containing Py. functions
+
+Python extensively relays on packages
+
+Get __get-pip.py__ from [the PIP web site](https://pip.pypa.io/en/stable/installation/).
+
+```bash
+> wget https://bootstrap.pypa.io/get-pip.py 
+```
+
+```bash
+> python get-pip.py
+```
+
+---
+
+### Get essential modules
+
+```bash
+> pip install os
+...
+> pip install numpy
+...
+> pip install pandas
+...
+> pip install matplotlib
+```
+
+---
+
+## App management
+
+* for Win: [Chocolatey](https://chocolatey.org/)
+
+* for iOs: [Homebrew](https://brew.sh/)
+
+
+---
+
+#### [Chocolatey](https://chocolatey.org/)
+
+<img src="./imgs/chocolatey.png" height="180">
+
+It manages installed software as linux does
+
+Intallation is of average complexity
+
+Start a __PowerShell__ in administrator mode;
+
+see ['individual installation'](https://chocolatey.org/install#individual).
+
+---
+
+##### Example commands
+
+```bash
+> choco install python
+```
+
+```bash
+> choco install vscode
+```
+
+```bash
+> choco install pip
+```
+
+```bash
+> choco upgrade python
+```
+
+```bash
+# upgrade all installed packages
+> choco upgrade all --yes
+```
+
+---
+
+#### [Home Brew](https://brew.sh/)
+
+<img src="./imgs/homebrew.png" height="180">
+
+
+Essentially the same as Chocolatey, but for MacOS.
+
+```bash
+> brew --cask install visual-studio-code
+```
+
+---
+
+#### Further tips
+
+* try practicing daily, in your __zone__
+
+* try getting past frustation and *enjoy* the progress you make: you are in control now
+
+* sign up to [Stack Overflow](https://stackoverflow.com/) to find solutions
+
+* *do not,* at any rate, watch Python videos on YouTube...
