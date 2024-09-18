@@ -3,7 +3,7 @@ title: "Learn Coding"
 author: "ale66"
 format: 
   revealjs:
-    footer: "[github.com/ale66/learn-coding](https://github.com/ale6/learn-coding)&nbsp;&nbsp;&nbsp;"
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
     theme: [moon]
     preview-links: auto
     chalkboard: 
