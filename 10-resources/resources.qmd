@@ -20,9 +20,6 @@ execute:
 ::: {.incremental}
 - Online materials
 - install components :arrow_down:
-- Break :clock9:
-- Placement test :heavy_check_mark:
-- Some homework :clipboard:
 :::
 
 # Online materials
@@ -65,7 +62,7 @@ write on Teams to request inclusion
 
 ## online textbook
 
-As reference reading we will use an *active textbook* version of __Think Python__ from 
+As reference reading we will use an *Foundations of Python Programming,* a version of __Think Python__, from 
 
 [Runestone academy](https://runestone.academy/ns/books/published/C4CSS-2024-25/index.html)
 
@@ -77,15 +74,18 @@ To join, please write me on Teams with these informations
 
 ## GitHub presence
 
-A public repository with most materials is on [github.com/ale65/learn-coding](https://github.com/ale66/learn-coding)
+A public repository with most materials is on [github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)
 
 ---
 
 ## Pythontutor
 
-Step-by-step execution of simple codes with a nice visualisation of what happense in the computer memory.
+Step-by-step execution of simple codes with a nice visualisation of what happense in the computer memory: a crucial tool for learning
 
 [pythontutor.com](https://pythontutor.com/)
+
+
+![](./imgs/pythontutor.png)
 
 
 # Install components

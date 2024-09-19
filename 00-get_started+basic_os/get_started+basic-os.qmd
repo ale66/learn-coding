@@ -20,21 +20,18 @@ execute:
 ::: {.incremental}
 - Introduction :wave:
 - Materials :arrow_down:
-- Break :clock9:
-- Placement test :heavy_check_mark:
-- Some homework :clipboard:
 :::
 
 ---
 
-## Today's plan
+## Plan
 
 <br/>
 
 ::: {.incremental}
 1. What is Coding? Why should I learn it?
 2. A tour of computers
-3. A tour of the [online] resources
+3. A tour of [online] learning resources
 4. A peek at topics
 :::
 
@@ -114,11 +111,11 @@ Coding in some ways is like [music composition]{style="color:#cc0000"}
 
 ## Algorithms, by example
 
-the Farenheit temperature in Milan can be obtaied by 
+the Farenheit temperature in Milan can be obtained by 
 
 1. taking the current temperature in Celsius degrees
 
-2. rescale it by $\frac{5}{9}$
+2. rescale it by $\frac{9}{5}$
     
 3. re-center it by adding 32
 
@@ -142,9 +139,7 @@ Reading this syntax requires training.
 
 ```bash
 >python -m py_compile my_converter.py -o converter.exe
-
 >converter.exe
-
 >Please enter the temperature in Milan now: 
 ```
 
@@ -290,7 +285,7 @@ Structure:
 
 ## Paths
 
-File must have unique names.
+File must have unique names
 
 No repeated names in the same folder
 
