@@ -1,0 +1,48 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Spreadsheet exercise
+
+<br/>
+
+::: {.incremental}
+- import the ``data/biostats.csv`` file into a spreadsheet
+- transform measures to the IS (meter and Kilogram) system
+- compute averages for each vital measure
+- extra: parallel averages for male/female population
+- submit via the Teams channel
+:::
+
+---
+
+## From cells to variables
+
+<br/>
+
+::: {.incremental}
+1. each value in the spreadsheet has a *cell address (cell name)*
+2. operations are defined abstractly with cell names
+3. those cell names are *variables* in programming languages 
+:::
+
+# What is a variable?
+
+A vessel for data/operands
+
+Consists of three elements:
+
+1. a symbolic name, e.g., ``A5`` or ``my_temperature``
+2. a value, e.g., ``36`` or ``'very hot'``
+3. a type, e.g., integer or string of characters
