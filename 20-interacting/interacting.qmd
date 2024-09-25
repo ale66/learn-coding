@@ -1,0 +1,284 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Interacting
+
+<br/>
+
+::: {.incremental}
+- Online materials
+- From spreadsheet to Python
+- More definitions
+- Crank up Python
+:::
+
+# Online materials
+
+---
+
+## Online materials
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 3 4]{style="opacity:0.25"}
+:::
+:::
+
+- GitHub: [github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)
+
+- MS Teams channel: [C3CSS-2024-25](https://teams.microsoft.com/l/team/19%3AprBgt0YtNPUznXJDxJLeB9DLlvqvPadqr8bGgdBwZrg1%40thread.tacv2/conversations?groupId=42391c8e-5b5a-4a33-96d8-e78b91f652fe&tenantId=13b55eef-7018-4674-a3d7-cc0db06d545c)
+
+- Online code visualisation [pythontutor.com](https://pythontutor.com/)
+
+- online textbook: [Runestone academy](https://runestone.academy/ns/books/published/C4CSS-2024-25/index.html)
+
+- MyAriel web page: []()
+  
+
+# Spreadsheet analysis 
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 2 [3, 4]{style="opacity:0.25"}
+:::
+:::
+
+## Spreadshet interaction: input
+
+- fill some cells with values
+
+- inport a datafile, e.g, ``biostats.csv.``
+
+
+## Spreadshet interaction: computing
+
+- code some cell with formula, with or without functions:
+
+  [=(A1+A2+A3)/]()
+
+  [=AVERAGE(A1, A2, A3)]()
+
+  [=AVERAGE(A1:A3)]()
+
+---
+
+## Observations:
+
+We begin using a formal language: 
+
+- all symbols have meaning in the Spreadsheet language: ``=``, ``+``, ``,`` and ``:`` 
+
+- the key symbol ``=`` means `compute the value of what follows`
+
+- in CS, often ``eval()`` or $\lambda.$ are used
+
+- in Python: ``lambda x, y: (x + y)/2`` stands for a number
+
+
+---
+
+## Observations, cont'd:
+
+- cell names become ``variable names:`` we name them in formula to operate with its content 
+
+- functions like ``AVERAGE()``  are evaluated and their result is substituted in place
+
+- we can *nest* functions as needed: 
+
+Cell A4: ``=AVERAGE(A1:A3)``
+
+Cell A5: ``=A4/2`` is the same as ``=AVERAGE(A1:A3)/2``
+
+---
+
+## more observations
+
+To write down the needed formulae, often we need to have some intermediate result on an extra column.
+
+Improper example: 
+
+- in column E, compute the SI equivalents of each height
+
+- compute the average of the SI heights.
+
+
+---
+
+## A Critique of Spreadsheets
+
+- WYSIWYG: what you see is what you get.
+
+- evaluation is done continuosly and in parallel for each cell
+
+- input data, computation (or business logic) and specific outputs are all in the same file or sheet.
+
+- hard to check for logical mistakes: do we need average or median or max?
+
+
+---
+
+## Example Spreadsheet error
+
+*The most serious was that, in their Excel spreadsheet, Reinhart and Rogoff had not selected the entire row when averaging growth figures: they omitted data from Australia, Austria, Belgium, Canada and Denmark.*
+
+*In other words, they had accidentally only included 15 of the 20 countries under analysis in their key calculation.*
+
+*When that error was corrected, the “0.1% decline” data became a 2.2% average increase in economic growth.*
+
+See more on [The Conversation](https://theconversation.com/the-reinhart-rogoff-error-or-how-not-to-excel-at-economics-13646)
+
+
+---
+
+## Critical evaluation, cont'd
+
+- data, code and outputs evolve at different *speed:* they must be separated
+  
+- data changes every minute, and so do outputs
+
+- code change seldom, but could be re-applied thousands of times 
+
+- few error messages: hard to assess correctness
+
+
+# More Definitions
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 2 3 [4]{style="opacity:0.25"}
+:::
+:::
+
+---
+
+## Program, source code 
+
+A sequence of instructions that specifies how to perform a computation.
+
+Instructions mostly are of one of these types:
+
+- input
+
+- output
+
+- conditional execution
+
+- repetition
+
+---
+
+## In practice...
+
+A *program* is a file in text/txt format 
+
+Inside, instructions are in a formal language designed to express computation, e.g., Python
+
+Instructions are to be executed top-down, left to right
+
+Extra comments/annotations are possible with the ``#`` character
+
+
+## Correctnes
+
+- syntactical: the code is written followinng rules (names, commas parentheses...)
+
+- runtime: the code runs on the data provided
+
+- semantical: the code computes the expected answer wrt. the present data
+
+
+---
+
+## Debugging
+
+The process by which a code with errors is amended to reach syntactical, runtime and semantical correctness.
+
+D. takes more time and experience than simply writing code 
+
+D. cannot be entirely authomatized, for deep mathematical reasons 
+
+# Crank up Python
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 2 3 4 []{style="opacity:0.25"}
+:::
+:::
+
+---
+
+## Chat
+
+```bash
+>python
+Python 3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>>>> 6+11
+17
+>>> print('Python is fun')
+Python is fun
+>>> help(exit)
+Help on Quitter in module _sitebuiltins object:
+
+class Quitter(builtins.object)
+ |  Quitter(name, eof)
+ |
+ |  Methods defined here:
+ [...]
+ >>>exit()
+ >
+ ```
+
+---
+
+## Compilation
+
+(not in this module)
+
+---
+
+## interpretation
+
+```bash
+>python myproject.py
+```
+
+the chat starts
+
+
+---
+
+## notebook: Jupyter
+
+A special file format that mixes Python code, its output and extra documental material that guides the reader through a step-by-step execution of the code.
+
+A Python interpreter, called *kernel,* runs in the background. 
+
+```bash
+jupyter mynotebook
+```
+
+interaction is via a browser
+
+The best use today is via VS Code with the Jupyter extension
+
+
+---
+
+## Cloud 
+
+Connect to a web site that shows a Jupyter notebook and runs a kernel on the *server* computer
+
+Files must be uploaded *there*
