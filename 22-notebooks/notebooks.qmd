@@ -1,0 +1,66 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Notebooks
+
+<br/>
+
+::: {.incremental}
+- Outline
+- Kernels
+- Markdown
+:::
+
+# Outline
+
+---
+
+## Julia, Python and R
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 [2 3]{style="opacity:0.25"}
+:::
+:::
+
+- Step-by-step execution, inside a browser
+
+# Kernels 
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 2 [3]{style="opacity:0.25"}
+:::
+:::
+
+## Step-by-step
+
+- we still need to access an interpreter
+ 
+- the browser will broker our code piecemeal to the interpreter, then come back to us and print the results
+
+- unlike traditional Py. execution, intermediate data is kept inside the browser's own memory
+
+- Sequences of instructions to be executed together are __cells__.
+
+- code cells are often interleaved with explanatory text/diagrams written in the *Markdown annotation language.*
+
+# Markdown 
+
+::: {.absolute top="0" left="100%"}
+::: {.sectionhead}
+1 2 3 []{style="opacity:0.25"}
+:::
+:::
