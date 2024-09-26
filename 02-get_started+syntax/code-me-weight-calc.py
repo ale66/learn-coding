@@ -3,13 +3,13 @@ The weight calculator project
 
 Inform and amuse friends and family by computing their ideal weight under solid statistical rules!
 
-a. Ask for their weight
+a. Ask for their height and current weight
 
 b. Compute the optimal weight with the Devine formula (go look)
 
 c. print ideal weight and deviation
 
-d. implement conditional computation by computing the Devine formula for M or F
+d. implement conditional computation by computing the Devine formula for M or F.
 '''
 
 # get started
@@ -18,9 +18,10 @@ d. implement conditional computation by computing the Devine formula for M or F
 current_weight = int(input("Hello, what's your weight? "))
 
 # height?
+# copy and adapt the instruction above
 
 # compute the target 
-# ideal_weight = 
+ideal_weight = # continue here...
 
 residual = ideal_weight - current_weight
 
