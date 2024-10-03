@@ -2,6 +2,11 @@
 title: "Learn Coding"
 author: "ale66"
 format: 
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    papersize: a4
   revealjs:
     footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
     theme: [moon]
@@ -31,7 +36,7 @@ Module administration
 
 ---
 
-## C4CSS demystifies computing with Python
+## Elevator pitch
 
 - introduce coding and Python
 
@@ -132,13 +137,41 @@ Module administration
 
 office: virtual (MS Teams) mostly
 
-email: alessandro.provetti@unimi.it  
+email: a.provetti@bbk.ac.uk  
 
 :::
 
 ::: {.column width="30%"}
 
-![](img%5Ca-module_admin1.jpg)
+![](img%5Calessandro_provetti.jpg)
+
+:::
+
+::::
+
+---
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+- TA: Dr Alberto Matuozzo
+- 
+- PhD in Machine Learning for Finance at Birkbeck, UK
+
+-  
+
+- Research on mixed AI systems in Finance
+
+office: virtual (MS Teams) mostly
+
+email: amauto01@student.bbk.ac.uk
+
+:::
+
+::: {.column width="30%"}
+
+![](img%5Calberto_matuozzo.jpg)
 
 :::
 
@@ -166,9 +199,6 @@ email: federico.pilati2@unibo\.it
 
 ::: {.column width="30%"}
 
-![](img%5Ca-module_admin2.png)
+![](img%5Cfederico_pilati.png)
 
 :::
-
-::::
-

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="interacting_files/libs/clipboard/clipboard.min.js"></script>
-<script src="interacting_files/libs/quarto-html/tabby.min.js"></script>
-<script src="interacting_files/libs/quarto-html/popper.min.js"></script>
-<script src="interacting_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="interacting_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="interacting_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="interacting_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="interacting_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="iterables_files/libs/clipboard/clipboard.min.js"></script>
+<script src="iterables_files/libs/quarto-html/tabby.min.js"></script>
+<script src="iterables_files/libs/quarto-html/popper.min.js"></script>
+<script src="iterables_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="iterables_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="iterables_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="iterables_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="iterables_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="ale66">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="interacting_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="interacting_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="iterables_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="iterables_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,13 +95,13 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="interacting_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="interacting_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="interacting_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="interacting_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="interacting_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="interacting_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="interacting_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="iterables_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="iterables_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="iterables_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="iterables_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="iterables_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="iterables_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="iterables_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -404,208 +404,275 @@ ale66
 </div>
 
 </section>
-<section id="interacting" class="slide level2">
-<h2>Interacting</h2>
-<p><br></p>
-<div>
-<ul>
-<li class="fragment">Online materials</li>
-<li class="fragment">From spreadsheet to Python</li>
-<li class="fragment">More definitions</li>
-<li class="fragment">Crank up Python</li>
-</ul>
-</div>
-</section>
 <section>
-<section id="online-materials" class="title-slide slide level1 center">
-<h1>Online materials</h1>
+<section id="data-structures" class="title-slide slide level1 center">
+<h1>Data Structures</h1>
 
 </section>
-<section id="online-materials-1" class="slide level2">
-<h2>Online materials</h2>
-<div class="absolute" style="top: 0px; left: 100%; ">
-<div class="sectionhead">
-<p>1 <span style="opacity:0.25">2 3 4</span></p>
-</div>
-</div>
+<section id="abstraction" class="slide level2">
+<h2>Abstraction</h2>
+<p>In CS all efforts are made to create -abstractions- of computers/memory that let us program them easily and in a -portable- way</p>
+<p>Data structures are presentations of our data that support our coding</p>
+</section>
+<section id="so-far" class="slide level2">
+<h2>So far</h2>
 <ul>
-<li><p>GitHub: <a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a></p></li>
-<li><p>MS Teams channel: <a href="https://teams.microsoft.com/l/team/19%3AprBgt0YtNPUznXJDxJLeB9DLlvqvPadqr8bGgdBwZrg1%40thread.tacv2/conversations?groupId=42391c8e-5b5a-4a33-96d8-e78b91f652fe&amp;tenantId=13b55eef-7018-4674-a3d7-cc0db06d545c">C3CSS-2024-25</a></p></li>
-<li><p>Online code visualisation <a href="https://pythontutor.com/">pythontutor.com</a></p></li>
-<li><p>online textbook: <a href="https://runestone.academy/ns/books/published/C4CSS-2024-25/index.html">Runestone academy</a></p></li>
-<li><p>MyAriel web page: <a href=""></a></p></li>
+<li><p>variables as name/type/value triples</p></li>
+<li><p>a version of Spreadsheet cells</p></li>
+<li><p><em>scalar</em> or <em>atomic</em> datum</p></li>
 </ul>
+</section>
+<section id="today" class="slide level2">
+<h2>Today</h2>
+<ul>
+<li><p>variables as name/type/structure/values</p></li>
+<li><p>a version of spreadsheet columns (or rows)</p></li>
+<li><p>multi-dimensional data</p></li>
+<li><p>an indexing systems allows to reach each single value</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>The way in which the data is organized guides coding and affects computation</p></li>
+<li><p>data structures are a <em>design choice</em> based on:</p>
+<ul>
+<li>the nature of the data</li>
+<li>the processes that need to be performed</li>
+</ul></li>
+<li><p>Python offers simple data structures, their adoption affects code readability as well as scalability.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="spreadsheet-analysis" class="title-slide slide level1 center">
-<h1>Spreadsheet analysis</h1>
-<div class="absolute" style="top: 0px; left: 100%; ">
-<div class="sectionhead">
-<p>1 2 <span style="opacity:0.25">3, 4</span></p>
-</div>
-</div>
+<section id="lists" class="title-slide slide level1 center">
+<h1>Lists</h1>
+<p>a sequence (order matters) which is thought of as a contiguous block of memory locations, each of them storing a fixed-length data item.</p>
+
+<img data-src="./imgs/iterables0.jpg" class="r-stretch"><p>the most common data structure in Python</p>
 </section>
-<section id="spreadshet-interaction-input" class="slide level2">
-<h2>Spreadshet interaction: input</h2>
+<section class="slide level2">
+
 <ul>
-<li><p>fill some cells with values</p></li>
-<li><p>inport a datafile, e.g, <code>biostats.csv.</code></p></li>
+<li><p>used to store multiple, oft. homogeneous data in a single variable</p></li>
+<li><p>any data type and combinations of data types</p></li>
+<li><p>the elements of a list are indexed</p></li>
+<li><p>such indexing starts from 0</p></li>
 </ul>
-</section>
-<section id="spreadshet-interaction-computing" class="slide level2">
-<h2>Spreadshet interaction: computing</h2>
-<ul>
-<li><p>code some cell with formula, with or without functions:</p>
-<p><a href="">=(A1+A2+A3)/</a></p>
-<p><a href="">=AVERAGE(A1, A2, A3)</a></p>
-<p><a href="">=AVERAGE(A1:A3)</a></p></li>
-</ul>
-</section>
+
+<img data-src="./imgs/iterables1.jpg" class="r-stretch"></section>
 <section id="observations" class="slide level2">
-<h2>Observations:</h2>
-<p>We begin using a formal language:</p>
+<h2>Observations</h2>
+<p>lists</p>
 <ul>
-<li><p>all symbols have meaning in the Spreadsheet language: <code>=</code>, <code>+</code>, <code>,</code> and <code>:</code></p></li>
-<li><p>the key symbol <code>=</code> means <code>compute the value of what follows</code></p></li>
-<li><p>in CS, often <code>eval()</code> or <span class="math inline">\(\lambda.\)</span> are used</p></li>
-<li><p>in Python: <code>lambda x, y: (x + y)/2</code> stands for a number</p></li>
+<li>Can be ordered</li>
+<li>Changeable</li>
+<li>Support duplicated members</li>
 </ul>
 </section>
-<section id="observations-contd" class="slide level2">
-<h2>Observations, cont’d:</h2>
-<ul>
-<li><p>cell names become <code>variable names:</code> we name them in formula to operate with its content</p></li>
-<li><p>functions like <code>AVERAGE()</code> are evaluated and their result is substituted in place</p></li>
-<li><p>we can <em>nest</em> functions as needed:</p></li>
-</ul>
-<p>Cell A4: <code>=AVERAGE(A1:A3)</code></p>
-<p>Cell A5: <code>=A4/2</code> is the same as <code>=AVERAGE(A1:A3)/2</code></p>
-</section>
-<section id="more-observations" class="slide level2">
-<h2>more observations</h2>
-<p>To write down the needed formulae, often we need to have some intermediate result on an extra column.</p>
-<p>Improper example:</p>
-<ul>
-<li><p>in column E, compute the SI equivalents of each height</p></li>
-<li><p>compute the average of the SI heights.</p></li>
+<section id="quiz-1-true-or-false" class="slide level2">
+<h2>Quiz 1! True or False?</h2>
+
+<img data-src="./imgs/iterables2.gif" class="r-stretch"><ul>
+<li><p>A list is an <em>ordered</em> and <em>changeable</em> collection of data where we can only store data of the same data type.</p></li>
+<li><p>We use the index of a list to access elements, and these indexes represent the actual addresses of contiguous memory locations.</p></li>
+<li><p>Since lists are indexed, they may contain repeated values.</p></li>
 </ul>
 </section>
-<section id="a-critique-of-spreadsheets" class="slide level2">
-<h2>A Critique of Spreadsheets</h2>
+<section id="solutions" class="slide level2">
+<h2>Solutions</h2>
 <ul>
-<li><p>WYSIWYG: what you see is what you get.</p></li>
-<li><p>evaluation is done continuosly and in parallel for each cell</p></li>
-<li><p>input data, computation (or business logic) and specific outputs are all in the same file or sheet.</p></li>
-<li><p>hard to check for logical mistakes: do we need average or median or max?</p></li>
-</ul>
-</section>
-<section id="example-spreadsheet-error" class="slide level2">
-<h2>Example Spreadsheet error</h2>
-<p><em>The most serious was that, in their Excel spreadsheet, Reinhart and Rogoff had not selected the entire row when averaging growth figures: they omitted data from Australia, Austria, Belgium, Canada and Denmark.</em></p>
-<p><em>In other words, they had accidentally only included 15 of the 20 countries under analysis in their key calculation.</em></p>
-<p><em>When that error was corrected, the “0.1% decline” data became a 2.2% average increase in economic growth.</em></p>
-<p>See more on <a href="https://theconversation.com/the-reinhart-rogoff-error-or-how-not-to-excel-at-economics-13646">The Conversation</a></p>
-</section>
-<section id="critical-evaluation-contd" class="slide level2">
-<h2>Critical evaluation, cont’d</h2>
+<li><p>A Python list is an ordered and changeable collection of data where we can only store data of the same data type.</p>
 <ul>
-<li><p>data, code and outputs evolve at different <em>speed:</em> they must be separated</p></li>
-<li><p>data changes every minute, and so do outputs</p></li>
-<li><p>code change seldom, but could be re-applied thousands of times</p></li>
-<li><p>few error messages: hard to assess correctness</p></li>
+<li><strong>False, we can store data of different types</strong></li>
+</ul></li>
+<li><p>We use the index of a list to access elements, and this index number is the actual address of a memory block.</p>
+<ul>
+<li><strong>False, indexes represent the memory addresses, but always start from 0</strong></li>
+</ul></li>
+<li><p>Since lists are indexed, lists can have items with the same value.</p>
+<ul>
+<li><strong>True!</strong></li>
+</ul></li>
 </ul>
 </section></section>
 <section>
-<section id="more-definitions" class="title-slide slide level1 center">
-<h1>More Definitions</h1>
-<div class="absolute" style="top: 0px; left: 100%; ">
-<div class="sectionhead">
-<p>1 2 3 <span style="opacity:0.25">4</span></p>
-</div>
-</div>
+<section id="work-with-lists" class="title-slide slide level1 center">
+<h1>Work with lists</h1>
+
 </section>
-<section id="program-source-code" class="slide level2">
-<h2>Program, source code</h2>
-<p>A sequence of instructions that specifies how to perform a computation.</p>
-<p>Instructions mostly are of one of these types:</p>
-<ul>
-<li><p>input</p></li>
-<li><p>output</p></li>
-<li><p>conditional execution</p></li>
-<li><p>repetition</p></li>
-</ul>
+<section id="a-list-of-strings" class="slide level2">
+<h2>A list of strings</h2>
+<p>A simple list of London football clubs</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="bu">len</span>(teams)</span>
+<span id="cb2-2"><a href=""></a><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="in-practice" class="slide level2">
-<h2>In practice…</h2>
-<p>A <em>program</em> is a file in text/txt format</p>
-<p>Inside, instructions are in a formal language designed to express computation, e.g., Python</p>
-<p>Instructions are to be executed top-down, left to right</p>
-<p>Extra comments/annotations are possible with the <code>#</code> character</p>
+<section id="access-by-index" class="slide level2">
+<h2>Access by index</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="bu">print</span>(teams[<span class="dv">0</span>])</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>Chelsea FC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(teams[<span class="dv">3</span>])</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a>West Ham FC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="correctnes" class="slide level2">
-<h2>Correctnes</h2>
-<ul>
-<li><p>syntactical: the code is written followinng rules (names, commas parentheses…)</p></li>
-<li><p>runtime: the code runs on the data provided</p></li>
-<li><p>semantical: the code computes the expected answer wrt. the present data</p></li>
-</ul>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="cf">if</span> (teams[<span class="dv">0</span>] <span class="op">==</span> <span class="st">'Chelsea FC'</span>):</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a>      <span class="bu">print</span>(<span class="st">'Come on Chelsea!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="debugging" class="slide level2">
-<h2>Debugging</h2>
-<p>The process by which a code with errors is amended to reach syntactical, runtime and semantical correctness.</p>
-<p>D. takes more time and experience than simply writing code</p>
-<p>D. cannot be entirely authomatized, for deep mathematical reasons</p>
+<section id="mutable-values" class="slide level2">
+<h2>Mutable values</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>fruitlist <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a><span class="bu">print</span>(fruitlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># Update a value</span></span>
+<span id="cb7-2"><a href=""></a>fruitlist[<span class="dv">1</span>] <span class="op">=</span> <span class="st">'blackcurrant'</span> </span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="bu">print</span>(fruitlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
-<section id="crank-up-python" class="title-slide slide level1 center">
-<h1>Crank up Python</h1>
-<div class="absolute" style="top: 0px; left: 100%; ">
-<div class="sectionhead">
-<p>1 2 3 4 <span style="opacity:0.25"></span></p>
-</div>
-</div>
+<section id="strings" class="title-slide slide level1 center">
+<h1>Strings</h1>
+
 </section>
-<section id="chat" class="slide level2">
-<h2>Chat</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="op">&gt;</span>python</span>
-<span id="cb1-2"><a href=""></a><span class="ex">Python</span> 3.12.6 <span class="er">(</span><span class="ex">tags/v3.12.6:a4a2d2b,</span> Sep  6 2024, 20:11:23<span class="kw">)</span> <span class="ex">[MSC</span> v.1940 64 bit <span class="er">(</span><span class="ex">AMD64</span><span class="kw">)</span><span class="ex">]</span> on win32</span>
-<span id="cb1-3"><a href=""></a><span class="ex">Type</span> <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> for more information.</span>
-<span id="cb1-4"><a href=""></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;</span> 6+11</span>
-<span id="cb1-5"><a href=""></a><span class="ex">17</span></span>
-<span id="cb1-6"><a href=""></a><span class="op">&gt;&gt;&gt;</span> print<span class="kw">(</span><span class="st">'Python is fun'</span><span class="kw">)</span></span>
-<span id="cb1-7"><a href=""></a><span class="ex">Python</span> is fun</span>
-<span id="cb1-8"><a href=""></a><span class="op">&gt;&gt;&gt;</span> help<span class="kw">(</span><span class="bu">exit</span><span class="kw">)</span></span>
-<span id="cb1-9"><a href=""></a><span class="ex">Help</span> on Quitter in module _sitebuiltins object:</span>
-<span id="cb1-10"><a href=""></a></span>
-<span id="cb1-11"><a href=""></a><span class="ex">class</span> Quitter<span class="er">(</span><span class="ex">builtins.object</span><span class="kw">)</span></span>
-<span id="cb1-12"><a href=""></a> <span class="kw">|</span>  <span class="ex">Quitter</span><span class="er">(</span><span class="ex">name,</span> eof<span class="kw">)</span></span>
-<span id="cb1-13"><a href=""></a> <span class="kw">|</span></span>
-<span id="cb1-14"><a href=""></a> <span class="kw">|</span>  <span class="ex">Methods</span> defined here:</span>
-<span id="cb1-15"><a href=""></a> <span class="ex">[...]</span></span>
-<span id="cb1-16"><a href=""></a> <span class="op">&gt;&gt;&gt;</span>exit<span class="kw">()</span></span>
-<span id="cb1-17"><a href=""></a> <span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="python-strings-are-lists" class="slide level2">
+<h2>Python strings are lists</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>mystring <span class="op">=</span> <span class="st">'python'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">y</th>
+<th style="text-align: center;">t</th>
+<th style="text-align: center;">h</th>
+<th style="text-align: center;">o</th>
+<th style="text-align: center;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">-5</td>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">-3</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">-1</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="bu">print</span>(mystring[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="bu">print</span>(mystring[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="compilation" class="slide level2">
-<h2>Compilation</h2>
-<p>(not in this module)</p>
+<section id="slicing" class="slide level2">
+<h2>Slicing</h2>
+<p>We can access arbitrary segments of the list/string:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>alist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>]</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="bu">print</span>(alist[<span class="dv">0</span>:<span class="dv">2</span>]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Important:</em> intervals are closed on the left and open on the right:</p>
+<p>the element in position 0 is printed but that in position 2 ain’t</p>
 </section>
-<section id="interpretation" class="slide level2">
-<h2>interpretation</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="op">&gt;</span>python <span class="ex">myproject.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>the chat starts</p>
+<section id="quiz-2-true-or-false" class="slide level2">
+<h2>Quiz 2! True or False?</h2>
+
+<img data-src="./imgs/iterables3.gif" class="r-stretch"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>mydata <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">32</span>, <span class="dv">1</span>, <span class="dv">43</span>, <span class="dv">65</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol type="a">
+<li>will <code>print(mydata[3])</code> print 1?</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>will <code>print(mydata[1]+18)</code> print 50?</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>will <code>print(mydata[-1])</code> print 65?</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>will <code>print(mydata[0:3])</code> print [12, 32, 1]?</li>
+</ol></li>
+</ul>
 </section>
-<section id="notebook-jupyter" class="slide level2">
-<h2>notebook: Jupyter</h2>
-<p>A special file format that mixes Python code, its output and extra documental material that guides the reader through a step-by-step execution of the code.</p>
-<p>A Python interpreter, called <em>kernel,</em> runs in the background.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="ex">jupyter</span> mynotebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>interaction is via a browser</p>
-<p>The best use today is via VS Code with the Jupyter extension</p>
+<section id="solutions-1" class="slide level2">
+<h2>Solutions</h2>
+<ul>
+<li>a: False</li>
+<li>b: True</li>
+<li>c: True</li>
+<li>d: False</li>
+</ul>
+</section></section>
+<section>
+<section id="iterations" class="title-slide slide level1 center">
+<h1>Iterations</h1>
+
 </section>
-<section id="cloud" class="slide level2">
-<h2>Cloud</h2>
-<p>Connect to a web site that shows a Jupyter notebook and runs a kernel on the <em>server</em> computer</p>
-<p>Files must be uploaded <em>there</em></p>
+<section id="iterables" class="slide level2">
+<h2>iterables</h2>
+<p>Python lists are called <em>iterables</em> because they are likely subjects or the repetition (iteration) of a fixed sequence of instructions</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>Print the content of the string varible vertically, i.e., each letter of the name on a separate line.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">for</span> letter <span class="kw">in</span> mystring:</span>
+<span id="cb14-2"><a href=""></a>    <span class="bu">print</span>(letter) </span>
+<span id="cb14-3"><a href=""></a>    <span class="co"># a 'newline' is automatically emitted at the end of each print</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As with <code>if</code>, the 4-spaces indentation defines the block of code to be exectued zero, one or many times.</p>
+</section>
+<section id="unhelpful" class="slide level2">
+<h2>unhelpful…</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="bu">print</span>(mystring[<span class="dv">0</span>])</span>
+<span id="cb15-2"><a href=""></a><span class="bu">print</span>(mystring[<span class="dv">1</span>])</span>
+<span id="cb15-3"><a href=""></a><span class="bu">print</span>(mystring[<span class="dv">2</span>])</span>
+<span id="cb15-4"><a href=""></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<p>Inflation! Raise all prices in the menu by 10pc</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>alist <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
+<span id="cb16-2"><a href=""></a></span>
+<span id="cb16-3"><a href=""></a><span class="co"># fix me!</span></span>
+<span id="cb16-4"><a href=""></a><span class="cf">for</span> price <span class="kw">in</span> alist:</span>
+<span id="cb16-5"><a href=""></a>    price <span class="op">=</span> price<span class="op">*</span><span class="fl">1.1</span></span>
+<span id="cb16-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f'The new price is </span><span class="sc">{</span>price<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We need to amend each element of the existing list, as in</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>  alist[<span class="dv">0</span>] <span class="op">=</span> alist[<span class="dv">0</span>]<span class="op">*</span><span class="fl">1.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>but when to stop?</p>
+</section>
+<section id="range" class="slide level2">
+<h2>Range</h2>
+<p>A function that generates the indices needed to amend the list element by element</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">range</span>(<span class="dv">5</span>) <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="bu">range</span>(<span class="dv">3</span>, <span class="dv">6</span>) <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">range</span>(<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">2</span>) <span class="op">=</span> <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span> <span class="co"># +2 at each step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>alist <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
+<span id="cb21-2"><a href=""></a></span>
+<span id="cb21-3"><a href=""></a>howmany <span class="op">=</span> <span class="bu">len</span>(alist)</span>
+<span id="cb21-4"><a href=""></a></span>
+<span id="cb21-5"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(howmany):</span>
+<span id="cb21-6"><a href=""></a>    <span class="co"># prices are changed forever</span></span>
+<span id="cb21-7"><a href=""></a>    alist[i] <span class="op">=</span> alist[i]<span class="op">*</span><span class="fl">1.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise:</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>print out the club names without the <code>FC</code> suffix</p>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
+<p>Print available fruits but not bananas</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>
@@ -616,20 +683,20 @@ ale66
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="interacting_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="iterables_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="interacting_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="interacting_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="interacting_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="iterables_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

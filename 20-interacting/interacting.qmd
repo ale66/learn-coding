@@ -2,6 +2,11 @@
 title: "Learn Coding"
 author: "ale66"
 format: 
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    papersize: a4
   revealjs:
     footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
     theme: [moon]
@@ -18,12 +23,13 @@ execute:
 <br/>
 
 ::: {.incremental}
-- Online materials
+<!-- - Online materials -->
 - From spreadsheet to Python
 - More definitions
 - Crank up Python
 :::
 
+<!--
 # Online materials
 
 ---
@@ -45,7 +51,8 @@ execute:
 - online textbook: [Runestone academy](https://runestone.academy/ns/books/published/C4CSS-2024-25/index.html)
 
 - MyAriel web page: []()
-  
+
+-->
 
 # Spreadsheet analysis 
 

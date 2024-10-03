@@ -16,7 +16,7 @@ execute:
 ## Resources
 
 <br/>
-
+<!--
 ::: {.incremental}
 - Online materials
 - install components :arrow_down:
@@ -34,13 +34,14 @@ execute:
 :::
 :::
 
-- MyAriel web page
+- Moodle (MyAriel) web page
   
 - MS Teams channel
 
 - online textbook
 
 - GitHub presence
+
 
 ---
 
@@ -91,6 +92,8 @@ Step-by-step execution of simple codes with a nice visualisation of what happens
 # Install components
 
 ---
+
+-->
 
 ## Install components
 

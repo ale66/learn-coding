@@ -1,0 +1,348 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+# Data Structures
+
+
+## Abstraction
+
+In CS all efforts are made to create -abstractions- of computers/memory that let us program them easily and in a -portable- way
+
+Data structures are presentations of our data that support our coding
+
+
+---
+
+## So far
+
+- variables as name/type/value triples 
+
+- a version of Spreadsheet cells
+
+- *scalar* or *atomic* datum
+
+
+---
+
+## Today
+
+- variables as name/type/structure/values
+
+- a version of spreadsheet columns (or rows)
+
+- multi-dimensional data
+
+- an indexing systems allows to reach each single value
+
+
+---
+
+- The way in which the data is organized guides coding and affects computation
+  
+- data structures are a _design choice_ based on:
+  - the nature of the data
+  - the processes that need to be performed
+
+- Python offers simple data structures, their adoption affects code readability as well as scalability.
+
+---
+
+# Lists
+
+a sequence (order matters) which is thought of as a contiguous block of memory locations, each of them storing a fixed-length data item.
+
+![](./imgs/iterables0.jpg)
+
+the most common data structure in Python
+
+
+---
+  
+- used to store multiple, oft. homogeneous data in a single variable
+
+- any data type and combinations of data types
+
+- the elements of a list are indexed 
+
+- such indexing starts from 0
+
+![](./imgs/iterables1.jpg)
+
+
+---
+
+## Observations
+
+lists
+
+  - Can be ordered
+  - Changeable
+  - Support duplicated members 
+
+
+---
+
+## Quiz 1! True or False? 
+
+![](./imgs/iterables2.gif)
+
+  - A list is an *ordered* and *changeable* collection of data where we can only store data of the same data type.
+
+  - We use the index of a list to access elements, and these indexes represent the actual addresses of contiguous memory locations.
+
+  - Since lists are indexed, they may contain repeated values.
+
+
+---
+
+## Solutions 
+
+  - A Python list is an   ordered   and   changeable   collection of data where we can only store data of the same data type.
+
+    - **False, we can store data of different types**
+ 
+  - We use the index of a list to access elements, and this index number is the actual address of a memory block.
+  
+    - **False, indexes represent the memory addresses, but always start from 0**
+ 
+  - Since lists are indexed, lists can have items with the same value.
+
+    - **True!**
+
+# Work with lists
+
+## A list of strings
+
+A simple list of London football clubs
+
+```python
+teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
+```
+
+```python
+len(teams)
+4
+```
+
+---
+
+## Access by index
+
+```python
+print(teams[0])
+
+Chelsea FC
+```
+
+```python
+print(teams[3])
+
+West Ham FC
+```
+
+---
+
+```python
+if (teams[0] == 'Chelsea FC'):
+
+      print('Come on Chelsea!')
+```
+
+---
+
+## Mutable values
+
+```python
+fruitlist = ["apple", "banana", "cherry"]
+
+print(fruitlist)
+```
+
+```python
+# Update a value
+fruitlist[1] = 'blackcurrant' 
+
+print(fruitlist)
+```
+
+# Strings
+
+## Python strings are lists
+
+```python
+mystring = 'python'
+```
+
+| p  | y  | t  | h  | o  | n  |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| 0  | 1  | 2  | 3  | 4  | 5  |
+| -6 | -5 | -4 | -3 | -2 | -1 |
+
+```python
+print(mystring[0])
+```
+
+```python
+print(mystring[-1])
+```
+
+
+## Slicing
+
+We can access arbitrary segments of the list/string:
+
+```python
+alist = [1, 3, 5, 7, 9, 11]
+
+print(alist[0:2]) 
+```
+
+*Important:* intervals are closed on the left and open on the right:
+
+the element in position 0 is printed but that in position 2 ain't
+
+---
+
+## Quiz 2! True or False? 
+
+![](./imgs/iterables3.gif)
+
+```python
+mydata = [12, 32, 1, 43, 65]
+```
+
+- a) will ``print(mydata[3])`` print 1?
+
+- b) will ``print(mydata[1]+18)`` print 50?
+
+- c) will ``print(mydata[-1])`` print 65?
+
+- d) will  ``print(mydata[0:3])`` print [12, 32, 1]?
+
+---
+
+## Solutions
+
+- a: False
+- b: True
+- c: True
+- d: False
+
+
+# Iterations
+
+---
+
+## iterables
+
+Python lists are called *iterables* because they are likely subjects or the repetition (iteration) of a fixed sequence of instructions
+
+```text
+Print the content of the string varible vertically, i.e., each letter of the name on a separate line.
+```
+
+```python
+for letter in mystring:
+    print(letter) 
+    # a 'newline' is automatically emitted at the end of each print
+```
+
+As with ``if``, the 4-spaces indentation defines the block of code to be exectued zero, one or many times.
+
+---
+
+## unhelpful...
+
+```python
+print(mystring[0])
+print(mystring[1])
+print(mystring[2])
+...
+```
+
+---
+
+Inflation! Raise all prices in the menu by 10pc
+
+```python
+alist = [2, 3, 5, 7]
+
+# fix me!
+for price in alist:
+    price = price*1.1
+    print(f'The new price is {price}')
+```
+
+We need to amend each element of the existing list, as in 
+
+```python
+  alist[0] = alist[0]*1.1
+```
+
+but when to stop?
+
+
+---
+
+## Range 
+
+A function that generates the indices needed to amend the list element by element
+
+```python
+range(5) = 0, 1, 2, 3, 4
+```
+
+```python
+range(3, 6) = 3, 4, 5
+```
+
+```python
+range(3, 8, 2) = 3, 5, 7 # +2 at each step
+```
+
+---
+
+```python
+alist = [2, 3, 5, 7]
+
+howmany = len(alist)
+
+for i in range(howmany):
+    # prices are changed forever
+    alist[i] = alist[i]*1.1
+```
+
+---
+
+## Exercise:
+
+```python
+teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
+```
+
+print out the club names without the ` FC` suffix
+
+---
+
+## Exercise
+
+Print available fruits but not bananas
+
+```python
+fruits = ["apple", "banana", "cherry"]
+```
+
+
+

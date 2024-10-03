@@ -111,7 +111,7 @@ Coding in some ways is like [music composition]{style="color:#cc0000"}
 
 ## Algorithms, by example
 
-the Farenheit temperature in Milan can be obtained by 
+the Farenheit temperature in Naples can be obtained by 
 
 1. taking the current temperature in Celsius degrees
 
@@ -124,11 +124,11 @@ the Farenheit temperature in Milan can be obtained by
 ## Code 
 
 ```python
-my_celsius = int(input('Please enter the current temperature in Milan:'))
+my_celsius = int(input('Please enter the current temperature in Naples:'))
 
 my_farenheit = (my_celsius * 9/5) + 32
 
-print(f'Today we have {my_farenheit} Farenheit degrees in Milan')
+print(f'Today we have {my_farenheit} Farenheit degrees in Naples')
 ```
 
 Reading this syntax requires training.
@@ -140,7 +140,7 @@ Reading this syntax requires training.
 ```bash
 >python -m py_compile my_converter.py -o converter.exe
 >converter.exe
->Please enter the temperature in Milan now: 
+>Please enter the temperature in Naples now: 
 ```
 
 file [converter.exe]() is for computers, not humans.

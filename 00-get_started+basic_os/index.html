@@ -484,7 +484,7 @@ ale66
 </section>
 <section id="algorithms-by-example" class="slide level2">
 <h2>Algorithms, by example</h2>
-<p>the Farenheit temperature in Milan can be obtained by</p>
+<p>the Farenheit temperature in Naples can be obtained by</p>
 <ol type="1">
 <li><p>taking the current temperature in Celsius degrees</p></li>
 <li><p>rescale it by <span class="math inline">\(\frac{9}{5}\)</span></p></li>
@@ -493,18 +493,18 @@ ale66
 </section>
 <section id="code" class="slide level2">
 <h2>Code</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>my_celsius <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Please enter the current temperature in Milan:'</span>))</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>my_celsius <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Please enter the current temperature in Naples:'</span>))</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>my_farenheit <span class="op">=</span> (my_celsius <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> <span class="dv">32</span></span>
 <span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a><span class="bu">print</span>(<span class="ss">f'Today we have </span><span class="sc">{</span>my_farenheit<span class="sc">}</span><span class="ss"> Farenheit degrees in Milan'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href=""></a><span class="bu">print</span>(<span class="ss">f'Today we have </span><span class="sc">{</span>my_farenheit<span class="sc">}</span><span class="ss"> Farenheit degrees in Naples'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Reading this syntax requires training.</p>
 </section>
 <section id="implementation-compilation" class="slide level2">
 <h2>Implementation: compilation</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="op">&gt;</span>python <span class="ex">-m</span> py_compile my_converter.py <span class="at">-o</span> converter.exe</span>
 <span id="cb2-2"><a href=""></a><span class="op">&gt;</span>converter.exe</span>
-<span id="cb2-3"><a href=""></a><span class="op">&gt;</span>Please <span class="ex">enter</span> the temperature in Milan now: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a><span class="op">&gt;</span>Please <span class="ex">enter</span> the temperature in Naples now: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>file <a href="">converter.exe</a> is for computers, not humans.</p>
 </section>
 <section id="implementation-interpretation" class="slide level2">
