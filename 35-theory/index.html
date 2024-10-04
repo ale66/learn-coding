@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="spreadsheet-exercise_files/libs/clipboard/clipboard.min.js"></script>
-<script src="spreadsheet-exercise_files/libs/quarto-html/tabby.min.js"></script>
-<script src="spreadsheet-exercise_files/libs/quarto-html/popper.min.js"></script>
-<script src="spreadsheet-exercise_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="spreadsheet-exercise_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="spreadsheet-exercise_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="spreadsheet-exercise_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="spreadsheet-exercise_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="theory_files/libs/clipboard/clipboard.min.js"></script>
+<script src="theory_files/libs/quarto-html/tabby.min.js"></script>
+<script src="theory_files/libs/quarto-html/popper.min.js"></script>
+<script src="theory_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="theory_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="theory_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="theory_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="theory_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="ale66">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="spreadsheet-exercise_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="spreadsheet-exercise_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="theory_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="theory_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,14 +29,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="spreadsheet-exercise_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="spreadsheet-exercise_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="spreadsheet-exercise_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="theory_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="theory_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="theory_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="theory_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="theory_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="theory_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="theory_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -339,63 +404,244 @@ ale66
 </div>
 
 </section>
-<section id="spreadsheet-exercise" class="slide level2">
-<h2>Spreadsheet exercise</h2>
-<p><br></p>
-<div>
+<section id="the-problem-aalgorithm-code-triad" class="slide level2">
+<h2>The Problem-Aalgorithm-Code triad</h2>
+</section>
+<section id="motivations" class="slide level2">
+<h2>Motivations</h2>
 <ul>
-<li class="fragment">import the <code>data/biostats.csv</code> file into a spreadsheet</li>
-<li class="fragment">transform measures to the IS (meter and Kilogram) system</li>
-<li class="fragment">compute averages for each vital measure</li>
-<li class="fragment">extra: parallel averages for male/female population</li>
-<li class="fragment">submit via the Teams channel</li>
+<li><p>coding is often problem solving + computer knowledge</p></li>
+<li><p>we have worked on simple coding tasks where we were never in doubt about what was the desired result</p></li>
+<li><p>coding was essentially getting the computer execute the right sequence of steps.</p></li>
+<li><p>but what if the solution is itself complex?</p></li>
 </ul>
-</div>
 </section>
-<section id="from-cells-to-variables" class="slide level2">
-<h2>From cells to variables</h2>
-<p><br></p>
-<div>
-<ol type="1">
-<li class="fragment">each value in the spreadsheet has a <em>cell address (cell name)</em></li>
-<li class="fragment">operations are defined abstractly with cell names</li>
-<li class="fragment">those cell names are <em>variables</em> in programming languages</li>
-</ol>
-</div>
+<section id="the-separation-of-concerns" class="slide level2">
+<h2>The Separation of Concerns</h2>
+<p>Take problem solving with computers and break it down into three layers</p>
+<p>Work out the layers separately; different teams might work on each layer</p>
+<p>Replication is possible</p>
 </section>
-<section id="what-is-a-variable" class="title-slide slide level1 center">
-<h1>What is a variable?</h1>
-<p>A vessel for data/operands</p>
-<p>Consists of three elements:</p>
-<ol type="1">
-<li>a symbolic name, e.g., <code>A5</code> or <code>my_temperature</code></li>
-<li>a value, e.g., <code>36</code> or <code>'very hot'</code></li>
-<li>a type, e.g., integer or string of characters</li>
-</ol>
+<section>
+<section id="computational-problem" class="title-slide slide level1 center">
+<h1>Computational Problem</h1>
+
+</section>
+<section class="slide level2">
+
+<p>Identify the problem as an abstract input/output activity.</p>
+<p>This the <em>what</em> of problem solving</p>
+</section>
+<section id="example-i" class="slide level2">
+<h2>Example, I</h2>
+<p>Problem: <strong>MAX</strong></p>
+<p><strong>Instance:</strong> a sequence of <span class="math inline">\(n\)</span> integer numbers <span class="math inline">\(a_1 \dots a_n\)</span></p>
+<p><strong>Solution:</strong> element <span class="math inline">\(a_M\)</span> such that <span class="math inline">\(a_M \ge a_i\)</span> for each element <span class="math inline">\(a_i\)</span> of the sequence.</p>
+</section>
+<section class="slide level2">
+
+<p>Algorithm: <strong>enumeration</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>input: sequence A</span>
+<span id="cb1-2"><a href=""></a>set M=0</span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a>for each element a of A:</span>
+<span id="cb1-5"><a href=""></a>    if a &gt; M then:</span>
+<span id="cb1-6"><a href=""></a>        set M = a_i</span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a>output: M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="observations" class="slide level2">
+<h2>Observations</h2>
+<ul>
+<li><p>the formulation is abstract from any real programming language (Python being the closests)</p></li>
+<li><p>the experience of what coding is help us understand the formulation</p></li>
+<li><p>we look at the algorithm to understand computational cost and thus <em>scalability</em></p></li>
+</ul>
+</section>
+<section id="algorithm" class="slide level2">
+<h2>Algorithm</h2>
+<p>A finite sequence of mathematically-rigorous instructions used to solve a class of specific problems or to perform a computation</p>
+<ul>
+<li><p>mathematical rigour is for effective implementability on computers</p></li>
+<li><p>the sequence shall be executed <em>deterministically:</em> at each step we know exactly what the next step will be.</p></li>
+</ul>
+</section>
+<section id="implementation" class="slide level2">
+<h2>Implementation</h2>
+<p>Re-formulation of the algorithm in a specific programming language/version.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> max1(data):</span>
+<span id="cb2-2"><a href=""></a>  <span class="co">'''Classical implementation of max for a sequence of integers'''</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>  M <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-5"><a href=""></a>  </span>
+<span id="cb2-6"><a href=""></a>  <span class="cf">for</span> element <span class="kw">in</span> data:</span>
+<span id="cb2-7"><a href=""></a>    <span class="cf">if</span> element <span class="op">&gt;</span> M</span>
+<span id="cb2-8"><a href=""></a>      M <span class="op">=</span> element</span>
+<span id="cb2-9"><a href=""></a>  </span>
+<span id="cb2-10"><a href=""></a>  <span class="cf">return</span> M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>incorrect on all-negative inputs: <code>max1([-1, -6, -3, -11])</code> returns 0.</p>
+</section>
+<section id="another-implementation" class="slide level2">
+<h2>Another implementation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">def</span> mymax(data):</span>
+<span id="cb3-2"><a href=""></a>  <span class="co">'''Robust implementation of classical max '''</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a>  M <span class="op">=</span> data[<span class="dv">0</span>]</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a>  <span class="cf">for</span> element <span class="kw">in</span> data[<span class="dv">1</span>:]:</span>
+<span id="cb3-7"><a href=""></a>    <span class="cf">if</span> element <span class="op">&gt;</span> M</span>
+<span id="cb3-8"><a href=""></a>      M <span class="op">=</span> element</span>
+<span id="cb3-9"><a href=""></a>  </span>
+<span id="cb3-10"><a href=""></a>  <span class="cf">return</span> M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-triad" class="slide level2">
+<h2>The triad</h2>
+<ul>
+<li><p>for a fixed computational problem, there could be several algorithms that solve it</p></li>
+<li><p>for a fixed algorithm, there could be several implementations, even in the same language</p></li>
+</ul>
+</section>
+<section id="algorithmics" class="slide level2">
+<h2>Algorithmics</h2>
+<ul>
+<li><p>discover new algorithms</p></li>
+<li><p>improve or re-pourpose existing ones</p></li>
+<li><p>provide bounds to the computational cost</p></li>
+</ul>
+</section>
+<section id="scalability" class="slide level2">
+<h2>Scalability</h2>
+<p>The suitability of an algorithm for deployment to cases with an increasing volume of data.</p>
+<p>Can our algorithm run over the <code>unimi.it</code> web pages within a minute or two?</p>
+<p>Can it scale up to the whole <code>.it</code> domain, e.g., in an hour or two?</p>
+<p>Can it scale up to the whole <em>web,</em> e.g., in a day or two?</p>
+</section>
+<section id="computational-costs" class="slide level2">
+<h2>Computational costs</h2>
+<p>Fact: scalability depends more on the intrinsic <em>complexity</em> of the problem than on the algorithm or the implementation.</p>
+</section>
+<section id="example-knapsack" class="slide level2">
+<h2>Example: knapsack</h2>
+<p>The Fourty thieves’ vault containns bars of precious metal</p>
+<p>Each bar is described by weight and value</p>
+<p>Bars can be cut to weight</p>
+
+<img data-src="https://worldstories.org.uk/content/book/823/__picture_7577.jpg" class="r-stretch"></section>
+<section class="slide level2">
+
+<p>Ali Baba breaks in, determined to steal as much value as he can</p>
+<p>However, he can only carry away a fixed quantity of weight on his shoulders.</p>
+<p>Help Ali Baba to carry away the most value</p>
+</section></section>
+<section>
+<section id="knapsack" class="title-slide slide level1 center">
+<h1>Knapsack</h1>
+
+</section>
+<section id="formulation-i" class="slide level2">
+<h2>Formulation, I</h2>
+<p><strong>Instance:</strong></p>
+<p>A description of weight and value of each bar</p>
+<p>the maximum weight Ali Baba can take on his shoulders</p>
+<p><strong>Solution:</strong></p>
+<p>An allocation: for each bar says what quantity is taken, so as to maximise the overall stolen value</p>
+<p><strong>Constraint</strong></p>
+<p>The sum of all taken wieights must not exceed what Ali Baba can carry</p>
+</section>
+<section id="formulation-ii" class="slide level2">
+<h2>Formulation, II</h2>
+<p><strong>Instance:</strong></p>
+<p>a sequence of <em>n</em> <code>weight/value</code> pairs (all non-negative int.):</p>
+<p>an integer C</p>
+<p><strong>Solution:</strong></p>
+<p>An allocation: for each bar says what quantity is taken</p>
+<p><strong>Constraint</strong></p>
+<p>The sum of all taken quantities must not exceed W</p>
+</section>
+<section id="an-example-with-fruits" class="slide level2">
+<h2>An example with fruits</h2>
+
+<img data-src="https://files.codingninjas.in/article_images/objective-of-the-knapsack-problem-4-1674054631.webp" class="r-stretch"></section>
+<section id="formulation-iii" class="slide level2">
+<h2>Formulation, III</h2>
+<p><strong>Instance:</strong></p>
+<p>a sequence of <em>n</em> <code>weight/value</code> pairs: <span class="math inline">\(w_1, \dots w_m\)</span> and <span class="math inline">\(v_1, \dots v_n\)</span></p>
+<p>an integer C</p>
+<p><strong>Solution:</strong></p>
+<p>An allocation: for each bar says what quantity is taken: <span class="math inline">\(\sigma: i \rightarrow [0..w_i]\)</span></p>
+<p><strong>Constraint</strong></p>
+<p>The sum of all taken quantities must not exceed W: <span class="math inline">\(\sum_{i=1}^n \sigma(i) \leq W\)</span></p>
+</section>
+<section id="further" class="slide level2">
+<h2>Further…</h2>
+<p><strong>Instance:</strong></p>
+<ul>
+<li><p><span class="math inline">\(w_1, \dots w_n\)</span> and <span class="math inline">\(v_1, \dots v_n\)</span></p></li>
+<li><p>C</p></li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\sigma: i \rightarrow [0..w_i]\)</span></p></li>
+<li><p><span class="math inline">\(\sigma = MAXARG_\sigma\{\sum_{i=1}^n \nu(i) \}\)</span>; <span class="math inline">\(\nu(i)\)</span> is the val. of <span class="math inline">\(\sigma(i)\)</span></p></li>
+</ul>
+<p><strong>Constraints:</strong></p>
+<p><span class="math inline">\(\sum_{i=1}^n \sigma(i) \leq C\)</span></p>
+</section>
+<section id="algorithm-1" class="slide level2">
+<h2>Algorithm</h2>
+<p>Think of a step-by-step process that, for any input combination, will take the most value out of the vault</p>
+<p>Write is down in English with some Maths</p>
+<p>Test it on some examples, e.g.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metal</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Palladium</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">72</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gold</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">162</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Silver</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="theory_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="spreadsheet-exercise_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="theory_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

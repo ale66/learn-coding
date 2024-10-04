@@ -238,7 +238,7 @@ mydata = [12, 32, 1, 43, 65]
 - a: False
 - b: True
 - c: True
-- d: False
+- d: True
 
 
 # Iterations
@@ -336,13 +336,35 @@ print out the club names without the ` FC` suffix
 
 ---
 
-## Exercise
+## Collaborative coding (pair coding)
+
+Get the VS Code extension:
+
+[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+
+(experimental) Sign in with your unimit.it account as if it were Microsoft
+
+create and share tokens to work on the same file (via third-party hosting)
+
+
+## Exercise, a
 
 Print available fruits but not bananas
 
 ```python
-fruits = ["apple", "banana", "cherry"]
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
 ```
 
+hint: use ``continue``
 
+---
 
+## Exercise, b
+
+Print available fruits but stop as soon as you find bananas
+
+```python
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+```
+
+hint: use ``break``

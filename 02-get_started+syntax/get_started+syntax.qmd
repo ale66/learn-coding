@@ -1,0 +1,185 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Module administration
+
+:::
+
+::: {.column width="50%"}
+
+![](./imgs/a-module_admin0.jpg)
+
+:::
+
+::::
+
+---
+
+## Elevator pitch
+
+- introduce coding and Python
+
+- focus on simple ways to develop software autonomously
+
+- We will learn programming with Python!
+
+---
+
+- If time allows: basic Data Science methods 
+
+  - Data types and data structures
+  - Conditional and loops
+  - User input output
+  - Text files
+  - Functions
+  - Data cleaning
+  - Basic stats
+  - Relational databases and their Structured query language \(SQL\)
+
+---
+
+## On module completion you will be able to:
+
+- Write Python programs
+
+- start personal projects
+
+- Understand the basics of algorithms and coding
+
+- Use different data sources
+
+- Visualize data
+
+- use the SQL language to query relational databases; set up and run simple databases
+
+---
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- hands-on Python
+
+- basic structures, iterations & functions
+
+- List, Dictionaries, Sets and Tuples
+
+- Numerical functions: Numpy
+
+- Data visualisation: Matplotlib
+
+- Data ingestion, tables and time series: Pandas
+
+:::
+
+::: {.column width="50%"}
+
+- Intro to SQL: Structured Query Language
+
+- Creating simple SQL databases
+
+- writing SQL queries to extract data
+
+- embed SQL in Python
+
+-  Developing a Case Study with Python
+
+:::
+
+::::
+
+---
+
+- Class style
+
+- __Laptops on, smartphones off__ 
+
+- __Lectures and labs mix up seamlessly__ 
+
+- __use the Teams channel for quick questions__ 
+
+---
+
+## instructor
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+- Dr Alessandro Provetti
+
+- PhD on AI for simplifying programming languages 
+
+- Research on understanding user data in “Social web” platforms. 
+
+- Started the [Birkbeck Institute for Data Analytics](http://www.bida.bbk.ac.uk/)
+
+:::
+
+::: {.column width="30%"}
+
+![](./imgs/alessandro_provetti.jpg)
+
+:::
+
+::::
+
+---
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+- Dr Alberto Matuozzo
+  
+- PhD in Machine Learning for Finance at Birkbeck, UK
+
+- Research on Machine learning in Finance
+
+:::
+
+::: {.column width="30%"}
+
+![](./imgs/alberto_matuozzo.jpg)
+
+:::
+
+::::
+
+---
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+- Dr Federico Pilati
+
+- PhD in Computational Social sciences at IULM, IT
+
+- Post-doc at Université de Genève, CH
+
+- Research on the emergence of online communities and misinformation  
+
+:::
+
+::: {.column width="30%"}
+
+![](./imgs/federico_pilati.png)
+
+:::

@@ -1,0 +1,298 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## The Problem-Aalgorithm-Code triad
+
+---
+
+## Motivations
+
+- coding is often problem solving + computer knowledge
+
+- we have worked on simple coding tasks where we were never in doubt about what was the desired result
+
+- coding was essentially getting the computer execute the right sequence of steps. 
+
+- but what if the solution is itself complex?
+
+
+## The Separation of Concerns
+
+Take problem solving with computers and break it down into three layers
+
+Work out the layers separately; different teams might work on each layer
+
+Replication is possible
+
+
+# Computational Problem
+
+---
+
+Identify the problem as an abstract input/output activity.
+
+This the *what* of problem solving
+
+---
+
+## Example, I
+
+Problem: __MAX__
+
+__Instance:__ a sequence of $n$ integer numbers $a_1 \dots a_n$
+
+__Solution:__ element $a_M$ such that $a_M \ge a_i$ for each element $a_i$ of the sequence.
+
+---
+
+Algorithm: __enumeration__
+
+```text
+input: sequence A
+set M=0
+
+for each element a of A:
+    if a > M then:
+        set M = a_i
+
+output: M
+```
+
+---
+
+
+## Observations
+
+- the formulation is abstract from any real programming language (Python being the closests)
+
+- the experience of what coding is help us understand the formulation
+
+- we look at the algorithm to understand computational cost and thus *scalability*
+
+
+---
+
+## Algorithm
+
+A finite sequence of mathematically-rigorous instructions used to solve a class of specific problems or to perform a computation
+
+- mathematical rigour is for effective implementability on computers
+
+- the sequence shall be executed *deterministically:* at each step we know exactly what the next step will be.
+
+
+---
+
+## Implementation 
+
+Re-formulation of the algorithm in a specific programming language/version.
+
+```python
+def max1(data):
+  '''Classical implementation of max for a sequence of integers'''
+
+  M = 0
+  
+  for element in data:
+    if element > M
+      M = element
+  
+  return M
+```
+
+incorrect on all-negative inputs: ``max1([-1, -6, -3, -11])`` returns 0.
+
+---
+
+## Another implementation
+
+```python
+def mymax(data):
+  '''Robust implementation of classical max '''
+
+  M = data[0]
+
+  for element in data[1:]:
+    if element > M
+      M = element
+  
+  return M
+```
+
+---
+
+## The triad
+
+- for a fixed computational problem, there could be several algorithms that solve it
+
+- for a fixed algorithm, there could be several implementations, even in the same language
+
+
+---
+
+## Algorithmics
+
+- discover new algorithms
+  
+- improve or re-pourpose existing ones
+
+- provide bounds to the computational cost 
+  
+---
+
+## Scalability
+
+The suitability of an algorithm for deployment to cases with an increasing volume of data.
+
+Can our algorithm run over the ``unimi.it`` web pages within a minute or two?
+
+Can it scale up to the whole ``.it`` domain, e.g., in an hour or two?
+
+Can it scale up to the whole *web,* e.g., in a day or two?
+
+
+---
+
+## Computational costs
+
+Fact: scalability depends more on the intrinsic *complexity* of the problem than on the algorithm or the implementation.
+
+
+---
+
+## Example: knapsack
+
+The Fourty thieves' vault containns bars of precious metal
+
+Each bar is described by weight and value
+
+Bars can be cut to weight
+
+![](https://worldstories.org.uk/content/book/823/__picture_7577.jpg)
+
+
+
+
+---
+
+Ali Baba breaks in, determined to steal as much value as he can
+
+However, he can only carry away a fixed quantity of weight on his shoulders.
+
+Help Ali Baba to carry away the most value
+
+
+# Knapsack
+
+---
+
+## Formulation, I
+
+__Instance:__
+
+A description of weight and value of each bar
+
+the maximum weight Ali Baba can take on his shoulders
+
+__Solution:__
+
+An allocation: for each bar says what quantity is taken, so as to maximise the overall stolen value
+
+__Constraint__
+
+The sum of all taken wieights must not exceed what Ali Baba can carry 
+
+
+---
+
+## Formulation, II
+
+__Instance:__
+
+a sequence of *n* ``weight/value`` pairs (all non-negative int.): 
+
+an integer C
+
+__Solution:__
+
+An allocation: for each bar says what quantity is taken
+
+__Constraint__
+
+The sum of all taken quantities must not exceed W
+
+---
+
+## An example with fruits
+
+
+![](https://files.codingninjas.in/article_images/objective-of-the-knapsack-problem-4-1674054631.webp)
+
+---
+
+## Formulation, III
+
+__Instance:__
+
+a sequence of *n* ``weight/value`` pairs: $w_1, \dots w_m$ and $v_1, \dots v_n$
+
+an integer C
+
+__Solution:__
+
+An allocation: for each bar says what quantity is taken: $\sigma: i \rightarrow [0..w_i]$
+
+__Constraint__
+
+The sum of all taken quantities must not exceed W: $\sum_{i=1}^n \sigma(i) \leq W$
+
+
+---
+
+## Further...
+
+__Instance:__
+
+- $w_1, \dots w_n$ and $v_1, \dots v_n$ 
+  
+- C
+  
+__Solution:__
+
+- $\sigma: i \rightarrow [0..w_i]$
+
+- $\sigma = MAXARG_\sigma\{\sum_{i=1}^n \nu(i) \}$; $\nu(i)$ is the val. of $\sigma(i)$
+
+__Constraints:__
+
+$\sum_{i=1}^n \sigma(i) \leq C$
+
+
+---
+
+## Algorithm
+
+Think of a step-by-step process that, for any input combination, will take the most value out of the vault
+
+Write is down in English with some Maths
+
+Test it on some examples, e.g.
+
+| Metal     | Weight | Value |
+|:----------|-------:|------:|
+| Palladium | 1      |    72 |
+| Gold      | 3      |   162 |
+| Silver    | 12     |     3 |
+
