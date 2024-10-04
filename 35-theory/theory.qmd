@@ -13,17 +13,17 @@ execute:
   echo: true
 ---
 
-## The Problem-Aalgorithm-Code triad
+## PAC: the Problem-Algorithm-Code triad
 
 ---
 
 ## Motivations
 
-- coding is often problem solving + computer knowledge
+- coding is often *problem solving + computer knowledge*
 
-- we have worked on simple coding tasks where we were never in doubt about what was the desired result
+- we have worked on simple coding tasks: never in doubt about what was the desired result
 
-- coding was essentially getting the computer execute the right sequence of steps. 
+- coding was essentially getting the computer to execute the right sequence of steps. 
 
 - but what if the solution is itself complex?
 
