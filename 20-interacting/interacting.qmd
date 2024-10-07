@@ -2,11 +2,6 @@
 title: "Learn Coding"
 author: "ale66"
 format: 
-  pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
-    papersize: a4
   revealjs:
     footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
     theme: [moon]

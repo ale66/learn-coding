@@ -61,11 +61,11 @@ Algorithm: __enumeration__
 
 ```text
 input: sequence A
-set M=0
+set a new variable M = 0
 
 for each element a of A:
     if a > M then:
-        set M = a_i
+        set M = a
 
 output: M
 ```
@@ -114,6 +114,7 @@ def max1(data):
 
 incorrect on all-negative inputs: ``max1([-1, -6, -3, -11])`` returns 0.
 
+
 ---
 
 ## Another implementation
@@ -156,11 +157,11 @@ def mymax(data):
 
 The suitability of an algorithm for deployment to cases with an increasing volume of data.
 
-Can our algorithm run over the ``unimi.it`` web pages within a minute or two?
+- Can our algorithm run over the ``unimi.it`` web pages within a minute or two?
 
-Can it scale up to the whole ``.it`` domain, e.g., in an hour or two?
+- Can it scale up to the whole ``.it`` domain, e.g., in an hour or two?
 
-Can it scale up to the whole *web,* e.g., in a day or two?
+- Can it scale up to the whole *web,* e.g., in a day or two?
 
 
 ---
@@ -174,7 +175,7 @@ Fact: scalability depends more on the intrinsic *complexity* of the problem than
 
 ## Example: knapsack
 
-The Fourty thieves' vault containns bars of precious metal
+The Fourty thieves' vault contains bars of precious metal
 
 Each bar is described by weight and value
 
@@ -231,7 +232,7 @@ An allocation: for each bar says what quantity is taken
 
 __Constraint__
 
-The sum of all taken quantities must not exceed W
+The sum of all taken quantities must not exceed C
 
 ---
 
@@ -256,7 +257,7 @@ An allocation: for each bar says what quantity is taken: $\sigma: i \rightarrow 
 
 __Constraint__
 
-The sum of all taken quantities must not exceed W: $\sum_{i=1}^n \sigma(i) \leq W$
+The sum of all taken quantities must not exceed W: $\sum_{i=1}^n \sigma(i) \leq C$
 
 
 ---
@@ -286,13 +287,13 @@ $\sum_{i=1}^n \sigma(i) \leq C$
 
 Think of a step-by-step process that, for any input combination, will take the most value out of the vault
 
-Write is down in English with some Maths
+Write it down in English with some Maths
 
 Test it on some examples, e.g.
 
-| Metal     | Weight | Value |
-|:----------|-------:|------:|
-| Palladium | 1      |    72 |
-| Gold      | 3      |   162 |
-| Silver    | 12     |     3 |
+| Metal     | Weight avail. | Total Val. |
+|:----------|--------------:|-----------:|
+| Palladium | 1             |         72 |
+| Gold      | 3             |        162 |
+| Silver    | 12            |          3 |
 
