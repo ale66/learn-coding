@@ -64,3 +64,77 @@ execute:
 1 2 3 []{style="opacity:0.25"}
 :::
 :::
+
+## A mark-up language
+
+Simple annotations to the text guide the creation of HTML (web page) displays
+
+More complex effects are obtained by *embedding*
+
+- HTML code for formatting
+  
+- LaTeX code for mathematics
+
+---
+
+double underscores for __boldface:__ 
+
+```md
+__boldface:__ 
+```
+
+stars for *italics:*
+
+```markdown
+*italics:*
+```
+
+A dash followed by space for lists:
+
+```markdown
+- HTML code for formatting
+```
+
+Hash symbols for titles:
+
+```markdown
+# Big title
+
+## A bit smaller
+
+###### tiny title
+```
+
+
+---
+
+It is easy to [link text](https://www.markdownguide.org/basic-syntax/),
+
+```markdown
+[link text](https://www.markdownguide.org/basic-syntax/)
+```
+
+include images and
+
+```markdown
+![](https://mdg.imgix.net/assets/images/tux.png)
+```
+
+![](https://mdg.imgix.net/assets/images/tux.png){height="15%"}
+
+code
+
+<pre>
+```python
+# this is python!
+M = 0
+```
+</pre>
+
+```python
+# this is python!
+M = 0
+```
+
+
+
