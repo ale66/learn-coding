@@ -104,15 +104,17 @@ Module administration
 
 ::::
 
+
 ---
 
-- Class style
+## Class style
 
 - __Laptops on, smartphones off__ 
 
 - __Lectures and labs mix up seamlessly__ 
 
 - __use the Teams channel for quick questions__ 
+
 
 ---
 
@@ -161,6 +163,7 @@ Module administration
 :::
 
 ::::
+
 
 ---
 
