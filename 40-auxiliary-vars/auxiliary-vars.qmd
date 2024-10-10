@@ -1,0 +1,181 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+    progress: true
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+# Auxiliary variables and Loops
+
+
+## Topics
+
+- counters 
+  
+- accumulators
+
+- trailers
+
+
+---
+
+## Exercise, b: solution
+
+Print available fruits but stop as soon as you find bananas
+
+```python
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+```
+
+should only print ``apple``
+
+. . . 
+
+```python
+for f in fruits:
+
+  if f == 'banana':
+    break
+
+  else:
+    print(f)
+```
+
+# Counters
+
+---
+
+A variable, normally of type integer, that is incremented as we *parse* an iterable
+
+Example: compute list size/lenght
+
+```python
+l = 0
+
+for f in fruits:
+  l = l +1
+
+print(f'The lenght of list {fruits} is {l}')
+```
+
+. . . 
+
+Syntax: ``l += 1`` is shorthand for ``l = l + 1``
+
+
+--- 
+
+## Anonymous variables
+
+In fact, we are not operating on ``f``
+
+it can be omitted in favour of an *anonymous variable* ``_``
+
+```python
+l = 0
+
+for _ in fruits:
+  l += 1
+
+print(f'The lenght of list {fruits} is {l}')
+```
+
+
+# Accumulators
+
+
+---
+
+A variable to record quantities seen during the iteration
+
+Example: compute the average of an arbitrary list of positive numbers
+
+
+```python
+l = 0
+accumulator = 0
+
+for val in mylist:
+  l += 1
+  accumulator += val
+
+average =  accumulator / l # this will be a float
+
+print(f'There are {l} values and their average is {average}')
+```
+
+
+# Trailing variables
+
+---
+
+A variable that 'remembers' past values during an iteration
+
+Example: record the biggest temperature increase ever seen in the list 
+
+```python
+maxincrease = 0
+
+trailer = temperaturelist[0]
+
+for temp in temperaturelist:
+
+  current_increase = temp - trailer
+  
+  if current_increase > maxincrease:
+    maxincrease = current_increase # a new max is found
+
+  # we are finished with this value, assign it to the trailer
+  trailer = temp
+
+print(f'The maximum day-on-day increase has been {maxincrease} degrees')
+```
+
+
+---
+
+## Programme comprehension
+
+To grasp how trailers work, put extra ``print()`` commands to see what the variables contain
+
+Rename variables:
+
+
+```python
+yesterday = temperaturelist[0]
+
+for today in temperaturelist:
+
+  current_increase = today - yesterday
+
+  ...
+
+  yesterday =  today
+```
+
+---
+
+## Quiz
+
+Complete code for searching a given number in a sequence
+
+```python
+KEY = 22
+
+mylist = [1, 6, 3, 9, 10]
+
+___ item ___ mylist:
+  if ___ == ___:
+    found = True
+  else:
+    found = False
+```
