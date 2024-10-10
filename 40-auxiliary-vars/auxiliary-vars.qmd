@@ -14,7 +14,7 @@ execute:
   echo: true
 ---
 
-# Auxiliary variables and Loops
+# Auxiliary variables
 
 
 ## Topics

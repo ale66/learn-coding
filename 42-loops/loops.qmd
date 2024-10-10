@@ -1,254 +1,171 @@
-# The While instruction
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
 
-<span style="color:#FFFFFF">We saw ‘for’ to iterate over a sequence</span>
+# Loops
 
-<span style="color:#FFFFFF"> _With the while loop we can execute a set of statements only as long as a given condition is true_ </span>
 
-<span style="color:#FFC000">writers = \[”Hemingway"\, ”Dickens"\, ”King"\]</span>  <span style="color:#FFC000">for x in writers :</span>  <span style="color:#FFC000">       print\(x\)</span>
+---
 
-# While loop
+## The ``While`` instruction
 
-<span style="color:#FFFFFF">With the while loop we can execute a set of statements as long as a condition is true\.</span>
+We saw ``for`` to *iterate* over a sequence
 
-<span style="color:#FFFF00"> __i = 1__ </span>  <span style="color:#FFFF00"> __while i < 6:__ </span>  <span style="color:#FFFF00"> __  print\(i\)__ </span>  <span style="color:#FFFF00"> __  i \+= 1__ </span>
+A block of code is executed as many times as the number of elements of the sequence
 
-<span style="color:#FFFFFF">With the break statement we can stop the loop even if the while condition is true:</span>
+```python
+writers = ['Hemingway', 'Dickens', 'King']
 
-<span style="color:#FFFF00"> __i = 1__ </span>  <span style="color:#FFFF00"> __while i < 6:__ </span>  <span style="color:#FFFF00"> __  print\(i\)__ </span>
+for w in writers:
+  print(f)
+```
 
-<span style="color:#FFFF00"> __  __ </span>  <span style="color:#FFFF00"> __if i == 3:__ </span>  <span style="color:#FFFF00"> __    break__ </span>  <span style="color:#FFFF00"> __  i \+= 1__ </span>
 
-<span style="color:#FFFFFF">We can have a while loop using an indefinite </span>  <span style="color:#FFFFFF"> __True__ </span>  <span style="color:#FFFFFF"> condition</span>
+---
 
-<span style="color:#FFFF00"> __while True:     \#  or while\(True\)__ </span>  <span style="color:#FFFF00"> __  num = int\(input\(‘enter an integer: ’\)\)__ </span>
+__With the while loop we execute a block only as long as a given expression is true_ 
 
-<span style="color:#FFFF00"> __  __ </span>  <span style="color:#FFFF00"> __if __ </span>  <span style="color:#FFFF00"> __ num__ </span>  <span style="color:#FFFF00"> __ == 3:__ </span>  <span style="color:#FFFF00"> __    break__ </span>
+```python
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+``` 
 
-<span style="color:#FFC000"> __\#__ </span>  <span style="color:#FF0000"> __ T__ </span>  <span style="color:#FFFF00"> __rue\, not __ </span>  <span style="color:#FF0000"> __t__ </span>  <span style="color:#FFFF00"> __rue\.\.\.__ </span>
+increment is not automatic
 
-# While loop example
+the expression is evaluated *before* executing the block of code
 
-<span style="color:#FFFFFF">What is this algo\. doing?</span>
+Try the example above on [pythontutor.com](https://pythontutor.com/)
 
-<span style="color:#FFC000">n = 5</span>
 
-<span style="color:#FFC000">while n > 0 :</span>
+---
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">print\(n\)</span>
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">n = n\-1   \#\(n\-=1\)</span>
+With the break statement we can stop the loop even if the while condition is true:
 
-<span style="color:#FFC000">print\('Blastoff\!'\)</span>
+```python
+i = 1
+while i < 6:
+  if i == 3:
+    break
+  i += 1
+``` 
 
-<span style="color:#FFC000">5</span>
 
-<span style="color:#FFC000">4</span>
+---
 
-<span style="color:#FFC000">3</span>
+## Indefinite loops
 
-<span style="color:#FFC000">2</span>
+Would execute forever, or until a break condition is met
 
-<span style="color:#FFC000">1</span>
+```python
+while True:
+  
+  command = input(''Please enter a command, type 'exit' to stop.'')
+  
+  if command == 'exit':
+    break
+  else:
+    # implement commands here ..
+``` 
 
-<span style="color:#FFC000">Blastoff\!</span>
 
-<span style="color:#FFFFFF">print 'Blastoff\!'</span>
+---
 
-# Breaking from while
+What is this code doing?
 
-* <span style="color:#FFFFFF">The </span>  <span style="color:#FFC000">break</span>  <span style="color:#FFFFFF"> statement ends the current loop and jumps out of to the while immediately</span>
-  * <span style="color:#FFFFFF">We use break to stop\, when a condition is met</span>
+```python
+n = 5
 
-<span style="color:#FFC000">while\(True\):</span>
+while n > 0 :
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">num = int\(input\("Enter a number\, or 0 to exit"\)\)</span>
+      print(n)
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">print\(num\)</span>
+      n = n-1   # or n -= 1
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">if num == 0:</span>
+print('Blastoff!')
+```
 
-<span style="color:#FFC000">        </span>  <span style="color:#FFC000">print\("\.\.\.break\!"\)</span>
 
-<span style="color:#FFC000">        </span>  <span style="color:#FFC000">break</span>
+# Quiz: What's wrong with this loop?
 
-![](img%5Cloops0.gif)
+![](./imgs/timer.gif)
 
-<span style="color:#FFFFFF">The break statement ends the current loop and jumps to the statement immediately following the loop</span>
 
-<span style="color:#FFC000">while\(True\):</span>
+```python
+n = 1
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">num = int\(input\("Enter a number\, or 0 to exit"\)\)</span>
+while n > 0 :
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">print\(num\)</span>
+      print(“Hi”)
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">if num == 0:</span>
+print(“End”)
+```
 
-<span style="color:#FFC000">        </span>  <span style="color:#FFC000">print\("\.\.\.break\!"\)</span>
-
-<span style="color:#FFC000">        </span>  <span style="color:#FFC000">break</span>
-
-# Quiz
-
-![](img%5Cloops1.gif)
-
-<span style="color:#FFFFFF">What does it print?</span>
-
-<span style="color:#FFC000">i = 1</span>
-
-<span style="color:#FFC000">while i<6:</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">i=i\+1</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">if i == 4:</span>
-
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">break</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">print\(i\)</span>
-
-<span style="color:#FFFFFF">What does it print?</span>
-
-<span style="color:#FFC000">i = 1</span>
-
-<span style="color:#FFC000">while i<6:</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">i=i\+1</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">if i == 4:</span>
-
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">break</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">print\(i\)</span>
-
-![](img%5Cloops2.gif)
-
-<span style="color:#FFFFFF">What does it print?</span>
-
-<span style="color:#FFC000">i = 1</span>
-
-<span style="color:#FFC000">while i<6:</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">print\(i\)</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">if i == 4:</span>
-
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">break</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">i=i\+1</span>
-
-<span style="color:#FFFFFF">What does it print?</span>
-
-<span style="color:#FFC000">i = 1</span>
-
-<span style="color:#FFC000">while i<6:</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">print\(i\)</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000">if i == 4:</span>
-
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">break</span>
-
-<span style="color:#FFC000">  </span>  <span style="color:#FFC000"> __i=i\+1 \# We always increase at the end__ </span>
-
-# Quiz: What’s wrong with this loop?
-
-![](img%5Cloops3.gif)
-
-<span style="color:#FFC000">n = 1</span>
-
-<span style="color:#FFC000">while n > 0 :</span>
-
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">print\(“Hi”\)</span>
-
-<span style="color:#FFC000">print\(“End”\)</span>
-
-<span style="color:#FFC000">n = 1</span>
-
-<span style="color:#FFC000">while n > 0 :</span>
-
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">print\(“Hi”\)</span>
-
-<span style="color:#FFC000">print\(“End”\)</span>
-
-<span style="color:#FF0000"> __This loop will never terminate\!__ </span>
 
 # Indefinite loops
 
-* <span style="color:#FFFFFF">“</span>  <span style="color:#FFFFFF">While” loops are called "indefinite loops" because they keep going until a logical condition becomes False</span>
-* <span style="color:#FFFFFF">The loops we have seen so far are pretty easy to examine to see whether they will terminate or become  "infinite"</span>
-* <span style="color:#FFFFFF">Sometimes it is a little harder to make sure that a loop will terminate</span>
-  * <span style="color:#FFFFFF">We need to create conditions to check all possible scenarios</span>
-  * <span style="color:#F7D1D5">We need to do it ourselves\, and ahead of actually running the code\. Why?</span>
+---
 
-# 3 minutes with hardcore Computer Science
+- some ``while`` loops are called *indefinitE* because they keep going until a logical condition becomes False
 
-<span style="color:#FFFFFF">Alan Turing’s “Halt” theorem: deciding whether a code containing loops will ever end is not possible in general</span>
+- but will it ever happen?
+  
+- codes seen so far are easy to examine to see whether they will terminate or become  *infinite*
 
-<span style="color:#FFFFFF">Rice’s theorem: all non\-trivial properties of a code can be mapped to Turing’s “Halt” problem \(see above\) </span>
+- termination analysis is about checking, *before running it,* that our code will always reach the final nstruction and control will be back to the operating system
 
-<span style="color:#FFFFFF">Consequence: checking that a code terminates in reasonable time\, as well as other properties cannot really be automated</span>
+- this activity cannot be automated
 
-<span style="color:#FFFFFF">No automated Software Engineering is possible: you have to do it yourself\.</span>
 
-<span style="color:#0563C1"> _[Click here for a simple proof \(YT video\)](https://youtu.be/92WHN-pAFCs)_ </span>
+# ``for`` vs. ``while``
 
-<span style="color:#0563C1"> _[Click here to see what a “Turing machine” is](https://youtu.be/E3keLeMwfHY)_ </span>
+---
 
-# Indefinite loops
+Use ``for`` to automate work over collections, here represented by iterables 
 
-* <span style="color:#FFFFFF">Quite often we have a list of items\, effectively a finite set of things</span>
-* <span style="color:#FFFFFF">We can use a </span>  <span style="color:#FFC000"> __for__ </span>  <span style="color:#FFFFFF"> loop to iterate over a list of data\.</span>
-* <span style="color:#FFFFFF">Those are called </span>  <span style="color:#EFD846">definite</span>  <span style="color:#FFFFFF"> loops because will execute an exact number of times</span>
-* <span style="color:#FFFFFF">We say that:</span>
-  * <span style="color:#FFFFFF">definite loops iterate through the members of a set</span>
+in principle, all elements will be examined
 
-# For vs. While loop
 
-<span style="color:#FFFFFF">The for statement is used to iterate over the elements of a sequence\.</span>
+Use ``while`` to search for a specific element: it stops as soon as it's found
 
-<span style="color:#FFFFFF">The while loop tells the computer to do something as long as the condition is met\. Its construct consists of a block of code and a condition\.</span>
+Also use ``while`` or to act *conditionally* and stop as soon as the condition is not true anymore
 
-# While in lists
 
-<span style="color:#FFC000">alist = \[1\, 3\, 7\, 9\]</span>
 
-<span style="color:#FFC000">count = 0 \# Represents the index</span>
+# ``while`` in lists
 
-<span style="color:#FFC000">while\(True\):</span>
+```python
+alist = [1, 3, 7, 9]
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">print\(alist\[count\]\)</span>
+count = 0 # also works as index
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">if count == len\(alist\)\-1:</span>
+while(True):
+      print(alist[count])
 
-<span style="color:#FFC000">        </span>  <span style="color:#FFC000">print\("end"\)</span>
+      if count == len(alist)-1:
+          print("end")
+          break
 
-<span style="color:#FFC000">        </span>  <span style="color:#FFC000">break</span>
+      count += 1
+```
 
-<span style="color:#FFC000">    </span>  <span style="color:#FFC000">count = count \+ 1</span>
+. . .
 
-<span style="color:#FFC000">alist = \[1\, 3\, 7\, 9\]</span>
-
-<span style="color:#FFC000">for anum in alist:</span>
-
-<span style="color:#FFC000">      </span>  <span style="color:#FFC000">print\(anum\)</span>
-
-* <span style="color:#FFFFFF">For loops:</span>
-  * <span style="color:#FFFFFF">Iterate for each element in a list</span>
-* <span style="color:#FFFFFF">While there are elements:</span>
-  * <span style="color:#FFFFFF">Iterate</span>
-
-# Quiz!
-
-![](img%5Cloops4.gif)
-
-* <span style="color:#FFFFFF">A while loop in Python is used for what type of iteration?</span>
-  * <span style="color:#FFFFFF">Definite</span>
-  * <span style="color:#FFFFFF">Indeterminate</span>
-  * <span style="color:#FFFFFF">Indefinite</span>
-  * <span style="color:#FFFFFF">Discriminant</span>
-
-* <span style="color:#FFFFFF">A while loop in Python is used for what type of iteration?</span>
-  * <span style="color:#FFFFFF">Definite</span>
-  * <span style="color:#FFFFFF">Indeterminate</span>
-  * <span style="color:#FF0000"> __Indefinite__ </span>
-  * <span style="color:#FFFFFF">Discriminant</span>
+```python
+for anum in alist:
+        print(anum)
+```
 

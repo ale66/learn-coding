@@ -257,7 +257,7 @@ An allocation: for each bar says what quantity is taken: $\sigma: i \rightarrow 
 
 __Constraint__
 
-The sum of all taken quantities must not exceed W: $\sum_{i=1}^n \sigma(i) \leq C$
+The sum of all taken quantities must not exceed C: $\sum_{i=1}^n \sigma(i) \leq C$
 
 
 ---
@@ -295,5 +295,5 @@ Test it on some examples, e.g.
 |:----------|--------------:|-----------:|
 | Palladium | 1             |         72 |
 | Gold      | 3             |        162 |
-| Silver    | 12            |          3 |
+| Silver    | 12            |         48 |
 
