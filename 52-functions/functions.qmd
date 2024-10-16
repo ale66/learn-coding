@@ -1,0 +1,277 @@
+---
+title: 'Learn Coding'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    slide-number: c/t
+    incremental: false
+    chalkboard: 
+      boardmarker-width: 5
+    mermaid:
+      theme: forest
+      fontSize: 12
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+# Functions
+
+![](./imgs/function-as-blackbox.png)
+
+
+---
+
+Functions are a key abstraction to model nature and processes
+
+a regular input/output or cause/effect behaviour is identified and *given a name*
+
+```text
+The higher the temperature the quicker pizza cooks.
+
+Cooking time is a function of the temperature in the oven.
+```
+
+
+---
+
+## Functions in coding
+
+A function is a block of code that 
+
+- has a clear input/output definition and 
+
+- executes in a separated environment
+
+. . .
+
+```python
+def marks2pc(marks: int):
+  ''' Convert Italian exam marks into percentages '''
+  
+  pc = int((marks / 30) * 100)
+
+  return pc
+```
+
+`marks` is a *parameter* of the f.
+
+`pc` is the *return value* of the f.
+
+---
+
+## Observations
+
+Functions only run when they are called ('invoked') within a code in execution
+
+```python
+for m in my_italian_exam_marks:
+  uk_marks = marks2pc(m)
+  print(uk_marks)
+```
+
+Functions should be defined every time a block of code is required to appear more than once: 
+
+- improve readability
+
+- improve maintainance
+
+
+---
+
+# Syntax
+
+```bnf
+def <name>(<parameter(s)>):
+  return <output(s)>
+```
+
+![](./imgs/function-as-blackbox.png)
+
+
+---
+
+## Kinds of functions:
+
+- __built-in:__ come with Python, e.g., `input()`, `print()`, `float()`, `int()` etc.
+  
+- __methods:__ come with types, e.g., `mylist.len()`, `mylist.append('a')`
+  
+- __external__ are *imported* into the code upon demand (more later)
+
+- __defined__ we define then use them
+
+Names of the built-in functions are reserved: avoid them as variable names
+
+
+---
+
+## Multiple parameters and Arguments
+
+- functions can take two or more arguments, and even an arbitrary number of them
+
+- mapping arguments to parameters is done by position
+
+- it is also possible to return multiple arguments
+ 
+
+---
+
+## Multiple inputs
+
+Given a text and a character, count the number of occurrences of it 
+
+```python
+def char_counter(text, c):
+  '''returns the number of times we found c in text'''
+
+  # this cannot be empty
+  pass
+```
+
+On to live coding session
+
+
+---
+
+## A version with types
+
+Expliciting data types helps in catching coding errors as soon as possible
+
+```python
+def char_counter(text: str, c: chr) -> int:
+  '''returns the number of times we found c in text'''
+
+  # this cannot be empty
+  pass
+```
+
+
+---
+
+## Nesting
+
+The  __return__  value of a f. could be the  __input parameter__  to another
+
+![](./imgs/nesting.png)
+
+```python
+def square(x):
+  return x**2
+
+def average_of_three(x, y, z):
+  return (x+y+z)/3
+
+print(average_of_three(square(10), square(20), square(30)))
+```
+
+
+---
+
+## `void` functions
+
+Functions may *not* return a value 
+
+```python
+def greet(lang):
+
+  if lang == 'es':
+    print('Hola')
+
+  elif lang == 'fr':
+    print('Bonjour')
+
+  else:
+    print('Hello')
+
+greet('es')
+```
+
+---
+
+
+## Further observations
+
+An *argument* is what the caller code sends to the function, e.g., `'es'` in the example
+
+A *parameter* is the local (to the function) given value, e.g., `lang` in the example
+
+Remember: functions are executed in a container and only *see* their parameters, not the variables and values of the calling code
+
+
+# Quizzes
+
+
+---
+
+## Quiz 1/4
+
+What is the default return value for a function that does not return any value explicitly?
+
+- `None`
+-  `int`
+- `null`
+- `str`
+
+
+---
+
+## Quiz 2/4!
+
+Which of the following items are present in the function header?
+
+- function name
+- function name and parameter list
+- parameter list
+- return value
+
+
+---
+
+## Quiz 3/4!
+
+Which of the following keywords marks the beginning of the function block?
+
+- `fun`
+- `define`
+- `def`
+- `function`
+
+
+---
+
+## Quiz 4/4!
+
+Which of the following function definition does not return any value?
+
+- print all integers from 1 to 100.
+
+- return a random integer from 1 to 100.
+
+- check whether the current second is an integer from 1 to 100.
+
+- convert an uppercase letter to lowercase.
+
+
+---
+
+#### Quiz answers!
+
+What is the default return value ...?
+
+- None
+
+Which ... present in the function header?
+
+- function name and parameter list
+
+Which ... marks the beginning of the function block?
+
+- `def`
+
+Which ... does not return any value?
+
+- print all integers from 1 to 100
