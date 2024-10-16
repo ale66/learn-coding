@@ -342,7 +342,7 @@ Get the VS Code extension:
 
 [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 
-(experimental) Sign in with your unimit.it account as if it were Microsoft
+(experimental) Sign in with your uni account as if it were Microsoft
 
 create and share tokens to work on the same file (via third-party hosting)
 

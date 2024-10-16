@@ -1,0 +1,466 @@
+---
+title: 'Learn Coding'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+    mermaid:
+      theme: forest
+      fontSize: 12
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+# Lists and their practical limitations
+
+
+---
+
+## So far
+
+:::: columns
+
+::: {.column width="70%"}
+While they admit arbitrary members, lists are best understood as iterables of homogeneous values
+:::
+
+::: {.column width="30%"}
+![](./imgs/pringles.jpg)
+:::
+
+::::
+
+
+---
+
+## Nested lists
+
+Represent multi-dimensional data
+
+The meaning of data and the objective of the code guide the organization in lists and sublists
+
+Example: weekend temperatures in Naples (from Thur. to Sun.)
+
+```python
+my2Dlist = [[18, 22, 20, 26], [26, 27, 28, 21], [18, 16, 21, 20]]
+```
+
+---
+
+as with lists of strings, by simple nesting of indices we can access specific data points
+
+Temperature on the first Thursday of October?
+
+```python
+print(my2Dlist[0][0])
+```
+
+
+---
+
+```{python}
+my2Dlist = [[18, 22, 20, 26], [26, 27, 28, 21], [18, 16, 21, 20]]
+```
+
+Average temperature on Thursday in October?
+
+. . .
+
+```{python}
+accumulator = 0
+count = 0
+
+for weekend in my2Dlist:
+  accumulator += weekend[0]
+  count += 1
+
+if count > 0:
+  average_temp_thursday = accumulator / count
+else: 
+  # avoid 0 as it is a valid average temp.
+  average_temp_thursday = NaN
+```
+
+
+---
+
+## Work with nested lists
+
+Textual data sets may also be organized in 2-d lists
+
+```python
+my_writers = [
+              ['Dickens', 1812],
+              ['King', 1947],
+              ['J.K. Rowling', 1965],
+              ['Christie', 1890] 
+] 
+
+for row in my_writers:
+      print(row)
+```
+
+Here a clear semantic structure remains *latent* within the Python variables
+
+
+---
+
+Print authors only:
+
+```python
+for row in my_writers:
+  print(row[0])
+```
+
+Print authors and they their year of birth?
+
+. . .
+
+```python
+for row in my_writers:
+  for element in row:
+      print(element)
+```
+
+
+---
+
+## Observations
+
+To extract the needed data we need to know something about their logical organization: the data structure
+
+- each element is a weekend, starting Thursday
+
+A fixed structure is required for instructions to work:
+
+- each pair is author followed by year
+
+A more flexible data structure is needed
+
+
+# Dictionaries
+
+
+---
+
+## The non-list
+
+
+:::: columns
+
+::: {.column width="70%"}
+An unsorted `bag` of values, each with its own label, called ``key``.
+
+```python
+my_data = {'author': 'Agatha Christie', 
+            'nickname': 'Mary Westmacott', 
+            'year_of_birth': 1890
+          }
+```
+:::
+
+::: {.column width="30%"}
+![](./imgs/purse.jpg)
+:::
+
+::::
+
+
+---
+
+## Properties
+
+A dictionary is a collection of ``key:value`` pairs that is 
+
+- unordered
+- changeable, and
+- indexed 
+
+__Dictionaries are Python most powerful data structure__
+
+
+---
+
+## Extensibility
+
+The more we have, the more we can put
+
+```python
+my_writers = [
+  {'author':'Dickens', 'year_of_birth':1812},
+  {'author':'King', 'year_of_birth':1947},
+  {'author':'J.K. Rowling', 'year_of_birth':1965},
+  {'author':'Agatha Christie',  'nickname':'Mary Westmacott', 'year_of_birth':1890}
+]
+```
+
+
+---
+
+## Accessing items
+
+```python
+my_data = {'author': 'Agatha Christie', 
+          'nickname': 'Mary Westmacott', 
+          'year_of_birth': 1890
+}
+
+print(my_data['author'])
+```
+
+. . . 
+
+```python
+NOW = 2024
+
+delta = NOW - my_data['year_of_birth']
+
+print(f{{my_data['author']} was born {delta} years ago.})
+```
+
+
+---
+
+## Amending values
+
+```python
+my_data['year_of_birth'] = 2019
+
+print(my_data['year_of_birth'])
+```
+
+. . .
+
+```python
+king = my_writers[1]
+
+print(king['author'])
+
+king['author'] = 'Stephen King'
+```
+
+We have more information but ``my_writers`` is unchanged
+
+---
+
+## Combining indices
+
+```python
+my_writers[1]['author'] = 'Stephen King'
+
+print(my_writers)
+
+[{'author':'Dickens', 'year_of_birth':1812}, {'author':'Stephen King', 'year_of_birth':1947}, {'author':'J.K. Rowling', 'year_of_birth':1965}, {'author':'Agatha Christie',  'nickname':'Mary Westmacott', 'year_of_birth':1890}]
+```
+
+
+---
+
+## Iteration
+
+As the data structure is completely arbitrary, simple indexing (``i=0,1, ...``) does not work anymore.
+
+A lazy iterable, similar to ``range``, will serve the ``key:value`` pairs on request
+
+. . .
+
+```python
+# always key first
+for key, value in my_data.items():
+  print(key, value) 
+```
+
+```text
+author Agatha Christie 
+nickname Mary Westmacott 
+year_of_birth 1890
+```
+
+---
+
+## The ``key`` and ``value`` variable names
+
+```python
+for key in my_data.items():
+  print(key) 
+```
+
+```text
+author
+nickname
+year_of_birth
+```
+
+. . .
+
+```python
+for value in my_data.items():
+  print(key) 
+```
+
+```text
+Agatha Christie 
+Mary Westmacott 
+1890
+```
+
+# Lists vs Dictionaries
+
+![](./imgs/list-vs-dict.jpg)
+
+
+---
+
+## Grow a list
+
+```python
+mylist = []
+
+mylist.append(10)
+
+mylist.append(20)
+
+print(alist)
+```
+
+```text
+[10, 20]
+```
+
+
+```python
+print(mylist[0])
+
+10
+```
+
+---
+
+## Grow a dictionary
+
+```python
+mydict = {}
+
+mydict['name'] = 'Tom'
+
+mydict['age'] = 35
+
+print(ad)
+```
+
+```text
+{'name':'Tom', 'age':35}
+```
+
+```python
+print(mydict['name'])
+
+Tom
+```
+
+
+---
+
+## one key, many values
+
+![](./imgs/1-key-many-vals.png)
+
+```python
+my_python = {'Student_ID':['S1','S2'], 
+            'Student_Name':['John', 'Mary']
+}
+```
+
+
+---
+
+## Recap: common operations
+
+```python
+# create an empty dictionary
+a_dict = {}
+
+# create a new dict with 3 items
+my_dict = {'one':1, 'two':2, 'three':3}
+
+# access an element
+print(my_dict['two'])
+```
+
+Data updates:
+
+```python
+# add an entry
+my_dict['four'] = 4
+
+# change an entry
+my_dict['one'] = 'uno'
+
+# count items
+howmany = len(my_dict)
+```
+
+
+---
+
+## ``keys`` and ``values``
+
+
+```python
+# iterate over keys
+for item in my_dict.keys():
+  print (item)
+
+# iterate over values
+for item in my_dict.values():
+  print(item)
+```
+
+Inspect the data structure:
+
+```python
+# list out the keys
+my_dict.keys()
+
+# list out the values
+my_dict.values()
+```
+
+# Quiz!
+
+---
+
+:::: columns
+
+::: {.column width="70%"}
+Create a dictionary out of the following data:
+
+![](./imgs/quiz-data.png)
+
+Pull up VS Code and test a solution
+:::
+
+::: {.column width="30%"}
+![](./imgs/timer.gif)
+:::
+
+::::
+
+
+## Solution
+
+Create a dictionary out of the following data:
+
+![](./imgs/quiz-data.png)
+
+```python
+my_data = {'Name':['Andrea', 'Tom'], 
+          'Age':[32,35], 
+          'year':['London', 'Brighton']
+}
+```

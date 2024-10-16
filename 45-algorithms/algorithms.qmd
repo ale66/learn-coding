@@ -180,9 +180,10 @@ Fact: the number of basic computer steps depends on the number n of metals with 
 This problem is generally scalable to the web
 
 
----
-
 # Intractable problems
+
+
+---
 
 Problems for which no scalable algorithm is known:
 
@@ -228,6 +229,24 @@ The sum of all taken weights C: $\sum_{i=1}^n w_i \sigma(i) \leq C$
 
 The algorithm seen above stops working: the computed solution can be very suboptimal
 
+| Metal     | Weight | Value      |
+|:----------|-------:|-----------:|
+| Ring      | 10     |         60 |
+| Earrings  | 20     |        100 |
+| Necklace  | 30     |        120 |
+
+C = 50
+
+
+---
+
+![](./imgs/rivest-knapsack01.png)
+
+The returend solution (1/1/0) is not even second-best
+
+best solution is 0/1/1 and 1/0/1 is second-best
+
+
 ---
 
 ## Knapsack 0-1 is intractable
@@ -269,6 +288,24 @@ Let's assume that there are no repeated values
 
 A = [11, 6, 8, 2, 22, 16]
 
+sort(A) = [?, ?, ?, ?, ?, ?]
+
+$\pi(1) = ?$
+
+$\pi(2) = ?$
+
+$\pi(3) = ?$
+
+$\pi(4) = ?$
+
+...
+
+---
+
+Let's assume that there are no repeated values
+
+A = [11, 6, 8, 2, 22, 16]
+
 sort(A) = [2, 6, 8, 11, 16, 22]
 
 $\pi(1) = 4$
@@ -291,9 +328,9 @@ Solvable within $Kn\log_2 n$ steps
 ![](./imgs/rivest-sorting-algo.png)
 
 
-Modern algorithms are even quicker when A is already half-sorted
+Even quicker when A is already half-sorted
 
-Python runs ``powersort()`` an optimised version of [TimSort](https://en.wikipedia.org/wiki/Timsort)
+Python runs ``powersort()``, an optimised version of [TimSort](https://en.wikipedia.org/wiki/Timsort)
 
 ```python
 a = [11, 6, 8, 2, 22, 16]

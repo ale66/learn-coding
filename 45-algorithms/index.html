@@ -738,13 +738,14 @@ ale66
 <li><p>up to <span class="math inline">\(n\)</span> step to select the bars and decrease the residual capacity</p></li>
 </ul>
 <p>This problem is generally scalable to the web</p>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="intractable-problems" class="title-slide slide level1 center">
 <h1>Intractable problems</h1>
+
+</section>
+<section class="slide level2">
+
 <p>Problems for which no scalable algorithm is known:</p>
 <p>Their cost (no. of operations to complete) is expressed as <span class="math inline">\(K2^n\)</span>: exponential</p>
 <p>Only approximate solutions exist that can find a <em>good enough</em> solution with a low-growth cost function</p>
@@ -769,6 +770,39 @@ ale66
 <section id="surprise-with-knapsack-0-1" class="slide level2">
 <h2>Surprise with Knapsack 0-1</h2>
 <p>The algorithm seen above stops working: the computed solution can be very suboptimal</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metal</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ring</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Earrings</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Necklace</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">120</td>
+</tr>
+</tbody>
+</table>
+<p>C = 50</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="./imgs/rivest-knapsack01.png" class="r-stretch"><p>The returend solution (1/1/0) is not even second-best</p>
+<p>best solution is 0/1/1 and 1/0/1 is second-best</p>
 </section>
 <section id="knapsack-0-1-is-intractable" class="slide level2">
 <h2>Knapsack 0-1 is intractable</h2>
@@ -795,6 +829,17 @@ ale66
 
 <p>Let’s assume that there are no repeated values</p>
 <p>A = [11, 6, 8, 2, 22, 16]</p>
+<p>sort(A) = [?, ?, ?, ?, ?, ?]</p>
+<p><span class="math inline">\(\pi(1) = ?\)</span></p>
+<p><span class="math inline">\(\pi(2) = ?\)</span></p>
+<p><span class="math inline">\(\pi(3) = ?\)</span></p>
+<p><span class="math inline">\(\pi(4) = ?\)</span></p>
+<p>…</p>
+</section>
+<section class="slide level2">
+
+<p>Let’s assume that there are no repeated values</p>
+<p>A = [11, 6, 8, 2, 22, 16]</p>
 <p>sort(A) = [2, 6, 8, 11, 16, 22]</p>
 <p><span class="math inline">\(\pi(1) = 4\)</span></p>
 <p><span class="math inline">\(\pi(2) = 2\)</span></p>
@@ -806,8 +851,8 @@ ale66
 <h2>Good news about sorting</h2>
 <p>Solvable within <span class="math inline">\(Kn\log_2 n\)</span> steps</p>
 
-<img data-src="./imgs/rivest-sorting-algo.png" class="r-stretch"><p>Modern algorithms are even quicker when A is already half-sorted</p>
-<p>Python runs <code>powersort()</code> an optimised version of <a href="https://en.wikipedia.org/wiki/Timsort">TimSort</a></p>
+<img data-src="./imgs/rivest-sorting-algo.png" class="r-stretch"><p>Even quicker when A is already half-sorted</p>
+<p>Python runs <code>powersort()</code>, an optimised version of <a href="https://en.wikipedia.org/wiki/Timsort">TimSort</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>a <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">22</span>, <span class="dv">16</span>]</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>a.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
