@@ -363,6 +363,8 @@ print(mydict['name'])
 Tom
 ```
 
+Disadvantage: dictionaries are inherently unordered and no direct solution exists to present their content in sorted fashion
+
 
 ---
 
@@ -437,7 +439,7 @@ my_dict.values()
 
 :::: columns
 
-::: {.column width="70%"}
+::: {.column width="80%"}
 Create a dictionary out of the following data:
 
 ![](./imgs/quiz-data.png)
@@ -445,7 +447,7 @@ Create a dictionary out of the following data:
 Pull up VS Code and test a solution
 :::
 
-::: {.column width="30%"}
+::: {.column width="20%"}
 ![](./imgs/timer.gif)
 :::
 
