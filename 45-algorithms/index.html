@@ -856,6 +856,71 @@ ale66
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>a <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">22</span>, <span class="dv">16</span>]</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>a.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="searching" class="title-slide slide level1 center">
+<h1>Searching</h1>
+
+</section>
+<section class="slide level2">
+
+<p><strong>Istance:</strong></p>
+<ul>
+<li><p>a collection of <em>n</em> integers <span class="math inline">\(A = a_1, a_2,\dots a_n\)</span></p></li>
+<li><p>an integer <span class="math inline">\(k\)</span></p></li>
+</ul>
+<p><strong>Question:</strong> does k belong to the collection?</p>
+</section>
+<section id="observations" class="slide level2">
+<h2>Observations</h2>
+<p>It can be generalised to data types that are ordered (strings have alphanumerical ordering)</p>
+<p>There is a simple algorithm that will answer after at most <span class="math inline">\(n\)</span> comparisons</p>
+<p>this is a very basic problem which is used elsewhere: it is important that the implementation is quick and well-tested</p>
+</section>
+<section id="case-study-ego-networks" class="slide level2">
+<h2>Case study: Ego networks</h2>
+<ul>
+<li>while less than N profiles collected
+<ul>
+<li><p>generate random FB ids (a fixed-lenght, 32-digits integer)</p></li>
+<li><p>test the random id: does it land on an open FB profile?</p>
+<ul>
+<li>yes: expand the visit to the neighborood</li>
+<li>no: go back to generating random ids</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Cost: up to <span class="math inline">\(n\)</span> comparisons</p>
+</section>
+<section id="simple-solution" class="slide level2">
+<h2>Simple solution</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> search(a, k):</span>
+<span id="cb2-2"><a href=""></a>  <span class="co">'''Vanilla search'''</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>  found <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-5"><a href=""></a>  n <span class="op">=</span> <span class="bu">len</span>(a)</span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a>  <span class="cf">for</span> elem <span class="kw">in</span> a:</span>
+<span id="cb2-8"><a href=""></a>    <span class="cf">if</span> k <span class="op">==</span> elem:</span>
+<span id="cb2-9"><a href=""></a>      found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>  <span class="cf">return</span> found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>Apply <code>while</code> instead of <code>for</code> to stop operations as soon as the key value is found</p>
+</section>
+<section id="ordered-sequences" class="slide level2">
+<h2>Ordered sequences</h2>
+<p>Special case: the input sequence A is already sorted, either in increasing or decreasing</p>
+<p>a much more efficient algorithm is available</p>
+<p>Binary_search, which is correct only for sorted sequences, will take <em>at most</em> <span class="math inline">\(\log_2 n\)</span> comparisons before we stop</p>
+<div class="line-block">n | Vanilla | BS |</div>
+<p>|——–====–:|————–:|——-:| | 1,000 | 1,000 | 10 | | 1,000,000 | 1,000,000 | 20 | | 1,000,000,000 | 1,000,000,000 | 30 |</p>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>

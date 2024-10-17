@@ -338,5 +338,90 @@ a = [11, 6, 8, 2, 22, 16]
 a.sort()
 ```
 
+# Searching
 
 
+---
+
+__Istance:__ 
+
+- a collection of *n* integers $A = a_1, a_2,\dots a_n$
+
+- an integer $k$
+
+__Question:__ does k belong to the collection?
+
+
+---
+
+## Observations
+
+It can be generalised to data types that are ordered (strings have alphanumerical ordering)
+
+There is a simple algorithm that will answer after at most $n$ comparisons
+
+this is a very basic problem which is used elsewhere: it is important that the implementation is quick and well-tested
+
+---
+
+## Case study: Ego networks
+
+- while less than N profiles collected
+  - generate random FB ids (a fixed-lenght, 32-digits integer)
+
+  - test the random id: does it land on an open FB profile?
+    - yes: expand the visit to the neighborood
+    - no: go back to generating random ids
+
+Cost: up to $n$ comparisons
+
+
+---
+
+## Simple solution
+
+
+```python
+def search(a, k):
+  '''Vanilla search'''
+
+  found = False
+  n = len(a)
+
+  for elem in a:
+    if k == elem:
+      found = True
+
+  return found
+```
+
+---
+
+## Exercise
+
+Apply `while` instead of `for` to stop operations as soon as the key value is found
+
+
+---
+
+## Ordered sequences
+
+Special case: the input sequence A is already sorted, either in increasing or decreasing
+
+a much more efficient algorithm is available
+
+Binary_search, which is correct only for sorted sequences, will take *at most* $\log_2 n$ comparisons before we stop
+
+| n             | Vanilla       | BS     |
+|--------====--:|--------------:|-------:|
+| 1,000         | 1,000         |     10 |
+| 1,000,000     | 1,000,000     |     20 |
+| 1,000,000,000 | 1,000,000,000 |     30 |
+
+
+---
+
+```python
+
+
+```
