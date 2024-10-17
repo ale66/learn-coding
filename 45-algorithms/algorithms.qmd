@@ -413,7 +413,7 @@ a much more efficient algorithm is available
 Binary_search, which is correct only for sorted sequences, will take *at most* $\log_2 n$ comparisons before we stop
 
 | n             | Vanilla       | BS     |
-|--------====--:|--------------:|-------:|
+|--------------:|--------------:|-------:|
 | 1,000         | 1,000         |     10 |
 | 1,000,000     | 1,000,000     |     20 |
 | 1,000,000,000 | 1,000,000,000 |     30 |
@@ -422,6 +422,32 @@ Binary_search, which is correct only for sorted sequences, will take *at most* $
 ---
 
 ```python
+def bs(a, k):
+  '''Binary search'''
 
+  found = False
+  n = len(a)
 
+  # the boundaries of our search
+  l = 0
+  r = n
+
+  mid = int((r-l)/2)
+```
+
+. . .
+
+```python
+  while (found == False) and (l<r): 
+
+    mid = int((r-l)/2)
+
+    if k < a[mid]:
+      r = mid
+    elif k > a[mid]:
+      l = mid
+    else:
+      found = True
+
+  return found
 ```

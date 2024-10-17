@@ -915,15 +915,63 @@ ale66
 <p>Special case: the input sequence A is already sorted, either in increasing or decreasing</p>
 <p>a much more efficient algorithm is available</p>
 <p>Binary_search, which is correct only for sorted sequences, will take <em>at most</em> <span class="math inline">\(\log_2 n\)</span> comparisons before we stop</p>
-<div class="line-block">n | Vanilla | BS |</div>
-<p>|——–====–:|————–:|——-:| | 1,000 | 1,000 | 10 | | 1,000,000 | 1,000,000 | 20 | | 1,000,000,000 | 1,000,000,000 | 30 |</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Vanilla</th>
+<th style="text-align: right;">BS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1,000</td>
+<td style="text-align: right;">1,000</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1,000,000</td>
+<td style="text-align: right;">1,000,000</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1,000,000,000</td>
+<td style="text-align: right;">1,000,000,000</td>
+<td style="text-align: right;">30</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">def</span> bs(a, k):</span>
+<span id="cb3-2"><a href=""></a>  <span class="co">'''Binary search'''</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a>  found <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb3-5"><a href=""></a>  n <span class="op">=</span> <span class="bu">len</span>(a)</span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a>  <span class="co"># the boundaries of our search</span></span>
+<span id="cb3-8"><a href=""></a>  l <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-9"><a href=""></a>  r <span class="op">=</span> n</span>
+<span id="cb3-10"><a href=""></a></span>
+<span id="cb3-11"><a href=""></a>  mid <span class="op">=</span> <span class="bu">int</span>((r<span class="op">-</span>l)<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>  <span class="cf">while</span> (found <span class="op">==</span> <span class="va">False</span>) <span class="kw">and</span> (l<span class="op">&lt;</span>r): </span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a>    mid <span class="op">=</span> <span class="bu">int</span>((r<span class="op">-</span>l)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a>    <span class="cf">if</span> k <span class="op">&lt;</span> a[mid]:</span>
+<span id="cb4-6"><a href=""></a>      r <span class="op">=</span> mid</span>
+<span id="cb4-7"><a href=""></a>    <span class="cf">elif</span> k <span class="op">&gt;</span> a[mid]:</span>
+<span id="cb4-8"><a href=""></a>      l <span class="op">=</span> mid</span>
+<span id="cb4-9"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb4-10"><a href=""></a>      found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-11"><a href=""></a></span>
+<span id="cb4-12"><a href=""></a>  <span class="cf">return</span> found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>
+</div>
 </div>
 </div>
 </section></section>
