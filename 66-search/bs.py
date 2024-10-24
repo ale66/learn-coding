@@ -6,6 +6,7 @@ def bs(a, k):
     '''Simple Binary search implementation: a is a list of integers, k is a search key integer'''
 
     found = False
+
     n = len(a)
 
     # the boundaries of our search
@@ -18,7 +19,7 @@ def bs(a, k):
         
         '''print('New iteration!')
         print(f'l={l}, mid={mid}, r={r} and the segment now is {a[l:r]}')
-        _ = input('press enter to continue')'''
+        _ = input('Press enter to continue!')'''
 
         if k < a[mid]:
             r = mid 
@@ -32,10 +33,13 @@ def bs(a, k):
 
     return found
 
-# Testing!
-# comment out the printing part above before running
+# Verification: run the case seen in class:
+print(bs(mylist, 15))
 
-'''
+# Testing!
+# comment out the 'step-by-step' part above before running
+
+
 print(mylist)
 
 print('Testing positive cases: values that are certainly there')
@@ -45,4 +49,6 @@ for v in mylist:
 print('Testing negative cases: values that are certainly not there')
 for v in mylist:
     print(f'testing {v+1}: {bs(mylist, v+1)}')
-'''
+
+for bad_value in [-9, 0, 1, 100, 10000000]:
+    print(f'testing {bad_value}: {bs(mylist, bad_value)}')

@@ -433,54 +433,286 @@ ale66
 <section id="further-observations" class="slide level2">
 <h2>Further observations</h2>
 <ul>
-<li>Python run-time data structures are <em>impermanent</em></li>
-<li>data is made permanent con computer devices via the file system</li>
-<li>specific <em>formats</em> support memorization and exchange</li>
+<li><p>Python run-time data structures are <em>impermanent</em></p></li>
+<li><p>data is made permanent con computer devices via the file system</p></li>
+<li><p>specific <em>formats</em> support memorization and exchange</p></li>
 </ul>
 </section>
 <section id="files-1" class="slide level2">
 <h2>Files</h2>
 <p>A permanent entry into the file system: <code>pg100.txt</code> or <code>C:/Users/aless/git/learn-code/60-files/pg100.txt</code></p>
 <p>Type is unspecified: a sequence of characters. Even for AV files.</p>
-<p>The Python <code>with file:</code> instr. - copies the content to the (volatile) work memory and - associates it with a variable</p>
+<p>The Python <code>with file:</code> instruction</p>
+<ul>
+<li><p>copies the content to the (volatile) work memory and</p></li>
+<li><p>associates it with a variable</p></li>
+</ul>
 <p>We iterate on the variable to access data, following our model of what the data truly represents</p>
 </section>
-<section class="slide level2">
-
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>MYFILE <span class="op">=</span> <span class="st">'./data/pg100.txt'</span></span>
+<section id="text-files" class="slide level2">
+<h2>Text files</h2>
+<p>A natural organization in <em>rows:</em> sequences terminated by a <code>enter</code> character: <code>\n</code></p>
+<p>Also <code>space</code>, <code></code>, and <code>tab</code> characters are relevant: <code>\t</code></p>
+<p>By default, reading a file returns a list of strings.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>MYFILE <span class="op">=</span> <span class="st">'./data/incipt.txt'</span></span>
 <span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> mytxtfile:</span>
-<span id="cb3-4"><a href=""></a>  <span class="cf">continue</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> f:</span>
+<span id="cb3-4"><a href=""></a>  mytext <span class="op">=</span> f.read()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>    <span class="cf">with</span> <span class="bu">open</span>(myfile) <span class="im">as</span> mytextfile:</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a>        readtext <span class="op">=</span> csv.reader(mytextfile, delimiter<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a>        <span class="cf">for</span> lines <span class="kw">in</span> readtext:</span>
-<span id="cb4-6"><a href=""></a>          <span class="bu">print</span>(lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> f:</span>
+<span id="cb4-2"><a href=""></a>    mytext <span class="op">=</span> f.read()</span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="bu">print</span>(mytext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>File operation is confined to the block under <code>with</code></p>
+<p><code>f</code> represents the file itself in our code, in a way similar to iterators like <code>range(n)</code></p>
+<p><code>f.read()</code> <strong>copies</strong> the whole text from the computer permanent memory to our <code>mytext</code> variable</p>
+<p>Changes to <code>mytext</code> do not reflect on the file (see below)</p>
+</section>
+<section id="character-oriented" class="slide level2">
+<h2>Character-oriented</h2>
+<p>We receive a string and we parse it at the level of characters:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> f:</span>
+<span id="cb5-2"><a href=""></a>    mytext <span class="op">=</span> f.read()</span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="cf">for</span> c <span class="kw">in</span> mytext:</span>
+<span id="cb5-5"><a href=""></a>  <span class="bu">print</span>(C.upper())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="line-oriented" class="slide level2">
+<h2>Line-oriented</h2>
+<p>The <code>\n</code> are used as separators to create a list of strings.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> f:</span>
+<span id="cb6-2"><a href=""></a>    mytext <span class="op">=</span> f.readlines()</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="cf">for</span> line <span class="kw">in</span> mytext:</span>
+<span id="cb6-5"><a href=""></a>  <span class="bu">print</span>(line)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
-<section id="beyond-text" class="title-slide slide level1 center">
-<h1>Beyond text</h1>
+<section id="iterative-file-access" class="title-slide slide level1 center">
+<h1>Iterative file access</h1>
 
 </section>
 <section class="slide level2">
 
-<p>A special function reads <em>Comma-separated Values (CSV)</em> files</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>MYFILE <span class="op">=</span> <span class="st">'./data/biostats.csv'</span></span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> mycsvfile:</span>
-<span id="cb5-4"><a href=""></a>        readCSV <span class="op">=</span> csv.reader(mycsvfile, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb5-5"><a href=""></a></span>
-<span id="cb5-6"><a href=""></a>        <span class="cf">for</span> row <span class="kw">in</span> readCSV:</span>
-<span id="cb5-7"><a href=""></a>            <span class="bu">print</span>(row)</span>
-<span id="cb5-8"><a href=""></a></span>
-<span id="cb5-9"><a href=""></a>        <span class="co"># First line is the header      </span></span>
-<span id="cb5-10"><a href=""></a>        line <span class="op">=</span> <span class="bu">next</span>(readCSV)</span>
-<span id="cb5-11"><a href=""></a>        <span class="bu">print</span>(line)</span>
-<span id="cb5-12"><a href=""></a>        <span class="co"># doesn't work as it is, why?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Handling large files, like <code>pg100.txt</code>, is better done by treating <code>f</code> as an iterator</p>
+<p>Example: read text file one line at a time (the default setup)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> f:</span>
+<span id="cb7-2"><a href=""></a>  <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb7-3"><a href=""></a>    <span class="bu">print</span>(line)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice how <code>print</code> adds an extra <code>\n</code> each time</p>
+</section></section>
+<section>
+<section id="writing-on-files" class="title-slide slide level1 center">
+<h1>Writing on files</h1>
+
+<img data-src="./imgs/memento.jpg" class="r-stretch"></section>
+<section class="slide level2">
+
+<p>To keep a permanent copy of our results we need to write them on a file</p>
+<p>Writing is more complex than reading:</p>
+<ul>
+<li><p>create a new file, write into it</p></li>
+<li><p>append new text at the bottom of an existing file</p></li>
+<li><p>overwrite an existing file with new material (irreversible)</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>By default, <code>open()</code> simply reads</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb8-2"><a href=""></a>  mytext <span class="op">=</span> f.read()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">parameter</th>
+<th style="text-align: left;">effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">r</td>
+<td style="text-align: left;">read</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">w</td>
+<td style="text-align: left;">overwrite</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">x</td>
+<td style="text-align: left;">create then write</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">a</td>
+<td style="text-align: left;">append to existing f.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="writing-files" class="slide level2">
+<h2>Writing files</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>FILE <span class="op">=</span> <span class="st">'test-writing.txt'</span></span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a>    <span class="cf">for</span> num <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb9-6"><a href=""></a>        f.write(num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>0123456789</p>
+<div class="fragment">
+<p>Printing is but writing into a special file which represents the output window</p>
+<p>Use the same format rules</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a>    <span class="cf">for</span> num <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb10-4"><a href=""></a>        f.write(<span class="ss">f'This is value </span><span class="sc">{</span>num<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="csvtsv" class="title-slide slide level1 center">
+<h1>CSV/TSV</h1>
+
+</section>
+<section class="slide level2">
+
+<p>A text file with extra assumptions on how data is organised</p>
+<p>Each line is a data point, described by an <em>interpretation structure</em> that is normally on the first line</p>
+<p>Let’s have another look at <code>biostats.csv</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>Name, Sex, Age, Height(in), Weight(lbs)</span>
+<span id="cb11-2"><a href=""></a>Alex, M, 41, 74, 170</span>
+<span id="cb11-3"><a href=""></a>Bert, M, 42, 68, 166</span>
+<span id="cb11-4"><a href=""></a>...</span>
+<span id="cb11-5"><a href=""></a>Ruth, F, 28, 65, 131</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Line 1 supplies the <em>keys</em> for a dictionary while further lines supply the values</p>
+<p><code>,</code> or <code>\t</code> separate values while <code>\n</code> separates datapoints (or <em>records</em>)</p>
+<p>Often <code>"</code>s are used for text, e.g., <code>"Jean Jacques"</code></p>
+</section>
+<section class="slide level2">
+
+<p>Python supports CVS files via a extra <em>module</em> (details later)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> csv</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a>    <span class="cf">with</span> <span class="bu">open</span>(FILE) <span class="im">as</span> f:</span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a>        lines <span class="op">=</span> csv.reader(f, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a>        <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb12-8"><a href=""></a>          <span class="bu">print</span>(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<p>The first line is special</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># get the first line out</span></span>
+<span id="cb13-2"><a href=""></a>header <span class="op">=</span> <span class="bu">next</span>(lines)</span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb13-5"><a href=""></a>  <span class="bu">print</span>(<span class="ss">f'Patient: </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="from-csv-to-dictionary" class="slide level2">
+<h2>From CSV to Dictionary</h2>
+<p>Function <code>DictReader</code> uses the first line to guide the creation of dictionaries</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE) <span class="im">as</span> f:</span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a>    <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb14-6"><a href=""></a>      <span class="bu">print</span>(<span class="ss">f'Patient: </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A list of key names can also be supplied, to facilitate data migration (see code)</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  fieldnames<span class="op">=</span>mapping_es, delimiter<span class="op">=</span><span class="st">','</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="discussion" class="slide level2">
+<h2>Discussion</h2>
+<p>CSV/TSV make exchanging data fast and reliable</p>
+<p>However, they assume that for each datapoint we a <em>fixed</em> description that will fill the exact number of colums</p>
+<p>Lack of data implies filling a <em>placeholder</em> or <code>null</code> value</p>
+<p>Bert is NOT 68 years old</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href=""></a>Name, Sex, Age, Height(in), Weight(lbs)</span>
+<span id="cb16-2"><a href=""></a>Alex, M, 41, 74, 170</span>
+<span id="cb16-3"><a href=""></a>Bert, M, NULL, 68, 166</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But what if we know Alex’s shoe size and Bert’s lung capacity (and not vice versa)</p>
+</section></section>
+<section>
+<section id="json" class="title-slide slide level1 center">
+<h1>JSON</h1>
+
+</section>
+<section class="slide level2">
+
+<h4 id="from-csv-to-json-by-example">From CSV to JSON by example</h4>
+<p>JSON is essentially <em>a list of nested Python dictionaries.</em></p>
+<p>Different levels of details are easily accomodated</p>
+<p>so do data thas is naturally non-atomic, e.g., <code>passed_exams</code></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb17-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb17-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
+<span id="cb17-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb17-4"><a href=""></a>        <span class="dt">"energy"</span><span class="fu">:</span> <span class="dv">51</span><span class="fu">,</span></span>
+<span id="cb17-5"><a href=""></a>        <span class="dt">"environmental"</span><span class="fu">:</span> <span class="fl">32.5378277861242</span><span class="fu">,</span></span>
+<span id="cb17-6"><a href=""></a>        <span class="dt">"management"</span><span class="fu">:</span> <span class="fl">15.73553116878063</span><span class="fu">,</span></span>
+<span id="cb17-7"><a href=""></a>        <span class="dt">"party"</span><span class="fu">:</span> <span class="fl">35.37153650105044</span><span class="fu">,</span></span>
+<span id="cb17-8"><a href=""></a>        <span class="dt">"buildings"</span><span class="fu">:</span> <span class="fl">1.1823215567939547</span><span class="fu">,</span></span>
+<span id="cb17-9"><a href=""></a>        <span class="dt">"sustainability"</span><span class="fu">:</span> <span class="fl">29.487406431175053</span></span>
+<span id="cb17-10"><a href=""></a>    <span class="fu">},</span></span>
+<span id="cb17-11"><a href=""></a>    <span class="er">//</span> <span class="er">more</span> <span class="er">and</span> <span class="er">more...</span></span>
+<span id="cb17-12"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb18-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb18-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
+<span id="cb18-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb18-4"><a href=""></a>    <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{},</span> </span>
+<span id="cb18-5"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb19-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb19-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
+<span id="cb19-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb19-4"><a href=""></a>    <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb19-5"><a href=""></a>      <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"energy"</span><span class="fu">:</span> <span class="dv">89</span><span class="fu">,</span></span>
+<span id="cb19-6"><a href=""></a>      <span class="dt">"environmental"</span><span class="fu">:</span> <span class="fl">34.57144202275696</span><span class="fu">,</span></span>
+<span id="cb19-7"><a href=""></a>      <span class="dt">"management"</span><span class="fu">:</span> <span class="fl">7.867765584390315</span><span class="fu">,</span></span>
+<span id="cb19-8"><a href=""></a>      <span class="dt">"party"</span><span class="fu">:</span> <span class="fl">7.737523609604784</span><span class="fu">,</span></span>
+<span id="cb19-9"><a href=""></a>      <span class="dt">"buildings"</span><span class="fu">:</span> <span class="fl">141.87858681527456</span><span class="fu">,</span></span>
+<span id="cb19-10"><a href=""></a>      <span class="dt">"sustainability"</span><span class="fu">:</span> <span class="fl">39.655477614338864</span><span class="fu">},</span></span>
+<span id="cb19-11"><a href=""></a>    <span class="fu">}</span></span>
+<span id="cb19-12"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="non-text-files" class="slide level2">
+<h2>Non-text files</h2>
+<p>By default, <code>open()</code> simply reads <strong>text files</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE, <span class="st">'tr'</span>) <span class="im">as</span> f:</span>
+<span id="cb20-2"><a href=""></a>  mytext <span class="op">=</span> f.read()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">parameter</th>
+<th style="text-align: left;">effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">t</td>
+<td style="text-align: left;">text</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">w</td>
+<td style="text-align: left;">binary</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">+</td>
+<td style="text-align: left;">double read/write use</td>
+</tr>
+</tbody>
+</table>
+<p>Images, sound and video are treated as binary</p>
+</section>
+<section id="data-cleaning-and-data-wrangling" class="slide level2">
+<h2><em>Data Cleaning</em> and <em>Data Wrangling</em></h2>
+<p>An informal introduction through a <a href="https://github.com/MillieClare/mastersProject/blob/master/.ipynb_checkpoints/Normalisation%20investigation-checkpoint.ipynb">real project</a> on <em>Green finance</em>: look at cells up to [5].</p>
+</section>
+<section id="challenge" class="slide level2">
+<h2>Challenge</h2>
+<p>Can you get fresh data from <a href="https://data.spectator.co.uk/category/energy">data.spectator.co.uk/category/energy</a> and diplay it?</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>
@@ -519,7 +751,7 @@ ale66
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"boardmarkerWidth":5},
+'chalkboard': {"buttons":true,"boardmarkerWidth":3},
 'smaller': false,
  
         // Display controls in the bottom right corner

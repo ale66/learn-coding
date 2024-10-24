@@ -7,7 +7,7 @@ format:
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 5
+      boardmarker-width: 3
 from: markdown+emoji
 execute:
   echo: true
@@ -53,7 +53,9 @@ my_data = [
 ## Further observations
 
 - Python run-time data structures are *impermanent*
+  
 - data is made permanent con computer devices via the file system
+
 - specific *formats* support memorization and exchange
 
 
@@ -65,8 +67,10 @@ A permanent entry into the file system: `pg100.txt` or `C:/Users/aless/git/learn
 
 Type is unspecified: a sequence of characters. Even for AV files.
 
-The Python `with file:` instr. 
+The Python `with file:` instruction
+
   - copies the content to the (volatile) work memory and 
+
   - associates it with a variable
 
 We iterate on the variable to access data, following our model of what the data truly represents
@@ -74,48 +78,332 @@ We iterate on the variable to access data, following our model of what the data 
 
 ---
 
-```python
-MYFILE = './data/pg100.txt'
+## Text files
 
-with open(MYFILE) as mytxtfile:
-  continue
+A natural organization in *rows:* sequences terminated by a `enter` character: `\n`
+
+Also `space`, ` `, and `tab` characters are relevant: `\t`
+
+By default, reading a file returns a list of strings.
+
+```python
+MYFILE = './data/incipt.txt'
+
+with open(MYFILE) as f:
+  mytext = f.read()
 ```
 
 
 ---
 
 ```python
-	with open(myfile) as mytextfile:
+with open(MYFILE) as f:
+    mytext = f.read()
 
-		readtext = csv.reader(mytextfile, delimiter='.')
-
-		for lines in readtext:
-		  print(lines)
+print(mytext)
 ```
 
+File operation is confined to the block under `with`
 
-# Beyond text
+`f` represents the file itself in our code, in a way similar to iterators like `range(n)`
+
+`f.read()` __copies__ the whole text from the computer permanent memory to our `mytext` variable
+
+Changes to `mytext` do not reflect on the file (see below) 
 
 
 ---
 
-A special function reads *Comma-separated Values (CSV)* files 
+## Character-oriented
+
+We receive a string and we parse it at the level of characters: 
+
+```python
+with open(MYFILE) as f:
+    mytext = f.read()
+
+for c in mytext:
+  print(C.upper())
+```
+
+
+---
+
+## Line-oriented
+
+The `\n` are used as separators to create a list of strings. 
+
+```python
+with open(MYFILE) as f:
+    mytext = f.readlines()
+
+for line in mytext:
+  print(line)
+```
+
+
+# Iterative file access
+
+---
+
+Handling large files, like `pg100.txt`, is better done by treating `f` as an iterator
+
+Example: read text file one line at a time (the default setup)
+
+```python
+with open(MYFILE) as f:
+  for line in f:
+    print(line)
+```
+
+Notice how `print` adds an extra `\n` each time
+
+
+# Writing on files
+
+![](./imgs/memento.jpg)
+
+---
+
+To keep a permanent copy of our results we need to write them on a file
+
+Writing is more complex than reading:
+
+- create a new file, write into it
+  
+- append new text at the bottom of an existing file
+
+- overwrite an existing file with new material (irreversible)
+
+
+---
+
+By default, `open()` simply reads
+
+```python
+with open(MYFILE, 'r') as f:
+  mytext = f.read()
+```
+
+| parameter | effect |
+|:---------:|:-------|
+| r         | read   |
+| w         | overwrite |
+| x         | create then write |
+| a         | append to existing f. |
+
+
+
+---
+
+## Writing files
+
+```python
+FILE = 'test-writing.txt'
+
+with open(FILE, 'w') as f:
+
+    for num in range(10):
+        f.write(num)
+```
+
+0123456789
+
+. . .
+
+Printing is but writing into a special file which represents the output window
+
+Use the same format rules
+
+```python
+with open(FILE, 'w') as f:
+
+    for num in range(10):
+        f.write(f'This is value {num}\n')
+```
+
+
+# CSV/TSV
+
+---
+
+A text file with extra assumptions on how data is organised
+
+Each line is a data point, described by an *interpretation structure* that is normally on the first line
+
+Let's have another look at `biostats.csv`
+
+```csv
+Name, Sex, Age, Height(in), Weight(lbs)
+Alex, M, 41, 74, 170
+Bert, M, 42, 68, 166
+...
+Ruth, F, 28, 65, 131
+```
+
+Line 1 supplies the *keys* for a dictionary while further lines supply the values
+
+`,` or `\t` separate values while `\n` separates datapoints (or *records*)
+
+Often `"`s are used for text, e.g., `"Jean Jacques"`
+
+
+---
+
+Python supports CVS files via a extra *module* (details later)
 
 
 ```python
-MYFILE = './data/biostats.csv'
+import csv
 
-	with open(MYFILE) as mycsvfile:
-		readCSV = csv.reader(mycsvfile, delimiter=',')
+	with open(FILE) as f:
 
-		for row in readCSV:
-			print(row)
+		lines = csv.reader(f, delimiter=',')
 
-		# First line is the header		
-		line = next(readCSV)
-		print(line)
-		# doesn't work as it is, why?
+		for l in lines:
+		  print(l)
 ```
+
+---
+
+The first line is special
+
+```python
+# get the first line out
+header = next(lines)
+
+for l in lines:
+  print(f'Patient: {l}')
+```
+
+
+## From CSV to Dictionary
+
+Function `DictReader` uses the first line to guide the creation of dictionaries
+
+```python
+with open(FILE) as f:
+
+    lines = csv.DictReader(f,  delimiter=',')
+
+    for l in lines:
+      print(f'Patient: {l}')
+```
+
+A list of key names can also be supplied, to facilitate data migration (see code)
+
+```python
+    lines = csv.DictReader(f,  fieldnames=mapping_es, delimiter=',')
+```
+
+---
+
+## Discussion
+
+CSV/TSV make exchanging data fast and reliable
+
+However, they assume that for each datapoint we a *fixed* description that will fill the exact number of colums 
+
+Lack of data implies filling a *placeholder* or `null` value
+
+Bert is NOT 68 years old
+
+```csv
+Name, Sex, Age, Height(in), Weight(lbs)
+Alex, M, 41, 74, 170
+Bert, M, NULL, 68, 166
+```
+
+But what if we know Alex's shoe size and Bert's lung capacity (and not vice versa)
+
+
+# JSON
+
+
+---
+
+#### From CSV to JSON by example
+
+JSON is essentially *a list of nested Python dictionaries.*
+
+Different levels of details are easily accomodated
+
+so do data thas is naturally non-atomic, e.g., `passed_exams`
+
+```json
+[{
+    "Financial Institution": "Financial Institution",
+    "ABANCACorporacinBancariaS.txt": {
+        "energy": 51,
+        "environmental": 32.5378277861242,
+        "management": 15.73553116878063,
+        "party": 35.37153650105044,
+        "buildings": 1.1823215567939547,
+        "sustainability": 29.487406431175053
+    },
+    // more and more...
+}]
+```
+
+---
+
+```json
+[{
+    "Financial Institution": "Financial Institution",
+    "ABANCACorporacinBancariaS.txt": {},
+    "ABN_AMRO_2015_External_review_report.txt": {}, 
+}]
+```
+
+
+---
+
+```json
+[{
+    "Financial Institution": "Financial Institution",
+    "ABANCACorporacinBancariaS.txt": {},
+    "ABN_AMRO_2015_External_review_report.txt": {
+      "ABN_AMRO_2015_External_review_report.txt": {"energy": 89,
+      "environmental": 34.57144202275696,
+      "management": 7.867765584390315,
+      "party": 7.737523609604784,
+      "buildings": 141.87858681527456,
+      "sustainability": 39.655477614338864},
+    }
+}]
+```
+
+
+## Non-text files
+
+By default, `open()` simply reads __text files__
+
+```python
+with open(MYFILE, 'tr') as f:
+  mytext = f.read()
+```
+
+| parameter | effect |
+|:---------:|:-------|
+| t         | text   |
+| w         | binary |
+| +         | double read/write use |
+
+Images, sound and video are treated as binary
+
+
+---
+
+## *Data Cleaning* and *Data Wrangling*
+
+An informal introduction through a [real project](https://github.com/MillieClare/mastersProject/blob/master/.ipynb_checkpoints/Normalisation%20investigation-checkpoint.ipynb) on *Green finance*: look at cells up to [5].
+
+
+---
+
+## Challenge
+
+Can you get fresh data from [data.spectator.co.uk/category/energy](https://data.spectator.co.uk/category/energy) and diplay it?
 
 
 
