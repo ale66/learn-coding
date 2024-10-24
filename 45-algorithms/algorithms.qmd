@@ -8,6 +8,9 @@ format:
     preview-links: auto
     chalkboard: 
       boardmarker-width: 5
+    mermaid:
+      fontSize: 12
+      theme: dark
 from: markdown+emoji
 execute:
   echo: true
@@ -284,11 +287,15 @@ values never decrease: $a_1 \leq a_2 \dots a_n$
 
 ---
 
-Let's assume that there are no repeated values
+Let's assume that there are no repeated values and Python notation (first elem. is in pos. 0)
 
-A = [11, 6, 8, 2, 22, 16]
+```python
+A = [11, 6, 8, 2, 22, 16, 25]
 
 sort(A) = [?, ?, ?, ?, ?, ?]
+```
+
+$\pi(0) = ?$
 
 $\pi(1) = ?$
 
@@ -296,27 +303,26 @@ $\pi(2) = ?$
 
 $\pi(3) = ?$
 
-$\pi(4) = ?$
-
 ...
+
 
 ---
 
 Let's assume that there are no repeated values
 
-A = [11, 6, 8, 2, 22, 16]
+```python
+A = [11, 6, 8, 2, 22, 16, 25]
 
-sort(A) = [2, 6, 8, 11, 16, 22]
+sort(A) = [2, 6, 8, 11, 16, 22, 25]
+```
 
-$\pi(1) = 4$
+$\pi(0) = 3:$ the elem. in position 1 now goes to pos. 3
 
-$\pi(2) = 2$
+$\pi(1) = 1:$ the elem. in pos. 1 remains there
 
-$\pi(3) = 3$
+$\pi(2) = 2:$ so does the elem. in pos. 2 
 
-$\pi(4) = 1$
-
-...
+$\pi(3) = 0:$ the elem. in pos. 3 now goes to pos. 0
 
 
 ---
@@ -333,13 +339,13 @@ Even quicker when A is already half-sorted
 Python runs ``powersort()``, an optimised version of [TimSort](https://en.wikipedia.org/wiki/Timsort)
 
 ```python
-a = [11, 6, 8, 2, 22, 16]
+a = [11, 6, 8, 2, 22, 16, 25]
 
 a.sort()
 ```
 
-# Searching
 
+# Searching
 
 ---
 
@@ -362,6 +368,7 @@ There is a simple algorithm that will answer after at most $n$ comparisons
 
 this is a very basic problem which is used elsewhere: it is important that the implementation is quick and well-tested
 
+
 ---
 
 ## Case study: Ego networks
@@ -380,10 +387,9 @@ Cost: up to $n$ comparisons
 
 ## Simple solution
 
-
 ```python
 def search(a, k):
-  '''Vanilla search'''
+  '''Linear search'''
 
   found = False
   n = len(a)
@@ -395,11 +401,15 @@ def search(a, k):
   return found
 ```
 
+
 ---
+
 
 ## Exercise
 
 Apply `while` instead of `for` to stop operations as soon as the key value is found
+
+Return the position at which the key was found
 
 
 ---
@@ -408,46 +418,149 @@ Apply `while` instead of `for` to stop operations as soon as the key value is fo
 
 Special case: the input sequence A is already sorted, either in increasing or decreasing
 
-a much more efficient algorithm is available
+a *much more efficient* algorithm is available
 
 Binary_search, which is correct only for sorted sequences, will take *at most* $\log_2 n$ comparisons before we stop
 
-| n             | Vanilla       | BS     |
-|--------------:|--------------:|-------:|
-| 1,000         | 1,000         |     10 |
-| 1,000,000     | 1,000,000     |     20 |
-| 1,000,000,000 | 1,000,000,000 |     30 |
+
+| items         | Linear         |  BS   |
+|--------------:|---------------:|------:|
+| 1,000         | 1,000          |    10 |
+| 1,000,000     | 1,000,000      |    20 |
+| 1,000,000,000 | 1,000,000,000  |    30 |
 
 
 ---
 
+## Idea
+
+Data are sorted: exploit this property to cut down the size of the list *segment* to be checked
+
+```python
+my_sorted_list = [2, 6, 8, 11, 16, 22, 25]
+
+key = 15
+```
+
+::::{.columns}
+
+:::{.column width=50%}
+
+```{mermaid}
+%%| echo: false
+flowchart TD
+  A[key=15] -. ??? .-> B["[2, 6, 8, 11, 16, 22, 25]"]
+```
+
+:::
+
+:::{.column width=50%}
+
+```{mermaid}
+%%| echo: false
+flowchart TD
+  A[key=15] -. ??? .-> B[11]
+  B --> C["[2, 6, 8]"] & D["[16, 22, 25]"]
+```
+:::
+
+::::
+
+
+---
+
+```{mermaid}
+%%| echo: false
+flowchart TD
+  B[11] --> C["[2, 6, 8]"] & D[16]
+  A[key=15] -. ??? .-> D[16]
+  D --> E["[]"] & F["[22, 25]"]
+```
+
+. . .
+
+```{mermaid}
+%%| echo: false
+flowchart TD
+  B[11] --> C[[2, 6, 8]] & D[16]
+  D --> E["[]"] & F["[22, 25]"]
+  A[key=15] -. no! .-> E
+```
+
+
+We checked only two values (11 and 16) but we can stop already and answer 'no'
+
+
+---
+
+## Steps
+
+- input the ordered list and the key value to be searched
+
+- find the *median* value (here, it's right in the middle!) 
+
+- if the median $==$ the key value then stop and say 'yes' 
+
+- but if the search key $>$ median then the value, if it exists, can only be in second half of the list 
+
+- otherwise, the key value, if it exists, can only be in the first half of the list
+
+- depending on the result of the comparison, continue searching on the 'right' half of the list.
+
+
+---
+
+BS halves the searched data at each iteration
+
+Soon, the halving will shrink the list down to just one value, so we check and finish
+
+How soon? It will take at most $\log_2 n$ 'cuts' to shrink the list down to 1 
+
+
+---
+
+
 ```python
 def bs(a, k):
-  '''Binary search'''
+    '''Simple Binary search implementation: a is a list of integers, k is a search key integer'''
 
-  found = False
-  n = len(a)
+    found = False
+    n = len(a)
 
-  # the boundaries of our search
-  l = 0
-  r = n
-
-  mid = int((r-l)/2)
+    # the boundaries of our search
+    l = 0
+    r = n
 ```
 
 . . .
 
 ```python
-  while (found == False) and (l<r): 
+    while ((found == False) and (l < r)):
 
-    mid = int((r-l)/2)
+        mid = l + int((r-l)/2)
+        
+        if k < a[mid]:
+            r = mid 
 
-    if k < a[mid]:
-      r = mid
-    elif k > a[mid]:
-      l = mid
-    else:
-      found = True
+        elif k > a[mid]:
+            l = mid + 1
 
-  return found
+        else:
+            found = True
+            print('found in position ', mid)
+
+    return found
 ```
+
+
+---
+
+## Visualisation
+
+Instance: an ordered list of 24 uppercase characters, `key = 'J'`
+
+
+![](./imgs/linear-vs-bs.jpg)
+
+
+$\lceil \log_2 24 \rceil = \lceil 4.5849 \rceil = 5$ comparisons  

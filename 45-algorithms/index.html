@@ -387,6 +387,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="dark">
+  <script src="algorithms_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="algorithms_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="algorithms_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -827,25 +831,26 @@ ale66
 </section>
 <section class="slide level2">
 
-<p>Let’s assume that there are no repeated values</p>
-<p>A = [11, 6, 8, 2, 22, 16]</p>
-<p>sort(A) = [?, ?, ?, ?, ?, ?]</p>
+<p>Let’s assume that there are no repeated values and Python notation (first elem. is in pos. 0)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>A <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">22</span>, <span class="dv">16</span>, <span class="dv">25</span>]</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>sort(A) <span class="op">=</span> [?, ?, ?, ?, ?, ?]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math inline">\(\pi(0) = ?\)</span></p>
 <p><span class="math inline">\(\pi(1) = ?\)</span></p>
 <p><span class="math inline">\(\pi(2) = ?\)</span></p>
 <p><span class="math inline">\(\pi(3) = ?\)</span></p>
-<p><span class="math inline">\(\pi(4) = ?\)</span></p>
 <p>…</p>
 </section>
 <section class="slide level2">
 
 <p>Let’s assume that there are no repeated values</p>
-<p>A = [11, 6, 8, 2, 22, 16]</p>
-<p>sort(A) = [2, 6, 8, 11, 16, 22]</p>
-<p><span class="math inline">\(\pi(1) = 4\)</span></p>
-<p><span class="math inline">\(\pi(2) = 2\)</span></p>
-<p><span class="math inline">\(\pi(3) = 3\)</span></p>
-<p><span class="math inline">\(\pi(4) = 1\)</span></p>
-<p>…</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>A <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">22</span>, <span class="dv">16</span>, <span class="dv">25</span>]</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>sort(A) <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">25</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math inline">\(\pi(0) = 3:\)</span> the elem. in position 1 now goes to pos. 3</p>
+<p><span class="math inline">\(\pi(1) = 1:\)</span> the elem. in pos. 1 remains there</p>
+<p><span class="math inline">\(\pi(2) = 2:\)</span> so does the elem. in pos. 2</p>
+<p><span class="math inline">\(\pi(3) = 0:\)</span> the elem. in pos. 3 now goes to pos. 0</p>
 </section>
 <section id="good-news-about-sorting" class="slide level2">
 <h2>Good news about sorting</h2>
@@ -853,9 +858,9 @@ ale66
 
 <img data-src="./imgs/rivest-sorting-algo.png" class="r-stretch"><p>Even quicker when A is already half-sorted</p>
 <p>Python runs <code>powersort()</code>, an optimised version of <a href="https://en.wikipedia.org/wiki/Timsort">TimSort</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>a <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">22</span>, <span class="dv">16</span>]</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>a.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>a <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">22</span>, <span class="dv">16</span>, <span class="dv">25</span>]</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>a.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="searching" class="title-slide slide level1 center">
@@ -894,32 +899,33 @@ ale66
 </section>
 <section id="simple-solution" class="slide level2">
 <h2>Simple solution</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> search(a, k):</span>
-<span id="cb2-2"><a href=""></a>  <span class="co">'''Vanilla search'''</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a>  found <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb2-5"><a href=""></a>  n <span class="op">=</span> <span class="bu">len</span>(a)</span>
-<span id="cb2-6"><a href=""></a></span>
-<span id="cb2-7"><a href=""></a>  <span class="cf">for</span> elem <span class="kw">in</span> a:</span>
-<span id="cb2-8"><a href=""></a>    <span class="cf">if</span> k <span class="op">==</span> elem:</span>
-<span id="cb2-9"><a href=""></a>      found <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb2-10"><a href=""></a></span>
-<span id="cb2-11"><a href=""></a>  <span class="cf">return</span> found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="kw">def</span> search(a, k):</span>
+<span id="cb4-2"><a href=""></a>  <span class="co">'''Linear search'''</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a>  found <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb4-5"><a href=""></a>  n <span class="op">=</span> <span class="bu">len</span>(a)</span>
+<span id="cb4-6"><a href=""></a></span>
+<span id="cb4-7"><a href=""></a>  <span class="cf">for</span> elem <span class="kw">in</span> a:</span>
+<span id="cb4-8"><a href=""></a>    <span class="cf">if</span> k <span class="op">==</span> elem:</span>
+<span id="cb4-9"><a href=""></a>      found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-10"><a href=""></a></span>
+<span id="cb4-11"><a href=""></a>  <span class="cf">return</span> found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exercise" class="slide level2">
 <h2>Exercise</h2>
 <p>Apply <code>while</code> instead of <code>for</code> to stop operations as soon as the key value is found</p>
+<p>Return the position at which the key was found</p>
 </section>
 <section id="ordered-sequences" class="slide level2">
 <h2>Ordered sequences</h2>
 <p>Special case: the input sequence A is already sorted, either in increasing or decreasing</p>
-<p>a much more efficient algorithm is available</p>
+<p>a <em>much more efficient</em> algorithm is available</p>
 <p>Binary_search, which is correct only for sorted sequences, will take <em>at most</em> <span class="math inline">\(\log_2 n\)</span> comparisons before we stop</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: right;">n</th>
-<th style="text-align: right;">Vanilla</th>
+<th style="text-align: right;">items</th>
+<th style="text-align: right;">Linear</th>
 <th style="text-align: right;">BS</th>
 </tr>
 </thead>
@@ -942,36 +948,134 @@ ale66
 </tbody>
 </table>
 </section>
+<section id="idea-1" class="slide level2">
+<h2>Idea</h2>
+<p>Data are sorted: exploit this property to cut down the size of the list <em>segment</em> to be checked</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>my_sorted_list <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">25</span>]</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a>key <span class="op">=</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[key=15] -. ??? .-&gt; B["[2, 6, 8, 11, 16, 22, 25]"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[key=15] -. ??? .-&gt; B[11]
+  B --&gt; C["[2, 6, 8]"] &amp; D["[16, 22, 25]"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">def</span> bs(a, k):</span>
-<span id="cb3-2"><a href=""></a>  <span class="co">'''Binary search'''</span></span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a>  found <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb3-5"><a href=""></a>  n <span class="op">=</span> <span class="bu">len</span>(a)</span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a>  <span class="co"># the boundaries of our search</span></span>
-<span id="cb3-8"><a href=""></a>  l <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-9"><a href=""></a>  r <span class="op">=</span> n</span>
-<span id="cb3-10"><a href=""></a></span>
-<span id="cb3-11"><a href=""></a>  mid <span class="op">=</span> <span class="bu">int</span>((r<span class="op">-</span>l)<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  B[11] --&gt; C["[2, 6, 8]"] &amp; D[16]
+  A[key=15] -. ??? .-&gt; D[16]
+  D --&gt; E["[]"] &amp; F["[22, 25]"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <div class="fragment">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>  <span class="cf">while</span> (found <span class="op">==</span> <span class="va">False</span>) <span class="kw">and</span> (l<span class="op">&lt;</span>r): </span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a>    mid <span class="op">=</span> <span class="bu">int</span>((r<span class="op">-</span>l)<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a>    <span class="cf">if</span> k <span class="op">&lt;</span> a[mid]:</span>
-<span id="cb4-6"><a href=""></a>      r <span class="op">=</span> mid</span>
-<span id="cb4-7"><a href=""></a>    <span class="cf">elif</span> k <span class="op">&gt;</span> a[mid]:</span>
-<span id="cb4-8"><a href=""></a>      l <span class="op">=</span> mid</span>
-<span id="cb4-9"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb4-10"><a href=""></a>      found <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb4-11"><a href=""></a></span>
-<span id="cb4-12"><a href=""></a>  <span class="cf">return</span> found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  B[11] --&gt; C[[2, 6, 8]] &amp; D[16]
+  D --&gt; E["[]"] &amp; F["[22, 25]"]
+  A[key=15] -. no! .-&gt; E
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>We checked only two values (11 and 16) but we can stop already and answer ‘no’</p>
+</div>
+</section>
+<section id="steps" class="slide level2">
+<h2>Steps</h2>
+<ul>
+<li><p>input the ordered list and the key value to be searched</p></li>
+<li><p>find the <em>median</em> value (here, it’s right in the middle!)</p></li>
+<li><p>if the median <span class="math inline">\(==\)</span> the key value then stop and say ‘yes’</p></li>
+<li><p>but if the search key <span class="math inline">\(&gt;\)</span> median then the value, if it exists, can only be in second half of the list</p></li>
+<li><p>otherwise, the key value, if it exists, can only be in the first half of the list</p></li>
+<li><p>depending on the result of the comparison, continue searching on the ‘right’ half of the list.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>BS halves the searched data at each iteration</p>
+<p>Soon, the halving will shrink the list down to just one value, so we check and finish</p>
+<p>How soon? It will take at most <span class="math inline">\(\log_2 n\)</span> ‘cuts’ to shrink the list down to 1</p>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="kw">def</span> bs(a, k):</span>
+<span id="cb6-2"><a href=""></a>    <span class="co">'''Simple Binary search implementation: a is a list of integers, k is a search key integer'''</span></span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a>    found <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb6-5"><a href=""></a>    n <span class="op">=</span> <span class="bu">len</span>(a)</span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a>    <span class="co"># the boundaries of our search</span></span>
+<span id="cb6-8"><a href=""></a>    l <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-9"><a href=""></a>    r <span class="op">=</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>    <span class="cf">while</span> ((found <span class="op">==</span> <span class="va">False</span>) <span class="kw">and</span> (l <span class="op">&lt;</span> r)):</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>        mid <span class="op">=</span> l <span class="op">+</span> <span class="bu">int</span>((r<span class="op">-</span>l)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb7-4"><a href=""></a>        </span>
+<span id="cb7-5"><a href=""></a>        <span class="cf">if</span> k <span class="op">&lt;</span> a[mid]:</span>
+<span id="cb7-6"><a href=""></a>            r <span class="op">=</span> mid </span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a>        <span class="cf">elif</span> k <span class="op">&gt;</span> a[mid]:</span>
+<span id="cb7-9"><a href=""></a>            l <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb7-10"><a href=""></a></span>
+<span id="cb7-11"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb7-12"><a href=""></a>            found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb7-13"><a href=""></a>            <span class="bu">print</span>(<span class="st">'found in position '</span>, mid)</span>
+<span id="cb7-14"><a href=""></a></span>
+<span id="cb7-15"><a href=""></a>    <span class="cf">return</span> found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualisation" class="slide level2">
+<h2>Visualisation</h2>
+<p>Instance: an ordered list of 24 uppercase characters, <code>key = 'J'</code></p>
+
+<img data-src="./imgs/linear-vs-bs.jpg" class="r-stretch"><p><span class="math inline">\(\lceil \log_2 24 \rceil = \lceil 4.5849 \rceil = 5\)</span> comparisons</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>
-</div>
 </div>
 </div>
 </section></section>

@@ -1,0 +1,121 @@
+---
+title: 'Learn Coding'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+# Files
+
+
+---
+
+## Recap sequences
+
+
+- lists and dictionaries are mutable data structures
+- lenght is variable 
+- elements are directly accessed via the `[i]` or `['key']` notation
+- we iterate on them with `for` or `while`
+
+
+---
+
+## Recap l/d  vs. d/l
+
+![](./imgs/quiz-data.png)
+
+```python
+my_data = {'name':['Andrea', 'Tom'], 
+          'age':[32,35], 
+          'location':['London', 'Brighton']
+}
+```
+
+```python
+my_data = [
+          {'name':'Andrea', 'Age':32, 'location':'London'}
+          {'name':'Tom', 'Age':35, 'location':'Brighton'}
+]
+```
+
+
+---
+
+## Further observations
+
+- Python run-time data structures are *impermanent*
+- data is made permanent con computer devices via the file system
+- specific *formats* support memorization and exchange
+
+
+---
+
+## Files
+
+A permanent entry into the file system: `pg100.txt` or `C:/Users/aless/git/learn-code/60-files/pg100.txt` 
+
+Type is unspecified: a sequence of characters. Even for AV files.
+
+The Python `with file:` instr. 
+  - copies the content to the (volatile) work memory and 
+  - associates it with a variable
+
+We iterate on the variable to access data, following our model of what the data truly represents
+
+
+---
+
+```python
+MYFILE = './data/pg100.txt'
+
+with open(MYFILE) as mytxtfile:
+  continue
+```
+
+
+---
+
+```python
+	with open(myfile) as mytextfile:
+
+		readtext = csv.reader(mytextfile, delimiter='.')
+
+		for lines in readtext:
+		  print(lines)
+```
+
+
+# Beyond text
+
+
+---
+
+A special function reads *Comma-separated Values (CSV)* files 
+
+
+```python
+MYFILE = './data/biostats.csv'
+
+	with open(MYFILE) as mycsvfile:
+		readCSV = csv.reader(mycsvfile, delimiter=',')
+
+		for row in readCSV:
+			print(row)
+
+		# First line is the header		
+		line = next(readCSV)
+		print(line)
+		# doesn't work as it is, why?
+```
+
+
+
