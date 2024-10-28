@@ -7,7 +7,7 @@ format:
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 5
+      boardmarker-width: 2
     mermaid:
       theme: forest
       fontSize: 12
@@ -195,7 +195,7 @@ my_writers = [
   {'author':'Dickens', 'year_of_birth':1812},
   {'author':'King', 'year_of_birth':1947},
   {'author':'J.K. Rowling', 'year_of_birth':1965},
-  {'author':'Agatha Christie',  'nickname':'Mary Westmacott', 'year_of_birth':1890}
+  {'author':'Agatha Christie', 'nickname':'Mary Westmacott', 'year_of_birth':1890}
 ]
 ```
 
@@ -205,12 +205,12 @@ my_writers = [
 ## Accessing items
 
 ```python
-my_data = {'author': 'Agatha Christie', 
+my_dict = {'author': 'Agatha Christie', 
           'nickname': 'Mary Westmacott', 
           'year_of_birth': 1890
 }
 
-print(my_data['author'])
+print(my_dict['author'])
 ```
 
 . . . 
@@ -218,9 +218,9 @@ print(my_data['author'])
 ```python
 NOW = 2024
 
-delta = NOW - my_data['year_of_birth']
+delta = NOW - my_dict['year_of_birth']
 
-print(f{{my_data['author']} was born {delta} years ago.})
+print(f{{my_dict['author']} was born {delta} years ago.})
 ```
 
 
@@ -229,9 +229,9 @@ print(f{{my_data['author']} was born {delta} years ago.})
 ## Amending values
 
 ```python
-my_data['year_of_birth'] = 2019
+my_dict['year_of_birth'] = 2019
 
-print(my_data['year_of_birth'])
+print(my_dict['year_of_birth'])
 ```
 
 . . .
@@ -244,7 +244,7 @@ print(king['author'])
 king['author'] = 'Stephen King'
 ```
 
-We have more information but ``my_writers`` is unchanged
+We have more information but `my_writers` is unchanged
 
 ---
 
@@ -255,7 +255,10 @@ my_writers[1]['author'] = 'Stephen King'
 
 print(my_writers)
 
-[{'author':'Dickens', 'year_of_birth':1812}, {'author':'Stephen King', 'year_of_birth':1947}, {'author':'J.K. Rowling', 'year_of_birth':1965}, {'author':'Agatha Christie',  'nickname':'Mary Westmacott', 'year_of_birth':1890}]
+[{'author':'Dickens', 'year_of_birth':1812}, 
+ {'author':'Stephen King', 'year_of_birth':1947}, 
+ {'author':'J.K. Rowling', 'year_of_birth':1965}, 
+ {'author':'Agatha Christie', 'nickname':'Mary Westmacott', 'year_of_birth':1890}]
 ```
 
 
@@ -271,7 +274,7 @@ A lazy iterable, similar to ``range``, will serve the ``key:value`` pairs on req
 
 ```python
 # always key first
-for key, value in my_data.items():
+for key, value in my_dict.items():
   print(key, value) 
 ```
 
@@ -286,7 +289,7 @@ year_of_birth 1890
 ## The ``key`` and ``value`` variable names
 
 ```python
-for key in my_data.items():
+for key in my_dict.items():
   print(key) 
 ```
 
@@ -299,7 +302,7 @@ year_of_birth
 . . .
 
 ```python
-for value in my_data.items():
+for value in my_dict.items():
   print(key) 
 ```
 
@@ -319,38 +322,38 @@ Mary Westmacott
 ## Grow a list
 
 ```python
-mylist = []
+my_list = []
 
-mylist.append(10)
+my_list.append(10)
 
-mylist.append(20)
+my_list.append(20)
 
 print(alist)
-```
 
-```text
 [10, 20]
 ```
 
+Direct access is always possible:
 
 ```python
-print(mylist[0])
+print(my_list[-1])
 
-10
+20
 ```
+
 
 ---
 
 ## Grow a dictionary
 
 ```python
-mydict = {}
+my_dict = {}
 
-mydict['name'] = 'Tom'
+my_dict['name'] = 'Tom'
 
-mydict['age'] = 35
+my_dict['age'] = 35
 
-print(ad)
+print(my_dict)
 ```
 
 ```text
@@ -358,12 +361,12 @@ print(ad)
 ```
 
 ```python
-print(mydict['name'])
+print(my_dict['name'])
 
 Tom
 ```
 
-Disadvantage: dictionaries are inherently unordered and no direct solution exists to present their content in sorted fashion
+Disadvantage: dictionaries are inherently unordered
 
 
 ---
@@ -385,7 +388,7 @@ my_python = {'Student_ID':['S1','S2'],
 
 ```python
 # create an empty dictionary
-a_dict = {}
+my_dict = {}
 
 # create a new dict with 3 items
 my_dict = {'one':1, 'two':2, 'three':3}
@@ -463,6 +466,6 @@ Create a dictionary out of the following data:
 ```python
 my_data = {'Name':['Andrea', 'Tom'], 
           'Age':[32,35], 
-          'year':['London', 'Brighton']
+          'City':['London', 'Brighton']
 }
 ```
