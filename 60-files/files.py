@@ -7,7 +7,6 @@ with open(MYFILE) as f:
 
 print(longstringwithnewlines)
 
-
 '''
 with open(MYFILE) as f:
   for line in f:
@@ -20,14 +19,14 @@ import csv
 
 FILE = './data/biostats.csv'
 
-'''
+
 with open(FILE) as f:
 
 	lines = csv.reader(f, delimiter=',')
 
 	for l in lines:
 		print(l)
-'''       
+       
 
 '''
 with open(FILE) as f:
