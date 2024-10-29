@@ -416,7 +416,7 @@ ale66
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>writers <span class="op">=</span> [<span class="st">'Hemingway'</span>, <span class="st">'Dickens'</span>, <span class="st">'King'</span>]</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a><span class="cf">for</span> w <span class="kw">in</span> writers:</span>
-<span id="cb1-4"><a href=""></a>  <span class="bu">print</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href=""></a>  <span class="bu">print</span>(w)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
@@ -462,19 +462,24 @@ ale66
 <span id="cb5-7"><a href=""></a>      n <span class="op">=</span> n<span class="op">-</span><span class="dv">1</span>   <span class="co"># or n -= 1</span></span>
 <span id="cb5-8"><a href=""></a></span>
 <span id="cb5-9"><a href=""></a><span class="bu">print</span>(<span class="st">'Blastoff!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section id="quiz-whats-wrong-with-this-loop" class="title-slide slide level1 center">
-<h1>Quiz: What’s wrong with this loop?</h1>
-
-<img data-src="./imgs/timer.gif" class="r-stretch"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>n <span class="op">=</span> <span class="dv">1</span></span>
+</section>
+<section id="quiz-whats-wrong-with-this-loop" class="slide level2">
+<h2>Quiz: What’s wrong with this loop?</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>n <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb6-2"><a href=""></a></span>
 <span id="cb6-3"><a href=""></a><span class="cf">while</span> n <span class="op">&gt;</span> <span class="dv">0</span> :</span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a>      <span class="bu">print</span>(“Hi”)</span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a><span class="bu">print</span>(“End”)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-
+<span id="cb6-4"><a href=""></a>      <span class="bu">print</span>(<span class="st">'Hi'</span>)</span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a><span class="bu">print</span>(<span class="st">'End'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:30%;">
+<p><img data-src="./imgs/timer.gif" style="width:80.0%"></p>
+</div></div>
+<div class="fragment">
+<p>Execution won’t end as <span class="math inline">\(n\)</span> is never decreased</p>
+</div>
+</section></section>
 <section>
 <section id="indefinite-loops-1" class="title-slide slide level1 center">
 <h1>Indefinite loops</h1>
@@ -483,7 +488,7 @@ ale66
 <section class="slide level2">
 
 <ul>
-<li><p>some <code>while</code> loops are called <em>indefinitE</em> because they keep going until a logical condition becomes False</p></li>
+<li><p>some <code>while</code> loops are called <em>indefinite</em> because they keep going until a logical condition becomes false</p></li>
 <li><p>but will it ever happen?</p></li>
 <li><p>codes seen so far are easy to examine to see whether they will terminate or become <em>infinite</em></p></li>
 <li><p>termination analysis is about checking, <em>before running it,</em> that our code will always reach the final nstruction and control will be back to the operating system</p></li>
@@ -498,34 +503,34 @@ ale66
 <section class="slide level2">
 
 <p>Use <code>for</code> to automate work over collections, here represented by iterables</p>
-<p>in principle, all elements will be examined</p>
+<p>In principle, all elements will be examined</p>
 <p>Use <code>while</code> to search for a specific element: it stops as soon as it’s found</p>
 <p>Also use <code>while</code> or to act <em>conditionally</em> and stop as soon as the condition is not true anymore</p>
-</section></section>
-<section id="while-in-lists" class="title-slide slide level1 center">
-<h1><code>while</code> in lists</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>alist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
+</section>
+<section id="while-in-lists" class="slide level2">
+<h2><code>while</code> in lists</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
 <span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a>count <span class="op">=</span> <span class="dv">0</span> <span class="co"># also works as index</span></span>
+<span id="cb7-3"><a href=""></a>count <span class="op">=</span> <span class="dv">0</span> <span class="co"># will work as index</span></span>
 <span id="cb7-4"><a href=""></a></span>
 <span id="cb7-5"><a href=""></a><span class="cf">while</span>(<span class="va">True</span>):</span>
-<span id="cb7-6"><a href=""></a>      <span class="bu">print</span>(alist[count])</span>
+<span id="cb7-6"><a href=""></a>      <span class="bu">print</span>(my_list[count])</span>
 <span id="cb7-7"><a href=""></a></span>
-<span id="cb7-8"><a href=""></a>      <span class="cf">if</span> count <span class="op">==</span> <span class="bu">len</span>(alist)<span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb7-8"><a href=""></a>      <span class="cf">if</span> (count <span class="op">==</span> <span class="bu">len</span>(my_list) <span class="op">-</span> <span class="dv">1</span>):</span>
 <span id="cb7-9"><a href=""></a>          <span class="bu">print</span>(<span class="st">"end"</span>)</span>
 <span id="cb7-10"><a href=""></a>          <span class="cf">break</span></span>
 <span id="cb7-11"><a href=""></a></span>
 <span id="cb7-12"><a href=""></a>      count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="cf">for</span> anum <span class="kw">in</span> alist:</span>
-<span id="cb8-2"><a href=""></a>        <span class="bu">print</span>(anum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="cf">for</span> n <span class="kw">in</span> my_list:</span>
+<span id="cb8-2"><a href=""></a>        <span class="bu">print</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-coding">github.com/ale66/learn-coding</a>&nbsp;&nbsp;&nbsp;</p>
 </div>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -558,7 +563,7 @@ ale66
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"boardmarkerWidth":5},
+'chalkboard': {"buttons":true,"boardmarkerWidth":2},
 'smaller': false,
  
         // Display controls in the bottom right corner
