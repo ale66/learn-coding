@@ -1,13 +1,13 @@
 ---
-title: "Learn Web"
-author: "ale66"
+title: 'Learn Web'
+author: 'ale66'
 format: 
   revealjs:
-    footer: "[github.com/ale66/learn-web](https://github.com/ale66/learn-web)&nbsp;&nbsp;&nbsp;"
+    footer: '[github.com/ale66/learn-web](https://github.com/ale66/learn-web)&nbsp;&nbsp;&nbsp;'
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 3
+      boardmarker-width: 2
     mermaid:
       theme: forest
       fontSize: 12
@@ -22,74 +22,68 @@ execute:
 * Sets  __cannot__  have duplicated values
   * There are usually used to build sequence of unique items (e.g., set of identifiers such as IDs etc.).
 
-alist = [“Stelios”, “Tom”, “Tom”, “Stelios”, “Claudia”]
+```python
+my_list = ['Stelios', 'Tom', 'Tom', 'Stelios', 'Claudia']
 
-aset = set(alist)
+my_set = set(my_list)
 
-print(list(aset))
+print(list(my_set))
 
 # the set includes only the unique elements!
-
-aset = [“Stelios”, “Tom”, “Claudia”]
-
+['Stelios', 'Tom', 'Claudia']
+```
 
 ---
 
 
-# Sets (cont.)
+## Sets
 
 :::: {.columns}
 
-::: {.column width="33%"}
+::: {.column width='40%'}
 
-Ideal when we need to remove duplicated values
+ideal when we need to remove duplicated values
 
-Also ideal for doing logic operations
+also ideal for *logical* operations
 
-__Duplicates are __
-
-__eliminated__
+__duplicates are eliminated__
 
 :::
 
-::: {.column width="33%"}
+::: {.column width='35%'}
 
-a = set([1, 2, 3,4])
+```python
+a = set([1, 2, 3, 4])
 
-b = set([3,4,5,6])
+b = set([3, 4, 5, 6])
 
 a.intersection(b)
-
-# This will  _return_
-
 set([3, 4])
+```
 
+```python
 c = a.intersection(b)
 
 c.issubset(a)
-
-# This will  _return_
-
 True
+```
 
+```python
 a.issubset(b)
-
-# This will  _return_
-
 False
+```
 
-:::
-
-::: {.column width="33%"}
-
+```python
 a.difference(b)
 
-# This will  _return_
-
+# will  return
 set([1,2,5,6])
+```
+:::
 
-![](img%5Cdcwp-5-a%2Bb0.tiff)
+::: {.column width='25%'}
 
+![](./imgs/union-intersection.png)
 :::
 
 ::::
@@ -98,18 +92,17 @@ set([1,2,5,6])
 ---
 
 
-# Sets: Basic operations
+## Sets: Basic operations
 
 Create an empty set
 
 Iterate over a set and print elements
 
+```python
 #Create a new empty set
-
 empty_set = set()
 
 #Create a non empty set
-
 aset = set([0, 1, 2, 3, 4])
 
 #Create a set
@@ -117,105 +110,96 @@ aset = set([0, 1, 2, 3, 4])
 num_set = set([0, 1, 2, 3, 4, 5])
 
 for element in num_set:
-
-print(element)
-
+  print(element)
+```
 
 ---
 
 
-# Sets: Basic operations cont
+## Sets: Basic operations cont'd
 
-Add data to a set
+Add/remove data from a set
 
-Remove data from a set
 
-color_set = set()	 # alist = list() or alist = []  EMPTY!
+```python
+color_set = set()	 
 
-color_set.add("Red")
+color_set.add('Red')
 
 #Add multiple items
+color_set.update(['Blue', 'Green'])
 
-color_set.update(["Blue", "Green"])
-
+# remove the last element
 color_set.pop()
-
-# Will remove the last element
+```
 
 
 ---
 
-
-# Sets: Basic operations cont (cont.)
+## Sets: more basic operations
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width='60%'}
 
-Intersection of two sets
+```python
+x = set(['green', 'blue'])
 
-Union of two sets
-
-x = set(["green", "blue"])
-
-y = set(["blue", "yellow"])
+y = set(['blue', 'yellow'])
 
 z  = x & y		# or x.intersection(y)
+```
 
-x = set(["green", "blue"])
+```python
+x = set(['green', 'blue'])
 
-y = set(["blue", "yellow"])
+y = set(['blue', 'yellow'])
 
 z = x | y		# or x.union(y)
+```
 
 :::
 
-::: {.column width="50%"}
+::: {.column width='40%'}
 
-”green”,”blue”,”yellow”
+```python
+'green', 'blue', 'yellow'
+```
 
 :::
 
 ::::
 
+. . .
 
----
+Cardinality
 
+```python
+colors = set(['green', 'blue'])
 
-# Sets: Basic operations cont (cont.)
-
-Len of a set (similar to lists)
-
-x = set(["green", "blue"])
-
-# len(x) -> will print 2
+print(len(colors))
+```
 
 
 ---
 
-
-# Quiz 2!
+## Quiz 2: true or false?
 
 :::: {.columns}
 
-::: {.column width="33%"}
+::: {.column width='60%'}
 
-* Sets allow duplicated values:
-  * True or False?
-* Sets have no order in data:
-  * True or False?
-* Sets do no support indexing:
-  * True or False?
+* Sets allow duplicated values
+  
+* Sets are unordered
 
-:::
-
-::: {.column width="33%"}
+* Sets are not indexed
 
 :::
 
-::: {.column width="33%"}
+::: {.column width='40%'}
 
-![](img%5Cdcwp-5-a%2Bb1.png)
+![](./imgs/timer.gif)
 
 :::
 
@@ -224,274 +208,270 @@ x = set(["green", "blue"])
 
 ---
 
+## Solutions!
 
-# Quiz Solutions!
 
-* Sets allow duplicated values:
+* Sets allow duplicated values
   * False
-* Sets have no order in data:
+
+* Sets are unordered
   * True
-* Sets do no support indexing:
+  
+* Sets are not indexed
   * True
 
 
 ---
 
+## Summary 
 
-# Facts about Sets
+Duplicates are eliminated
 
-:::: {.columns}
+no ordering
 
-::: {.column width="50%"}
-
-__Duplicates are __
-
-__eliminated__
-
-__SETS have __
-
-__no order__
-
-:::
-
-::: {.column width="50%"}
-
-SETS do not  __Support __  __indexing__
-
-__SETS are ideal __  __For __  __Boolean__  __ __  __operations__
-
-:::
-
-::::
+no support for indexing
 
 
 ---
 
-
-# Quiz 3!
+## Quiz 3!
 
 :::: {.columns}
 
-::: {.column width="33%"}
-
-![](img%5Cdcwp-5-a%2Bb2.png)
-
-:::
-
-::: {.column width="33%"}
+::: {.column width='20%'}
 
 Will it print True or False?
 
+![](./imgs/timer.gif)
+
 :::
 
-::: {.column width="33%"}
+::: {.column width='45%'}
 
-x = set([“Agatha Christie ", “J.R.R Tolkien"])
+```python
+x = set(['Agatha Christie', 
+         'J.R.R. Tolkien'])
 
-y = set(["J.R.R Tolkien ", “Virginia Woolf"])
+y = set(['J.R.R. Tolkien', 
+         'Virginia Woolf'])
 
-z = set([" J.R.R Tolkien "])
+z = set(['J.R.R. Tolkien'])
+```
 
-__issubset1 = x.__ issubset __(y)__
+:::
 
-print(issubset1)
+::: {.column width='35%'}
 
-__issuperset2 = y. issuperset(x)__
+```python
+print(x.issubset(y))
+```
 
-print(issuperset2)
+```python
+print(y. issuperset(x))
+```
 
-__issubset3 = z.__ issubset __(y)__
+```python
+print(z.issubset)
+```
 
-print(issubset3)
-
-__issuperset4= y.issuperset(z)__
-
-print(issuperset4)
-
+```python
+print(y.issuperset(z))
+```
 :::
 
 ::::
 
-
 ---
 
+# Solution
 
-# Quiz 3 Solutions!
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width='20%'}
 
-The outputs of the print statements are True or False?
+Will it print True or False?
+
+![](./imgs/timer.gif)
 
 :::
 
-::: {.column width="50%"}
+::: {.column width='45%'}
 
-x = set([“Agatha Christie ", “J.R.R Tolkien"])
+```python
+x = set(['Agatha Christie', 
+         'J.R.R. Tolkien'])
 
-y = set(["J.R.R Tolkien ", “Virginia Woolf"])
+y = set(['J.R.R. Tolkien', 
+         'Virginia Woolf'])
 
-z = set([" J.R.R Tolkien "])
+z = set(['J.R.R. Tolkien'])
+```
 
-__issubset1 = x <= y__
+:::
 
-print(issubset1) # This will print False
+::: {.column width='35%'}
 
-__issuperset2 = x >= y__
+```python
+print(x.issubset(y))
+False
+```
 
-print(issuperset2) # This will print False
+```python
+print(y. issuperset(x))
+False
+```
 
-__issubset3 = z <= y__
+```python
+print(z.issubset)
+True
+```
 
-print(issubset3) # This will print True
-
-__issuperset4 = y >= z__
-
-print(issuperset4) # This will print True
-
+```python
+print(y.issuperset(z))
+True
+```
 :::
 
 ::::
 
 
 ---
-
-
-# More Python data structures
-
-* Tuples:
-  * A data structure very similar to the  __list__  data structure.
-  * The main difference being that tuple manipulation are faster than list because tuples are
-    * __IMMUTABLE__
-
-mytuple = (10, 20, 30)
-
-mytuple[0]
-
-#Will print
-
-mytuple = (10, 20, 30)
-
-
----
-
 
 # Tuples
 
-:::: {.columns}
 
-::: {.column width="50%"}
+---
 
-* Tuples are optimised!
-  * This makes them very simple.
-  * There are two functions available only:
-    * _index_  _, to find the occurrence of a value_
-    * _count, _  _to count the number of occurrences of a value_
+A data structure similar to lists
 
+Main difference: tuples are *immutable*
+
+Their application is faster than lists 
+
+```python
+mytuple = (10, 20, 30)
+
+mytuple[0]
+```
+
+
+---
+
+## Functions for tuples
+
+There are two functions available only:
+
+- `index` to find the occurrence of a value
+  
+- `count` to count the number of occurrences of a value
+
+
+---
+
+### Tuples in dictionaries
+
+```python
 my_protected_dictionary = dict([('jan', 1), ('feb', 2), ('march', 3)])
 
 my_protected_dictionary['feb’]
+2
+```
 
-__# This will print 2!__
+Often tuples are used as keys to dictionaries
 
-__# The keys are immutable!__
+Tuples are useful because they are
 
-:::
+- are faster than lists
 
-::: {.column width="50%"}
+- protect the data from change
 
-* Tuples are useful because there are
-  * _faster than lists_
-  * _protect the data_  _, which is immutable_
-  * _tuples can be used as keys on dictionaries_
 
-:::
+---
 
-::::
+## Tuple unpacking
+
+```python
+data  = (1,2,3)
+
+x, y, z = data
+```
+
+. . .
+
+Slicing is similar to lists
+
+```python
+my_tuple = (1, 2, 3, 4, 5)
+
+print(mytuple[2:])
+  
+(3, 4, 5)
+```
 
 
 ---
 
 
-# Tuples: Useful hints
+## Working with tuples
 
-* Tuple unpacking:
-* data  = (1,2,3)
-* x, y, z = data
-* # x is 1, y – 2 (will be 0)etc.
-* __len(data) __
-  * Will print 3
-* Slicing works similar to lists
-* t = (1,2,3,4,5)
-* t[2:]
-* (3, 4, 5)
-
-
----
-
-
-# Working with tuples
-
+```python
 tuplex = (4, 6, 2, 8, 3, 1)
+```
 
-print(tuplex)
+Since tuples are immutable we can not add new elements
 
-#tuples are  __immutable__ !, so you can not add new elements
+tuple merge, with the + operator, can add elements and create a new tuple
 
-#using merge of tuples with the + operator you can add an element and it will create a new tuple
-
+```python
+# notice the extra ','
 tuplex = tuplex + (9,)
 
 print(tuplex)
-
+```
 
 ---
 
 
-# Working with tuples (cont.)
+Another workaround
 
+```python
 tuplex = (4, 6, 2, 8, 3, 1)
 
 listx = list(tuplex)
 
 #Add an item in the list
-
 listx.append(30)
 
 #Make the list tuplex
-
 tuplex = tuple(listx)
+```
 
 
 ---
 
+## The `count()` method
 
-# Working with tuples (cont.)
 
+```python
 tuplex = (2, 4, 5, 6, 2, 3, 4, 4, 7)
 
-#return the number of times it appears in the tuple.
-
+# find the np. of times it appears in the tuple:
 count = tuplex.count(4)
-
-# This will print 3!
-
-
----
-
-
-# Working with tuples (cont.)
-
-#Convert list to tuple
-
-listx = [5, 10, 7, 4, 15, 3]
-
-#use the tuple() function built-in Python, passing as parameter the list
-
-tuplex = tuple(listx)
+```
 
 
 ---
 
+## Comparison, a
+
+![](./imgs/garnd-comparison-1.png)
+
+
+
+---
+
+## Comparison, b
+
+![](./imgs/garnd-comparison-2.png)
 

@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="sets+tuples_files/libs/revealjs/dist/theme/quarto.css">
   <link href="sets+tuples_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -339,6 +404,7 @@ ale66
 </div>
 
 </section>
+<section>
 <section id="sets" class="title-slide slide level1 center">
 <h1>Sets</h1>
 <ul>
@@ -348,266 +414,182 @@ ale66
 <li>There are usually used to build sequence of unique items (e.g., set of identifiers such as IDs etc.).</li>
 </ul></li>
 </ul>
-<p>alist = [“Stelios”, “Tom”, “Tom”, “Stelios”, “Claudia”]</p>
-<p>aset = set(alist)</p>
-<p>print(list(aset))</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>my_list <span class="op">=</span> [<span class="st">'Stelios'</span>, <span class="st">'Tom'</span>, <span class="st">'Tom'</span>, <span class="st">'Stelios'</span>, <span class="st">'Claudia'</span>]</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>my_set <span class="op">=</span> <span class="bu">set</span>(my_list)</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="bu">print</span>(<span class="bu">list</span>(my_set))</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a><span class="co"># the set includes only the unique elements!</span></span>
+<span id="cb1-8"><a href=""></a>[<span class="st">'Stelios'</span>, <span class="st">'Tom'</span>, <span class="st">'Claudia'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-
-<section>
-<section id="the-set-includes-only-the-unique-elements" class="title-slide slide level1 center">
-<h1>the set includes only the unique elements!</h1>
-<p>aset = [“Stelios”, “Tom”, “Claudia”]</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="sets-cont." class="title-slide slide level1 center">
-<h1>Sets (cont.)</h1>
-
-</section>
+<section id="sets-1" class="slide level2">
+<h2>Sets</h2>
 <div class="columns">
-<div class="column" style="width:33%;">
-<p>Ideal when we need to remove duplicated values</p>
-<p>Also ideal for doing logic operations</p>
-<p><strong>Duplicates are </strong></p>
-<p><strong>eliminated</strong></p>
-</div><div class="column" style="width:33%;">
-<p>a = set([1, 2, 3,4])</p>
-<p>b = set([3,4,5,6])</p>
-<p>a.intersection(b)</p>
-<section id="this-will-return" class="title-slide slide level1 center">
-<h1>This will <em>return</em></h1>
-<p>set([3, 4])</p>
-<p>c = a.intersection(b)</p>
-<p>c.issubset(a)</p>
+<div class="column" style="width:40%;">
+<p>ideal when we need to remove duplicated values</p>
+<p>also ideal for <em>logical</em> operations</p>
+<p><strong>duplicates are eliminated</strong></p>
+</div><div class="column" style="width:35%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>a <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>b <span class="op">=</span> <span class="bu">set</span>([<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a>a.intersection(b)</span>
+<span id="cb2-6"><a href=""></a><span class="bu">set</span>([<span class="dv">3</span>, <span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>c <span class="op">=</span> a.intersection(b)</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>c.issubset(a)</span>
+<span id="cb3-4"><a href=""></a><span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>a.issubset(b)</span>
+<span id="cb4-2"><a href=""></a><span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>a.difference(b)</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="co"># will  return</span></span>
+<span id="cb5-4"><a href=""></a><span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:25%;">
+<p><img data-src="./imgs/union-intersection.png"></p>
+</div></div>
 </section>
-
-<section id="this-will-return-1" class="title-slide slide level1 center">
-<h1>This will <em>return</em></h1>
-<p>True</p>
-<p>a.issubset(b)</p>
-</section>
-
-<section id="this-will-return-2" class="title-slide slide level1 center">
-<h1>This will <em>return</em></h1>
-<p>False</p>
-</section>
-
-</div><div class="column" style="width:33%;">
-<p>a.difference(b)</p>
-<section id="this-will-return-3" class="title-slide slide level1 center">
-<h1>This will <em>return</em></h1>
-<p>set([1,2,5,6])</p>
-<p><img data-src="img%5Cdcwp-5-a%2Bb0.tiff"></p>
-</section>
-
-</div>
-</div>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="sets-basic-operations" class="title-slide slide level1 center">
-<h1>Sets: Basic operations</h1>
+<section id="sets-basic-operations" class="slide level2">
+<h2>Sets: Basic operations</h2>
 <p>Create an empty set</p>
 <p>Iterate over a set and print elements</p>
-<p>#Create a new empty set</p>
-<p>empty_set = set()</p>
-<p>#Create a non empty set</p>
-<p>aset = set([0, 1, 2, 3, 4])</p>
-<p>#Create a set</p>
-<p>num_set = set([0, 1, 2, 3, 4, 5])</p>
-<p>for element in num_set:</p>
-<p>print(element)</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co">#Create a new empty set</span></span>
+<span id="cb6-2"><a href=""></a>empty_set <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="co">#Create a non empty set</span></span>
+<span id="cb6-5"><a href=""></a>aset <span class="op">=</span> <span class="bu">set</span>([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a><span class="co">#Create a set</span></span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a>num_set <span class="op">=</span> <span class="bu">set</span>([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb6-10"><a href=""></a></span>
+<span id="cb6-11"><a href=""></a><span class="cf">for</span> element <span class="kw">in</span> num_set:</span>
+<span id="cb6-12"><a href=""></a>  <span class="bu">print</span>(element)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section id="sets-basic-operations-cont" class="title-slide slide level1 center">
-<h1>Sets: Basic operations cont</h1>
-<p>Add data to a set</p>
-<p>Remove data from a set</p>
-<p>color_set = set() # alist = list() or alist = [] EMPTY!</p>
-<p>color_set.add(“Red”)</p>
-<p>#Add multiple items</p>
-<p>color_set.update([“Blue”, “Green”])</p>
-<p>color_set.pop()</p>
+<section id="sets-basic-operations-contd" class="slide level2">
+<h2>Sets: Basic operations cont’d</h2>
+<p>Add/remove data from a set</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>color_set <span class="op">=</span> <span class="bu">set</span>()    </span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>color_set.add(<span class="st">'Red'</span>)</span>
+<span id="cb7-4"><a href=""></a></span>
+<span id="cb7-5"><a href=""></a><span class="co">#Add multiple items</span></span>
+<span id="cb7-6"><a href=""></a>color_set.update([<span class="st">'Blue'</span>, <span class="st">'Green'</span>])</span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a><span class="co"># remove the last element</span></span>
+<span id="cb7-9"><a href=""></a>color_set.pop()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-
-<section>
-<section id="will-remove-the-last-element" class="title-slide slide level1 center">
-<h1>Will remove the last element</h1>
-
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="sets-basic-operations-cont-cont." class="title-slide slide level1 center">
-<h1>Sets: Basic operations cont (cont.)</h1>
+<section id="sets-more-basic-operations" class="slide level2">
+<h2>Sets: more basic operations</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Intersection of two sets</p>
-<p>Union of two sets</p>
-<p>x = set([“green”, “blue”])</p>
-<p>y = set([“blue”, “yellow”])</p>
-<p>z = x &amp; y # or x.intersection(y)</p>
-<p>x = set([“green”, “blue”])</p>
-<p>y = set([“blue”, “yellow”])</p>
-<p>z = x | y # or x.union(y)</p>
-</div><div class="column" style="width:50%;">
-<p>”green”,”blue”,”yellow”</p>
+<div class="column" style="width:60%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>x <span class="op">=</span> <span class="bu">set</span>([<span class="st">'green'</span>, <span class="st">'blue'</span>])</span>
+<span id="cb8-2"><a href=""></a></span>
+<span id="cb8-3"><a href=""></a>y <span class="op">=</span> <span class="bu">set</span>([<span class="st">'blue'</span>, <span class="st">'yellow'</span>])</span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a>z  <span class="op">=</span> x <span class="op">&amp;</span> y      <span class="co"># or x.intersection(y)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>x <span class="op">=</span> <span class="bu">set</span>([<span class="st">'green'</span>, <span class="st">'blue'</span>])</span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a>y <span class="op">=</span> <span class="bu">set</span>([<span class="st">'blue'</span>, <span class="st">'yellow'</span>])</span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a>z <span class="op">=</span> x <span class="op">|</span> y       <span class="co"># or x.union(y)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co">'green'</span>, <span class="st">'blue'</span>, <span class="st">'yellow'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+<div class="fragment">
+<p>Cardinality</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>colors <span class="op">=</span> <span class="bu">set</span>([<span class="st">'green'</span>, <span class="st">'blue'</span>])</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a><span class="bu">print</span>(<span class="bu">len</span>(colors))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section id="sets-basic-operations-cont-cont.-1" class="title-slide slide level1 center">
-<h1>Sets: Basic operations cont (cont.)</h1>
-<p>Len of a set (similar to lists)</p>
-<p>x = set([“green”, “blue”])</p>
-</section>
-
-<section>
-<section id="lenx---will-print-2" class="title-slide slide level1 center">
-<h1>len(x) -&gt; will print 2</h1>
-
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="quiz-2" class="title-slide slide level1 center">
-<h1>Quiz 2!</h1>
+<section id="quiz-2-true-or-false" class="slide level2">
+<h2>Quiz 2: true or false?</h2>
 <div class="columns">
-<div class="column" style="width:33%;">
+<div class="column" style="width:60%;">
 <ul>
-<li>Sets allow duplicated values:
-<ul>
-<li>True or False?</li>
-</ul></li>
-<li>Sets have no order in data:
-<ul>
-<li>True or False?</li>
-</ul></li>
-<li>Sets do no support indexing:
-<ul>
-<li>True or False?</li>
-</ul></li>
+<li><p>Sets allow duplicated values</p></li>
+<li><p>Sets are unordered</p></li>
+<li><p>Sets are not indexed</p></li>
 </ul>
-</div><div class="column" style="width:33%;">
-
-</div><div class="column" style="width:33%;">
-<p><img data-src="img%5Cdcwp-5-a%2Bb1.png"></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="./imgs/timer.gif"></p>
 </div></div>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="quiz-solutions" class="title-slide slide level1 center">
-<h1>Quiz Solutions!</h1>
+<section id="solutions" class="slide level2">
+<h2>Solutions!</h2>
 <ul>
-<li>Sets allow duplicated values:
+<li>Sets allow duplicated values
 <ul>
 <li>False</li>
 </ul></li>
-<li>Sets have no order in data:
+<li>Sets are unordered
 <ul>
 <li>True</li>
 </ul></li>
-<li>Sets do no support indexing:
+<li>Sets are not indexed
 <ul>
 <li>True</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="facts-about-sets" class="title-slide slide level1 center">
-<h1>Facts about Sets</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Duplicates are </strong></p>
-<p><strong>eliminated</strong></p>
-<p><strong>SETS have </strong></p>
-<p><strong>no order</strong></p>
-</div><div class="column" style="width:50%;">
-<p>SETS do not <strong>Support </strong> <strong>indexing</strong></p>
-<p><strong>SETS are ideal </strong> <strong>For </strong> <strong>Boolean</strong> __ __ <strong>operations</strong></p>
-</div></div>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>Duplicates are eliminated</p>
+<p>no ordering</p>
+<p>no support for indexing</p>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="quiz-3" class="title-slide slide level1 center">
-<h1>Quiz 3!</h1>
+<section id="quiz-3" class="slide level2">
+<h2>Quiz 3!</h2>
 <div class="columns">
-<div class="column" style="width:33%;">
-<p><img data-src="img%5Cdcwp-5-a%2Bb2.png"></p>
-</div><div class="column" style="width:33%;">
+<div class="column" style="width:20%;">
 <p>Will it print True or False?</p>
-</div><div class="column" style="width:33%;">
-<p>x = set([“Agatha Christie”, “J.R.R Tolkien”])</p>
-<p>y = set([“J.R.R Tolkien”, “Virginia Woolf”])</p>
-<p>z = set([” J.R.R Tolkien ”])</p>
-<p><strong>issubset1 = x.</strong> issubset <strong>(y)</strong></p>
-<p>print(issubset1)</p>
-<p><strong>issuperset2 = y. issuperset(x)</strong></p>
-<p>print(issuperset2)</p>
-<p><strong>issubset3 = z.</strong> issubset <strong>(y)</strong></p>
-<p>print(issubset3)</p>
-<p><strong>issuperset4= y.issuperset(z)</strong></p>
-<p>print(issuperset4)</p>
+<p><img data-src="./imgs/timer.gif"></p>
+</div><div class="column" style="width:45%;">
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>x <span class="op">=</span> <span class="bu">set</span>([<span class="st">'Agatha Christie'</span>, </span>
+<span id="cb12-2"><a href=""></a>         <span class="st">'J.R.R. Tolkien'</span>])</span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a>y <span class="op">=</span> <span class="bu">set</span>([<span class="st">'J.R.R. Tolkien'</span>, </span>
+<span id="cb12-5"><a href=""></a>         <span class="st">'Virginia Woolf'</span>])</span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a>z <span class="op">=</span> <span class="bu">set</span>([<span class="st">'J.R.R. Tolkien'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:35%;">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="bu">print</span>(x.issubset(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="bu">print</span>(y. issuperset(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="bu">print</span>(z.issubset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="bu">print</span>(y.issuperset(z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section class="slide level2">
 
 </section></section>
 <section>
-<section id="quiz-3-solutions" class="title-slide slide level1 center">
-<h1>Quiz 3 Solutions!</h1>
+<section id="solution" class="title-slide slide level1 center">
+<h1>Solution</h1>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>The outputs of the print statements are True or False?</p>
-</div><div class="column" style="width:50%;">
-<p>x = set([“Agatha Christie”, “J.R.R Tolkien”])</p>
-<p>y = set([“J.R.R Tolkien”, “Virginia Woolf”])</p>
-<p>z = set([” J.R.R Tolkien ”])</p>
-<p><strong>issubset1 = x &lt;= y</strong></p>
-<p>print(issubset1) # This will print False</p>
-<p><strong>issuperset2 = x &gt;= y</strong></p>
-<p>print(issuperset2) # This will print False</p>
-<p><strong>issubset3 = z &lt;= y</strong></p>
-<p>print(issubset3) # This will print True</p>
-<p><strong>issuperset4 = y &gt;= z</strong></p>
-<p>print(issuperset4) # This will print True</p>
+<div class="column" style="width:20%;">
+<p>Will it print True or False?</p>
+<p><img data-src="./imgs/timer.gif"></p>
+</div><div class="column" style="width:45%;">
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>x <span class="op">=</span> <span class="bu">set</span>([<span class="st">'Agatha Christie'</span>, </span>
+<span id="cb17-2"><a href=""></a>         <span class="st">'J.R.R. Tolkien'</span>])</span>
+<span id="cb17-3"><a href=""></a></span>
+<span id="cb17-4"><a href=""></a>y <span class="op">=</span> <span class="bu">set</span>([<span class="st">'J.R.R. Tolkien'</span>, </span>
+<span id="cb17-5"><a href=""></a>         <span class="st">'Virginia Woolf'</span>])</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a>z <span class="op">=</span> <span class="bu">set</span>([<span class="st">'J.R.R. Tolkien'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:35%;">
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">print</span>(x.issubset(y))</span>
+<span id="cb18-2"><a href=""></a><span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="bu">print</span>(y. issuperset(x))</span>
+<span id="cb19-2"><a href=""></a><span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">print</span>(z.issubset)</span>
+<span id="cb20-2"><a href=""></a><span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="bu">print</span>(y.issuperset(z))</span>
+<span id="cb21-2"><a href=""></a><span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="more-python-data-structures" class="title-slide slide level1 center">
-<h1>More Python data structures</h1>
-<ul>
-<li>Tuples:
-<ul>
-<li>A data structure very similar to the&nbsp; <strong>list</strong> &nbsp;data structure.</li>
-<li>The main difference being that tuple manipulation are faster than list because tuples are
-<ul>
-<li><strong>IMMUTABLE</strong></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>mytuple = (10, 20, 30)</p>
-<p>mytuple[0]</p>
-<p>#Will print</p>
-<p>mytuple = (10, 20, 30)</p>
 </section>
 <section class="slide level2">
 
@@ -615,110 +597,91 @@ ale66
 <section>
 <section id="tuples" class="title-slide slide level1 center">
 <h1>Tuples</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Tuples are optimised!
-<ul>
-<li>This makes them very simple.</li>
-<li>There are two functions available only:
-<ul>
-<li><em>index</em> <em>, to find the occurrence of a value</em></li>
-<li><em>count, </em> <em>to count the number of occurrences of a value</em></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>my_protected_dictionary = dict([(‘jan’, 1), (‘feb’, 2), (‘march’, 3)])</p>
-<p>my_protected_dictionary[‘feb’]</p>
-<p><strong># This will print 2!</strong></p>
-<p><strong># The keys are immutable!</strong></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Tuples are useful because there are
-<ul>
-<li><em>faster than lists</em></li>
-<li><em>protect the data</em> <em>, which is immutable</em></li>
-<li><em>tuples can be used as keys on dictionaries</em></li>
-</ul></li>
-</ul>
-</div></div>
+
 </section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="tuples-useful-hints" class="title-slide slide level1 center">
-<h1>Tuples: Useful hints</h1>
+<p>A data structure similar to lists</p>
+<p>Main difference: tuples are <em>immutable</em></p>
+<p>Their application is faster than lists</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>mytuple <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb22-2"><a href=""></a></span>
+<span id="cb22-3"><a href=""></a>mytuple[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="functions-for-tuples" class="slide level2">
+<h2>Functions for tuples</h2>
+<p>There are two functions available only:</p>
 <ul>
-<li>Tuple unpacking:</li>
-<li>data = (1,2,3)</li>
-<li>x, y, z = data</li>
-<li><h1 id="x-is-1-y-2-will-be-0etc.">x is 1, y – 2 (will be 0)etc.</h1></li>
-<li><strong>len(data) </strong>
-<ul>
-<li>Will print 3</li>
-</ul></li>
-<li>Slicing works similar to lists</li>
-<li>t = (1,2,3,4,5)</li>
-<li>t[2:]</li>
-<li>(3, 4, 5)</li>
+<li><p><code>index</code> to find the occurrence of a value</p></li>
+<li><p><code>count</code> to count the number of occurrences of a value</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="working-with-tuples" class="title-slide slide level1 center">
-<h1>Working with tuples</h1>
-<p>tuplex = (4, 6, 2, 8, 3, 1)</p>
-<p>print(tuplex)</p>
-<p>#tuples are <strong>immutable</strong> !, so you can not add new elements</p>
-<p>#using merge of tuples with the + operator you can add an element and it will create a new tuple</p>
-<p>tuplex = tuplex + (9,)</p>
-<p>print(tuplex)</p>
+<h3 id="tuples-in-dictionaries">Tuples in dictionaries</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>my_protected_dictionary <span class="op">=</span> <span class="bu">dict</span>([(<span class="st">'jan'</span>, <span class="dv">1</span>), (<span class="st">'feb'</span>, <span class="dv">2</span>), (<span class="st">'march'</span>, <span class="dv">3</span>)])</span>
+<span id="cb23-2"><a href=""></a></span>
+<span id="cb23-3"><a href=""></a>my_protected_dictionary[<span class="st">'feb’]</span></span>
+<span id="cb23-4"><a href=""></a><span class="er">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Often tuples are used as keys to dictionaries</p>
+<p>Tuples are useful because they are</p>
+<ul>
+<li><p>are faster than lists</p></li>
+<li><p>protect the data from change</p></li>
+</ul>
+</section>
+<section id="tuple-unpacking" class="slide level2">
+<h2>Tuple unpacking</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>data  <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb24-2"><a href=""></a></span>
+<span id="cb24-3"><a href=""></a>x, y, z <span class="op">=</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Slicing is similar to lists</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb25-2"><a href=""></a></span>
+<span id="cb25-3"><a href=""></a><span class="bu">print</span>(mytuple[<span class="dv">2</span>:])</span>
+<span id="cb25-4"><a href=""></a>  </span>
+<span id="cb25-5"><a href=""></a>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="working-with-tuples" class="slide level2">
+<h2>Working with tuples</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>tuplex <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Since tuples are immutable we can not add new elements</p>
+<p>tuple merge, with the + operator, can add elements and create a new tuple</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="co"># notice the extra ','</span></span>
+<span id="cb27-2"><a href=""></a>tuplex <span class="op">=</span> tuplex <span class="op">+</span> (<span class="dv">9</span>,)</span>
+<span id="cb27-3"><a href=""></a></span>
+<span id="cb27-4"><a href=""></a><span class="bu">print</span>(tuplex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="working-with-tuples-cont." class="title-slide slide level1 center">
-<h1>Working with tuples (cont.)</h1>
-<p>tuplex = (4, 6, 2, 8, 3, 1)</p>
-<p>listx = list(tuplex)</p>
-<p>#Add an item in the list</p>
-<p>listx.append(30)</p>
-<p>#Make the list tuplex</p>
-<p>tuplex = tuple(listx)</p>
+<p>Another workaround</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>tuplex <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb28-2"><a href=""></a></span>
+<span id="cb28-3"><a href=""></a>listx <span class="op">=</span> <span class="bu">list</span>(tuplex)</span>
+<span id="cb28-4"><a href=""></a></span>
+<span id="cb28-5"><a href=""></a><span class="co">#Add an item in the list</span></span>
+<span id="cb28-6"><a href=""></a>listx.append(<span class="dv">30</span>)</span>
+<span id="cb28-7"><a href=""></a></span>
+<span id="cb28-8"><a href=""></a><span class="co">#Make the list tuplex</span></span>
+<span id="cb28-9"><a href=""></a>tuplex <span class="op">=</span> <span class="bu">tuple</span>(listx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section id="working-with-tuples-cont.-1" class="title-slide slide level1 center">
-<h1>Working with tuples (cont.)</h1>
-<p>tuplex = (2, 4, 5, 6, 2, 3, 4, 4, 7)</p>
-<p>#return the number of times it appears in the tuple.</p>
-<p>count = tuplex.count(4)</p>
+<section id="the-count-method" class="slide level2">
+<h2>The <code>count()</code> method</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>tuplex <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">7</span>)</span>
+<span id="cb29-2"><a href=""></a></span>
+<span id="cb29-3"><a href=""></a><span class="co"># find the np. of times it appears in the tuple:</span></span>
+<span id="cb29-4"><a href=""></a>count <span class="op">=</span> tuplex.count(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="comparison-a" class="slide level2">
+<h2>Comparison, a</h2>
 
-<section>
-<section id="this-will-print-3" class="title-slide slide level1 center">
-<h1>This will print 3!</h1>
+<img data-src="./imgs/garnd-comparison-1.png" class="r-stretch"></section>
+<section id="comparison-b" class="slide level2">
+<h2>Comparison, b</h2>
 
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="working-with-tuples-cont.-2" class="title-slide slide level1 center">
-<h1>Working with tuples (cont.)</h1>
-<p>#Convert list to tuple</p>
-<p>listx = [5, 10, 7, 4, 15, 3]</p>
-<p>#use the tuple() function built-in Python, passing as parameter the list</p>
-<p>tuplex = tuple(listx)</p>
-</section>
-<section class="slide level2">
-
-<div class="quarto-auto-generated-content">
+<img data-src="./imgs/garnd-comparison-2.png" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://github.com/ale66/learn-web">github.com/ale66/learn-web</a>&nbsp;&nbsp;&nbsp;</p>
 </div>
@@ -756,7 +719,7 @@ ale66
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true,"boardmarkerWidth":3},
+'chalkboard': {"buttons":true,"boardmarkerWidth":2},
 'smaller': false,
  
         // Display controls in the bottom right corner
