@@ -253,15 +253,16 @@ Often `"`s are used for text, e.g., `"Jean Jacques"`
 Python supports CVS files via a extra *module* (details later)
 
 
-```python
+```{python}
 import csv
+FILE2 = './data/biostats.csv'
 
-	with open(FILE) as f:
+with open(FILE2) as f:
 
-		lines = csv.reader(f, delimiter=',')
+	lines = csv.reader(f, delimiter=',')
 
-		for l in lines:
-		  print(l)
+	for l in lines:
+		print(l)
 ```
 
 ---
@@ -281,8 +282,8 @@ for l in lines:
 
 Function `DictReader` uses the first line to guide the creation of dictionaries
 
-```python
-with open(FILE) as f:
+```{python}
+with open(FILE2) as f:
 
     lines = csv.DictReader(f,  delimiter=',')
 
@@ -290,10 +291,22 @@ with open(FILE) as f:
       print(f'Patient: {l}')
 ```
 
-A list of key names can also be supplied, to facilitate data migration (see code)
+A list of key names can also be supplied, to facilitate data migration
 
-```python
-    lines = csv.DictReader(f,  fieldnames=mapping_es, delimiter=',')
+```{python}
+first_line = ['Name', 'Sex', 'Age', 'Height(in)', 'Weight(lbs)']
+
+mapping_es = ['Nombre', 'Sexo', 'Edad', 'Estatura(in)', 'Peso(lbs)']
+```
+
+. . . 
+
+```{python}
+with open(FILE2) as f:
+  lines = csv.DictReader(f,  fieldnames = mapping_es, delimiter = ',')
+    
+  for l in lines:
+    print(f'Paciente: {l['Nombre'], l['Edad']}')
 ```
 
 ---
@@ -372,6 +385,54 @@ so do data thas is naturally non-atomic, e.g., `passed_exams`
     }
 }]
 ```
+
+---
+
+## JSON format recap
+
+From the point of view of Python, a JSON object is 
+
+-  a dictionary `{"first_name": "John", "last_name": "Smith", ...}
+
+- a list of dictionaries [{"first_name": "John", ...}, {...}, {...}]
+
+where each value is either a Boolean, a number, a string or list or a dictionary.
+
+---
+
+These examples are from Wikipedia
+
+```json
+{"first_name": "John", 
+ "last_name": "Smith",
+ "address": {
+    "street_address": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10021-3100"
+  }, ...}
+  ```
+
+
+```json
+{"first_name": "John", 
+ "last_name": "Smith",
+ "phone_numbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ], ...}
+  ```
+
+
+
+
+
 
 
 ## Non-text files

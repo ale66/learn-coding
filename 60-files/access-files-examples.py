@@ -2,10 +2,13 @@
 
 MYFILE = './data/incipit.txt'
 
+
+'''
 with open(MYFILE) as f:
     longstringwithnewlines = f.read()
 
 print(longstringwithnewlines)
+'''
 
 '''
 with open(MYFILE) as f:
@@ -15,12 +18,13 @@ with open(MYFILE) as f:
 
 
 # include foreigh functions
-'''
+
 import csv
 
 FILE = './data/biostats.csv'
 
 
+'''
 with open(FILE) as f:
 
 	lines = csv.reader(f, delimiter=',')
@@ -67,8 +71,8 @@ mapping_es = ['Nombre', 'Sexo', 'Edad', 'Estatura(in)', 'Peso(lbs)']
 
 with open(FILE) as f:
 
-    lines = csv.DictReader(f,  fieldnames=mapping_es, delimiter=',')
+    lines = csv.DictReader(f,  fieldnames = mapping_es, delimiter = ',')
 
     for l in lines:
-        print(f'Paciente: {l}')
+        print(f'Paciente: {l['Nombre'], l['Edad']}')
 '''

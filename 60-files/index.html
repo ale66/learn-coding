@@ -589,35 +589,115 @@ ale66
 <section class="slide level2">
 
 <p>Python supports CVS files via a extra <em>module</em> (details later)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> csv</span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a>    <span class="cf">with</span> <span class="bu">open</span>(FILE) <span class="im">as</span> f:</span>
-<span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a>        lines <span class="op">=</span> csv.reader(f, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb12-6"><a href=""></a></span>
-<span id="cb12-7"><a href=""></a>        <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
-<span id="cb12-8"><a href=""></a>          <span class="bu">print</span>(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e09fd759" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> csv</span>
+<span id="cb12-2"><a href=""></a>FILE2 <span class="op">=</span> <span class="st">'./data/biostats.csv'</span></span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
+<span id="cb12-5"><a href=""></a></span>
+<span id="cb12-6"><a href=""></a>    lines <span class="op">=</span> csv.reader(f, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb12-7"><a href=""></a></span>
+<span id="cb12-8"><a href=""></a>    <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb12-9"><a href=""></a>        <span class="bu">print</span>(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Name', 'Sex', 'Age', 'Height(in)', 'Weight(lbs)']
+['Alex', 'M', '41', '74', '170']
+['Bert', 'M', '42', '68', '166']
+['Dave', 'M', '32', '70', '155']
+['Dave', 'M', '39', '72', '167']
+['Elly', 'F', '30', '66', '124']
+['Fran', 'F', '33', '66', '115']
+['Gwen', 'F', '26', '64', '121']
+['Hank', 'M', '30', '71', '158']
+['Luke', 'M', '53', '72', '175']
+['Jake', 'M', '32', '69', '143']
+['Kate', 'F', '47', '69', '139']
+['Luke', 'M', '34', '72', '163']
+['Myra', 'F', '23', '62', '98']
+['Neil', 'M', '36', '75', '160']
+['Omar', 'M', '38', '70', '145']
+['Page', 'F', '31', '67', '135']
+['Luke', 'M', '29', '71', '176']
+['Ruth', 'F', '28', '65', '131']</code></pre>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 <p>The first line is special</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># get the first line out</span></span>
-<span id="cb13-2"><a href=""></a>header <span class="op">=</span> <span class="bu">next</span>(lines)</span>
-<span id="cb13-3"><a href=""></a></span>
-<span id="cb13-4"><a href=""></a><span class="cf">for</span> l <span class="kw">in</span> lines:</span>
-<span id="cb13-5"><a href=""></a>  <span class="bu">print</span>(<span class="ss">f'Patient: </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co"># get the first line out</span></span>
+<span id="cb14-2"><a href=""></a>header <span class="op">=</span> <span class="bu">next</span>(lines)</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a><span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb14-5"><a href=""></a>  <span class="bu">print</span>(<span class="ss">f'Patient: </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="from-csv-to-dictionary" class="slide level2">
 <h2>From CSV to Dictionary</h2>
 <p>Function <code>DictReader</code> uses the first line to guide the creation of dictionaries</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE) <span class="im">as</span> f:</span>
-<span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb14-4"><a href=""></a></span>
-<span id="cb14-5"><a href=""></a>    <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
-<span id="cb14-6"><a href=""></a>      <span class="bu">print</span>(<span class="ss">f'Patient: </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A list of key names can also be supplied, to facilitate data migration (see code)</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  fieldnames<span class="op">=</span>mapping_es, delimiter<span class="op">=</span><span class="st">','</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c6f830a6" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb15-4"><a href=""></a></span>
+<span id="cb15-5"><a href=""></a>    <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb15-6"><a href=""></a>      <span class="bu">print</span>(<span class="ss">f'Patient: </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Patient: {'Name': 'Alex', 'Sex': 'M', 'Age': '41', 'Height(in)': '74', 'Weight(lbs)': '170'}
+Patient: {'Name': 'Bert', 'Sex': 'M', 'Age': '42', 'Height(in)': '68', 'Weight(lbs)': '166'}
+Patient: {'Name': 'Dave', 'Sex': 'M', 'Age': '32', 'Height(in)': '70', 'Weight(lbs)': '155'}
+Patient: {'Name': 'Dave', 'Sex': 'M', 'Age': '39', 'Height(in)': '72', 'Weight(lbs)': '167'}
+Patient: {'Name': 'Elly', 'Sex': 'F', 'Age': '30', 'Height(in)': '66', 'Weight(lbs)': '124'}
+Patient: {'Name': 'Fran', 'Sex': 'F', 'Age': '33', 'Height(in)': '66', 'Weight(lbs)': '115'}
+Patient: {'Name': 'Gwen', 'Sex': 'F', 'Age': '26', 'Height(in)': '64', 'Weight(lbs)': '121'}
+Patient: {'Name': 'Hank', 'Sex': 'M', 'Age': '30', 'Height(in)': '71', 'Weight(lbs)': '158'}
+Patient: {'Name': 'Luke', 'Sex': 'M', 'Age': '53', 'Height(in)': '72', 'Weight(lbs)': '175'}
+Patient: {'Name': 'Jake', 'Sex': 'M', 'Age': '32', 'Height(in)': '69', 'Weight(lbs)': '143'}
+Patient: {'Name': 'Kate', 'Sex': 'F', 'Age': '47', 'Height(in)': '69', 'Weight(lbs)': '139'}
+Patient: {'Name': 'Luke', 'Sex': 'M', 'Age': '34', 'Height(in)': '72', 'Weight(lbs)': '163'}
+Patient: {'Name': 'Myra', 'Sex': 'F', 'Age': '23', 'Height(in)': '62', 'Weight(lbs)': '98'}
+Patient: {'Name': 'Neil', 'Sex': 'M', 'Age': '36', 'Height(in)': '75', 'Weight(lbs)': '160'}
+Patient: {'Name': 'Omar', 'Sex': 'M', 'Age': '38', 'Height(in)': '70', 'Weight(lbs)': '145'}
+Patient: {'Name': 'Page', 'Sex': 'F', 'Age': '31', 'Height(in)': '67', 'Weight(lbs)': '135'}
+Patient: {'Name': 'Luke', 'Sex': 'M', 'Age': '29', 'Height(in)': '71', 'Weight(lbs)': '176'}
+Patient: {'Name': 'Ruth', 'Sex': 'F', 'Age': '28', 'Height(in)': '65', 'Weight(lbs)': '131'}</code></pre>
+</div>
+</div>
+<p>A list of key names can also be supplied, to facilitate data migration</p>
+<div id="b7478196" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>first_line <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Sex'</span>, <span class="st">'Age'</span>, <span class="st">'Height(in)'</span>, <span class="st">'Weight(lbs)'</span>]</span>
+<span id="cb17-2"><a href=""></a></span>
+<span id="cb17-3"><a href=""></a>mapping_es <span class="op">=</span> [<span class="st">'Nombre'</span>, <span class="st">'Sexo'</span>, <span class="st">'Edad'</span>, <span class="st">'Estatura(in)'</span>, <span class="st">'Peso(lbs)'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div id="5b150db9" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
+<span id="cb18-2"><a href=""></a>  lines <span class="op">=</span> csv.DictReader(f,  fieldnames <span class="op">=</span> mapping_es, delimiter <span class="op">=</span> <span class="st">','</span>)</span>
+<span id="cb18-3"><a href=""></a>    </span>
+<span id="cb18-4"><a href=""></a>  <span class="cf">for</span> l <span class="kw">in</span> lines:</span>
+<span id="cb18-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f'Paciente: </span><span class="sc">{</span>l[<span class="st">'Nombre'</span>]<span class="sc">,</span> l[<span class="st">'Edad'</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Paciente: ('Name', 'Age')
+Paciente: ('Alex', '41')
+Paciente: ('Bert', '42')
+Paciente: ('Dave', '32')
+Paciente: ('Dave', '39')
+Paciente: ('Elly', '30')
+Paciente: ('Fran', '33')
+Paciente: ('Gwen', '26')
+Paciente: ('Hank', '30')
+Paciente: ('Luke', '53')
+Paciente: ('Jake', '32')
+Paciente: ('Kate', '47')
+Paciente: ('Luke', '34')
+Paciente: ('Myra', '23')
+Paciente: ('Neil', '36')
+Paciente: ('Omar', '38')
+Paciente: ('Page', '31')
+Paciente: ('Luke', '29')
+Paciente: ('Ruth', '28')</code></pre>
+</div>
+</div>
+</div>
 </section>
 <section id="discussion" class="slide level2">
 <h2>Discussion</h2>
@@ -625,9 +705,9 @@ ale66
 <p>However, they assume that for each datapoint we a <em>fixed</em> description that will fill the exact number of colums</p>
 <p>Lack of data implies filling a <em>placeholder</em> or <code>null</code> value</p>
 <p>Bert is NOT 68 years old</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href=""></a>Name, Sex, Age, Height(in), Weight(lbs)</span>
-<span id="cb16-2"><a href=""></a>Alex, M, 41, 74, 170</span>
-<span id="cb16-3"><a href=""></a>Bert, M, NULL, 68, 166</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href=""></a>Name, Sex, Age, Height(in), Weight(lbs)</span>
+<span id="cb20-2"><a href=""></a>Alex, M, 41, 74, 170</span>
+<span id="cb20-3"><a href=""></a>Bert, M, NULL, 68, 166</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>But what if we know Alex’s shoe size and Bert’s lung capacity (and not vice versa)</p>
 </section></section>
 <section>
@@ -641,47 +721,80 @@ ale66
 <p>JSON is essentially <em>a list of nested Python dictionaries.</em></p>
 <p>Different levels of details are easily accomodated</p>
 <p>so do data thas is naturally non-atomic, e.g., <code>passed_exams</code></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb17-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
-<span id="cb17-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
-<span id="cb17-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb17-4"><a href=""></a>        <span class="dt">"energy"</span><span class="fu">:</span> <span class="dv">51</span><span class="fu">,</span></span>
-<span id="cb17-5"><a href=""></a>        <span class="dt">"environmental"</span><span class="fu">:</span> <span class="fl">32.5378277861242</span><span class="fu">,</span></span>
-<span id="cb17-6"><a href=""></a>        <span class="dt">"management"</span><span class="fu">:</span> <span class="fl">15.73553116878063</span><span class="fu">,</span></span>
-<span id="cb17-7"><a href=""></a>        <span class="dt">"party"</span><span class="fu">:</span> <span class="fl">35.37153650105044</span><span class="fu">,</span></span>
-<span id="cb17-8"><a href=""></a>        <span class="dt">"buildings"</span><span class="fu">:</span> <span class="fl">1.1823215567939547</span><span class="fu">,</span></span>
-<span id="cb17-9"><a href=""></a>        <span class="dt">"sustainability"</span><span class="fu">:</span> <span class="fl">29.487406431175053</span></span>
-<span id="cb17-10"><a href=""></a>    <span class="fu">},</span></span>
-<span id="cb17-11"><a href=""></a>    <span class="er">//</span> <span class="er">more</span> <span class="er">and</span> <span class="er">more...</span></span>
-<span id="cb17-12"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb21-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb21-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
+<span id="cb21-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-4"><a href=""></a>        <span class="dt">"energy"</span><span class="fu">:</span> <span class="dv">51</span><span class="fu">,</span></span>
+<span id="cb21-5"><a href=""></a>        <span class="dt">"environmental"</span><span class="fu">:</span> <span class="fl">32.5378277861242</span><span class="fu">,</span></span>
+<span id="cb21-6"><a href=""></a>        <span class="dt">"management"</span><span class="fu">:</span> <span class="fl">15.73553116878063</span><span class="fu">,</span></span>
+<span id="cb21-7"><a href=""></a>        <span class="dt">"party"</span><span class="fu">:</span> <span class="fl">35.37153650105044</span><span class="fu">,</span></span>
+<span id="cb21-8"><a href=""></a>        <span class="dt">"buildings"</span><span class="fu">:</span> <span class="fl">1.1823215567939547</span><span class="fu">,</span></span>
+<span id="cb21-9"><a href=""></a>        <span class="dt">"sustainability"</span><span class="fu">:</span> <span class="fl">29.487406431175053</span></span>
+<span id="cb21-10"><a href=""></a>    <span class="fu">},</span></span>
+<span id="cb21-11"><a href=""></a>    <span class="er">//</span> <span class="er">more</span> <span class="er">and</span> <span class="er">more...</span></span>
+<span id="cb21-12"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb18-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
-<span id="cb18-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
-<span id="cb18-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{},</span></span>
-<span id="cb18-4"><a href=""></a>    <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{},</span> </span>
-<span id="cb18-5"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb22-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb22-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
+<span id="cb22-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb22-4"><a href=""></a>    <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{},</span> </span>
+<span id="cb22-5"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb19-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
-<span id="cb19-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
-<span id="cb19-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{},</span></span>
-<span id="cb19-4"><a href=""></a>    <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb19-5"><a href=""></a>      <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"energy"</span><span class="fu">:</span> <span class="dv">89</span><span class="fu">,</span></span>
-<span id="cb19-6"><a href=""></a>      <span class="dt">"environmental"</span><span class="fu">:</span> <span class="fl">34.57144202275696</span><span class="fu">,</span></span>
-<span id="cb19-7"><a href=""></a>      <span class="dt">"management"</span><span class="fu">:</span> <span class="fl">7.867765584390315</span><span class="fu">,</span></span>
-<span id="cb19-8"><a href=""></a>      <span class="dt">"party"</span><span class="fu">:</span> <span class="fl">7.737523609604784</span><span class="fu">,</span></span>
-<span id="cb19-9"><a href=""></a>      <span class="dt">"buildings"</span><span class="fu">:</span> <span class="fl">141.87858681527456</span><span class="fu">,</span></span>
-<span id="cb19-10"><a href=""></a>      <span class="dt">"sustainability"</span><span class="fu">:</span> <span class="fl">39.655477614338864</span><span class="fu">},</span></span>
-<span id="cb19-11"><a href=""></a>    <span class="fu">}</span></span>
-<span id="cb19-12"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb23-1"><a href=""></a><span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb23-2"><a href=""></a>    <span class="dt">"Financial Institution"</span><span class="fu">:</span> <span class="st">"Financial Institution"</span><span class="fu">,</span></span>
+<span id="cb23-3"><a href=""></a>    <span class="dt">"ABANCACorporacinBancariaS.txt"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb23-4"><a href=""></a>    <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb23-5"><a href=""></a>      <span class="dt">"ABN_AMRO_2015_External_review_report.txt"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"energy"</span><span class="fu">:</span> <span class="dv">89</span><span class="fu">,</span></span>
+<span id="cb23-6"><a href=""></a>      <span class="dt">"environmental"</span><span class="fu">:</span> <span class="fl">34.57144202275696</span><span class="fu">,</span></span>
+<span id="cb23-7"><a href=""></a>      <span class="dt">"management"</span><span class="fu">:</span> <span class="fl">7.867765584390315</span><span class="fu">,</span></span>
+<span id="cb23-8"><a href=""></a>      <span class="dt">"party"</span><span class="fu">:</span> <span class="fl">7.737523609604784</span><span class="fu">,</span></span>
+<span id="cb23-9"><a href=""></a>      <span class="dt">"buildings"</span><span class="fu">:</span> <span class="fl">141.87858681527456</span><span class="fu">,</span></span>
+<span id="cb23-10"><a href=""></a>      <span class="dt">"sustainability"</span><span class="fu">:</span> <span class="fl">39.655477614338864</span><span class="fu">},</span></span>
+<span id="cb23-11"><a href=""></a>    <span class="fu">}</span></span>
+<span id="cb23-12"><a href=""></a><span class="fu">}</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="json-format-recap" class="slide level2">
+<h2>JSON format recap</h2>
+<p>From the point of view of Python, a JSON object is</p>
+<ul>
+<li><p>a dictionary `{“first_name”: “John”, “last_name”: “Smith”, …}</p></li>
+<li><p>a list of dictionaries [{“first_name”: “John”, …}, {…}, {…}]</p></li>
+</ul>
+<p>where each value is either a Boolean, a number, a string or list or a dictionary.</p>
+</section>
+<section class="slide level2">
+
+<p>These examples are from Wikipedia</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb24-1"><a href=""></a><span class="fu">{</span><span class="dt">"first_name"</span><span class="fu">:</span> <span class="st">"John"</span><span class="fu">,</span> </span>
+<span id="cb24-2"><a href=""></a> <span class="dt">"last_name"</span><span class="fu">:</span> <span class="st">"Smith"</span><span class="fu">,</span></span>
+<span id="cb24-3"><a href=""></a> <span class="dt">"address"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb24-4"><a href=""></a>    <span class="dt">"street_address"</span><span class="fu">:</span> <span class="st">"21 2nd Street"</span><span class="fu">,</span></span>
+<span id="cb24-5"><a href=""></a>    <span class="dt">"city"</span><span class="fu">:</span> <span class="st">"New York"</span><span class="fu">,</span></span>
+<span id="cb24-6"><a href=""></a>    <span class="dt">"state"</span><span class="fu">:</span> <span class="st">"NY"</span><span class="fu">,</span></span>
+<span id="cb24-7"><a href=""></a>    <span class="dt">"postal_code"</span><span class="fu">:</span> <span class="st">"10021-3100"</span></span>
+<span id="cb24-8"><a href=""></a>  <span class="fu">},</span> <span class="er">...</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb25-1"><a href=""></a><span class="fu">{</span><span class="dt">"first_name"</span><span class="fu">:</span> <span class="st">"John"</span><span class="fu">,</span> </span>
+<span id="cb25-2"><a href=""></a> <span class="dt">"last_name"</span><span class="fu">:</span> <span class="st">"Smith"</span><span class="fu">,</span></span>
+<span id="cb25-3"><a href=""></a> <span class="dt">"phone_numbers"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb25-4"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb25-5"><a href=""></a>      <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"home"</span><span class="fu">,</span></span>
+<span id="cb25-6"><a href=""></a>      <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"212 555-1234"</span></span>
+<span id="cb25-7"><a href=""></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb25-8"><a href=""></a>    <span class="fu">{</span></span>
+<span id="cb25-9"><a href=""></a>      <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"office"</span><span class="fu">,</span></span>
+<span id="cb25-10"><a href=""></a>      <span class="dt">"number"</span><span class="fu">:</span> <span class="st">"646 555-4567"</span></span>
+<span id="cb25-11"><a href=""></a>    <span class="fu">}</span></span>
+<span id="cb25-12"><a href=""></a>  <span class="ot">]</span><span class="fu">,</span> <span class="er">...</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="non-text-files" class="slide level2">
 <h2>Non-text files</h2>
 <p>By default, <code>open()</code> simply reads <strong>text files</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE, <span class="st">'tr'</span>) <span class="im">as</span> f:</span>
-<span id="cb20-2"><a href=""></a>  mytext <span class="op">=</span> f.read()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE, <span class="st">'tr'</span>) <span class="im">as</span> f:</span>
+<span id="cb26-2"><a href=""></a>  mytext <span class="op">=</span> f.read()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top">
 <thead>
 <tr class="header">
