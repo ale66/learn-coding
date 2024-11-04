@@ -589,7 +589,7 @@ ale66
 <section class="slide level2">
 
 <p>Python supports CVS files via a extra <em>module</em> (details later)</p>
-<div id="e09fd759" class="cell" data-execution_count="1">
+<div id="29746e76" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> csv</span>
 <span id="cb12-2"><a href=""></a>FILE2 <span class="op">=</span> <span class="st">'./data/biostats.csv'</span></span>
 <span id="cb12-3"><a href=""></a></span>
@@ -634,7 +634,7 @@ ale66
 <section id="from-csv-to-dictionary" class="slide level2">
 <h2>From CSV to Dictionary</h2>
 <p>Function <code>DictReader</code> uses the first line to guide the creation of dictionaries</p>
-<div id="c6f830a6" class="cell" data-execution_count="2">
+<div id="be2fc9bc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
 <span id="cb15-2"><a href=""></a></span>
 <span id="cb15-3"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  delimiter<span class="op">=</span><span class="st">','</span>)</span>
@@ -663,13 +663,13 @@ Patient: {'Name': 'Ruth', 'Sex': 'F', 'Age': '28', 'Height(in)': '65', 'Weight(l
 </div>
 </div>
 <p>A list of key names can also be supplied, to facilitate data migration</p>
-<div id="b7478196" class="cell" data-execution_count="3">
+<div id="794f4a0d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>first_line <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Sex'</span>, <span class="st">'Age'</span>, <span class="st">'Height(in)'</span>, <span class="st">'Weight(lbs)'</span>]</span>
 <span id="cb17-2"><a href=""></a></span>
 <span id="cb17-3"><a href=""></a>mapping_es <span class="op">=</span> [<span class="st">'Nombre'</span>, <span class="st">'Sexo'</span>, <span class="st">'Edad'</span>, <span class="st">'Estatura(in)'</span>, <span class="st">'Peso(lbs)'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div id="5b150db9" class="cell" data-execution_count="4">
+<div id="aceca75a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
 <span id="cb18-2"><a href=""></a>  lines <span class="op">=</span> csv.DictReader(f,  fieldnames <span class="op">=</span> mapping_es, delimiter <span class="op">=</span> <span class="st">','</span>)</span>
 <span id="cb18-3"><a href=""></a>    </span>
