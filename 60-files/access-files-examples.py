@@ -17,7 +17,8 @@ with open(MYFILE) as f:
 '''
 
 
-# include foreigh functions
+
+# include foreign functions
 
 import csv
 
@@ -74,5 +75,5 @@ with open(FILE) as f:
     lines = csv.DictReader(f,  fieldnames = mapping_es, delimiter = ',')
 
     for l in lines:
-        print(f'Paciente: {l['Nombre'], l['Edad']}')
+        print(f'Paciente: {l['Nombre'], l['Peso(lbs)'], l['Edad']}')
 '''

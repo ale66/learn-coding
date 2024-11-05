@@ -42,7 +42,7 @@ my_data = {'name':['Andrea', 'Tom'],
 
 ```python
 my_data = [
-          {'name':'Andrea', 'Age':32, 'location':'London'}
+          {'name':'Andrea', 'Age':32, 'location':'London'},
           {'name':'Tom', 'Age':35, 'location':'Brighton'}
 ]
 ```
@@ -82,7 +82,7 @@ We iterate on the variable to access data, following our model of what the data 
 
 A natural organization in *rows:* sequences terminated by a `enter` character: `\n`
 
-Also `space`, ` `, and `tab` characters are relevant: `\t`
+Also `space` and `tab` characters are relevant: `\t`
 
 By default, reading a file returns a list of strings.
 
@@ -123,7 +123,7 @@ with open(MYFILE) as f:
     mytext = f.read()
 
 for c in mytext:
-  print(C.upper())
+  print(c.upper())
 ```
 
 
