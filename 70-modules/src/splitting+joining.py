@@ -1,7 +1,8 @@
-# An example introducint split() and join()
+'''
+Learn how to use split() and join() with examples
+'''
 
-
-# Virgil, circa 29–19 BCE: Aeneid
+# Virgil's Aeneid, circa 29–19 BCE -punctuation not original: 
  
 original = "Sunt hic etiam sua praemia laudi; \
 sunt lacrimae rerum et mentem mortalia tangunt. \
@@ -15,26 +16,28 @@ Release your fear; this fame will bring you some safety."
 # Here '.' and ' ' are the delimiters 
 # TO DO: add ';'
 
-mylistofwords = original.split('. ')
+sentences = original.split('. ')
 
 # prepare the result list
-myresultlist = []
+result_list = []
 
-# now, sent each sentence to be transformed
-for word in mylistofwords:
+# now, send each sentence to be transformed
+for sent in sentences:
 
     # test: does the sentence start with uppercase?
-    if word[0] == word[0].upper():
-        print('This is a capitalised sentence: ', word)
+    if sent[0] == sent[0].upper():
+        print('This is a capitalised sentence: ', sent)
 
         # fix the uppercase into lowercase!
-        occurence =  word[0].lower() + word[1:]
+        restyled =  sent[0].lower() + sent[1:]
     else:
         # do nothing, the word is fine as it is
-        occurence = word
+        restyled = sent
 
-    myresultlist.append(occurence)
+    result_list.append(restyled)
 
-print(' '.join(myresultlist))
+print('This is the reconstructed, all-lowercase version:')
+
+print(' '.join(result_list))
 
 

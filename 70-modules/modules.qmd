@@ -1,0 +1,193 @@
+---
+title: 'Learn Web'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-web](https://github.com/ale66/learn-web)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 2
+    mermaid:
+      theme: forest
+      fontSize: 12
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+# Python modules
+
+---
+
+- functions allow to write a coherent, reusable code in isolation
+
+- a *module* allows writing a coherent, reusable set of functions in isolation
+
+
+---
+
+- a module is a `.py` file that sits either locally or in designated locations controlled by the Python interpreter
+  
+- `pip` manages the designated locations and installs new modules
+  
+- an inclusion mechanism makes functions from a module file be listed in the *function space* of the program
+   
+![](./imgs/modules.png)
+
+
+---
+
+# Python modules: math
+
+::::{.columns}
+
+:::{.column width="35%"}
+```python
+import math
+
+mynum = 10
+
+# This will print 3.16
+print(math.sqrt(mynum))
+```
+:::
+
+:::{.column width="65%"}
+![](imgs/math.png)
+:::
+
+::::
+
+
+# Random numbers
+
+---
+
+* Why we need random numbers?
+  * Testing!
+  
+  * Generating test datasets
+
+* Aside from obvious applications like gambling or creating unpredictable scenarios in a computer game, randomness is important for Cryptography
+
+* Cryptography requires numbers that attackers *can't guess*
+
+
+---
+
+## Random numbers (cont.)
+
+Are only pseudo-random
+
+all languages have a dedicated module: crucial in several activities
+
+Python implements [Mersenne twisters](https://www.geeksforgeeks.org/random-numbers-in-python/); `numpy` has PCG64
+
+```python
+import random
+
+# what does it print?
+my_random_num = random.randint(1, 10)
+
+print(my_random_num)
+
+print(my_random_num)
+
+print(my_random_num)
+```
+
+---
+
+
+```python
+import random
+
+r1, r2, r3 = random.randint(1, 10), random.randint(1, 10), random.randint(1, 10)
+
+print(r1)
+print(r2)
+print(r3)
+```
+
+
+---
+
+```python
+import random
+
+alist = list()
+
+for i in range(10):
+
+  alist.append(random.randint(1, 10))
+
+  print(alist)
+
+[7, 3, 6, 6, 7, 5, 3, 3, 5, 5]
+```
+
+
+---
+
+## The random module
+
+
+```python
+from random import *
+
+# Generate a pseudo-random number between 0 and 1.
+print(random())
+
+# Pick a random number between 1 and 100.
+print(randint(1, 100))
+
+# Shuffle the list items__
+items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]__
+print(shuffle(items))
+
+# Pick 4 random items from the list__
+print(sample(items, 4))
+```
+
+---
+
+## Seeding random generators
+
+* sometimes the pseudo-random sequence should be repeated for debuggin or validation
+
+* The seed value is important in cyber-security to pseudo-randomly generate a strong secret encryption key.
+
+* by re-using a custom seed value, we can initialize the strong pseudo-random number generator the way we want.
+
+
+---
+
+```python
+import random
+
+random.seed(1)
+
+alist = list() # or []
+
+for i in range(10):
+  alist.append(random.randint(1, 10))
+
+print(alist)
+
+random.seed(2)
+
+# empty out the list
+alist = list()
+
+for i in range(10):
+  alist.append(random.randint(1, 10))
+
+print(alist)
+
+[3, 10, 2, 5, 2, 8, 8, 8, 7, 4]
+
+[1, 2, 2, 6, 3, 5, 5, 10, 4, 10]
+```
+
+This always prints the same results!
