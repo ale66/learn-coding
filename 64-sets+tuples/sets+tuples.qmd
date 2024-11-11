@@ -20,7 +20,7 @@ execute:
 
 * Sets are constructed from a sequence.
 * Sets  __cannot__  have duplicated values
-  * There are usually used to build sequence of unique items (e.g., set of identifiers such as IDs etc.).
+  * they are used to build sequences of unique items, e.g., identifiers
 
 ```python
 my_list = ['Stelios', 'Tom', 'Tom', 'Stelios', 'Claudia']

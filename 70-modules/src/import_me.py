@@ -51,8 +51,8 @@ def loadtext(my_file, my_delimit):
 			if line != '[]':
 				print(line)
 			
-		for lines in read_text:
-			print(lines)
+		#for lines in read_text:
+		#	print(lines)
 
 
 def loadcsv(my_file, my_delimit):
@@ -72,5 +72,5 @@ def loadcsv(my_file, my_delimit):
 # this call allows to call auxiliary 
 # functions in main() before actually defining them 
 if __name__ == '__main__':
-	print('This is an exercise file with a couple of functions for reading files')
+	print('This is an exercise code with a couple of functions for reading files')
 	main()
