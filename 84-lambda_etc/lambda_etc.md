@@ -45,7 +45,7 @@ print(squared_values)
 ---
 
 ```python
-my_values = [1, 2, 3, 4, 5]
+#my_values = [1, 2, 3, 4, 5]
 ```
 
 Compute the squares of the first five non-zero natural numbers
@@ -75,7 +75,8 @@ def my_square(base: int)->int:
 
 my_values = [1, 2, 3, 4, 5]
 
-print(map(my_square, my_values))
+# a map object needs to be wrapped into a data structure
+print(list(map(my_square, my_values)))
 
 [1, 4, 9, 16, 25]
 ```
@@ -117,6 +118,37 @@ A shorter notation, closer to Mathematics
 ---
 
 ## More examples
+
+Here is an examples with strings, looking for names beginning with 'A'
+
+```python
+
+names = ['Alessandro','Alberto', 'Erin', 'Nicola']
+
+A_names = [name for name in names if name[0]=='A']
+
+print(A_names)
+
+
+['Alessandro', 'Alberto']
+```
+
+
+List comprehension can be nested, iterating twice in the same line of code
+
+Here we look for names containing 'o'
+
+``` python
+
+O_in_name = [name for name in names for ch in name if ch == 'o']
+
+print(O_in_name)
+
+['Alessandro', 'Alberto', 'Nicola']
+
+```
+
+
 
 
 # lambda definitions
@@ -189,13 +221,13 @@ map(lambda x: x**2, my_values)
 applies (maps) the lambda definition on each element of the list
 
 ```python
-def allSquares(input_list: list) -> list
+def allSquares(input_list: list) -> list:
     '''Squares all values of a given list'''
 
     squares = list()
 
     for el in input_list:
-        square.append(el**2)
+        squares.append(el**2)
 
     return squares
 
@@ -238,7 +270,7 @@ $\log_{10} 1000=3$
 $\log_2 1024=10$
 
 ```python
-def mylog(base: float, exponent: float)->float:
+def my_log(base: float, exponent: float)->float:
     ''' a wrap around the standard log function'''
     import math
 
@@ -270,8 +302,10 @@ we save time and have better clarity by
 
 Assumed values are described in the `def`
 
+Positional argument must be defined before default argument
+
 ```python
-def mylog(base = 10, argument):
+def mylog(argument, base = 10):
     import math
 
     return math.log(argument, base)
