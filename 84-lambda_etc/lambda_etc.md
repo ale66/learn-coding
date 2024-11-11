@@ -44,10 +44,6 @@ print(squared_values)
 
 ---
 
-```python
-#my_values = [1, 2, 3, 4, 5]
-```
-
 Compute the squares of the first five non-zero natural numbers
 
 ```python
@@ -183,7 +179,7 @@ Sometimes a simpler, one-time formula application could do
 
 ## In-line functions
 
-There is functor, the name of the function is the function itself
+There is no functor, the name of the function is the function definition itself
 
 ```python
 lambda x: x**2
@@ -215,10 +211,13 @@ print((lambda x: x**2)(3))
 ```python
 my_values = [1, 2, 3, 4, 5]
 
-map(lambda x: x**2, my_values)
+new_squares = map(lambda x: x**2, my_values)
 ```
 
 applies (maps) the lambda definition on each element of the list
+
+`new_squares` is an iterator, not a real list
+
 
 ```python
 def allSquares(input_list: list) -> list:
@@ -258,7 +257,7 @@ print(list(map(lambda x: x**2, my_values)))
 ```
 
 
-# Functions with variable args
+# Functions with default and variable args
 
 
 ---
@@ -298,6 +297,10 @@ we save time and have better clarity by
 - allow calls like *mylog(1000)*
 
 
+__Rule:__ positional argument first, then arguments with default 
+
+
+
 ## default values
 
 Assumed values are described in the `def`
@@ -322,9 +325,6 @@ print(mylog(1024))
 ```
 
 Note: for `numpy` the default base is $e$.
-
-
-# General rule for default values
 
 
 ---
