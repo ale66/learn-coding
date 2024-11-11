@@ -287,13 +287,10 @@ print(mylog(1024))
 3.0103
 ```
 
+Note: for `numpy` the default base is $e$.
 
----
 
 # General rule for default values
-
-
-
 
 
 ---
