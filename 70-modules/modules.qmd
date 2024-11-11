@@ -1,20 +1,18 @@
 ---
-title: 'Learn Web'
+title: 'Learn Coding'
 author: 'ale66'
 format: 
   revealjs:
-    footer: '[github.com/ale66/learn-web](https://github.com/ale66/learn-web)&nbsp;&nbsp;&nbsp;'
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 2
-    mermaid:
-      theme: forest
-      fontSize: 12
+      boardmarker-width: 3
 from: markdown+emoji
 execute:
   echo: true
 ---
+
 
 # Python modules
 

@@ -16,7 +16,7 @@ CUSTOMLENGHT = 120
 
 
 def main():
-	'''Simple text access, line by line
+	'''A simple example of text access, line by line
 		followed by CSV line-by-line reading
 	'''
 
@@ -28,13 +28,18 @@ def main():
 
 	CSV = 'C:\\Users\\aless\\git\\learn-coding\\70-modules\\data\\biostats.csv'
 
-	loadtext(TXT, '.')
+	loadtext(TXT, '\n')
 
 	# uncomment as needed: why doesn't it work?
 	# loadcsv(CSV, ',')
 
-
+# consider the version with defaults
+# def loadtext(my_file = TXT, my_delimit = '.'):
 def loadtext(my_file, my_delimit):
+	'''Takes a file name, opens is and prints it on the screen as list of sentences.
+		define the second parameter to delimit each line to be printed
+	'''
+
 	with open(my_file) as f:
 
 		read_text = csv.reader(f, delimiter = my_delimit)
@@ -46,8 +51,8 @@ def loadtext(my_file, my_delimit):
 			if line != '[]':
 				print(line)
 			
-		#for lines in read_text:
-		#	print(lines)
+		for lines in read_text:
+			print(lines)
 
 
 def loadcsv(my_file, my_delimit):
