@@ -1,0 +1,357 @@
+---
+title: "Relevant Python modules: Pandas"
+lang: en
+author: AM 
+format:
+  revealjs: 
+    theme: solarized
+    css: ../../styles/dsta_slides.css
+    slide-number: true
+    slide-level: 2
+    # title-slide-attributes:
+      # data-background-image: ../../styles/bbk-logo.svg
+    code-fold: false
+    echo: true
+  html:
+    toc: true
+    code-fold: false
+    anchor-sections: true
+    other-links:
+      - text: Class page
+        href: https://ale66.github.io/dsta/
+    code-links:
+      - text: Data
+        icon: file-code
+        href: ./data/biostats.csv
+jupyter: python3
+---
+
+## Pandas
+
+::: {.nonincremental}
+
+- Created by Wes McKinney, a 'quant' for hedge-fund AQR.
+
+::: {.nonincremental}
+
+- a library for processing tabular data, both numeric and time series.
+
+- it provides data structures (series, dataframe) and methods for data analysis.
+:::
+
+W. McKinney, __Python for Data Analysis__, 3/e. O'Reilly 2022.
+:::
+
+```bash
+pip install pandas
+```
+
+Available by default with Anaconda.
+
+## Data Structures - Series
+
+A one-dimensional object containing values and associated labels, called Index. 
+
+Unless we assign indices, Pandas will simply enumerate the items.
+
+```{python}
+import numpy as np
+import pandas as pd
+```
+
+```{python}
+# a simple series
+s1 = pd.Series([10, 20, 30, 40])
+
+s1
+```
+
+-----
+
+```{python}
+# Assign explicit indices to our data
+s2 = pd.Series([10, 20, 30, 40], index = ['a', 'b', 'c', 'd'])
+
+s2
+```
+
+```{python}
+# Alternatively, convert a Py. dictionary into a DataFrame: 
+# keys correspond to indices.
+d1 = {'a':10, 'b':20, 'c':30, 'd':40}
+
+s3 = pd.Series(d1)
+
+s3
+```
+
+## Data Structures - Series
+
+Use the index to select one or more specific values.
+
+```{python}
+# Get the data on position 'a' of s3
+
+s3['a']
+
+```
+
+```{python}
+# Get the data indexed 'a' and 'c' of s3
+
+s3[['a', 'c']]
+```
+
+Filter elements
+```{python}
+# Get the data smaller than 25
+
+s3[s3<25]
+
+```
+
+---
+
+apply element-wise mathematical operations...
+
+```{python}
+# Square every element of s3
+
+s3**2
+
+```
+
+or a combination of both:
+
+```{python}
+# Square every element of s3 smaller than 25
+
+s3[s3<25]**2
+
+```
+
+## Data Structures - DataFrame
+
+DataFrames are 2D structures.
+
+Values are labelled by their index and column location.
+
+```{python}
+# Notice how we specify columns.
+new_df = pd.DataFrame([10, 20, 30, 40], 
+                      columns = ['Integers'], 
+                      index = ['a', 'b', 'c', 'd'])
+
+new_df
+```
+
+-----
+
+```{python}
+# Implicitly add a column.
+new_df['Floats'] = (1.5, 2.5, 3.5, 4.5)
+
+new_df
+
+```
+
+## Data Structures: DataFrame - `loc`
+
+Select data according to their location label.
+
+```{python}
+# here loc slices data using index name.
+
+new_df.loc['c'] 
+
+```
+
+```{python}
+# here loc slices data using column name.
+
+new_df.loc[:, 'Integers'] #or new_df['numbers']
+```
+
+```{python}
+# here we use both index and column name.
+
+new_df.loc['c', 'Integers'] 
+```
+
+## Data Structures: DataFrame - `iloc`
+
+Select a specific slice of data according to its position.
+
+
+```{python}
+# here loc slices data using index number.
+
+new_df.iloc[2] 
+
+```
+
+```{python}
+# here loc slices data using column number.
+
+new_df.iloc[:, 0] 
+
+```
+
+```{python}
+# here we use both index and column number.
+
+new_df.iloc[2, 0] 
+
+```
+
+## Data Structures: DataFrame - filters
+
+Complex selection is achieved applying Boolean filters.
+Multiple conditions can be combined in one statement.
+
+```{python}
+
+new_df[new_df['Integers']>10]
+
+```
+
+-----
+
+```{python}
+# here we apply conditions to both columns.
+
+new_df[(new_df.Integers>10) & (new_df.Floats>2.5)] 
+
+```
+
+## Data Structures: DataFrame - `Axis`
+
+DataFrames operate on 2 dimensions.
+
+`Axis = 0` invokes functions across rows; it's the default behaviour when the axis is not specified.
+
+```{python}
+
+new_df.sum() 
+
+```
+
+`Axis = 1` invokes functions across columns.
+
+```{python}
+
+new_df.sum(axis=1) 
+
+```
+
+## Data Structures: DataFrame - `Axis`
+
+We can mix element-wise operations with functions applied to a given axis
+
+Example: Create a column with the sum of squares of each row.
+
+```{python}
+# Just one line of code!
+new_df['Sumsq'] = (new_df**2).sum(axis=1) 
+
+new_df
+```
+
+## Importing data
+
+Read a datafile and turn it into a DataFrame. 
+Several arguments are available to specify the behavior of the process:
+
+`index_col` sets the column of the csv file to be used as index of the DataFrame
+
+`sep` specifies the separator in the source file
+
+`parse_dates` sets the column to be converted as datetime objects
+
+```python
+FILE = './path/to/some_file.csv'
+
+df_r = pd.read_csv(FILE, 
+                    index_col = 0, 
+                    sep = ';',
+                    parse_dates = ['date'] )
+
+```
+
+## Biostats data - `info()`
+
+The `info()` method outputs top-down information on the DataFrame
+
+```{python}
+FILE = 'data/biostats.csv'
+
+df_bio = pd.read_csv(FILE)
+
+df_bio.info()
+
+```
+
+## Biostats data - `head()` and `tail()`
+
+These convenient methods visualise respectively the first/last n rows (default = 5) in the DataFrame.  
+
+```{python}
+
+df_bio.head()
+
+```
+
+-----
+
+```{python}
+
+df_bio.tail()
+
+```
+
+## Biostats data - index column  
+
+Selecting the index column affects the structure of the DataFrame and thus information retrieval.
+
+CAUTION: the index does not have to be unique. Multiple rows could have the same index name.
+
+```{python}
+# here we set the Name column as the index
+df_bio2 = pd.read_csv(FILE, index_col=0)
+
+df_bio2.head()
+
+```
+
+```{python}
+
+#It is now possible to use elements of the Name column to select an entire row
+df_bio2.loc['Bert']
+
+```
+
+## Descriptive statistics - `describe()`
+
+Compute the descriptive statistics of quantitative variables
+
+```{python}
+# Descriptive stats
+df_bio.describe() 
+
+```
+
+```{python}
+# Descriptive statistics for the Age variable
+df_bio['Age'].describe()
+
+```
+
+## Descriptive statistics - categorcal variables
+
+The `value_counts()` method computes the unique values and how many times they occur.
+
+```{python}
+# Descriptive statistics for the entire DataFrame
+df_bio.Sex.value_counts()
+
+```

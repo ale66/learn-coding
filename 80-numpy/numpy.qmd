@@ -1,0 +1,336 @@
+---
+title: "Relevant Python modules: Numpy"
+lang: en
+author: AM 
+format:
+  revealjs: 
+    theme: solarized
+    css: ../../styles/dsta_slides.css
+    slide-number: true
+    slide-level: 2
+    # title-slide-attributes:
+      # data-background-image: ../../styles/bbk-logo.svg
+    code-fold: false
+    echo: true
+  html:
+    toc: true
+    code-fold: false
+    anchor-sections: true
+    other-links:
+      - text: Class page
+        href: https://ale66.github.io/dsta/
+    code-links:
+      - text: Data
+        icon: file-code
+        href: ./data/biostats.csv
+jupyter: python3
+---
+
+## Motivations
+
+Python does not cover the data structures normally used in science and technology work.
+
+Numpy comes in to support data manipulation of n-dimensional arrays.
+
+Extensive library of functions to reshape data.
+
+Comprehensive collection of mathematical operations. 
+
+```bash
+pip install numpy
+```
+
+default with Anaconda
+
+---
+
+## Arrays
+
+A computer version of vectors and matrices: sequence of uniform-type values with indexing mechanism by integers.
+
+Numpy arrays have methods, applied element-wise, and functions that take into account the position of each element in the array.
+
+```{python}
+import numpy as np
+```
+
+```{python}
+# nr from 2 to 20 (excl.) with step 2
+
+b = np.arange(2, 20, 2)
+
+b
+```
+
+---
+
+```{python}
+# element-wise operations
+
+2*b
+```
+
+---
+
+```{python}
+# cumulative step-by-step sum
+b.cumsum()
+```
+
+---
+
+## Lists vs. Arrays
+
+Same indexing notation:
+
+```python
+mylist[0]
+
+mylistoflists[0][1]
+```
+
+A list is a generic sequence of heterogenous objects.
+
+So, strings, numbers, characters, file name, URLs can be all mixed up!
+
+An array is a sequence of strictly-homogenous objects, normally `int` or `float`
+
+```python
+myarray[1]
+
+mymatrix[1][3]
+```
+
+---
+
+## Notation
+
+1-dimension: an array (a line of numbers): `[1, 23, …]`
+
+2-dimensions: a matrix (a table of numbers) `[ [1, 23, …], [14, 96, …], ...]`
+
+3-dimensions: a tensor (a box/cube/cuboid) of numbers:  `[ [ [1, 23, …], [14, 96, …], …], ...]`
+
+---
+
+## 2-D Numpy Arrays
+```{python}
+c = np.arange(8)
+
+c
+```
+
+```{python}
+# build a 2-dimensional array from a 1-d one
+d = np.array([c, c*2])
+
+d
+```
+
+```{python}
+# count elements
+
+d.size
+```
+
+
+```{python}
+#  size along each dimension
+
+d.shape
+```
+
+---
+
+## Axes
+
+Numpy arrays can have multiple dimensions.
+
+Unlike Pandas, not specifying the axis will apply a function to the entire array.
+
+```{python}
+# operations along columns
+d
+```
+
+```{python}
+# operations along columns
+d.sum(axis=0)
+```
+
+```{python}
+# summing by row
+d.sum(axis=1)
+```
+
+```{python}
+# sum the whole content
+d.sum()
+```
+
+---
+
+## Shapes
+
+Using information about the shape we can create/manipulate (or reshape, or transpose) Numpy variables.
+
+```{python}
+# Create 2x3 Numpy array and initialise it to 0s
+e = np.zeros((2, 3), dtype = 'i')
+
+e
+```
+
+```{python}
+# Change the shape
+e.reshape(3, 2)
+```
+
+-----
+
+```{python}
+# Take another array to infer shape
+f = np.ones_like(e, dtype = 'i')
+
+f
+```
+
+```{python}
+# Transposition
+
+f.T
+```
+
+---
+
+## Stacking
+
+2-D arrays with the same dimensions can be merged 
+
+```{python}
+# Create an identity matrix of order 5
+i = np.eye(5)
+
+i
+```
+
+```{python}
+# stacking combines two 2-d arrays: vertically
+np.vstack((i, i))
+```
+
+-----
+
+```{python}
+# stacking combines two 2-d arrays: horizontally
+np.hstack((i, i))
+```
+
+---
+
+## Detour: N-dimensional arrays
+
+Numpy can handle multiple dimensions.
+
+This is useful when dealing with multivariate data, from time series to documents.
+
+```{python}
+# N-dimensional array
+
+g = np.zeros((2, 3, 4))
+
+g
+```
+
+Two samples, each with three rows and four columns.
+
+---
+
+## Slicing by Boolean filters
+
+Data can be selected according to specific conditions.
+
+The Boolean filter itself can be represented by a Numpy array
+
+```{python}
+l = np.array([np.arange(9)])
+
+l
+```
+```{python}
+l.reshape((3, 3))
+
+l
+```
+```{python}
+# Let's apply a high-pass filter
+
+l[l>4]
+```
+
+```{python}
+# Generate a Boolean array (False=0, True=1)
+
+(l>4).astype(int)
+```
+
+---
+
+## From Numpy to Pandas: `where()`
+
+Even though Pandas is built on Numpy, `where()` has a distinct semantics
+
+Numpy allows specifying the respective action associated to `True` and `False`
+
+```{python}
+l = np.array([np.arange(9)])
+
+l
+```
+
+```{python}
+# deserialise the arrat into a square matrix
+l = l.reshape((3, 3))
+
+l
+```
+
+```{python}
+#  If True then make it double, else halve it
+
+np.where(l<5, l*2, l/2)
+```
+
+In Pandas, when False we assign `n/a`
+
+---
+
+## Numpy func. to Pandas objects
+
+```{python}
+import pandas as pd
+
+# l is a Numpy matrix which readily interoperates with Pandas
+my_df = pd.DataFrame(l, columns=['A', 'B', 'C'])
+
+my_df
+```
+
+```{python}
+# Extract the square root of each el. of column B (NB: my_df remains unchanged)
+np.sqrt(my_df.B) 
+```
+
+---
+
+## Back and Forth b/w Pandas and Numpy
+
+```{python}
+# Extract the values back into a Numpy object
+
+m = my_df.values
+
+m
+```
+
+<!------------------------------------------------------------->
