@@ -1,52 +1,43 @@
 ---
-title: "Relevant Python modules: Pandas"
-lang: en
-author: AM 
-format:
-  revealjs: 
-    theme: solarized
-    css: ../../styles/dsta_slides.css
-    slide-number: true
-    slide-level: 2
-    # title-slide-attributes:
-      # data-background-image: ../../styles/bbk-logo.svg
-    code-fold: false
-    echo: true
-  html:
-    toc: true
-    code-fold: false
-    anchor-sections: true
-    other-links:
-      - text: Class page
-        href: https://ale66.github.io/dsta/
-    code-links:
-      - text: Data
-        icon: file-code
-        href: ./data/biostats.csv
-jupyter: python3
+title: 'Learn Coding'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 2
+from: markdown+emoji
+execute:
+  echo: true
+---
+
 ---
 
 ## Pandas
 
-::: {.nonincremental}
+::::{.columns}
+::: {.column width="60%"}
 
 - Created by Wes McKinney, a 'quant' for hedge-fund AQR.
-
-::: {.nonincremental}
 
 - a library for processing tabular data, both numeric and time series.
 
 - it provides data structures (series, dataframe) and methods for data analysis.
 :::
 
+::: {.column width="40%"}
 W. McKinney, __Python for Data Analysis__, 3/e. O'Reilly 2022.
+
+![](./imgs/book-cover.jpg)
 :::
+::::
 
 ```bash
 pip install pandas
 ```
 
-Available by default with Anaconda.
 
 ## Data Structures - Series
 
@@ -132,27 +123,23 @@ s3[s3<25]**2
 
 ## Data Structures - DataFrame
 
-DataFrames are 2D structures.
-
-Values are labelled by their index and column location.
+2D structures where values are labelled by their index and column location.
 
 ```{python}
 # Notice how we specify columns.
 new_df = pd.DataFrame([10, 20, 30, 40], 
                       columns = ['Integers'], 
                       index = ['a', 'b', 'c', 'd'])
-
 new_df
 ```
 
------
+---
 
 ```{python}
 # Implicitly add a column.
 new_df['Floats'] = (1.5, 2.5, 3.5, 4.5)
 
 new_df
-
 ```
 
 ## Data Structures: DataFrame - `loc`
@@ -163,7 +150,6 @@ Select data according to their location label.
 # here loc slices data using index name.
 
 new_df.loc['c'] 
-
 ```
 
 ```{python}
@@ -228,25 +214,24 @@ new_df[(new_df.Integers>10) & (new_df.Floats>2.5)]
 
 DataFrames operate on 2 dimensions.
 
-`Axis = 0` invokes functions across rows; it's the default behaviour when the axis is not specified.
+`Axis = 0` invokes functions across rows
+
+default behaviour when the axis is not specified.
 
 ```{python}
-
 new_df.sum() 
-
 ```
 
 `Axis = 1` invokes functions across columns.
 
 ```{python}
-
 new_df.sum(axis=1) 
-
 ```
+
 
 ## Data Structures: DataFrame - `Axis`
 
-We can mix element-wise operations with functions applied to a given axis
+We can mix element-wise operations with axis functions
 
 Example: Create a column with the sum of squares of each row.
 
@@ -257,6 +242,7 @@ new_df['Sumsq'] = (new_df**2).sum(axis=1)
 new_df
 ```
 
+
 ## Importing data
 
 Read a datafile and turn it into a DataFrame. 
@@ -266,7 +252,7 @@ Several arguments are available to specify the behavior of the process:
 
 `sep` specifies the separator in the source file
 
-`parse_dates` sets the column to be converted as datetime objects
+`parse_dates` sets the cols. to be converted into *datetimes*
 
 ```python
 FILE = './path/to/some_file.csv'
@@ -275,7 +261,6 @@ df_r = pd.read_csv(FILE,
                     index_col = 0, 
                     sep = ';',
                     parse_dates = ['date'] )
-
 ```
 
 ## Biostats data - `info()`
@@ -288,17 +273,15 @@ FILE = 'data/biostats.csv'
 df_bio = pd.read_csv(FILE)
 
 df_bio.info()
-
 ```
 
 ## Biostats data - `head()` and `tail()`
 
-These convenient methods visualise respectively the first/last n rows (default = 5) in the DataFrame.  
+Handy visualisation of first/last n rows (default = 5)  
 
 ```{python}
 
 df_bio.head()
-
 ```
 
 -----
@@ -306,45 +289,47 @@ df_bio.head()
 ```{python}
 
 df_bio.tail()
-
 ```
+
 
 ## Biostats data - index column  
 
 Selecting the index column affects the structure of the DataFrame and thus information retrieval.
 
-CAUTION: the index does not have to be unique. Multiple rows could have the same index name.
+__Caution:__ the index does not have to be unique. Multiple rows could have the same index name.
 
 ```{python}
 # here we set the Name column as the index
-df_bio2 = pd.read_csv(FILE, index_col=0)
+df_bio2 = pd.read_csv(FILE, index_col = 0)
 
 df_bio2.head()
-
 ```
+
+---
 
 ```{python}
 
 #It is now possible to use elements of the Name column to select an entire row
 df_bio2.loc['Bert']
-
 ```
+
 
 ## Descriptive statistics - `describe()`
 
 Compute the descriptive statistics of quantitative variables
 
 ```{python}
-# Descriptive stats
 df_bio.describe() 
-
 ```
+
+
+---
 
 ```{python}
 # Descriptive statistics for the Age variable
 df_bio['Age'].describe()
-
 ```
+
 
 ## Descriptive statistics - categorcal variables
 
@@ -353,5 +338,4 @@ The `value_counts()` method computes the unique values and how many times they o
 ```{python}
 # Descriptive statistics for the entire DataFrame
 df_bio.Sex.value_counts()
-
 ```

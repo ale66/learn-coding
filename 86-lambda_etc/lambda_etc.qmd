@@ -371,10 +371,18 @@ def myfunc(*args):
 ```
 
 
-# Data challenges
+# Self study with data challenges
 
 
 ---
 
+
+![](./imgs/spectator.png)
+
+
 can you [get fresh data](https://data.spectator.co.uk/category/energy) and display it?
+
+
+
+
 
