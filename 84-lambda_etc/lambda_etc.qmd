@@ -7,7 +7,7 @@ format:
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 3
+      boardmarker-width: 2
 from: markdown+emoji
 execute:
   echo: true
@@ -44,7 +44,7 @@ print(squared_values)
 
 ---
 
-Compute the squares of the first five non-zero natural numbers
+Compute the squares of those integers inside `my_values`
 
 ```python
 squared_values = list()
@@ -57,24 +57,15 @@ print(squared_values)
 [1, 4, 9, 16, 25]
 ```
 
-A local, *list* activity
+A local, *list processing* activity
 
-Functions won't add much
 
----
-
-## Mapping
+## Functors
 
 ```python
 def my_square(base: int)->int:
+
     return base**2
-
-my_values = [1, 2, 3, 4, 5]
-
-# a map object needs to be wrapped into a data structure
-print(list(map(my_square, my_values)))
-
-[1, 4, 9, 16, 25]
 ```
 
 here `my_square` is a *functor:* the name of the function itself
@@ -82,17 +73,60 @@ here `my_square` is a *functor:* the name of the function itself
 
 ---
 
-## List comprehensions
+## Mapping functions to lists
 
-Extensional definition: explicit naming of the items that make up the list
+Given a function name, we can build an iterable 
 
-Intensional definition: the formula/condition that item must satisfy to be into the list
+that will return the results of applying such function to a given list (mostly)
 
-In Maths:
+```python
+my_iterable = map(my_square, my_list)
+```
 
-$
-\{1, 4, 9, 16, 25\}\ =\ \{x\ :\ \exists y. x = y^2 \wedge 0<y \leq 5\wedge y\in {\cal N}}
-$
+We 'query' `my_iteable` we get a sequence with 1, 4, 9 etc.
+
+. . .
+
+```python
+my_iterable = map(my_square, my_list)
+
+for el in my_iterable:
+    print(el)
+```
+
+
+---
+
+Maps can be easily *materialised* into proper lists
+
+```python
+# a map object needs to be wrapped into a data structure
+list(map(my_square, my_values))
+
+[1, 4, 9, 16, 25]
+```
+
+Essentially, we are pushing a (very standard) `for` cycle 
+
+down into the Python runtime management
+
+
+# List comprehensions
+
+
+---
+
+Define lists by the properties of their members, not by explict membership
+
+Styles:
+
+- *extensional:* name the items that make up the list
+
+- *intensional:* give the formula/condition that items must satisfy to be into the list
+
+In Mathematics:
+
+$\{1, 4, 9, 16, 25\}\ =\ \{x\ :\ \exists y\: \in\: {\cal N}. x = y^2 \wedge 0<y \leq 5\}$
 
 
 ---
@@ -113,38 +147,32 @@ A shorter notation, closer to Mathematics
 
 ---
 
-## More examples
+## Examples
 
-Here is an examples with strings, looking for names beginning with 'A'
+with strings, looking for names beginning by 'A'
 
 ```python
-
 names = ['Alessandro','Alberto', 'Erin', 'Nicola']
 
-A_names = [name for name in names if name[0]=='A']
-
-print(A_names)
-
+A_names = [n for n in names if n[0] == 'A']
 
 ['Alessandro', 'Alberto']
 ```
 
+
+---
 
 List comprehension can be nested, iterating twice in the same line of code
 
 Here we look for names containing 'o'
 
 ``` python
-
-O_in_name = [name for name in names for ch in name if ch == 'o']
-
-print(O_in_name)
+o_in_name = [n for n in names for ch in n if ch == 'o']
 
 ['Alessandro', 'Alberto', 'Nicola']
-
 ```
 
-
+this nested list comprehension 'saves' us from two nested cycles
 
 
 # lambda definitions
@@ -154,12 +182,12 @@ print(O_in_name)
 
 ## Traditional function definition
 
-Computes the $\mathrm{V}_{\circ} = \frac{4}{3}\pi r^3$ formula from school
+Example: compute the $\mathrm{V}_{\circ} = \frac{4}{3}\pi r^3$ formula from school
 
 ```python
 def my_vol(radius: int) -> float:
     '''Traditional function definition 
-    to compute the volume of a sphere'''
+       to compute the volume of a sphere'''
 
     import math
 
@@ -168,16 +196,16 @@ def my_vol(radius: int) -> float:
     return volume
 ```
 
-here `my_vol` is a *functor:* the name of the function itself
+`my_vol()` can be applied anywhere, and several times.
 
-The function can be applied anywhere, and several times.
 
-Sometimes a simpler, one-time formula application could do
+But for a one-time application, possibly deep down the code, 
+the  `my_vol` functor may not be needed after all
 
 
 ---
 
-## In-line functions
+## In-line, anonymous functions
 
 There is no functor, the name of the function is the function definition itself
 
@@ -195,7 +223,7 @@ lambda x: x**2
 
 will return (or be substituted with) 9.
 
-Look at the differences:
+Look at the (non-) differences:
 
 ```python
 print(my_square(3))
@@ -208,16 +236,39 @@ print((lambda x: x**2)(3))
 
 ## mapping lambdas
 
+The intended application of lambdas
+
 ```python
 my_values = [1, 2, 3, 4, 5]
 
 new_squares = map(lambda x: x**2, my_values)
 ```
 
-applies (maps) the lambda definition on each element of the list
+maps the lambda definition onto each element of the list
 
-`new_squares` is an iterator, not a real list
+n.b. `new_squares` is an iterator, not a real list
 
+
+---
+
+## putting it all together
+
+```python
+list(map(lambda x: x**2, my_values))
+```
+
+makes the results into a list. 
+
+```python
+new_squares = map(lambda x: x**2, my_values)
+
+print(list(new_squares))
+```
+
+
+---
+
+compare the lambda mapping to non-lambda solutions for succintness
 
 ```python
 def allSquares(input_list: list) -> list:
@@ -234,30 +285,7 @@ print(allSquares(my_values))
 ```
 
 
----
-
-## putting it all together
-
-```python
-list(map(lambda x: x**2, my_values))
-```
-
-makes the results into a list. 
-
-This complex command is executed and *substituted with its own output.*
-
----
-
-```python
-my_values = [1, 2, 3, 4, 5]
-
-print(list(map(lambda x: x**2, my_values)))
-
-[1, 4, 9, 16, 25]
-```
-
-
-# Functions with default and variable args
+# Default and variable args
 
 
 ---
@@ -284,9 +312,9 @@ my_log(1024, 2)
 
 ---
 
-Python functions allow calls with a variable number of parameters
+## Great flexibility
 
-This gives great flexibility
+P. functions allow calls with a variable number of parameters
 
 Example: by *log* often the logarithm in base 10 is intended:
 
