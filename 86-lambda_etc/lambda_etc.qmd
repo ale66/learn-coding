@@ -331,7 +331,7 @@ __Rule:__ positional argument first, then arguments with default
 
 ## default values
 
-Assumed values are described in the `def`
+Assumed values are described in the `def`part
 
 Positional argument must be defined before default argument
 
@@ -352,7 +352,7 @@ print(mylog(1024))
 3.0103
 ```
 
-Note: for `numpy` the default base is $e$.
+Note: for `numpy` the default base is $e$: $\log_e x = \ln x$.
 
 
 ---
@@ -371,7 +371,7 @@ def myfunc(*args):
 ```
 
 
-# Self study with data challenges
+# Learn with data challenges
 
 
 ---

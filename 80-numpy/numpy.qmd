@@ -1,34 +1,24 @@
 ---
-title: "Relevant Python modules: Numpy"
-lang: en
-author: AM 
-format:
-  revealjs: 
-    theme: solarized
-    css: ../../styles/dsta_slides.css
-    slide-number: true
-    slide-level: 2
-    # title-slide-attributes:
-      # data-background-image: ../../styles/bbk-logo.svg
-    code-fold: false
-    echo: true
-  html:
-    toc: true
-    code-fold: false
-    anchor-sections: true
-    other-links:
-      - text: Class page
-        href: https://ale66.github.io/dsta/
-    code-links:
-      - text: Data
-        icon: file-code
-        href: ./data/biostats.csv
-jupyter: python3
+title: 'Learn Coding'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 2
+from: markdown+emoji
+execute:
+  echo: true
 ---
+
+# Numpy
+
 
 ## Motivations
 
-Python does not cover the data structures normally used in science and technology work.
+Python does not cover the data structures normally used in science/engineering
 
 Numpy comes in to support data manipulation of n-dimensional arrays.
 
@@ -40,7 +30,6 @@ Comprehensive collection of mathematical operations.
 pip install numpy
 ```
 
-default with Anaconda
 
 ---
 
@@ -214,6 +203,8 @@ i = np.eye(5)
 i
 ```
 
+---
+
 ```{python}
 # stacking combines two 2-d arrays: vertically
 np.vstack((i, i))
@@ -262,6 +253,12 @@ l.reshape((3, 3))
 
 l
 ```
+
+
+---
+
+## More slicing
+
 ```{python}
 # Let's apply a high-pass filter
 
@@ -333,4 +330,3 @@ m = my_df.values
 m
 ```
 
-<!------------------------------------------------------------->
