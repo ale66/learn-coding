@@ -181,18 +181,21 @@ e.reshape(3, 2)
 -----
 
 ```{python}
-# Take another array to infer shape
+# a new array with exactly the same shape as 'e' and type integer
 f = np.ones_like(e, dtype = 'i')
-
 f
 ```
 
 ```{python}
 # Transposition
-
-f.T
+g = np.arange(6).reshape(3,2)
+g
 ```
 
+
+```{python}
+g.T
+```
 ---
 
 ## Stacking

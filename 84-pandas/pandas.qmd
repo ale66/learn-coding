@@ -181,24 +181,21 @@ Select a specific slice of data according to its position.
 
 ```{python}
 # here loc slices data using index number.
-
 new_df.iloc[2] 
-
 ```
 
 ```{python}
 # here loc slices data using column number.
-
 new_df.iloc[:, 0] 
-
 ```
 
 ```{python}
 # here we use both index and column number.
-
 new_df.iloc[2, 0] 
-
 ```
+
+
+---
 
 ## Data Structures: DataFrame - filters
 
@@ -211,7 +208,8 @@ new_df[new_df['Integers']>10]
 
 ```
 
------
+
+---
 
 ```{python}
 # here we apply conditions to both columns.
@@ -219,6 +217,9 @@ new_df[new_df['Integers']>10]
 new_df[(new_df.Integers>10) & (new_df.Floats>2.5)] 
 
 ```
+
+
+---
 
 ## Data Structures: DataFrame - `Axis`
 
@@ -239,7 +240,7 @@ new_df.sum(axis=1)
 ```
 
 
-## Data Structures: DataFrame - `Axis`
+---
 
 We can mix element-wise operations with axis functions
 
@@ -248,9 +249,9 @@ Example: Create a column with the sum of squares of each row.
 ```{python}
 # Just one line of code!
 new_df['Sumsq'] = (new_df**2).sum(axis=1) 
-
 new_df
 ```
+
 
 # From Numpy to Pandas
 
@@ -259,38 +260,27 @@ new_df
 
 ## From Numpy to Pandas: `where()`
 
-Even though Pandas is built on Numpy, `where()` has a distinct semantics
+Pandas executes `where()` differently
 
 Numpy allows specifying the respective action associated to `True` and `False`
 
 ```{python}
-l = np.array([np.arange(9)])
-
-l
-```
-
-```{python}
-# deserialise the arrat into a square matrix
-l = l.reshape((3, 3))
-
+l = np.arange(9).reshape((3, 3))
 l
 ```
 
 ```{python}
 #  If True then make it double, else halve it
-
 np.where(l<5, l*2, l/2)
 ```
 
-In Pandas, when False we assign `n/a`
+Pandas assigns `n/a` when `False` 
 
 ---
 
 ## Numpy func. to Pandas objects
 
 ```{python}
-import pandas as pd
-
 # l is a Numpy matrix which readily interoperates with Pandas
 my_df = pd.DataFrame(l, columns=['A', 'B', 'C'])
 
@@ -302,15 +292,14 @@ my_df
 np.sqrt(my_df.B) 
 ```
 
+
 ---
 
 ## Back and Forth b/w Pandas and Numpy
 
 ```{python}
 # Extract the values back into a Numpy object
-
 m = my_df.values
-
 m
 ```
 
@@ -343,12 +332,15 @@ df_r = pd.read_csv(FILE,
 The `info()` method outputs top-down information on the DataFrame
 
 ```{python}
-FILE = 'data/biostats.csv'
+MYDATA = 'data/biostats.csv'
 
-df_bio = pd.read_csv(FILE)
+df_bio = pd.read_csv(MYDATA)
 
 df_bio.info()
 ```
+
+
+---
 
 ## Biostats data - `head()` and `tail()`
 
@@ -359,13 +351,14 @@ Handy visualisation of first/last n rows (default = 5)
 df_bio.head()
 ```
 
------
+---
 
 ```{python}
 
 df_bio.tail()
 ```
 
+---
 
 ## Biostats data - index column  
 
@@ -375,9 +368,9 @@ __Caution:__ the index does not have to be unique. Multiple rows could have the 
 
 ```{python}
 # here we set the Name column as the index
-df_bio2 = pd.read_csv(FILE, index_col = 0)
+df_bio2 = pd.read_csv(MYDATA, index_col = 0)
 
-df_bio2.head()
+df_bio2.head(2)
 ```
 
 ---
@@ -388,25 +381,28 @@ df_bio2.head()
 df_bio2.loc['Bert']
 ```
 
+---
 
-## Descriptive statistics - `describe()`
-
-Compute the descriptive statistics of quantitative variables
+## Descriptive stats - `describe()`
 
 ```{python}
+# Compute the descriptive stats of quantitative variables
 df_bio.describe() 
 ```
 
 
 ---
 
+Also on selections:
+
 ```{python}
 # Descriptive statistics for the Age variable
 df_bio['Age'].describe()
 ```
 
+---
 
-## Descriptive statistics - categorical vars
+## Descriptive stats - categorical vars
 
 The `value_counts()` method computes the unique values and how many times they occur.
 
