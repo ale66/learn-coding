@@ -39,7 +39,12 @@ pip install pandas
 ```
 
 
-## Data Structures - Series
+# Data Structures - Series
+
+
+---
+
+## Series
 
 A one-dimensional object containing values and associated labels, called Index. 
 
@@ -76,7 +81,7 @@ s3 = pd.Series(d1)
 s3
 ```
 
-## Data Structures - Series
+## Series, cont'd
 
 Use the index to select one or more specific values.
 
@@ -121,7 +126,12 @@ s3[s3<25]**2
 
 ```
 
-## Data Structures - DataFrame
+# Data Structures - DataFrames
+
+
+---
+
+## Dataframes
 
 2D structures where values are labelled by their index and column location.
 
@@ -242,8 +252,73 @@ new_df['Sumsq'] = (new_df**2).sum(axis=1)
 new_df
 ```
 
+# From Numpy to Pandas
 
-## Importing data
+
+---
+
+## From Numpy to Pandas: `where()`
+
+Even though Pandas is built on Numpy, `where()` has a distinct semantics
+
+Numpy allows specifying the respective action associated to `True` and `False`
+
+```{python}
+l = np.array([np.arange(9)])
+
+l
+```
+
+```{python}
+# deserialise the arrat into a square matrix
+l = l.reshape((3, 3))
+
+l
+```
+
+```{python}
+#  If True then make it double, else halve it
+
+np.where(l<5, l*2, l/2)
+```
+
+In Pandas, when False we assign `n/a`
+
+---
+
+## Numpy func. to Pandas objects
+
+```{python}
+import pandas as pd
+
+# l is a Numpy matrix which readily interoperates with Pandas
+my_df = pd.DataFrame(l, columns=['A', 'B', 'C'])
+
+my_df
+```
+
+```{python}
+# Extract the square root of each el. of column B (NB: my_df remains unchanged)
+np.sqrt(my_df.B) 
+```
+
+---
+
+## Back and Forth b/w Pandas and Numpy
+
+```{python}
+# Extract the values back into a Numpy object
+
+m = my_df.values
+
+m
+```
+
+
+# Importing data
+
+
+---
 
 Read a datafile and turn it into a DataFrame. 
 Several arguments are available to specify the behavior of the process:
@@ -331,7 +406,7 @@ df_bio['Age'].describe()
 ```
 
 
-## Descriptive statistics - categorcal variables
+## Descriptive statistics - categorical vars
 
 The `value_counts()` method computes the unique values and how many times they occur.
 
@@ -339,3 +414,20 @@ The `value_counts()` method computes the unique values and how many times they o
 # Descriptive statistics for the entire DataFrame
 df_bio.Sex.value_counts()
 ```
+
+
+# Pandas data displays
+
+---
+
+Pandas objects come with methods for visualisation
+
+they are built on top of matplotlib
+
+```{python}
+df_bio['Age'].plot(kind = 'hist')
+
+# alternative syntax:
+# df_bio.Age.plot(kind = 'hist')
+```
+

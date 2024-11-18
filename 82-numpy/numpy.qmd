@@ -94,11 +94,11 @@ mymatrix[1][3]
 
 ## Notation
 
-1-dimension: an array (a line of numbers): `[1, 23, …]`
+1-dimension: an array (sequence of numbers): `[1, 23, …]`
 
-2-dimensions: a matrix (a table of numbers) `[ [1, 23, …], [14, 96, …], ...]`
+2-dimensions: a matrix (table of numbers) `[ [1, 23, …], [14, 96, …], ...]`
 
-3-dimensions: a tensor (a box/cube/cuboid) of numbers:  `[ [ [1, 23, …], [14, 96, …], …], ...]`
+3-dimensions: a *tensor* (box/cube/cuboid) of numbers:  `[ [ [1, 23, …], [14, 96, …], …], ...]`
 
 ---
 
@@ -133,9 +133,7 @@ d.shape
 
 ## Axes
 
-Numpy arrays can have multiple dimensions.
-
-Unlike Pandas, not specifying the axis will apply a function to the entire array.
+Numpy arrays can have multiple dimensions
 
 ```{python}
 # operations along columns
@@ -147,10 +145,15 @@ d
 d.sum(axis=0)
 ```
 
+---
+
 ```{python}
 # summing by row
 d.sum(axis=1)
 ```
+
+
+__N. B.__ unlike Pandas, not specifying the axis will apply a function to the entire array.
 
 ```{python}
 # sum the whole content
@@ -244,12 +247,12 @@ Data can be selected according to specific conditions.
 The Boolean filter itself can be represented by a Numpy array
 
 ```{python}
-l = np.array([np.arange(9)])
+l = np.array(np.arange(9))
 
 l
 ```
 ```{python}
-l.reshape((3, 3))
+l.reshape(3, 3)
 
 l
 ```
@@ -266,67 +269,15 @@ l[l>4]
 ```
 
 ```{python}
-# Generate a Boolean array (False=0, True=1)
+# Generate a Boolean array
+
+(l>4)
+```
+
+```{python}
+# now with integers: False=0, True=1)
 
 (l>4).astype(int)
 ```
 
----
-
-## From Numpy to Pandas: `where()`
-
-Even though Pandas is built on Numpy, `where()` has a distinct semantics
-
-Numpy allows specifying the respective action associated to `True` and `False`
-
-```{python}
-l = np.array([np.arange(9)])
-
-l
-```
-
-```{python}
-# deserialise the arrat into a square matrix
-l = l.reshape((3, 3))
-
-l
-```
-
-```{python}
-#  If True then make it double, else halve it
-
-np.where(l<5, l*2, l/2)
-```
-
-In Pandas, when False we assign `n/a`
-
----
-
-## Numpy func. to Pandas objects
-
-```{python}
-import pandas as pd
-
-# l is a Numpy matrix which readily interoperates with Pandas
-my_df = pd.DataFrame(l, columns=['A', 'B', 'C'])
-
-my_df
-```
-
-```{python}
-# Extract the square root of each el. of column B (NB: my_df remains unchanged)
-np.sqrt(my_df.B) 
-```
-
----
-
-## Back and Forth b/w Pandas and Numpy
-
-```{python}
-# Extract the values back into a Numpy object
-
-m = my_df.values
-
-m
-```
 

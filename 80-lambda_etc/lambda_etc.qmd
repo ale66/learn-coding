@@ -79,6 +79,7 @@ here `my_square` is a *functor:* the name of the function itself
 
 ```python
 my_iterable = map(my_square, my_list)
+
 ```
 
 *query* `my_iterable` to get a sequence with 1, 4, 9 etc.
@@ -86,10 +87,10 @@ my_iterable = map(my_square, my_list)
 . . .
 
 ```python
-my_iterable = map(my_square, my_list)
 
 for el in my_iterable:
     print(el)
+
 ```
 
 
@@ -379,8 +380,4 @@ def myfunc(*args):
 
 
 can you [get fresh data](https://data.spectator.co.uk/category/energy) and display it?
-
-
-
-
 
