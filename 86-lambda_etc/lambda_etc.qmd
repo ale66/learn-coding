@@ -75,15 +75,13 @@ here `my_square` is a *functor:* the name of the function itself
 
 ## Mapping functions to lists
 
-Given a function name, we can build an iterable 
-
-that will return the results of applying such function to a given list (mostly)
+`map()` creates an *iterable* that returns the result of applying a given function to a sequence of values
 
 ```python
 my_iterable = map(my_square, my_list)
 ```
 
-We 'query' `my_iteable` we get a sequence with 1, 4, 9 etc.
+*query* `my_iterable` to get a sequence with 1, 4, 9 etc.
 
 . . .
 
