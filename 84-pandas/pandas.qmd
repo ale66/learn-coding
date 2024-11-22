@@ -62,7 +62,7 @@ s1 = pd.Series([10, 20, 30, 40])
 s1
 ```
 
------
+---
 
 ```{python}
 # Assign explicit indices to our data
@@ -71,17 +71,30 @@ s2 = pd.Series([10, 20, 30, 40], index = ['a', 'b', 'c', 'd'])
 s2
 ```
 
-```{python}
-# Alternatively, convert a Py. dictionary into a DataFrame: 
-# keys correspond to indices.
-d1 = {'a':10, 'b':20, 'c':30, 'd':40}
+Example: putting 10 quid a month into a savings account
 
-s3 = pd.Series(d1)
+```{python}
+my_savings = pd.Series([10, 20, 30, 40], index = ['jan', 'feb', 'mar', 'apr'])
+
+my_savings
+```
+
+
+---
+
+From dictionaries to Pandas series
+
+```{python}
+# keys correspond to indices.
+my_dict = {'a':10, 'b':20, 'c':30, 'd':40}
+
+s3 = pd.Series(my_dict)
 
 s3
 ```
 
-## Series, cont'd
+
+---
 
 Use the index to select one or more specific values.
 
@@ -89,7 +102,6 @@ Use the index to select one or more specific values.
 # Get the data on position 'a' of s3
 
 s3['a']
-
 ```
 
 ```{python}
@@ -100,11 +112,11 @@ s3[['a', 'c']]
 
 Filter elements
 ```{python}
-# Get the data smaller than 25
+# Select data which is less than 25
 
 s3[s3<25]
-
 ```
+
 
 ---
 
@@ -114,7 +126,6 @@ apply element-wise mathematical operations...
 # Square every element of s3
 
 s3**2
-
 ```
 
 or a combination of both:
@@ -123,8 +134,8 @@ or a combination of both:
 # Square every element of s3 smaller than 25
 
 s3[s3<25]**2
-
 ```
+
 
 # Data Structures - DataFrames
 
