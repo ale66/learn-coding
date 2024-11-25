@@ -440,7 +440,7 @@ print(c.__class__.count)
 
 - method/attribute names beginning and ending with `__` are for built-ins: `__init__`
 
-- instead, those starting  but not ending with `__` them will remain *private*
+- instead, those starting with `__` but not ending with it remain *private*
 
 - won't be seen outside the class, not even by subclasses
 
@@ -512,7 +512,7 @@ class geolocated_temp(temperature):
 
 ---
 
-## Polimorphism
+## Polymorphism
 
 A method can be defined in a *parent* class and then re-defined in a *child* class
 

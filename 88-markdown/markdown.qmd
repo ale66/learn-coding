@@ -36,7 +36,7 @@ Residual cases:
 
 - tags inside `<head>` for indexing etc., in particular `<meta>`
 
-- tages inside `<body>`: `<div>` and `<span>`
+- tags inside `<body>`: `<div>` and `<span>`
 
 
 ---
@@ -118,11 +118,11 @@ __this is a boldface caption to the image__
 
 ## The limits of MD
 
-There is no internation/industrial standard:
+There is no int'l/industrial standard:
 
 ambiguity ensues
 
-`![My text](./imgs/image.png)` --> 
+`![My text](./imgs/image.png)`
 
 ::::{.columns}
 ::: {.column width="50%"}
