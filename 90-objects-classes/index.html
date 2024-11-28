@@ -443,21 +443,31 @@ ale66
 </section>
 <section class="slide level2">
 
-<p>Python variables with methods attached are called <em>objects</em></p>
 <p>Python is an object-oriented language.</p>
+<p>objects can be understood as extensions of the now-familiar concept of Python variable, which comes with methods attached</p>
+<h4 id="preview">Preview</h4>
+<p>Objects of our new class <code>temperature</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>temp_milan <span class="op">=</span> temperature(<span class="st">'22-nov-2024'</span>, <span class="dv">11</span>, <span class="st">'C'</span>)</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>temp_seattle <span class="op">=</span> temperature(<span class="st">'22-nov-2024'</span>, <span class="dv">50</span>, <span class="st">'F'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Custom methods for the class</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># Seattle is actually colder than Milan</span></span>
+<span id="cb3-2"><a href=""></a><span class="bu">print</span>(temp_seattle.toC())</span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="advanced" class="slide level2">
 <h2>Advanced</h2>
 <p>Define new types and their specific methods</p>
 <ul>
-<li><p>a design effort similar to SQL Entity-Relationship diagrams</p></li>
+<li><p>a design effort similar to database creation</p></li>
 <li><p>will write less, less errors etc.</p></li>
 </ul>
 </section>
 <section id="example-get-city-temperatures-from-the-web" class="slide level2">
 <h2>Example: get city temperatures from the Web</h2>
-<p>For city wheather, type <code>int</code> is adequate, but</p>
-<p>what if we collect Web data from both metric and Farenheit sources?</p>
+<p>For city weather, type <code>int</code> is adequate, but</p>
+<p>what if we collect Web data from both metric (SI) and Fahrenheit sources?</p>
 <p>Continuously converting values between the two systems</p>
 <p>errors (and boredom) loom..</p>
 </section></section>
@@ -478,10 +488,11 @@ ale66
 
 <ul>
 <li><p>the special <code>__init__</code> function create the new object on request</p></li>
-<li><p><em>instances</em> are object/variables created from the class ‘mould’</p></li>
+<li><p><em>instances</em> are new object/variables created from the class ‘mold’</p></li>
 <li><p>no need to dispose of objects</p></li>
 </ul>
-</section>
+
+<img data-src="./imgs/hart-shaped-molds.jpg" class="r-stretch"></section>
 <section id="methods" class="slide level2">
 <h2>Methods</h2>
 <ul>
@@ -492,206 +503,215 @@ ale66
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">class</span> temperature:</span>
-<span id="cb2-2"><a href=""></a>    <span class="co">''' My attempt to work with both Celsius and Farenheit temps.</span></span>
-<span id="cb2-3"><a href=""></a><span class="co">    '''</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date, value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>):</span>
-<span id="cb2-5"><a href=""></a>        <span class="va">self</span>.date <span class="op">=</span> TODAY <span class="co"># will fix later</span></span>
-<span id="cb2-6"><a href=""></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
-<span id="cb2-7"><a href=""></a>        <span class="va">self</span>.system <span class="op">=</span> system</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section class="slide level2">
-
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">class</span> temperature:</span>
-<span id="cb3-2"><a href=""></a>    <span class="co">'''My attempt to work with both Celsius and Farenheit temps.</span></span>
-<span id="cb3-3"><a href=""></a><span class="co">    '''</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date, value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>):</span>
-<span id="cb3-5"><a href=""></a>    ...</span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a>    <span class="kw">def</span> toC(<span class="va">self</span>):</span>
-<span id="cb3-8"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">==</span> <span class="st">'C'</span>:</span>
-<span id="cb3-9"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value</span>
-<span id="cb3-10"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb3-11"><a href=""></a>            <span class="cf">return</span> <span class="co"># convert F to C: will fix later</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section class="slide level2">
-
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="kw">class</span> temperature:</span>
-<span id="cb4-2"><a href=""></a>    ...</span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a>    <span class="kw">def</span> toC(<span class="va">self</span>):</span>
-<span id="cb4-5"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">=</span> <span class="st">'C'</span>:</span>
-<span id="cb4-6"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value</span>
-<span id="cb4-7"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb4-8"><a href=""></a>            <span class="cf">return</span> <span class="co"># Convert F to C</span></span>
-<span id="cb4-9"><a href=""></a></span>
-<span id="cb4-10"><a href=""></a>    <span class="kw">def</span> toF(<span class="va">self</span>):</span>
-<span id="cb4-11"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">=</span> <span class="st">'F'</span>:</span>
-<span id="cb4-12"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value</span>
-<span id="cb4-13"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb4-14"><a href=""></a>            <span class="cf">return</span> <span class="co"># Convert C to F: will fix later</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href=""></a>    <span class="co">''' My attempt to work with both Celsius and Fahrenheit temps.</span></span>
+<span id="cb4-3"><a href=""></a><span class="co">    '''</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date, value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>):</span>
+<span id="cb4-5"><a href=""></a>        <span class="va">self</span>.date <span class="op">=</span> TODAY <span class="co"># will fix later</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
+<span id="cb4-7"><a href=""></a>        <span class="va">self</span>.system <span class="op">=</span> system</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="kw">class</span> temperature:</span>
+<span id="cb5-2"><a href=""></a>    <span class="co">'''My attempt to work with both Celsius and Fahrenheit temps.</span></span>
+<span id="cb5-3"><a href=""></a><span class="co">    '''</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date, value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>):</span>
+<span id="cb5-5"><a href=""></a>    ...</span>
+<span id="cb5-6"><a href=""></a></span>
+<span id="cb5-7"><a href=""></a>    <span class="kw">def</span> toC(<span class="va">self</span>):</span>
+<span id="cb5-8"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">==</span> <span class="st">'C'</span>:</span>
+<span id="cb5-9"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value</span>
+<span id="cb5-10"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb5-11"><a href=""></a>            <span class="cf">return</span> <span class="co"># convert F to C: will fix later</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="kw">class</span> temperature:</span>
+<span id="cb6-2"><a href=""></a>    ...</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">def</span> toC(<span class="va">self</span>):</span>
+<span id="cb6-5"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">=</span> <span class="st">'C'</span>:</span>
+<span id="cb6-6"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value</span>
+<span id="cb6-7"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb6-8"><a href=""></a>            <span class="cf">return</span> <span class="co"># Convert F to C</span></span>
+<span id="cb6-9"><a href=""></a></span>
+<span id="cb6-10"><a href=""></a>    <span class="kw">def</span> toF(<span class="va">self</span>):</span>
+<span id="cb6-11"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">=</span> <span class="st">'F'</span>:</span>
+<span id="cb6-12"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value</span>
+<span id="cb6-13"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb6-14"><a href=""></a>            <span class="cf">return</span> <span class="co"># Convert C to F: will fix later</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="create-instances" class="slide level2">
 <h2>Create instances</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>temp_milan <span class="op">=</span> temperature(<span class="st">'22-nov-2023'</span>, <span class="dv">18</span>, <span class="st">'C'</span>)</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a>temp_seattle <span class="op">=</span> temperature(<span class="st">'22-nov-2023'</span>, <span class="dv">50</span>, <span class="st">'F'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>temp_milan <span class="op">=</span> temperature(<span class="st">'22-nov-2024'</span>, <span class="dv">11</span>, <span class="st">'C'</span>)</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>temp_seattle <span class="op">=</span> temperature(<span class="st">'22-nov-2024'</span>, <span class="dv">50</span>, <span class="st">'F'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
 <p>with defaults:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>temp_rome <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">20</span>)</span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a><span class="co"># this is semantically incorrect...</span></span>
-<span id="cb6-4"><a href=""></a>temp_guam <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># acceptable, as C is our default scale</span></span>
+<span id="cb8-2"><a href=""></a>temp_rome <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a><span class="co"># this is semantically incorrect</span></span>
+<span id="cb8-5"><a href=""></a>temp_guam <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-meaning-of-self---1" class="slide level2">
 <h2>The meaning of <code>self</code> - 1</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>  <span class="fu">__init__</span>(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>  <span class="fu">__init__</span>(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>here <code>self</code> refers to the class we are defining</p>
 </section>
 <section id="the-meaning-of-self---2" class="slide level2">
 <h2>The meaning of <code>self</code> - 2</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>  mymethod(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>  my_method(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>here <code>self</code> refers to the object we are running on</p>
 </section>
-<section id="the-meaning-of-self---3" class="slide level2">
-<h2>The meaning of <code>self</code> - 3</h2>
-<p>stricly needed in the definitions, not needed in the calls</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>  mymethod(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>  myobject.mymethod(value <span class="op">=</span> <span class="dv">27</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="the-meaning-of-self---2-contd" class="slide level2">
+<h2>The meaning of <code>self</code> - 2 cont’d</h2>
+<p>strictly needed in the definition:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>...</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>    <span class="kw">def</span> my_method(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb11-4"><a href=""></a>        <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>not used in the calls:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>my_object.my_method(value <span class="op">=</span> <span class="dv">27</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exploring-classes" class="slide level2">
 <h2>Exploring classes</h2>
 <p>If we know the class, calls are simple:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>temp_sidney <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">60</span>, system <span class="op">=</span> <span class="st">'F'</span>)</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a><span class="bu">print</span>(<span class="st">"It's "</span> <span class="op">+</span> <span class="bu">str</span>(temp_sidney.toC()) <span class="op">+</span> <span class="st">' degrees in Sidney today!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>temp_seattle <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">50</span>, system <span class="op">=</span> <span class="st">'F'</span>)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a><span class="bu">print</span>(<span class="st">"It's "</span> <span class="op">+</span> <span class="bu">str</span>(temp_seattle.toC()) <span class="op">+</span> <span class="st">' degrees in Seattle today!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="exploring-classes-2" class="slide level2">
-<h2>Exploring classes, 2</h2>
+<section id="exploring-classes-contd" class="slide level2">
+<h2>Exploring classes cont’d</h2>
 <p>Check if a method is there, then call it:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="cf">if</span> <span class="bu">hasattr</span>(temp_sidney, <span class="st">'date'</span>):</span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a>    mydate <span class="op">=</span> temp_sidney.date</span>
-<span id="cb12-4"><a href=""></a>    </span>
-<span id="cb12-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">'On '</span> <span class="op">+</span> <span class="bu">str</span>(mydate) <span class="op">+</span> <span class="st">' it was '</span> <span class="op">+</span> <span class="bu">str</span>(temp_sidney.toC()) <span class="op">+</span> <span class="st">' in Sidney!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">if</span> <span class="bu">hasattr</span>(temp_seattle, <span class="st">'date'</span>):</span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a>    mydate <span class="op">=</span> temp_seattle.date</span>
+<span id="cb14-4"><a href=""></a>    </span>
+<span id="cb14-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">'On '</span> <span class="op">+</span> <span class="bu">str</span>(mydate) <span class="op">+</span> <span class="st">' it was '</span> <span class="op">+</span> <span class="bu">str</span>(temp_seattle.toC()) <span class="op">+</span> <span class="st">' in Seattle!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explore-apply" class="slide level2">
 <h2>Explore + apply</h2>
 <p>Sometimes the method to use will only be known at runtime</p>
 <p>it cannot be coded in advance, but we can <em>explore</em> the object</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># someone defined</span></span>
-<span id="cb13-2"><a href=""></a>temp_sidney <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">60</span>, system <span class="op">=</span> <span class="st">'F'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We don’t know so we query the object to find how it can be used correctly</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="bu">print</span>(<span class="bu">getattr</span>(temp_sidney, <span class="st">'system'</span>))</span>
-<span id="cb14-2"><a href=""></a><span class="co"># prints 'F'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># someone defined</span></span>
+<span id="cb15-2"><a href=""></a>temp_seattle <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">50</span>, system <span class="op">=</span> <span class="st">'F'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>should we forget/don’t know, we can query the object to find how it can be used correctly</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="bu">print</span>(<span class="bu">getattr</span>(temp_seattle, <span class="st">'system'</span>))</span>
+<span id="cb16-2"><a href=""></a></span>
+<span id="cb16-3"><a href=""></a>F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="class-attributes" class="title-slide slide level1 center">
 <h1>Class attributes</h1>
 
 </section>
-<section id="data-attributes" class="slide level2">
-<h2>Data attributes</h2>
-<p>As seen above:</p>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<p>As seen above, data attributes essentially are:</p>
 <ul>
-<li><p>a variable which all instances have a copy of</p></li>
+<li><p>a variable which all instances have a private copy of</p></li>
 <li><p>each instance has its own value and can change it</p></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>temp_rome.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>temp_milan.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="class-attributes-1" class="slide level2">
 <h2>Class attributes</h2>
-<p>All instances share the same value</p>
-<p>when one inst. changes the value, everyone gets updated</p>
+<p>there is only one variable</p>
+<p>all instances will <em>share the same value</em></p>
+<p>if an instance changes the value of a class attribute then everyone gets updated</p>
 </section>
 <section class="slide level2">
 
 <p>Applications:</p>
 <ul>
-<li><p>constants (eg., <code>zero = -273.15 C</code>)</p></li>
-<li><p>counters (eg., create new student objects but only up to 20)</p></li>
+<li><p>constants: e.g., there is only one <code>zero = -273.15 C</code></p></li>
+<li><p>counters: e.g., create new student objects, but only up to 20</p></li>
 </ul>
 </section>
 <section id="exercise" class="slide level2">
 <h2>Exercise</h2>
 <p>extend the temperature class to include the Kelvin scale.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="kw">class</span> three_temperatures:</span>
-<span id="cb16-2"><a href=""></a>    <span class="co">'''Now with three scales!'''</span></span>
-<span id="cb16-3"><a href=""></a></span>
-<span id="cb16-4"><a href=""></a>    zero <span class="op">=</span> <span class="op">-</span><span class="fl">273.15</span></span>
-<span id="cb16-5"><a href=""></a>    </span>
-<span id="cb16-6"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date <span class="op">=</span> date.today(), value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>):</span>
-<span id="cb16-7"><a href=""></a>        <span class="va">self</span>.date <span class="op">=</span> date</span>
-<span id="cb16-8"><a href=""></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
-<span id="cb16-9"><a href=""></a>        <span class="va">self</span>.system <span class="op">=</span> system</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="kw">class</span> three_temperatures:</span>
+<span id="cb18-2"><a href=""></a>    <span class="co">'''Now with three scales!'''</span></span>
+<span id="cb18-3"><a href=""></a></span>
+<span id="cb18-4"><a href=""></a>    zero <span class="op">=</span> <span class="op">-</span><span class="fl">273.15</span></span>
+<span id="cb18-5"><a href=""></a>    </span>
+<span id="cb18-6"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date <span class="op">=</span> date.today(), value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>):</span>
+<span id="cb18-7"><a href=""></a>        <span class="va">self</span>.date <span class="op">=</span> date</span>
+<span id="cb18-8"><a href=""></a>        <span class="va">self</span>.value <span class="op">=</span> value</span>
+<span id="cb18-9"><a href=""></a>        <span class="va">self</span>.system <span class="op">=</span> system</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Use <code>self.zero</code> to rebase Celsius degrees to Kelvin</p>
 </section>
 <section id="exercise-solution" class="slide level2">
 <h2>Exercise, solution</h2>
 <p>extend the temperature class to include the Kelvin scale.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="kw">class</span> three_temperatures:</span>
-<span id="cb17-2"><a href=""></a>    <span class="co">'''Now with three scales!'''</span></span>
-<span id="cb17-3"><a href=""></a></span>
-<span id="cb17-4"><a href=""></a>    zero <span class="op">=</span> <span class="op">-</span><span class="fl">273.15</span></span>
-<span id="cb17-5"><a href=""></a>    ...</span>
-<span id="cb17-6"><a href=""></a>    </span>
-<span id="cb17-7"><a href=""></a>    <span class="kw">def</span> toK(<span class="va">self</span>):</span>
-<span id="cb17-8"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">==</span> <span class="st">'C'</span>:</span>
-<span id="cb17-9"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value <span class="op">-</span> <span class="va">self</span>.__class__.zero</span>
-<span id="cb17-10"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb17-11"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.toC() <span class="op">-</span> <span class="va">self</span>.__class__.zero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="kw">class</span> three_temperatures:</span>
+<span id="cb19-2"><a href=""></a>    <span class="co">'''Now with three scales!'''</span></span>
+<span id="cb19-3"><a href=""></a></span>
+<span id="cb19-4"><a href=""></a>    zero <span class="op">=</span> <span class="op">-</span><span class="fl">273.15</span></span>
+<span id="cb19-5"><a href=""></a>    ...</span>
+<span id="cb19-6"><a href=""></a>    </span>
+<span id="cb19-7"><a href=""></a>    <span class="kw">def</span> toK(<span class="va">self</span>):</span>
+<span id="cb19-8"><a href=""></a>        <span class="cf">if</span> <span class="va">self</span>.system <span class="op">==</span> <span class="st">'C'</span>:</span>
+<span id="cb19-9"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.value <span class="op">-</span> <span class="va">self</span>.__class__.zero</span>
+<span id="cb19-10"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb19-11"><a href=""></a>            <span class="cf">return</span> <span class="va">self</span>.toC() <span class="op">-</span> <span class="va">self</span>.__class__.zero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="a-more-general-version" class="slide level2">
 <h2>A more general version</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="kw">class</span> three_temperatures:</span>
-<span id="cb18-2"><a href=""></a>    zero <span class="op">=</span> <span class="op">-</span><span class="fl">273.15</span></span>
-<span id="cb18-3"><a href=""></a>    ...</span>
-<span id="cb18-4"><a href=""></a>    </span>
-<span id="cb18-5"><a href=""></a>    <span class="kw">def</span> toK(<span class="va">self</span>):</span>
-<span id="cb18-6"><a href=""></a>       ...</span>
-<span id="cb18-7"><a href=""></a>    </span>
-<span id="cb18-8"><a href=""></a>    <span class="kw">def</span> generalSciTemp(<span class="va">self</span>, given <span class="op">=</span> <span class="va">self</span>.value, </span>
-<span id="cb18-9"><a href=""></a>                             scale <span class="op">=</span> <span class="va">self</span>.system):</span>
-<span id="cb18-10"><a href=""></a>        <span class="cf">if</span> scale <span class="op">==</span> <span class="st">'C'</span>:</span>
-<span id="cb18-11"><a href=""></a>            <span class="cf">return</span> given <span class="op">-</span> <span class="va">self</span>.__class__.zero</span>
-<span id="cb18-12"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb18-13"><a href=""></a>            <span class="cf">return</span> ((given <span class="op">-</span><span class="dv">32</span>) <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">9</span>) <span class="op">-</span> <span class="va">self</span>.__class__.zero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="kw">class</span> three_temperatures:</span>
+<span id="cb20-2"><a href=""></a>    zero <span class="op">=</span> <span class="op">-</span><span class="fl">273.15</span></span>
+<span id="cb20-3"><a href=""></a>    ...</span>
+<span id="cb20-4"><a href=""></a>    </span>
+<span id="cb20-5"><a href=""></a>    <span class="kw">def</span> toK(<span class="va">self</span>):</span>
+<span id="cb20-6"><a href=""></a>       ...</span>
+<span id="cb20-7"><a href=""></a>    </span>
+<span id="cb20-8"><a href=""></a>    <span class="kw">def</span> generalSciTemp(<span class="va">self</span>, given <span class="op">=</span> <span class="va">self</span>.value, </span>
+<span id="cb20-9"><a href=""></a>                             scale <span class="op">=</span> <span class="va">self</span>.system):</span>
+<span id="cb20-10"><a href=""></a>        <span class="cf">if</span> scale <span class="op">==</span> <span class="st">'C'</span>:</span>
+<span id="cb20-11"><a href=""></a>            <span class="cf">return</span> given <span class="op">-</span> <span class="va">self</span>.__class__.zero</span>
+<span id="cb20-12"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb20-13"><a href=""></a>            <span class="cf">return</span> ((given <span class="op">-</span><span class="dv">32</span>) <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">9</span>) <span class="op">-</span> <span class="va">self</span>.__class__.zero</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="bu">print</span>(<span class="bu">getattr</span>(temp_sidney, <span class="st">'generalSciTemp'</span>)(<span class="dv">100</span>))</span>
-<span id="cb19-2"><a href=""></a><span class="co"># prints the K equiv. of 100 F ~311</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="co"># this is a function NAME</span></span>
-<span id="cb20-2"><a href=""></a>a_local_function <span class="op">=</span> <span class="bu">getattr</span>(temp_sidney, <span class="st">'generalSciTemp'</span>)</span>
-<span id="cb20-3"><a href=""></a></span>
-<span id="cb20-4"><a href=""></a><span class="bu">print</span>(a_local_function(<span class="dv">100</span>))</span>
-<span id="cb20-5"><a href=""></a><span class="co"># prints the same!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># prints the K equiv. of 100 F: ~311</span></span>
+<span id="cb21-2"><a href=""></a><span class="bu">print</span>(<span class="bu">getattr</span>(temp_seattle, <span class="st">'generalSciTemp'</span>)(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A method can even be <em>exported</em> to become a stand-alone function</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="co"># this is a function NAME</span></span>
+<span id="cb22-2"><a href=""></a>a_local_function <span class="op">=</span> <span class="bu">getattr</span>(temp_seattle, <span class="st">'generalSciTemp'</span>)</span>
+<span id="cb22-3"><a href=""></a></span>
+<span id="cb22-4"><a href=""></a><span class="bu">print</span>(a_local_function(<span class="dv">100</span>))</span>
+<span id="cb22-5"><a href=""></a><span class="co"># prints the same!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="class-counters" class="slide level2">
 <h2>Class counters</h2>
-<p>Instances of the same class can <em>communicate</em> with each other</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="kw">class</span> student:</span>
-<span id="cb21-2"><a href=""></a>    <span class="co">'''A student object.'''</span></span>
-<span id="cb21-3"><a href=""></a></span>
-<span id="cb21-4"><a href=""></a>    <span class="co"># class attribute</span></span>
-<span id="cb21-5"><a href=""></a>    count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb21-6"><a href=""></a></span>
-<span id="cb21-7"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, surname <span class="op">=</span> <span class="st">''</span>):</span>
-<span id="cb21-8"><a href=""></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb21-9"><a href=""></a>        <span class="va">self</span>.surname <span class="op">=</span> surname</span>
-<span id="cb21-10"><a href=""></a>        <span class="va">self</span>.__class__.count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Instances of the same class now can <em>communicate</em></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="kw">class</span> student:</span>
+<span id="cb23-2"><a href=""></a>    <span class="co">'''A student object'''</span></span>
+<span id="cb23-3"><a href=""></a></span>
+<span id="cb23-4"><a href=""></a>    <span class="co"># class attribute</span></span>
+<span id="cb23-5"><a href=""></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-6"><a href=""></a></span>
+<span id="cb23-7"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, surname <span class="op">=</span> <span class="st">''</span>):</span>
+<span id="cb23-8"><a href=""></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb23-9"><a href=""></a>        <span class="va">self</span>.surname <span class="op">=</span> surname</span>
+<span id="cb23-10"><a href=""></a>        <span class="va">self</span>.__class__.count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Class counters are the conceptual base of <em>distributed computation</em></p>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>a <span class="op">=</span> student(name <span class="op">=</span> <span class="st">'Alice'</span>)</span>
-<span id="cb22-2"><a href=""></a>b <span class="op">=</span> student(name <span class="op">=</span> <span class="st">'Bob'</span>)</span>
-<span id="cb22-3"><a href=""></a>c <span class="op">=</span> student(name <span class="op">=</span> <span class="st">'Charlie'</span>)</span>
-<span id="cb22-4"><a href=""></a></span>
-<span id="cb22-5"><a href=""></a><span class="bu">print</span>(c.__class__.count)</span>
-<span id="cb22-6"><a href=""></a><span class="co"># what will it print? </span></span>
-<span id="cb22-7"><a href=""></a><span class="co"># Any diference with, e.g., b.__class__.count</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>a <span class="op">=</span> student(name <span class="op">=</span> <span class="st">'Alice'</span>)</span>
+<span id="cb24-2"><a href=""></a>b <span class="op">=</span> student(name <span class="op">=</span> <span class="st">'Bob'</span>)</span>
+<span id="cb24-3"><a href=""></a>c <span class="op">=</span> student(name <span class="op">=</span> <span class="st">'Charlie'</span>)</span>
+<span id="cb24-4"><a href=""></a></span>
+<span id="cb24-5"><a href=""></a><span class="bu">print</span>(c.__class__.count)</span>
+<span id="cb24-6"><a href=""></a><span class="co"># what will it print? </span></span>
+<span id="cb24-7"><a href=""></a><span class="co"># Any difference with, e.g., b.__class__.count</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="private-data-and-methods" class="slide level2">
 <h2>Private data and methods</h2>
@@ -703,19 +723,23 @@ ale66
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="kw">class</span> student:</span>
-<span id="cb23-2"><a href=""></a></span>
-<span id="cb23-3"><a href=""></a>    count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb23-4"><a href=""></a>    <span class="co"># secret class attribute!</span></span>
-<span id="cb23-5"><a href=""></a>    __max_capacity <span class="op">=</span> <span class="dv">25</span></span>
-<span id="cb23-6"><a href=""></a></span>
-<span id="cb23-7"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, surname <span class="op">=</span> <span class="st">''</span>):</span>
-<span id="cb23-8"><a href=""></a>        ...</span>
-<span id="cb23-9"><a href=""></a>        <span class="va">self</span>.__class__.count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb23-10"><a href=""></a></span>
-<span id="cb23-11"><a href=""></a>    <span class="kw">def</span> __alert(<span class="va">self</span>, count):</span>
-<span id="cb23-12"><a href=""></a>        <span class="cf">if</span> count <span class="op">&gt;</span> __max_capacity:</span>
-<span id="cb23-13"><a href=""></a>            <span class="bu">print</span>(<span class="st">'Class is overbooked!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="kw">class</span> student:</span>
+<span id="cb25-2"><a href=""></a></span>
+<span id="cb25-3"><a href=""></a>    <span class="co"># a regular class attribute</span></span>
+<span id="cb25-4"><a href=""></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb25-5"><a href=""></a></span>
+<span id="cb25-6"><a href=""></a>    <span class="co"># a secret class attribute!</span></span>
+<span id="cb25-7"><a href=""></a>    __max_capacity <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb25-8"><a href=""></a></span>
+<span id="cb25-9"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, surname <span class="op">=</span> <span class="st">''</span>):</span>
+<span id="cb25-10"><a href=""></a>        </span>
+<span id="cb25-11"><a href=""></a>        ...</span>
+<span id="cb25-12"><a href=""></a></span>
+<span id="cb25-13"><a href=""></a>        <span class="va">self</span>.__class__.count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb25-14"><a href=""></a></span>
+<span id="cb25-15"><a href=""></a>    <span class="kw">def</span> __alert(<span class="va">self</span>, count):</span>
+<span id="cb25-16"><a href=""></a>        <span class="cf">if</span> count <span class="op">&gt;</span> __max_capacity:</span>
+<span id="cb25-17"><a href=""></a>            <span class="bu">print</span>(<span class="st">'Class is overbooked!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="class-inheritance" class="title-slide slide level1 center">
@@ -726,20 +750,21 @@ ale66
 
 <p>A class is seldom created from scratch</p>
 <p>Often it <em>extends</em> a known class, so all setups are inherited</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="kw">class</span> geolocated_temp(temperature)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="kw">class</span> geolocated_temp(temperature)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>All the goodies of <code>temperature</code> plus coordinates</p>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="kw">class</span> geolocated_temp(temperature):</span>
-<span id="cb25-2"><a href=""></a>    </span>
-<span id="cb25-3"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date, value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>, place <span class="op">=</span> {<span class="st">'N'</span>:<span class="st">"51°31'19.8"</span>, <span class="st">'W'</span>:<span class="st">"0°07'51.4"</span>}):</span>
-<span id="cb25-4"><a href=""></a>        <span class="co"># run the 'inherited' constructor</span></span>
-<span id="cb25-5"><a href=""></a>        temperature.<span class="fu">__init__</span>(<span class="va">self</span>, date, value, system)</span>
-<span id="cb25-6"><a href=""></a>        <span class="co"># additionally, set up the place</span></span>
-<span id="cb25-7"><a href=""></a>        <span class="co"># default: Birkbeck main building</span></span>
-<span id="cb25-8"><a href=""></a>        <span class="va">self</span>.place <span class="op">=</span> place</span>
-<span id="cb25-9"><a href=""></a>    ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="kw">class</span> geolocated_temp(temperature):</span>
+<span id="cb27-2"><a href=""></a>    </span>
+<span id="cb27-3"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, date, value <span class="op">=</span> <span class="dv">0</span>, system <span class="op">=</span> <span class="st">'C'</span>, place <span class="op">=</span> {<span class="st">'N'</span>:<span class="st">"51°31'19.8"</span>, <span class="st">'W'</span>:<span class="st">"0°07'51.4"</span>}):</span>
+<span id="cb27-4"><a href=""></a>        <span class="co"># run the 'inherited' constructor</span></span>
+<span id="cb27-5"><a href=""></a>        temperature.<span class="fu">__init__</span>(<span class="va">self</span>, date, value, system)</span>
+<span id="cb27-6"><a href=""></a>        </span>
+<span id="cb27-7"><a href=""></a>        <span class="co"># additionally, set up the place</span></span>
+<span id="cb27-8"><a href=""></a>        <span class="co"># default: Birkbeck main building</span></span>
+<span id="cb27-9"><a href=""></a>        <span class="va">self</span>.place <span class="op">=</span> place</span>
+<span id="cb27-10"><a href=""></a>    ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="class-inheritance-2" class="slide level2">
 <h2>Class inheritance, 2</h2>
@@ -764,58 +789,58 @@ ale66
 <li><p>they can be re-defined</p></li>
 <li><p>notation: two underscores before and after the name</p></li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="fu">__init__</span> <span class="co"># object constructor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="fu">__init__</span> <span class="co"># object constructor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="fu">__len__</span> <span class="co"># defines how to meausure objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="fu">__cmp__</span> <span class="co"># defines how == works for the class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>__copy__ <span class="co"># ADVANCED: how to copy a class </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="fu">__len__</span> <span class="co"># defines how to meausure objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="fu">__cmp__</span> <span class="co"># defines how == works for the class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>__copy__ <span class="co"># ADVANCED: how to copy a class </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="fu">__repr__</span> <span class="co"># defines how to represent the object as a string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href=""></a><span class="op">&gt;</span>myobject</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="fu">__repr__</span> <span class="co"># defines how to represent the object as a string</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href=""></a><span class="op">&gt;</span>myobject</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>prints by running <code>myobject.__repr__</code></p>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="kw">class</span> student:</span>
-<span id="cb32-2"><a href=""></a>    ...</span>
-<span id="cb32-3"><a href=""></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb32-4"><a href=""></a>        <span class="cf">return</span> <span class="st">"Hi! I'm "</span> <span class="op">+</span> <span class="va">self</span>.name <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> <span class="va">self</span>.surname <span class="op">+</span> <span class="st">'.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="kw">class</span> student:</span>
+<span id="cb34-2"><a href=""></a>    ...</span>
+<span id="cb34-3"><a href=""></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb34-4"><a href=""></a>        <span class="cf">return</span> <span class="st">"Hi! I'm "</span> <span class="op">+</span> <span class="va">self</span>.name <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> <span class="va">self</span>.surname <span class="op">+</span> <span class="st">'.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="special-attributes-for-all-classes" class="slide level2">
 <h2>Special attributes for all classes</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>__doc__</span>
-<span id="cb33-2"><a href=""></a>__class__</span>
-<span id="cb33-3"><a href=""></a>__module__</span>
-<span id="cb33-4"><a href=""></a>__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>__doc__</span>
+<span id="cb35-2"><a href=""></a>__class__</span>
+<span id="cb35-3"><a href=""></a>__module__</span>
+<span id="cb35-4"><a href=""></a>__dict__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A useful way to explore classes:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="bu">dir</span>(myobject) </span>
-<span id="cb34-2"><a href=""></a><span class="co"># returns a list of all the attributes and methods of 'myobject'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="bu">dir</span>(myobject) </span>
+<span id="cb36-2"><a href=""></a><span class="co"># returns a list of all the attributes and methods of 'myobject'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>__doc__ <span class="co"># documentation string for the class</span></span>
-<span id="cb35-2"><a href=""></a></span>
-<span id="cb35-3"><a href=""></a>__class__ <span class="co"># which is the class of this object?</span></span>
-<span id="cb35-4"><a href=""></a></span>
-<span id="cb35-5"><a href=""></a>__module__ <span class="co"># where was this defined? Numpy? Pandas?</span></span>
-<span id="cb35-6"><a href=""></a></span>
-<span id="cb35-7"><a href=""></a>__dict__ <span class="co"># a dict. of all available functions: the *namespace*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>__doc__ <span class="co"># documentation string for the class</span></span>
+<span id="cb37-2"><a href=""></a></span>
+<span id="cb37-3"><a href=""></a>__class__ <span class="co"># which is the class of this object?</span></span>
+<span id="cb37-4"><a href=""></a></span>
+<span id="cb37-5"><a href=""></a>__module__ <span class="co"># where was this defined? Numpy? Pandas?</span></span>
+<span id="cb37-6"><a href=""></a></span>
+<span id="cb37-7"><a href=""></a>__dict__ <span class="co"># a dict. of all available functions: the *namespace*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>new_temp <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">20</span>)</span>
-<span id="cb36-2"><a href=""></a></span>
-<span id="cb36-3"><a href=""></a><span class="bu">print</span>(new_temp.__doc__) </span>
-<span id="cb36-4"><a href=""></a></span>
-<span id="cb36-5"><a href=""></a>another_temp <span class="op">=</span> new_temp.__class__(value <span class="op">=</span> <span class="dv">30</span>)</span>
-<span id="cb36-6"><a href=""></a></span>
-<span id="cb36-7"><a href=""></a><span class="bu">print</span>(new_temp.__module__) </span>
-<span id="cb36-8"><a href=""></a></span>
-<span id="cb36-9"><a href=""></a><span class="bu">print</span>(new_temp.__dict__) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>new_temp <span class="op">=</span> temperature(value <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb38-2"><a href=""></a></span>
+<span id="cb38-3"><a href=""></a><span class="bu">print</span>(new_temp.__doc__) </span>
+<span id="cb38-4"><a href=""></a></span>
+<span id="cb38-5"><a href=""></a>another_temp <span class="op">=</span> new_temp.__class__(value <span class="op">=</span> <span class="dv">30</span>)</span>
+<span id="cb38-6"><a href=""></a></span>
+<span id="cb38-7"><a href=""></a><span class="bu">print</span>(new_temp.__module__) </span>
+<span id="cb38-8"><a href=""></a></span>
+<span id="cb38-9"><a href=""></a><span class="bu">print</span>(new_temp.__dict__) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="final-considerations" class="title-slide slide level1 center">

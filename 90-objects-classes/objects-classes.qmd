@@ -64,10 +64,29 @@ write less, less errors, less surprise results
 
 ---
 
-Python variables with methods attached are called *objects*
 
 Python is an object-oriented language.
 
+objects can be understood as extensions of the now-familiar concept of Python variable, which comes with methods attached
+
+#### Preview
+
+Objects of our new class `temperature`
+
+```python
+temp_milan = temperature('22-nov-2024', 11, 'C')
+
+temp_seattle = temperature('22-nov-2024', 50, 'F')
+```
+
+Custom methods for the class
+
+```python
+# Seattle is actually colder than Milan
+print(temp_seattle.toC())
+
+10
+```
 
 ---
 
@@ -75,7 +94,7 @@ Python is an object-oriented language.
 
 Define new types and their specific methods
 
-- a design effort similar to SQL Entity-Relationship diagrams
+- a design effort similar to database creation
 
 - will write less, less errors etc.
 
@@ -84,9 +103,9 @@ Define new types and their specific methods
 
 ## Example: get city temperatures from the Web
 
-For city wheather, type ``int`` is adequate, but
+For city weather, type `int` is adequate, but
 
-what if we collect Web data from both metric and Farenheit sources?
+what if we collect Web data from both metric (SI) and Fahrenheit sources?
 
 Continuously converting values between the two systems
 
@@ -109,11 +128,13 @@ errors (and boredom) loom..
 
 ---
 
-- the special ``__init__`` function create the new object on request
+- the special `__init__` function create the new object on request
   
-- *instances* are object/variables created from the class 'mould'
+- *instances* are new object/variables created from the class 'mold'
 
 - no need to dispose of objects
+
+![](./imgs/hart-shaped-molds.jpg)
 
 
 ---
@@ -122,16 +143,16 @@ errors (and boredom) loom..
 
 - customised functions are defined within the class *block*
 
-- a special ``self`` argument is used everywhere to remind that we are defining an object
+- a special `self` argument is used everywhere to remind that we are defining an object
 
-- method ``__init__`` runs every time we create a new instance
+- method `__init__` runs every time we create a new instance
 
 
 ---
 
 ```python
 class temperature:
-    ''' My attempt to work with both Celsius and Farenheit temps.
+    ''' My attempt to work with both Celsius and Fahrenheit temps.
     '''
     def __init__(self, date, value = 0, system = 'C'):
         self.date = TODAY # will fix later
@@ -144,7 +165,7 @@ class temperature:
 
 ```python
 class temperature:
-    '''My attempt to work with both Celsius and Farenheit temps.
+    '''My attempt to work with both Celsius and Fahrenheit temps.
     '''
     def __init__(self, date, value = 0, system = 'C'):
     ...
@@ -155,6 +176,7 @@ class temperature:
         else:
             return # convert F to C: will fix later
 ```
+
 
 ---
 
@@ -181,9 +203,9 @@ class temperature:
 ## Create instances
 
 ```python
-temp_milan = temperature('22-nov-2023', 18, 'C')
+temp_milan = temperature('22-nov-2024', 11, 'C')
 
-temp_seattle = temperature('22-nov-2023', 50, 'F')
+temp_seattle = temperature('22-nov-2024', 50, 'F')
 ```
 
 
@@ -192,9 +214,10 @@ temp_seattle = temperature('22-nov-2023', 50, 'F')
 with defaults:
 
 ```python
+# acceptable, as C is our default scale
 temp_rome = temperature(value = 20)
 
-# this is semantically incorrect...
+# this is semantically incorrect
 temp_guam = temperature(value = 80)
 ```
 
@@ -215,24 +238,29 @@ here `self` refers to the class we are defining
 ## The meaning of `self` - 2
 
 ```python
-  mymethod(self, value = 0)
+  my_method(self, value = 0)
 ```
 
-here ``self`` refers to the object we are running on
+here `self` refers to the object we are running on
 
 
 ---
 
-## The meaning of `self` - 3
+## The meaning of `self` - 2 cont'd
 
-stricly needed in the definitions, not needed in the calls
+strictly needed in the definition:
 
 ```python
-  mymethod(self, value = 0)
+...
+
+    def my_method(self, value = 0)
+        pass
 ```
 
+not used in the calls:
+
 ```python
-  myobject.mymethod(value = 27)
+my_object.my_method(value = 27)
 ```
 
 
@@ -243,24 +271,24 @@ stricly needed in the definitions, not needed in the calls
 If we know the class, calls are simple:
 
 ```python
-temp_sidney = temperature(value = 60, system = 'F')
+temp_seattle = temperature(value = 50, system = 'F')
 
-print("It's " + str(temp_sidney.toC()) + ' degrees in Sidney today!')
+print("It's " + str(temp_seattle.toC()) + ' degrees in Seattle today!')
 ```
 
 
 ---
 
-## Exploring classes, 2
+## Exploring classes cont'd
 
 Check if a method is there, then call it:
 
 ```python
-if hasattr(temp_sidney, 'date'):
+if hasattr(temp_seattle, 'date'):
 
-    mydate = temp_sidney.date
+    mydate = temp_seattle.date
     
-    print('On ' + str(mydate) + ' it was ' + str(temp_sidney.toC()) + ' in Sidney!')
+    print('On ' + str(mydate) + ' it was ' + str(temp_seattle.toC()) + ' in Seattle!')
 ```
 
 
@@ -274,15 +302,16 @@ it cannot be coded in advance, but we can *explore* the object
 
 ```python
 # someone defined
-temp_sidney = temperature(value = 60, system = 'F')
+temp_seattle = temperature(value = 50, system = 'F')
 
 ```
 
-We don't know so we query the object to find how it can be used correctly
+should we forget/don't know, we can query the object to find how it can be used correctly
 
 ```python
-print(getattr(temp_sidney, 'system'))
-# prints 'F'
+print(getattr(temp_seattle, 'system'))
+
+F
 ```
 
 
@@ -291,16 +320,16 @@ print(getattr(temp_sidney, 'system'))
 
 ---
 
-## Data attributes
+## Recap
 
-As seen above:
+As seen above, data attributes essentially are:
 
-- a variable which all instances have a copy of
+- a variable which all instances have a private copy of
   
 - each instance has its own value and can change it
 
 ```python
-temp_rome.value
+temp_milan.value
 ```
 
 
@@ -308,18 +337,20 @@ temp_rome.value
 
 ## Class attributes
 
-All instances share the same value
+there is only one variable 
 
-when one inst. changes the value, everyone gets updated
+all instances will *share the same value*
+
+if an instance changes the value of a class attribute then everyone gets updated
 
 
 ---
 
 Applications:
 
-- constants (eg., ``zero = -273.15 C``)
+- constants: e.g., there is only one `zero = -273.15 C`
 
-- counters (eg., create new student objects but only up to 20)
+- counters: e.g., create new student objects, but only up to 20
 
 
 ---
@@ -388,13 +419,15 @@ class three_temperatures:
 ---
 
 ```python
-print(getattr(temp_sidney, 'generalSciTemp')(100))
-# prints the K equiv. of 100 F ~311
+# prints the K equiv. of 100 F: ~311
+print(getattr(temp_seattle, 'generalSciTemp')(100))
 ```
+
+A method can even be *exported* to become a stand-alone function
 
 ```python
 # this is a function NAME
-a_local_function = getattr(temp_sidney, 'generalSciTemp')
+a_local_function = getattr(temp_seattle, 'generalSciTemp')
 
 print(a_local_function(100))
 # prints the same!
@@ -405,11 +438,11 @@ print(a_local_function(100))
 
 ## Class counters
 
-Instances of the same class can *communicate* with each other
+Instances of the same class now can *communicate*
 
 ```python
 class student:
-    '''A student object.'''
+    '''A student object'''
 
     # class attribute
     count = 0
@@ -419,6 +452,8 @@ class student:
         self.surname = surname
         self.__class__.count += 1
 ```
+
+Class counters are the conceptual base of *distributed computation*
 
 
 ---
@@ -430,7 +465,7 @@ c = student(name = 'Charlie')
 
 print(c.__class__.count)
 # what will it print? 
-# Any diference with, e.g., b.__class__.count
+# Any difference with, e.g., b.__class__.count
 ```
 
 
@@ -450,12 +485,16 @@ print(c.__class__.count)
 ```python
 class student:
 
+    # a regular class attribute
     count = 0
-    # secret class attribute!
-    __max_capacity = 25
+
+    # a secret class attribute!
+    __max_capacity = 20
 
     def __init__(self, name, surname = ''):
+        
         ...
+
         self.__class__.count += 1
 
     def __alert(self, count):
@@ -488,6 +527,7 @@ class geolocated_temp(temperature):
     def __init__(self, date, value = 0, system = 'C', place = {'N':"51°31'19.8", 'W':"0°07'51.4"}):
         # run the 'inherited' constructor
         temperature.__init__(self, date, value, system)
+        
         # additionally, set up the place
         # default: Birkbeck main building
         self.place = place
