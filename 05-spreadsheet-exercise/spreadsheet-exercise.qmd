@@ -19,6 +19,7 @@ execute:
 
 ::: {.incremental}
 - import the ``data/biostats.csv`` file into a spreadsheet
+- Direct file access: [github.com/ale66/learn-coding/blob/main/05-spreadsheet-exercise/data/biostats.csv](https://github.com/ale66/learn-coding/blob/main/05-spreadsheet-exercise/data/biostats.csv)
 - transform measures to the IS (meter and Kilogram) system
 - compute averages for each vital measure
 - extra: parallel averages for male/female population
