@@ -1,0 +1,62 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Practical problem
+
+<br/>
+
+we want to provide US and Bangladesh tourists with real-time temperatures in their familiar Farenheit scale
+
+We will read temperatures from Italian wheather sites, e.g. [meteo.it] and convert them.
+
+The converted temperatures will appear on our turism web site
+
+Let's focus on the core part: temperature conversion
+
+---
+
+## Anatomy of code
+
+<br/>
+
+::: {.incremental}
+- see the instructor write down the algorithm by which we can safely convert temperatures from Celsius (C) to Farenheit (F)
+- Consider the problem of converting temperatures from Celsius to Farenheit
+- watch the instructor do it manually on the whiteboard.
+- identify areas of the whiteboard that contain data
+- submit via the Teams channel
+:::
+
+---
+
+## From cells to variables
+
+<br/>
+
+::: {.incremental}
+1. each value in the spreadsheet has a *cell address (cell name)*
+2. operations are defined abstractly with cell names
+3. those cell names are *variables* in programming languages 
+:::
+
+# What is a variable?
+
+A vessel for data/operands
+
+Consists of three elements:
+
+1. a symbolic name, e.g., ``A5`` or ``my_temperature``
+2. a value, e.g., ``36`` or ``'very hot'``
+3. a type, e.g., integer or string of characters
