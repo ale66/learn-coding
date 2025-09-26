@@ -81,7 +81,7 @@ A public repository with most materials is on [github.com/ale66/learn-coding](ht
 
 ## Pythontutor
 
-Step-by-step execution of simple codes with a nice visualisation of what happense in the computer memory: a crucial tool for learning
+Step-by-step execution of simple codes with a nice visualisation of what happens in the computer memory: a crucial tool for learning
 
 [pythontutor.com](https://pythontutor.com/)
 
@@ -273,6 +273,17 @@ N.B. to install Git on MacOs we need brew
 to maintain your copy of the GH repo [github.com/ale66/learn-web](https://github.com/ale66/learn-web) up-to-date
 
 General tendence: code is public but data is very private
+
+
+---
+
+Git implements incremental/differential synchronisation
+
+it's easy to synchronise your local copy of a repo with the Github version
+
+- first time: clone existing repository
+- updating: open existing repository + 
+
 
 ---
 
