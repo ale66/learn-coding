@@ -66,13 +66,28 @@ execute:
 
 ## Spreadshet interaction: computing
 
-- code some cell with formula, with or without functions:
+cells were we type in values are the input to the spreadsheet
 
-  [=(A1+A2+A3)/]()
+*computed* cells, those with `=`, are the assignments
 
-  [=AVERAGE(A1, A2, A3)]()
+[=(A1+A2+A3)/]()
 
-  [=AVERAGE(A1:A3)]()
+. . .
+
+Some assigment use functions:
+
+[=AVERAGE(A1, A2, A3)]()
+
+[=AVERAGE(A1:A3)]()
+
+From the execise:
+
+[=AVERAGEIF($B$2:$B$19,"F",C2:C19)]()
+
+here `=`, `$`, `""` and `:` all have a specific, agreed meaning: 
+  
+the *semantics* of MS Excel cells.
+
 
 ---
 
@@ -80,7 +95,7 @@ execute:
 
 We begin using a formal language: 
 
-- all symbols have meaning in the Spreadsheet language: ``=``, ``+``, ``,`` and ``:`` 
+- all symbols have meaning in the Spreadsheet language: `=`, `+`, `,` and `:` 
 
 - the key symbol ``=`` means `compute the value of what follows`
 
