@@ -17,10 +17,17 @@ d. implement conditional computation by computing the Devine formula for M or F.
 # why use double quotes?
 current_weight = int(input("Hello, what's your weight? "))
 
-# height?
-# copy and adapt the instruction above
+'''
+Exercise 1 (simple):
+
+Obtain the height in inches of the patient
+copy and adapt the instruction above
+
+define variable 'height'
+'''
 
 
+# body type?
 body = input("Great, and body type (male/female)? ")
 
 
@@ -30,5 +37,11 @@ if body == 'male':
 else:
     ideal_weight = 45.5 + 2.3 * (height - 60)
 
-# continue here: 
-# how distant, and in which direction is the user from the ideal weight?
+
+'''
+Exercise 2 (challenge):
+
+Calculate the weight to be lost (or gained) in order to reach ideal weight
+
+E.g., negative result would mean that the user whould loose that much weight
+'''

@@ -51,11 +51,17 @@ residual = current_weight - ideal_weight
 print(f"Well, for your height, ideal weight is {ideal_weight}. So, you are off target by {residual}")
 
 '''
-MOD 2:
+Exercise 1 (simple):
 add conditions to the 'if' part of the code so to obtain this behaviour:
 
 - answerinng 'M' or 'F' works as well as 'm' or 'f', respectively
+'''
 
-- answering any other keyboard character 
+
+'''
+Exercise 2 (challenge):
+add conditions to the 'if' part of the code so to obtain this behaviour:
+
+- answering by any other keyboard character 
   will result in a 'diagnostic' message and termination
 '''
