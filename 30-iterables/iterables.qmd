@@ -57,16 +57,22 @@ Data structures are presentations of our data that support our coding
 
 - Python offers simple data structures, their adoption affects code readability as well as scalability.
 
----
 
 # Lists
 
-a sequence (order matters) which is thought of as a contiguous block of memory locations, each of them storing a fixed-length data item.
+---
+
+## The basic structure for non-atomic data
+
+List: a sequence (order matters) of zero, one or more data items
+
+lists are visualised as 
+
+- a contiguous block of memory locations, 
+
+- each of them storing a fixed-length data item.
 
 ![](./imgs/iterables0.jpg)
-
-the most common data structure in Python
-
 
 ---
   
@@ -83,13 +89,13 @@ the most common data structure in Python
 
 ---
 
-## Observations
+## Properties of lists
 
-lists
-
-  - Can be ordered
-  - Changeable
-  - Support duplicated members 
+- can be ordered
+  
+- values are changeable
+  
+-  duplicated data items are allowed
 
 
 ---
