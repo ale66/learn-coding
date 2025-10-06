@@ -19,20 +19,16 @@ current_weight = int(input("Hello, what's your weight? "))
 
 # height?
 # copy and adapt the instruction above
-height = int(input("Thanks, and what's your height in inches?"))
 
-body = input("Great, and body type (male/female?")
-# compute the target 
 
+body = input("Great, and body type (male/female)? ")
+
+
+# compute the target weight now
 if body == 'male':
     ideal_weight = 50 + 2.3 * (height - 60)
 else:
     ideal_weight = 45.5 + 2.3 * (height - 60)
 
-
-
-# continue here...
-
-residual = ideal_weight - current_weight
-
-# print the answer
+# continue here: 
+# how distant, and in which direction is the user from the ideal weight?
