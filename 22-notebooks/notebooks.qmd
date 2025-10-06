@@ -35,7 +35,16 @@ execute:
 :::
 :::
 
-- Step-by-step execution, inside a browser
+- Step-by-step execution, inside a browser or an IDE
+
+- code is broken up into segments called __cells__
+  
+- each cell is like a mini-program, after which we can suspend the execution to evaluate the intermediate results
+
+- code cells are often interleaved with explanatory text/diagrams written in the *Markdown annotation language.*
+
+- a *notebook* is a special file in Jupyter format, with extension *.ipynb*
+
 
 # Kernels 
 
@@ -45,17 +54,16 @@ execute:
 :::
 :::
 
-## Step-by-step
+## kernels
 
-- we still need to access an interpreter
+- an interpreter that runs in the background of a notebook
  
-- the browser will broker our code piecemeal to the interpreter, then come back to us and print the results
+- a Jupyter extensions brokers our code to the kernel piecemeal
+  
+- step-by-step execution
 
-- unlike traditional Py. execution, intermediate data is kept inside the browser's own memory
+- intermediate data is kept inside the jupyter browser
 
-- Sequences of instructions to be executed together are __cells__.
-
-- code cells are often interleaved with explanatory text/diagrams written in the *Markdown annotation language.*
 
 # Markdown 
 
@@ -65,7 +73,7 @@ execute:
 :::
 :::
 
-## A mark-up language
+## Simple text mark-up/decoration
 
 Simple annotations to the text guide the creation of HTML (web page) displays
 
