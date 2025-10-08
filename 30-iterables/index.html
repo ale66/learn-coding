@@ -287,10 +287,10 @@ ale66
 <li><p>Since lists are indexed, they may contain repeated values.</p></li>
 </ul>
 </section>
-<section id="solutions" class="slide level2">
-<h2>Solutions</h2>
+<section class="slide level2">
+
 <ul>
-<li><p>A Python list is an ordered and changeable collection of data where we can only store data of the same data type.</p>
+<li><p>A Python list is an ordered and hangeable collection of data where we can only store data of the same data type.</p>
 <ul>
 <li><strong>False, we can store data of different types</strong></li>
 </ul></li>
@@ -313,6 +313,7 @@ ale66
 <h2>A list of strings</h2>
 <p>A simple list of London football clubs</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Its lenght is the number of items it contains:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="bu">len</span>(teams)</span>
 <span id="cb2-2"><a href=""></a><span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -340,7 +341,15 @@ ale66
 <span id="cb7-2"><a href=""></a>fruitlist[<span class="dv">1</span>] <span class="op">=</span> <span class="st">'blackcurrant'</span> </span>
 <span id="cb7-3"><a href=""></a></span>
 <span id="cb7-4"><a href=""></a><span class="bu">print</span>(fruitlist)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section>
+</section>
+<section id="a-brief-on-methods" class="slide level2">
+<h2>A brief on <em>methods</em></h2>
+<p>They are automatically attached to a var.</p>
+<p><code>my_var.built_in_method()</code></p>
+<p>which methods are attached depends on the var. type</p>
+<p>For list vars. much is available:</p>
+
+<img data-src="./imgs/list-methods-examples.jpg" class="r-stretch"></section></section>
 <section>
 <section id="strings" class="title-slide slide level1 center">
 <h1>Strings</h1>
@@ -388,29 +397,30 @@ ale66
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>alist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>]</span>
 <span id="cb11-2"><a href=""></a></span>
 <span id="cb11-3"><a href=""></a><span class="bu">print</span>(alist[<span class="dv">0</span>:<span class="dv">2</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><em>Important:</em> intervals are closed on the left and open on the right:</p>
-<p>the element in position 0 is printed but that in position 2 ain’t</p>
+<p><em>N.B.:</em> intervals are closed on the left and open on the right!</p>
+<p>elements in position 0 &amp; 1 are printed, position 2 ain’t</p>
 </section>
 <section id="quiz-2-true-or-false" class="slide level2">
 <h2>Quiz 2! True or False?</h2>
 
 <img data-src="./imgs/iterables3.gif" class="r-stretch"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>mydata <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">32</span>, <span class="dv">1</span>, <span class="dv">43</span>, <span class="dv">65</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Does</p>
 <ul>
 <li><ol type="a">
-<li>will <code>print(mydata[3])</code> print 1?</li>
+<li><code>print(mydata[3])</code> print 1?</li>
 </ol></li>
 <li><ol start="2" type="a">
-<li>will <code>print(mydata[1]+18)</code> print 50?</li>
+<li><code>print(mydata[1]+18</code> print 50?</li>
 </ol></li>
 <li><ol start="3" type="a">
-<li>will <code>print(mydata[-1])</code> print 65?</li>
+<li><code>print(mydata[-1])</code> print 65?</li>
 </ol></li>
 <li><ol start="4" type="a">
-<li>will <code>print(mydata[0:3])</code> print [12, 32, 1]?</li>
+<li><code>print(mydata[0:3])</code> print [12, 32, 1]?</li>
 </ol></li>
 </ul>
 </section>
-<section id="solutions-1" class="slide level2">
+<section id="solutions" class="slide level2">
 <h2>Solutions</h2>
 <ul>
 <li>a: False</li>
@@ -427,11 +437,13 @@ ale66
 <section id="iterables" class="slide level2">
 <h2>iterables</h2>
 <p>Python lists are called <em>iterables</em> because they are likely subjects or the repetition (iteration) of a fixed sequence of instructions</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>Print the content of the string varible vertically, i.e., each letter of the name on a separate line.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a># print the content of the string var. vertically:</span>
+<span id="cb13-2"><a href=""></a># each letter on a separate line.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">for</span> letter <span class="kw">in</span> mystring:</span>
 <span id="cb14-2"><a href=""></a>    <span class="bu">print</span>(letter) </span>
-<span id="cb14-3"><a href=""></a>    <span class="co"># a 'newline' is automatically emitted at the end of each print</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>As with <code>if</code>, the 4-spaces indentation defines the block of code to be exectued zero, one or many times.</p>
+<span id="cb14-3"><a href=""></a>    <span class="co"># a 'newline' is automatically emitted at the end of each print()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>as with <code>if</code>, the 4-spaces indentation defines blocks of code</p>
+<p>blocks may be exectued zero, one or many times.</p>
 </section>
 <section id="unhelpful" class="slide level2">
 <h2>unhelpful…</h2>
@@ -457,11 +469,13 @@ ale66
 <h2>Range</h2>
 <p>A function that generates the indices needed to amend the list element by element</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">range</span>(<span class="dv">5</span>) <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>implictly starts from 0 to enumerate up to</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="bu">range</span>(<span class="dv">3</span>, <span class="dv">6</span>) <span class="op">=</span> <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>an interval</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">range</span>(<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">2</span>) <span class="op">=</span> <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span> <span class="co"># +2 at each step</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
-
+<section id="example" class="slide level2">
+<h2>Example</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>alist <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
 <span id="cb21-2"><a href=""></a></span>
 <span id="cb21-3"><a href=""></a>howmany <span class="op">=</span> <span class="bu">len</span>(alist)</span>
@@ -492,7 +506,7 @@ ale66
 <h2>Exercise, b</h2>
 <p>Print available fruits but stop as soon as you find bananas</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>hint: use <code>break</code></p>
+<p>hint: use`<code>break</code></p>
 
 </section></section>
     </div>

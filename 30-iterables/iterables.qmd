@@ -113,9 +113,7 @@ lists are visualised as
 
 ---
 
-## Solutions 
-
-  - A Python list is an   ordered   and   changeable   collection of data where we can only store data of the same data type.
+  - A Python list is an ordered and  hangeable collection of data where we can only store data of the same data type.
 
     - **False, we can store data of different types**
  
@@ -127,7 +125,10 @@ lists are visualised as
 
     - **True!**
 
+
 # Work with lists
+
+---
 
 ## A list of strings
 
@@ -136,6 +137,8 @@ A simple list of London football clubs
 ```python
 teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
 ```
+
+Its lenght is the number of items it contains:
 
 ```python
 len(teams)
@@ -183,7 +186,24 @@ fruitlist[1] = 'blackcurrant'
 print(fruitlist)
 ```
 
+---
+
+## A brief on *methods*
+
+They are automatically attached to a var.
+
+`my_var.built_in_method()`
+
+which methods are attached depends on the var. type
+
+For list vars. much is available:
+
+![](./imgs/list-methods-examples.jpg)
+
+
 # Strings
+
+---
 
 ## Python strings are lists
 
@@ -204,6 +224,7 @@ print(mystring[0])
 print(mystring[-1])
 ```
 
+---
 
 ## Slicing
 
@@ -215,9 +236,9 @@ alist = [1, 3, 5, 7, 9, 11]
 print(alist[0:2]) 
 ```
 
-*Important:* intervals are closed on the left and open on the right:
+*N.B.:* intervals are closed on the left and open on the right!
 
-the element in position 0 is printed but that in position 2 ain't
+elements in position 0 & 1 are printed, position 2 ain't
 
 ---
 
@@ -229,13 +250,15 @@ the element in position 0 is printed but that in position 2 ain't
 mydata = [12, 32, 1, 43, 65]
 ```
 
-- a) will ``print(mydata[3])`` print 1?
+Does
 
-- b) will ``print(mydata[1]+18)`` print 50?
+- a) `print(mydata[3])` print 1?
 
-- c) will ``print(mydata[-1])`` print 65?
+- b) `print(mydata[1]+18` print 50?
 
-- d) will  ``print(mydata[0:3])`` print [12, 32, 1]?
+- c) `print(mydata[-1])` print 65?
+
+- d) `print(mydata[0:3])` print [12, 32, 1]?
 
 ---
 
@@ -256,16 +279,19 @@ mydata = [12, 32, 1, 43, 65]
 Python lists are called *iterables* because they are likely subjects or the repetition (iteration) of a fixed sequence of instructions
 
 ```text
-Print the content of the string varible vertically, i.e., each letter of the name on a separate line.
+# print the content of the string var. vertically:
+# each letter on a separate line.
 ```
 
 ```python
 for letter in mystring:
     print(letter) 
-    # a 'newline' is automatically emitted at the end of each print
+    # a 'newline' is automatically emitted at the end of each print()
 ```
 
-As with ``if``, the 4-spaces indentation defines the block of code to be exectued zero, one or many times.
+as with `if`, the 4-spaces indentation defines blocks of code 
+
+blocks may be exectued zero, one or many times.
 
 ---
 
@@ -310,15 +336,21 @@ A function that generates the indices needed to amend the list element by elemen
 range(5) = 0, 1, 2, 3, 4
 ```
 
+implictly starts from 0 to enumerate up to
+
 ```python
 range(3, 6) = 3, 4, 5
 ```
+
+an interval
 
 ```python
 range(3, 8, 2) = 3, 5, 7 # +2 at each step
 ```
 
 ---
+
+## Example
 
 ```python
 alist = [2, 3, 5, 7]
@@ -361,7 +393,7 @@ Print available fruits but not bananas
 fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
 ```
 
-hint: use ``continue``
+hint: use `continue`
 
 ---
 
@@ -373,4 +405,4 @@ Print available fruits but stop as soon as you find bananas
 fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
 ```
 
-hint: use ``break``
+hint: use``break`
