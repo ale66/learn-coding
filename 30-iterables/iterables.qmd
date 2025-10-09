@@ -393,7 +393,9 @@ Print available fruits but not bananas
 fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
 ```
 
-hint: use `continue`
+hint: use `continue` 
+
+type it then hover on it to get VS Code help
 
 ---
 
@@ -405,4 +407,4 @@ Print available fruits but stop as soon as you find bananas
 fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
 ```
 
-hint: use``break`
+hint: use `break`
