@@ -7,7 +7,7 @@ format:
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 5
+      boardmarker-width: 2
 from: markdown+emoji
 execute:
   echo: true
@@ -136,10 +136,52 @@ def mymax(data):
 
 ## The triad
 
-- for a fixed computational problem, there could be several algorithms that solve it
+::::::: {.columns}
+::: {.column}
+- for a fixed problem, several algorithms may exist
 
-- for a fixed algorithm, there could be several implementations, even in the same language
-
+- for a fixed algorithm, several implementations, even in the same language, may exist
+:::
+:::{.column}
+```{mermaid}
+%%| echo: false
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'10px'}}}%%
+graph LR
+    Problem["Problem"]
+    Algorithm1["Algo. a"]
+    Algorithm2["Algo. b"]
+    Program1["Prog. 1"]
+    Program2["Prog. 2"]
+    Program3["Prog. 3"]
+    Execution1["Specific plat.<br/>real data"]
+    Execution2["Specific plat.<br/>real data"]
+    Execution3["Specific plat.<br/>real data"]
+    Execution4["Specific plat.<br/>real data"]
+    Execution5["Specific plat.<br/>real data"]
+    Problem -->|"Encode"| Algorithm1
+    Problem -->|"Encode"| Algorithm2
+    Algorithm1 -->|"Impl."| Program1
+    Algorithm1 -->|"Impl."| Program2
+    Algorithm2 -->|"Impl."| Program3
+    Program1 -->|"Comp./int."| Execution1
+    Program2 -->|"Comp./int."| Execution2
+    Program2 -->|"Comp./int."| Execution3
+    Program3 -->|"Comp./int."| Execution4
+    Program3 -->|"Comp./int."| Execution5
+    style Problem fill:#e1f5ff,stroke:#0288d1,stroke-width:3px
+    style Algorithm1 fill:#fff9c4,stroke:#f9a825,stroke-width:3px
+    style Algorithm2 fill:#fff9c4,stroke:#f9a825,stroke-width:3px
+    style Program1 fill:#f3e5f5,stroke:#8e24aa,stroke-width:3px
+    style Program2 fill:#f3e5f5,stroke:#8e24aa,stroke-width:3px
+    style Program3 fill:#f3e5f5,stroke:#8e24aa,stroke-width:3px
+    style Execution1 fill:#e8f5e9,stroke:#43a047,stroke-width:3px
+    style Execution2 fill:#e8f5e9,stroke:#43a047,stroke-width:3px
+    style Execution3 fill:#e8f5e9,stroke:#43a047,stroke-width:3px
+    style Execution4 fill:#e8f5e9,stroke:#43a047,stroke-width:3px
+    style Execution5 fill:#e8f5e9,stroke:#43a047,stroke-width:3px
+```
+:::
+::::::
 
 ---
 
@@ -170,6 +212,7 @@ The suitability of an algorithm for deployment to cases with an increasing volum
 
 Fact: scalability depends more on the intrinsic *complexity* of the problem than on the algorithm or the implementation.
 
+Better implementation can contribute a scaling factor, e.g., 0.8, but cannot compress problem hardness
 
 ---
 
