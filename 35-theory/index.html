@@ -280,11 +280,11 @@ ale66
 <span id="cb2-4"><a href=""></a>  M <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-5"><a href=""></a>  </span>
 <span id="cb2-6"><a href=""></a>  <span class="cf">for</span> element <span class="kw">in</span> data:</span>
-<span id="cb2-7"><a href=""></a>    <span class="cf">if</span> element <span class="op">&gt;</span> M</span>
+<span id="cb2-7"><a href=""></a>    <span class="cf">if</span> element <span class="op">&gt;</span> M:</span>
 <span id="cb2-8"><a href=""></a>      M <span class="op">=</span> element</span>
 <span id="cb2-9"><a href=""></a>  </span>
 <span id="cb2-10"><a href=""></a>  <span class="cf">return</span> M</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>incorrect on all-negative inputs: <code>max1([-1, -6, -3, -11])</code> returns 0.</p>
+<p>incorrect on all-negative inputs:`<code>max1([-1, -6, -3, -11])</code> returns 0.</p>
 </section>
 <section id="another-implementation" class="slide level2">
 <h2>Another implementation</h2>
@@ -294,7 +294,7 @@ ale66
 <span id="cb3-4"><a href=""></a>  M <span class="op">=</span> data[<span class="dv">0</span>]</span>
 <span id="cb3-5"><a href=""></a></span>
 <span id="cb3-6"><a href=""></a>  <span class="cf">for</span> element <span class="kw">in</span> data[<span class="dv">1</span>:]:</span>
-<span id="cb3-7"><a href=""></a>    <span class="cf">if</span> element <span class="op">&gt;</span> M</span>
+<span id="cb3-7"><a href=""></a>    <span class="cf">if</span> element <span class="op">&gt;</span> M:</span>
 <span id="cb3-8"><a href=""></a>      M <span class="op">=</span> element</span>
 <span id="cb3-9"><a href=""></a>  </span>
 <span id="cb3-10"><a href=""></a>  <span class="cf">return</span> M</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -368,7 +368,7 @@ graph LR
 <p>The suitability of an algorithm for deployment to cases with an increasing volume of data.</p>
 <ul>
 <li><p>Can our algorithm run over the <code>unimi.it</code> web pages within a minute or two?</p></li>
-<li><p>Can it scale up to the whole <code>.it</code> domain, e.g., in an hour or two?</p></li>
+<li><p>Can it scale up to the whole <code>.uk</code> domain, e.g., in an hour or two?</p></li>
 <li><p>Can it scale up to the whole <em>web,</em> e.g., in a day or two?</p></li>
 </ul>
 </section>

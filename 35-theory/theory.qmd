@@ -106,13 +106,13 @@ def max1(data):
   M = 0
   
   for element in data:
-    if element > M
+    if element > M:
       M = element
   
   return M
 ```
 
-incorrect on all-negative inputs: ``max1([-1, -6, -3, -11])`` returns 0.
+incorrect on all-negative inputs:``max1([-1, -6, -3, -11])` returns 0.
 
 
 ---
@@ -126,7 +126,7 @@ def mymax(data):
   M = data[0]
 
   for element in data[1:]:
-    if element > M
+    if element > M:
       M = element
   
   return M
@@ -199,9 +199,9 @@ graph LR
 
 The suitability of an algorithm for deployment to cases with an increasing volume of data.
 
-- Can our algorithm run over the ``unimi.it`` web pages within a minute or two?
+- Can our algorithm run over the `unimi.it` web pages within a minute or two?
 
-- Can it scale up to the whole ``.it`` domain, e.g., in an hour or two?
+- Can it scale up to the whole `.uk` domain, e.g., in an hour or two?
 
 - Can it scale up to the whole *web,* e.g., in a day or two?
 
