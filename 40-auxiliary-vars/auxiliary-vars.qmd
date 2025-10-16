@@ -7,7 +7,7 @@ format:
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 5
+      boardmarker-width: 2
     progress: true
 from: markdown+emoji
 execute:
@@ -16,6 +16,7 @@ execute:
 
 # Auxiliary variables
 
+---
 
 ## Topics
 
@@ -25,30 +26,6 @@ execute:
 
 - trailers
 
-
----
-
-## Exercise, b: solution
-
-Print available fruits but stop as soon as you find bananas
-
-```python
-fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
-```
-
-should only print ``apple``
-
-. . . 
-
-```python
-for f in fruits:
-
-  if f == 'banana':
-    break
-
-  else:
-    print(f)
-```
 
 # Counters
 
@@ -69,16 +46,16 @@ print(f'The lenght of list {fruits} is {l}')
 
 . . . 
 
-Syntax: ``l += 1`` is shorthand for ``l = l + 1``
+Syntax:``l += 1` is shorthand for `l = l + 1`
 
 
 --- 
 
 ## Anonymous variables
 
-In fact, we are not operating on ``f``
+In fact, we are not operating on `f`
 
-it can be omitted in favour of an *anonymous variable* ``_``
+it can be omitted in favour of an *anonymous variable* `_`
 
 ```python
 l = 0
@@ -145,7 +122,7 @@ print(f'The maximum day-on-day increase has been {maxincrease} degrees')
 
 ## Programme comprehension
 
-To grasp how trailers work, put extra ``print()`` commands to see what the variables contain
+To grasp how trailers work, put extra `print()` commands to see what the variables contain
 
 Rename variables:
 

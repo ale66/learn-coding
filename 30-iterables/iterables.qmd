@@ -362,15 +362,8 @@ for i in range(howmany):
     alist[i] = alist[i]*1.1
 ```
 
----
 
-## Exercise:
-
-```python
-teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
-```
-
-print out the club names without the ` FC` suffix
+# Exercises
 
 ---
 
@@ -384,8 +377,17 @@ Get the VS Code extension:
 
 create and share tokens to work on the same file (via third-party hosting)
 
+---
 
 ## Exercise, a
+
+```python
+teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
+```
+
+print out the club names without the ` FC` suffix
+
+## Exercise, b
 
 Print available fruits but not bananas
 
@@ -399,7 +401,7 @@ type it then hover on it to get VS Code help
 
 ---
 
-## Exercise, b
+## Exercise, c
 
 Print available fruits but stop as soon as you find bananas
 

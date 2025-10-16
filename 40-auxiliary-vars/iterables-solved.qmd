@@ -1,0 +1,134 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 2
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+
+# Solutions to exercises
+
+---
+
+## Collaborative coding (pair coding)
+
+Get the VS Code extension:
+
+[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+
+(experimental) Sign in with your uni account as if it were Microsoft
+
+create and share tokens to work on the same file (via third-party hosting)
+
+---
+
+## Exercise, a
+
+```python
+teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
+```
+
+print out the club names without the ` FC` suffix
+
+---
+
+## Exercise, a: solution
+
+```{python}
+teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
+
+for t in teams:
+    print(t[:-3])
+```
+
+
+The `:` notation: nothing is the same as the extreme:
+
+`t[0:]` is the same as `t[:]` and `t`
+
+
+
+## Exercise, b
+
+Print available fruits but not bananas
+
+```python
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+```
+
+hint: use `continue` 
+
+type it then hover on it to get VS Code help
+
+---
+
+## Exercise, b: solution
+
+Print available fruits but not bananas
+
+```{python}
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+
+for f in fruits:
+    if f == 'banana':
+        continue # do nothing
+    else:
+        print(f)
+```
+
+---
+
+## Exercise, b: alternative solution
+
+```{python}
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+
+for f in fruits:
+    if f != 'banana':
+        print(f)
+```
+
+---
+
+
+## Exercise, c
+
+Print available fruits but stop as soon as you find bananas
+
+```python
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+```
+
+hint: use `break`
+
+---
+
+## Exercise, c: solution
+
+Print available fruits but stop as soon as you find bananas
+
+It should only print `apple`
+
+```{python}
+fruits = ['apple', 'banana', 'cherry', 'blackcurrant']
+
+for f in fruits:
+
+  if f == 'banana':
+    break # jump out of the iteration
+
+  else:
+    print(f)
+```
+
+
+
+
