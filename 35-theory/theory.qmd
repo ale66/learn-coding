@@ -256,7 +256,7 @@ An allocation: for each bar says what quantity is taken, so as to maximise the o
 
 __Constraint__
 
-The sum of all taken wieights must not exceed what Ali Baba can carry 
+The sum of all taken weights must not exceed what Ali Baba can carry 
 
 
 ---
@@ -265,7 +265,7 @@ The sum of all taken wieights must not exceed what Ali Baba can carry
 
 __Instance:__
 
-a sequence of *n* ``weight/value`` pairs (all non-negative int.): 
+a sequence of *n* `weight/value` pairs (all non-negative int.): 
 
 an integer C
 
@@ -307,21 +307,15 @@ The sum of all taken quantities must not exceed C: $\sum_{i=1}^n \sigma(i) \leq 
 
 ## Further...
 
-__Instance:__
-
-- $w_1, \dots w_n$ and $v_1, \dots v_n$ 
-  
-- C
+__Instance:__ $w_1, \dots w_n$, $v_1, \dots v_n$ and C
   
 __Solution:__
 
-- $\sigma: i \rightarrow [0..w_i]$
+- a selection function $\sigma: i \rightarrow [0..w_i]$
 
-- $\sigma = MAXARG_\sigma\{\sum_{i=1}^n \nu(i) \}$; $\nu(i)$ is the val. of $\sigma(i)$
+- let $\nu(i)$ be the val. of $\sigma(i)$ and find $\sigma = MAXARG_\sigma\{\sum_{i=1}^n \nu(i) \}$
 
-__Constraints:__
-
-$\sum_{i=1}^n \sigma(i) \leq C$
+__Constraints:__  $\sum_{i=1}^n \sigma(i) \leq C$
 
 
 ---

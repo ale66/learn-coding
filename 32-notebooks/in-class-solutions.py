@@ -42,11 +42,7 @@ for i in range(no_of_possible_tests):
 
     print(text[i : i+m])
 
-    if text[i : i+m] == CITY:
-
-        print(f'Found {CITY} in position {i} of text!')
-        break
-
+   # continue here ...
 
 
 # ============== Exercise 15.b ===================================
@@ -63,8 +59,18 @@ my_words =  ['car', 'cat', 'spot', 'talk', 'way']
 
 my_words.append('code')
 
+# extra word for checking:
+my_words.append('guacamole')
+
 PATTERN = 'ca'
 
+l = len(PATTERN)
+
 for w in my_words:
-    continue
+   continue
+   # continue here ...
+
+
+
+
 

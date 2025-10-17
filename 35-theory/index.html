@@ -403,7 +403,7 @@ graph LR
 <p><strong>Solution:</strong></p>
 <p>An allocation: for each bar says what quantity is taken, so as to maximise the overall stolen value</p>
 <p><strong>Constraint</strong></p>
-<p>The sum of all taken wieights must not exceed what Ali Baba can carry</p>
+<p>The sum of all taken weights must not exceed what Ali Baba can carry</p>
 </section>
 <section id="formulation-ii" class="slide level2">
 <h2>Formulation, II</h2>
@@ -431,18 +431,13 @@ graph LR
 </section>
 <section id="further" class="slide level2">
 <h2>Further…</h2>
-<p><strong>Instance:</strong></p>
-<ul>
-<li><p><span class="math inline">\(w_1, \dots w_n\)</span> and <span class="math inline">\(v_1, \dots v_n\)</span></p></li>
-<li><p>C</p></li>
-</ul>
+<p><strong>Instance:</strong> <span class="math inline">\(w_1, \dots w_n\)</span>, <span class="math inline">\(v_1, \dots v_n\)</span> and C</p>
 <p><strong>Solution:</strong></p>
 <ul>
-<li><p><span class="math inline">\(\sigma: i \rightarrow [0..w_i]\)</span></p></li>
-<li><p><span class="math inline">\(\sigma = MAXARG_\sigma\{\sum_{i=1}^n \nu(i) \}\)</span>; <span class="math inline">\(\nu(i)\)</span> is the val. of <span class="math inline">\(\sigma(i)\)</span></p></li>
+<li><p>a selection function <span class="math inline">\(\sigma: i \rightarrow [0..w_i]\)</span></p></li>
+<li><p>let <span class="math inline">\(\nu(i)\)</span> be the val. of <span class="math inline">\(\sigma(i)\)</span> and find <span class="math inline">\(\sigma = MAXARG_\sigma\{\sum_{i=1}^n \nu(i) \}\)</span></p></li>
 </ul>
-<p><strong>Constraints:</strong></p>
-<p><span class="math inline">\(\sum_{i=1}^n \sigma(i) \leq C\)</span></p>
+<p><strong>Constraints:</strong> <span class="math inline">\(\sum_{i=1}^n \sigma(i) \leq C\)</span></p>
 </section>
 <section id="algorithm-1" class="slide level2">
 <h2>Algorithm</h2>
