@@ -34,10 +34,12 @@ for w in writers:
 
 ---
 
-__With the while loop we execute a block only as long as a given expression is true_ 
+With the while loop we execute the code block below 
+only as long as the given expression is true
 
 ```python
 i = 1
+
 while i < 6:
   print(i)
   i += 1
@@ -45,30 +47,37 @@ while i < 6:
 
 increment is not automatic
 
-the expression is evaluated *before* executing the block of code
+the expression is evaluated *before* executing the block
 
-Try the example above on [pythontutor.com](https://pythontutor.com/)
+Visualise the example above on [pythontutor.com](https://pythontutor.com/): 
+
+which values will `i` take up? Which values will we see on the screen?
 
 
 ---
 
 
-With the break statement we can stop the loop even if the while condition is true:
+`break` can stop the loop even if the while condition is still true:
 
 ```python
 i = 1
+
 while i < 6:
+
   if i == 3:
     break
+
+  print(i)
   i += 1
 ``` 
-
 
 ---
 
 ## Indefinite loops
 
 Would execute forever, or until a break condition is met
+
+Example: the command-line-interface (CLI) terminal
 
 ```python
 while True:
@@ -77,8 +86,9 @@ while True:
   
   if command == 'exit':
     break
+
   else:
-    # implement commands here ..
+    # implement command execution here ...
 ``` 
 
 
@@ -146,18 +156,22 @@ Execution won't end as $n$ is never decreased
 
 ---
 
-Use `for` to automate work over collections, here represented by iterables 
+Use `for` 
 
-In principle, all elements will be examined
+- to automate work over collections, here represented by iterables 
 
-Use `while` to search for a specific element: it stops as soon as it's found
+- to examine all elements (in principle)
 
-Also use `while` or to act *conditionally* and stop as soon as the condition is not true anymore
+Use `while` 
+
+- to search for a specific element: it stops as soon as it's found
+
+- to act *conditionally* and stop as soon as the condition is not true anymore
 
 
 ---
 
-## ``while`` in lists
+## `while` in lists
 
 ```python
 my_list = [1, 3, 7, 9]

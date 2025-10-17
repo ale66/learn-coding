@@ -39,6 +39,7 @@ Example: compute list size/lenght
 l = 0
 
 for f in fruits:
+
   l = l +1
 
 print(f'The lenght of list {fruits} is {l}')
@@ -46,7 +47,7 @@ print(f'The lenght of list {fruits} is {l}')
 
 . . . 
 
-Syntax:``l += 1` is shorthand for `l = l + 1`
+Syntax: `l += 1` is shorthand for `l = l + 1`
 
 
 --- 
@@ -61,6 +62,7 @@ it can be omitted in favour of an *anonymous variable* `_`
 l = 0
 
 for _ in fruits:
+
   l += 1
 
 print(f'The lenght of list {fruits} is {l}')
@@ -74,7 +76,7 @@ print(f'The lenght of list {fruits} is {l}')
 
 A variable to record quantities seen during the iteration
 
-Example: compute the average of an arbitrary list of positive numbers
+Example: the average of an arbitrary list of positive numbers
 
 
 ```python
@@ -85,7 +87,8 @@ for val in mylist:
   l += 1
   accumulator += val
 
-average =  accumulator / l # this will be a float
+if l > 0:
+  average =  accumulator / l # this will be a float
 
 print(f'There are {l} values and their average is {average}')
 ```
@@ -95,9 +98,9 @@ print(f'There are {l} values and their average is {average}')
 
 ---
 
-A variable that 'remembers' past values during an iteration
+A variable that *remembers* past values during an iteration
 
-Example: record the biggest temperature increase ever seen in the list 
+Example: find the biggestn *temperature increase* in a list 
 
 ```python
 maxincrease = 0

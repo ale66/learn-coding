@@ -1,7 +1,7 @@
 # stats_enistical analysis of Shakespare's text:
 # Question: which character did he use most frequently?
 
-# stats_enistical analysis over the British Library corpora suggests it's "e"
+# stastical analysis over the British Library corpora suggests it's "e"
 # verify it
 
 # Then compare it with Italian
