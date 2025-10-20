@@ -280,7 +280,7 @@ ale66
 <section class="slide level2">
 
 <p>A variable that <em>remembers</em> past values during an iteration</p>
-<p>Example: find the biggestn <em>temperature increase</em> in a list</p>
+<p>Example: find the biggest <em>temperature increase</em> in a list</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>maxincrease <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb4-2"><a href=""></a></span>
 <span id="cb4-3"><a href=""></a>trailer <span class="op">=</span> temperaturelist[<span class="dv">0</span>]</span>
@@ -311,18 +311,38 @@ ale66
 <span id="cb5-8"><a href=""></a></span>
 <span id="cb5-9"><a href=""></a>  yesterday <span class="op">=</span>  today</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="a-more-complete-encoding" class="slide level2">
+<h2>A more complete encoding</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>temperaturelist <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">21</span>]</span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a>max_difference <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-4"><a href=""></a></span>
+<span id="cb6-5"><a href=""></a>yesterday <span class="op">=</span> temperaturelist[<span class="dv">0</span>]</span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a><span class="cf">for</span> today <span class="kw">in</span> temperaturelist:</span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a>  current_temp_difference <span class="op">=</span> <span class="bu">abs</span>(today <span class="op">-</span> yesterday)</span>
+<span id="cb6-10"><a href=""></a></span>
+<span id="cb6-11"><a href=""></a>  <span class="cf">if</span> current_temp_difference <span class="op">&gt;</span> max_difference:</span>
+<span id="cb6-12"><a href=""></a>      max_difference <span class="op">=</span> current_temp_difference</span>
+<span id="cb6-13"><a href=""></a></span>
+<span id="cb6-14"><a href=""></a>  yesterday <span class="op">=</span>  today</span>
+<span id="cb6-15"><a href=""></a>  </span>
+<span id="cb6-16"><a href=""></a><span class="bu">print</span>(max_difference)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Run it on <a href="https://pythontutor.com/render.html#code=temperaturelist%20%3D%20%5B12,%2016,%2018,%2016,%2019,%2018,%2020,%2021%5D%0A%0Amax_difference%20%3D%200%0A%0A%0Ayesterday%20%3D%20temperaturelist%5B0%5D%0A%0Afor%20today%20in%20temperaturelist%3A%0A%0A%20%20current_temp_difference%20%3D%20abs%28today%20-%20yesterday%29%0A%0A%20%20if%20current_temp_difference%20%3E%20max_difference%3A%0A%20%20%20%20%20%20max_difference%20%3D%20current_temp_difference%0A%0A%20%20yesterday%20%3D%20%20today%0A%20%20%0Aprint%28max_difference%29%0A%20%20&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Pythontutor</a></p>
+</section>
 <section id="quiz" class="slide level2">
 <h2>Quiz</h2>
 <p>Complete code for searching a given number in a sequence</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>KEY <span class="op">=</span> <span class="dv">22</span></span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a>mylist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a>___ item ___ mylist:</span>
-<span id="cb6-6"><a href=""></a>  <span class="cf">if</span> ___ <span class="op">==</span> ___:</span>
-<span id="cb6-7"><a href=""></a>    found <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb6-8"><a href=""></a>  <span class="cf">else</span>:</span>
-<span id="cb6-9"><a href=""></a>    found <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>KEY <span class="op">=</span> <span class="dv">22</span></span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>mylist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb7-4"><a href=""></a></span>
+<span id="cb7-5"><a href=""></a>___ item ___ mylist:</span>
+<span id="cb7-6"><a href=""></a>  <span class="cf">if</span> ___ <span class="op">==</span> ___:</span>
+<span id="cb7-7"><a href=""></a>    found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb7-8"><a href=""></a>  <span class="cf">else</span>:</span>
+<span id="cb7-9"><a href=""></a>    found <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </section></section>
     </div>

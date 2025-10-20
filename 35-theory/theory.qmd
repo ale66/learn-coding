@@ -290,7 +290,7 @@ The sum of all taken quantities must not exceed C
 
 __Instance:__
 
-a sequence of *n* ``weight/value`` pairs: $w_1, \dots w_m$ and $v_1, \dots v_n$
+a sequence of *n* `weight/value` pairs: $w_1, \dots w_n$ and $v_1, \dots v_n$
 
 an integer C
 

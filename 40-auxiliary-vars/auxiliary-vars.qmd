@@ -100,7 +100,7 @@ print(f'There are {l} values and their average is {average}')
 
 A variable that *remembers* past values during an iteration
 
-Example: find the biggestn *temperature increase* in a list 
+Example: find the biggest *temperature increase* in a list 
 
 ```python
 maxincrease = 0
@@ -141,6 +141,31 @@ for today in temperaturelist:
 
   yesterday =  today
 ```
+
+---
+
+## A more complete encoding
+
+```python
+temperaturelist = [12, 16, 18, 16, 19, 18, 20, 21]
+
+max_difference = 0
+
+yesterday = temperaturelist[0]
+
+for today in temperaturelist:
+
+  current_temp_difference = abs(today - yesterday)
+
+  if current_temp_difference > max_difference:
+      max_difference = current_temp_difference
+
+  yesterday =  today
+  
+print(max_difference)
+```
+
+Run it on [Pythontutor](https://pythontutor.com/render.html#code=temperaturelist%20%3D%20%5B12,%2016,%2018,%2016,%2019,%2018,%2020,%2021%5D%0A%0Amax_difference%20%3D%200%0A%0A%0Ayesterday%20%3D%20temperaturelist%5B0%5D%0A%0Afor%20today%20in%20temperaturelist%3A%0A%0A%20%20current_temp_difference%20%3D%20abs%28today%20-%20yesterday%29%0A%0A%20%20if%20current_temp_difference%20%3E%20max_difference%3A%0A%20%20%20%20%20%20max_difference%20%3D%20current_temp_difference%0A%0A%20%20yesterday%20%3D%20%20today%0A%20%20%0Aprint%28max_difference%29%0A%20%20&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
 
 ---
 
