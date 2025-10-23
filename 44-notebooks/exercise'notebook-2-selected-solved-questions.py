@@ -1,4 +1,5 @@
-# Model solution for question 8 of exercise set 3
+# ==============================================================
+# Model solution for question 8 of exercise set 2
 # Uncomment to run
 
 '''
@@ -20,12 +21,14 @@ else:
     print("Sorry, we don't have your name in the list")
 '''
 
-# Model solution for question 15-b of exercise set 3
+# ==============================================================
+# Model solution for question 15-b of exercise set 2
 # This version represents a slight generalization to arbitrary input prefixes
 # Uncomment to run
 
-
-list = ['car', 'cat', 'spot', 'talk', 'way', 'code', 'dog', 'fly', 'fun', 'road', 'house', 'duck', 'chew', 'list', 'train']
+list = ['car', 'cat', 'spot', 'talk', 'way', 'code', 
+        'dog', 'fly', 'fun', 'road', 'house', 'duck', 
+        'chew', 'list', 'train']
 
 n = len(list)
 

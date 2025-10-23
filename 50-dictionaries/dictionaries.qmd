@@ -447,7 +447,7 @@ Create a dictionary out of the following data:
 
 ![](./imgs/quiz-data.png)
 
-Pull up VS Code and test a solution
+Spin up VS Code and create a quick notebook
 :::
 
 ::: {.column width="20%"}
@@ -457,15 +457,3 @@ Pull up VS Code and test a solution
 ::::
 
 
-## Solution
-
-Create a dictionary out of the following data:
-
-![](./imgs/quiz-data.png)
-
-```python
-my_data = {'Name':['Andrea', 'Tom'], 
-          'Age':[32,35], 
-          'City':['London', 'Brighton']
-}
-```
