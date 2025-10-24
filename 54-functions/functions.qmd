@@ -9,7 +9,7 @@ format:
     slide-number: c/t
     incremental: false
     chalkboard: 
-      boardmarker-width: 5
+      boardmarker-width: 2
     mermaid:
       theme: forest
       fontSize: 12
@@ -30,11 +30,10 @@ Functions are a key abstraction to model nature and processes
 a regular input/output or cause/effect behaviour is identified and *given a name*
 
 ```text
-The higher the temperature the quicker pizza cooks.
+The higher the temperature the quicker the veggies cook.
 
 Cooking time is a function of the temperature in the oven.
 ```
-
 
 ---
 
@@ -80,8 +79,6 @@ Functions should be defined every time a block of code is required to appear mor
 - improve maintainance
 
 
----
-
 # Syntax
 
 ```bnf
@@ -109,7 +106,7 @@ Names of the built-in functions are reserved: avoid them as variable names
 
 ---
 
-## Multiple parameters and Arguments
+## Multiple parameters and arguments
 
 - functions can take two or more arguments, and even an arbitrary number of them
 
@@ -117,10 +114,22 @@ Names of the built-in functions are reserved: avoid them as variable names
 
 - it is also possible to return multiple arguments
  
+```python
+first_out, second_out =  func(first_in, second_in)
+
+def func(primero, segundo):
+
+  # ...
+
+  return tercero, quarto
+```
+
+what are the bindings?
+
 
 ---
 
-## Multiple inputs
+## Multiple inputs example
 
 Given a text and a character, count the number of occurrences of it 
 
@@ -132,8 +141,46 @@ def char_counter(text, c):
   pass
 ```
 
-On to live coding session
+---
 
+## Function nesting example
+
+```python
+def find_tendencies(my_temperatures_list):
+    '''
+      Nested function calls
+    '''
+
+    l = len(my_temperatures_list)
+
+    if l > 0:
+        min_val = min(my_temperatures_list)
+        max_val = max(my_temperatures_list)
+        avg_val = sum(my_temperatures_list) / l
+        
+        # Return multiple values separated by commas (creates a tuple)
+        return min_val, max_val, avg_val, l
+
+    else:
+      print('Empty temperature list, defaulting to None')
+      return None, None, None, 0
+```
+
+---
+
+## Visibility rules are enforced
+
+Why is this giving error?
+
+```python
+first_out, second_out =  func(first_in, second_in)
+
+def func(primero, segundo):
+
+  # print(f'inside here, primero is really first_in: {primero} = {first_is}')
+
+  return tercero, quarto
+```
 
 ---
 
@@ -148,7 +195,6 @@ def char_counter(text: str, c: chr) -> int:
   # this cannot be empty
   pass
 ```
-
 
 ---
 
@@ -167,7 +213,6 @@ def average_of_three(x, y, z):
 
 print(average_of_three(square(10), square(20), square(30)))
 ```
-
 
 ---
 
@@ -190,6 +235,8 @@ def greet(lang):
 greet('es')
 ```
 
+they don't need to be to the right of an assignment symbol
+
 ---
 
 
@@ -203,7 +250,6 @@ Remember: functions are executed in a container and only *see* their parameters,
 
 
 # Quizzes
-
 
 ---
 

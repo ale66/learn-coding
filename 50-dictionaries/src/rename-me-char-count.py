@@ -46,3 +46,8 @@ in questo racconto.'''
 mytext = EN
 
 mystats = {}
+
+
+for mychar in mytext:
+    if mychar == 'a' or mychar == 'A':
+        print(f'I found {mychar} in the text!')
