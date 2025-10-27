@@ -18,12 +18,15 @@ execute:
 
 ---
 
-## Recap sequences
+## A recap on sequences
 
+- lists and dictionaries are 
+- *mutable* data structures
+- of variable lenght  
+- any elem. can be accessed via the `[]` notation:
 
-- lists and dictionaries are mutable data structures
-- lenght is variable 
-- elements are directly accessed via the `[i]` or `['key']` notation
+`mylist[i]` or `mydict['mykey']`
+
 - we iterate on them with `for` or `while`
 
 
@@ -52,37 +55,63 @@ my_data = [
 
 ## Further observations
 
-- Python run-time data structures are *impermanent*
+- Python run-time data structures are *impermanent:* they disappear as soon as the execution ends
   
-- data is made permanent con computer devices via the file system
+- data is made permanent con computer devices via the *file system*
 
-- specific *formats* support memorization and exchange
+- files have *format:* 
+  
+  f. plays a similar rolet to variable types: 
+  
+  f. guides interpretation, memorization and exchange
 
+However, in principle Python can open and read any file, 
+
+f. (even AV ones) are seen as a mere succession of characters, terminated by the special character EOF 
 
 ---
 
 ## Files
 
-A permanent entry into the file system: `pg100.txt` or `C:/Users/aless/git/learn-code/60-files/pg100.txt` 
+The OS maintains
 
-Type is unspecified: a sequence of characters. Even for AV files.
+- the hierarchical file system structure: folders 
+- unique names in each folder
+- changeable content but permanent memorisation
 
-The Python `with file:` instruction
+There could be two or more copies ot `pg100.txt` 
 
-  - copies the content to the (volatile) work memory and 
+but only one `C:/Users/aless/git/learn-code/60-files/pg100.txt` 
 
-  - associates it with a variable
 
-We iterate on the variable to access data, following our model of what the data truly represents
+# Handling files with Python
 
+---
+
+## The `with` instruction
+
+  - copies the whole content from the permanet memory to the (volatile) work memory, and 
+
+  - associates it with a *handler*
+  
+  ```python
+  MYFILE = './data/incipt.txt'
+
+  with open(MYFILE) as myhandler:
+    mytext = f.read()
+  ```
+
+  - the known file format determines what to do next
 
 ---
 
 ## Text files
 
-A natural organization in *rows:* sequences terminated by a `enter` character: `\n`
+A natural organization in *rows:* sequences terminated by a *enter* character: `\n`
 
-Also `space` and `tab` characters are relevant: `\t`
+Also *space* is represented, ` ` 
+
+so is *tab* with `\t`
 
 By default, reading a file returns a list of strings.
 
@@ -93,6 +122,7 @@ with open(MYFILE) as f:
   mytext = f.read()
 ```
 
+here `mytext` is a *blob* or mega-string. 
 
 ---
 
@@ -102,8 +132,10 @@ with open(MYFILE) as f:
 
 print(mytext)
 ```
+The file handler `f` is accessible only from the block under `with`
 
-File operation is confined to the block under `with`
+
+## Reading vs. writing
 
 `f` represents the file itself in our code, in a way similar to iterators like `range(n)`
 
@@ -111,27 +143,28 @@ File operation is confined to the block under `with`
 
 Changes to `mytext` do not reflect on the file (see below) 
 
-
 ---
 
-## Character-oriented
+## Reading text files
 
-We receive a string and we parse it at the level of characters: 
+receive a string and parse its characters, then 
+
+create Latin-style all-caps text:
 
 ```python
 with open(MYFILE) as f:
     mytext = f.read()
+# file f 'goes away'
 
 for c in mytext:
-  print(c.upper())
+    print(c.upper())
 ```
-
 
 ---
 
-## Line-oriented
+## Line-oriented parsing
 
-The `\n` are used as separators to create a list of strings. 
+`\n` is used as separator to create a list of strings
 
 ```python
 with open(MYFILE) as f:
@@ -146,9 +179,12 @@ for line in mytext:
 
 ---
 
-Handling large files, like `pg100.txt`, is better done by treating `f` as an iterator
+Handling large files is better done by having `f` as an iterator
 
-Example: read text file one line at a time (the default setup)
+Example: `pg100.txt`, the complete Shakespare works
+
+iterate over lines coming out of the handler
+ (the default setup)
 
 ```python
 with open(MYFILE) as f:

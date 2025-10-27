@@ -79,6 +79,7 @@ if text_lenght >0:
 sorted_stats_en = sorted(mystats.items(), key = lambda its_key: its_key[1], reverse=True)
 # notice the reverse logic of the lambda:
 # given a value, position '1', find it relative key, 'its_key'
+
 for key, val in sorted_stats_en:
     print(f'{key} --> {val}')
 
