@@ -103,39 +103,57 @@ def <name>(<parameter(s)>):
 
 Names of the built-in functions are reserved: avoid them as variable names
 
-
 ---
 
-## Multiple parameters and arguments
+## `void` functions
 
-- functions can take two or more arguments, and even an arbitrary number of them
+Functions may *not* return a value 
 
-- mapping arguments to parameters is done by position
+they need not be to the right of an assignment symbol
 
-- it is also possible to return multiple arguments
- 
-```python
-first_out, second_out =  func(first_in, second_in)
 
-def func(primero, segundo):
+```{python}
+def greet(lang):
 
-  # ...
+  if lang == 'es':
+    print('Hola!')
 
-  return tercero, quarto
+  elif lang == 'fr':
+    print('Bonjour!')
+
+  else:
+    print('Hello!')
+
+# example call
+greet('es')
 ```
 
-what are the bindings?
 
+
+
+# Calling functions
 
 ---
 
-## Multiple inputs example
+## Preparing functions
 
 Given a text and a character, count the number of occurrences of it 
 
 ```python
 def char_counter(text, c):
-  '''returns the number of times we found c in text'''
+  '''returns the number of times c is found in text'''
+
+  # this cannot be empty
+  pass
+```
+
+. . .
+
+A recent development: types
+
+```python
+def char_counter(text: str, c: str) --> int:
+  '''returns the number of times c is found in text'''
 
   # this cannot be empty
   pass
@@ -143,13 +161,36 @@ def char_counter(text, c):
 
 ---
 
-## Function nesting example
+## Multiple arguments
+
+f. can take two or more arguments (more later)
+
+mapping calling parameters to input vars. is done by position
+
+it is also possible to return multiple arguments
+ 
+```python
+def func(primero, segundo):
+
+  # ...
+
+  return tercero, quarto
+
+# example call
+first_out, second_out =  func(first_in, second_in)
+```
+
+what are the bindings?
+
+---
+
+## Function nesting 
+
+Example: compute some stats at once
 
 ```python
 def find_tendencies(my_temperatures_list):
-    '''
-      Nested function calls
-    '''
+    '''Compute some stats on a list of temperatures'''
 
     l = len(my_temperatures_list)
 
@@ -162,48 +203,25 @@ def find_tendencies(my_temperatures_list):
         return min_val, max_val, avg_val, l
 
     else:
-      print('Empty temperature list, defaulting to None')
+      print('Empty input data, defaulting to None')
       return None, None, None, 0
 ```
 
----
-
-## Visibility rules are enforced
-
-Why is this giving error?
-
-```python
-first_out, second_out =  func(first_in, second_in)
-
-def func(primero, segundo):
-
-  # print(f'inside here, primero is really first_in: {primero} = {first_is}')
-
-  return tercero, quarto
-```
+Notice the multiple exit points with two or more `return`s
 
 ---
 
-## A version with types
+## Nested calls
 
-Expliciting data types helps in catching coding errors as soon as possible
+A  __return__  value is  __input parameter__  to another f.
 
-```python
-def char_counter(text: str, c: chr) -> int:
-  '''returns the number of times we found c in text'''
+:::: {.columns}
 
-  # this cannot be empty
-  pass
-```
-
----
-
-## Nesting
-
-The  __return__  value of a f. could be the  __input parameter__  to another
-
+::: {.column width="20%"}
 ![](./imgs/nesting.png)
+:::
 
+::: {.column width="80%"}
 ```python
 def square(x):
   return x**2
@@ -213,40 +231,68 @@ def average_of_three(x, y, z):
 
 print(average_of_three(square(10), square(20), square(30)))
 ```
+:::
+
+::::
 
 ---
 
-## `void` functions
+## Visibility of variables
 
-Functions may *not* return a value 
+*argument:* what the caller sends to the function, e.g., `'es'` 
 
-```python
-def greet(lang):
+*parameter:* the local, received value, e.g., var. `lang` 
 
-  if lang == 'es':
-    print('Hola')
+F. are executed in a *container,* they should 
 
-  elif lang == 'fr':
-    print('Bonjour')
+- only *see* their parameters, 
+- not see the variables of the calling code 
+  
+Try to make no assumption on who's calling
 
-  else:
-    print('Hello')
+---
 
-greet('es')
+F. execute in a separated environment with *private* variables
+
+External vars. (from the caller) may be read but not changed
+
+```{python}
+def func(primero, segundo):
+
+    print(f'Inside here, primero is really first_in: {primero} and {first_in}')
+    tercero = 3
+    quarto = 4
+
+    return tercero, quarto
+
+# example call
+first_in = 1
+second_in = 2
+first_out, second_out =  func(first_in, second_in)
 ```
 
-they don't need to be to the right of an assignment symbol
-
 ---
 
+```{python}
+def func(primero, segundo):
 
-## Further observations
+    first_in = 0
+    print(f'Inside here, is primero really first_in? {primero} is {first_in}')
+    tercero = 3
+    quarto = 4
 
-An *argument* is what the caller code sends to the function, e.g., `'es'` in the example
+    return tercero, quarto
 
-A *parameter* is the local (to the function) given value, e.g., `lang` in the example
+first_in = 1
+second_in = 2
+first_out, second_out =  func(first_in, second_in)
+print(f'Outside, first_in is {first_in}')
+```
 
-Remember: functions are executed in a container and only *see* their parameters, not the variables and values of the calling code
+A new `first_in` variable is available, but only inside `func`
+
+unless we specify `global` or `nonlocal` (not reccommended)
+
 
 
 # Quizzes
@@ -304,7 +350,7 @@ Which of the following function definition does not return any value?
 
 ---
 
-#### Quiz answers!
+#### Answers:
 
 What is the default return value ...?
 

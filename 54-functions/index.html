@@ -266,106 +266,161 @@ ale66
 </ul>
 <p>Names of the built-in functions are reserved: avoid them as variable names</p>
 </section>
-<section id="multiple-parameters-and-arguments" class="slide level2">
-<h2>Multiple parameters and arguments</h2>
-<ul>
-<li><p>functions can take two or more arguments, and even an arbitrary number of them</p></li>
-<li><p>mapping arguments to parameters is done by position</p></li>
-<li><p>it is also possible to return multiple arguments</p></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>first_out, second_out <span class="op">=</span>  func(first_in, second_in)</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="kw">def</span> func(primero, segundo):</span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a>  <span class="co"># ...</span></span>
-<span id="cb5-6"><a href=""></a></span>
-<span id="cb5-7"><a href=""></a>  <span class="cf">return</span> tercero, quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>what are the bindings?</p>
-</section>
-<section id="multiple-inputs-example" class="slide level2">
-<h2>Multiple inputs example</h2>
-<p>Given a text and a character, count the number of occurrences of it</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="kw">def</span> char_counter(text, c):</span>
-<span id="cb6-2"><a href=""></a>  <span class="co">'''returns the number of times we found c in text'''</span></span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a>  <span class="co"># this cannot be empty</span></span>
-<span id="cb6-5"><a href=""></a>  <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="function-nesting-example" class="slide level2">
-<h2>Function nesting example</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="kw">def</span> find_tendencies(my_temperatures_list):</span>
-<span id="cb7-2"><a href=""></a>    <span class="co">'''</span></span>
-<span id="cb7-3"><a href=""></a><span class="co">      Nested function calls</span></span>
-<span id="cb7-4"><a href=""></a><span class="co">    '''</span></span>
-<span id="cb7-5"><a href=""></a></span>
-<span id="cb7-6"><a href=""></a>    l <span class="op">=</span> <span class="bu">len</span>(my_temperatures_list)</span>
-<span id="cb7-7"><a href=""></a></span>
-<span id="cb7-8"><a href=""></a>    <span class="cf">if</span> l <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb7-9"><a href=""></a>        min_val <span class="op">=</span> <span class="bu">min</span>(my_temperatures_list)</span>
-<span id="cb7-10"><a href=""></a>        max_val <span class="op">=</span> <span class="bu">max</span>(my_temperatures_list)</span>
-<span id="cb7-11"><a href=""></a>        avg_val <span class="op">=</span> <span class="bu">sum</span>(my_temperatures_list) <span class="op">/</span> l</span>
-<span id="cb7-12"><a href=""></a>        </span>
-<span id="cb7-13"><a href=""></a>        <span class="co"># Return multiple values separated by commas (creates a tuple)</span></span>
-<span id="cb7-14"><a href=""></a>        <span class="cf">return</span> min_val, max_val, avg_val, l</span>
-<span id="cb7-15"><a href=""></a></span>
-<span id="cb7-16"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb7-17"><a href=""></a>      <span class="bu">print</span>(<span class="st">'Empty temperature list, defaulting to None'</span>)</span>
-<span id="cb7-18"><a href=""></a>      <span class="cf">return</span> <span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>, <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="visibility-rules-are-enforced" class="slide level2">
-<h2>Visibility rules are enforced</h2>
-<p>Why is this giving error?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>first_out, second_out <span class="op">=</span>  func(first_in, second_in)</span>
-<span id="cb8-2"><a href=""></a></span>
-<span id="cb8-3"><a href=""></a><span class="kw">def</span> func(primero, segundo):</span>
-<span id="cb8-4"><a href=""></a></span>
-<span id="cb8-5"><a href=""></a>  <span class="co"># print(f'inside here, primero is really first_in: {primero} = {first_is}')</span></span>
-<span id="cb8-6"><a href=""></a></span>
-<span id="cb8-7"><a href=""></a>  <span class="cf">return</span> tercero, quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="a-version-with-types" class="slide level2">
-<h2>A version with types</h2>
-<p>Expliciting data types helps in catching coding errors as soon as possible</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="kw">def</span> char_counter(text: <span class="bu">str</span>, c: <span class="bu">chr</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb9-2"><a href=""></a>  <span class="co">'''returns the number of times we found c in text'''</span></span>
-<span id="cb9-3"><a href=""></a></span>
-<span id="cb9-4"><a href=""></a>  <span class="co"># this cannot be empty</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="nesting" class="slide level2">
-<h2>Nesting</h2>
-<p>The <strong>return</strong> value of a f.&nbsp;could be the <strong>input parameter</strong> to another</p>
-
-<img data-src="./imgs/nesting.png" class="r-stretch"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="kw">def</span> square(x):</span>
-<span id="cb10-2"><a href=""></a>  <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb10-3"><a href=""></a></span>
-<span id="cb10-4"><a href=""></a><span class="kw">def</span> average_of_three(x, y, z):</span>
-<span id="cb10-5"><a href=""></a>  <span class="cf">return</span> (x<span class="op">+</span>y<span class="op">+</span>z)<span class="op">/</span><span class="dv">3</span></span>
-<span id="cb10-6"><a href=""></a></span>
-<span id="cb10-7"><a href=""></a><span class="bu">print</span>(average_of_three(square(<span class="dv">10</span>), square(<span class="dv">20</span>), square(<span class="dv">30</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
 <section id="void-functions" class="slide level2">
 <h2><code>void</code> functions</h2>
 <p>Functions may <em>not</em> return a value</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="kw">def</span> greet(lang):</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>  <span class="cf">if</span> lang <span class="op">==</span> <span class="st">'es'</span>:</span>
-<span id="cb11-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Hola'</span>)</span>
-<span id="cb11-5"><a href=""></a></span>
-<span id="cb11-6"><a href=""></a>  <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">'fr'</span>:</span>
-<span id="cb11-7"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Bonjour'</span>)</span>
-<span id="cb11-8"><a href=""></a></span>
-<span id="cb11-9"><a href=""></a>  <span class="cf">else</span>:</span>
-<span id="cb11-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Hello'</span>)</span>
-<span id="cb11-11"><a href=""></a></span>
-<span id="cb11-12"><a href=""></a>greet(<span class="st">'es'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>they don’t need to be to the right of an assignment symbol</p>
+<p>they need not be to the right of an assignment symbol</p>
+<div id="ac80f702" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="kw">def</span> greet(lang):</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a>  <span class="cf">if</span> lang <span class="op">==</span> <span class="st">'es'</span>:</span>
+<span id="cb5-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Hola!'</span>)</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>  <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">'fr'</span>:</span>
+<span id="cb5-7"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Bonjour!'</span>)</span>
+<span id="cb5-8"><a href=""></a></span>
+<span id="cb5-9"><a href=""></a>  <span class="cf">else</span>:</span>
+<span id="cb5-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Hello!'</span>)</span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a><span class="co"># example call</span></span>
+<span id="cb5-13"><a href=""></a>greet(<span class="st">'es'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hola!</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="calling-functions" class="title-slide slide level1 center">
+<h1>Calling functions</h1>
+
 </section>
-<section id="further-observations" class="slide level2">
-<h2>Further observations</h2>
-<p>An <em>argument</em> is what the caller code sends to the function, e.g., <code>'es'</code> in the example</p>
-<p>A <em>parameter</em> is the local (to the function) given value, e.g., <code>lang</code> in the example</p>
-<p>Remember: functions are executed in a container and only <em>see</em> their parameters, not the variables and values of the calling code</p>
+<section id="preparing-functions" class="slide level2">
+<h2>Preparing functions</h2>
+<p>Given a text and a character, count the number of occurrences of it</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="kw">def</span> char_counter(text, c):</span>
+<span id="cb7-2"><a href=""></a>  <span class="co">'''returns the number of times c is found in text'''</span></span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a>  <span class="co"># this cannot be empty</span></span>
+<span id="cb7-5"><a href=""></a>  <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>A recent development: types</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="kw">def</span> char_counter(text: <span class="bu">str</span>, c: <span class="bu">str</span>) <span class="op">--&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb8-2"><a href=""></a>  <span class="co">'''returns the number of times c is found in text'''</span></span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a>  <span class="co"># this cannot be empty</span></span>
+<span id="cb8-5"><a href=""></a>  <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="multiple-arguments" class="slide level2">
+<h2>Multiple arguments</h2>
+<ol start="6" type="a">
+<li>can take two or more arguments (more later)</li>
+</ol>
+<p>mapping calling parameters to input vars. is done by position</p>
+<p>it is also possible to return multiple arguments</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="kw">def</span> func(primero, segundo):</span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a>  <span class="co"># ...</span></span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a>  <span class="cf">return</span> tercero, quarto</span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a><span class="co"># example call</span></span>
+<span id="cb9-8"><a href=""></a>first_out, second_out <span class="op">=</span>  func(first_in, second_in)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>what are the bindings?</p>
+</section>
+<section id="function-nesting" class="slide level2">
+<h2>Function nesting</h2>
+<p>Example: compute some stats at once</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="kw">def</span> find_tendencies(my_temperatures_list):</span>
+<span id="cb10-2"><a href=""></a>    <span class="co">'''Compute some stats on a list of temperatures'''</span></span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a>    l <span class="op">=</span> <span class="bu">len</span>(my_temperatures_list)</span>
+<span id="cb10-5"><a href=""></a></span>
+<span id="cb10-6"><a href=""></a>    <span class="cf">if</span> l <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb10-7"><a href=""></a>        min_val <span class="op">=</span> <span class="bu">min</span>(my_temperatures_list)</span>
+<span id="cb10-8"><a href=""></a>        max_val <span class="op">=</span> <span class="bu">max</span>(my_temperatures_list)</span>
+<span id="cb10-9"><a href=""></a>        avg_val <span class="op">=</span> <span class="bu">sum</span>(my_temperatures_list) <span class="op">/</span> l</span>
+<span id="cb10-10"><a href=""></a>        </span>
+<span id="cb10-11"><a href=""></a>        <span class="co"># Return multiple values separated by commas (creates a tuple)</span></span>
+<span id="cb10-12"><a href=""></a>        <span class="cf">return</span> min_val, max_val, avg_val, l</span>
+<span id="cb10-13"><a href=""></a></span>
+<span id="cb10-14"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb10-15"><a href=""></a>      <span class="bu">print</span>(<span class="st">'Empty input data, defaulting to None'</span>)</span>
+<span id="cb10-16"><a href=""></a>      <span class="cf">return</span> <span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>, <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Notice the multiple exit points with two or more <code>return</code>s</p>
+</section>
+<section id="nested-calls" class="slide level2">
+<h2>Nested calls</h2>
+<p>A <strong>return</strong> value is <strong>input parameter</strong> to another f.</p>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p><img data-src="./imgs/nesting.png"></p>
+</div><div class="column" style="width:80%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="kw">def</span> square(x):</span>
+<span id="cb11-2"><a href=""></a>  <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a><span class="kw">def</span> average_of_three(x, y, z):</span>
+<span id="cb11-5"><a href=""></a>  <span class="cf">return</span> (x<span class="op">+</span>y<span class="op">+</span>z)<span class="op">/</span><span class="dv">3</span></span>
+<span id="cb11-6"><a href=""></a></span>
+<span id="cb11-7"><a href=""></a><span class="bu">print</span>(average_of_three(square(<span class="dv">10</span>), square(<span class="dv">20</span>), square(<span class="dv">30</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="visibility-of-variables" class="slide level2">
+<h2>Visibility of variables</h2>
+<p><em>argument:</em> what the caller sends to the function, e.g., <code>'es'</code></p>
+<p><em>parameter:</em> the local, received value, e.g., var. <code>lang</code></p>
+<p>F. are executed in a <em>container,</em> they should</p>
+<ul>
+<li>only <em>see</em> their parameters,</li>
+<li>not see the variables of the calling code</li>
+</ul>
+<p>Try to make no assumption on who’s calling</p>
+</section>
+<section class="slide level2">
+
+<p>F. execute in a separated environment with <em>private</em> variables</p>
+<p>External vars. (from the caller) may be read but not changed</p>
+<div id="934ddd6a" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="kw">def</span> func(primero, segundo):</span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f'Inside here, primero is really first_in: </span><span class="sc">{</span>primero<span class="sc">}</span><span class="ss"> and </span><span class="sc">{</span>first_in<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-4"><a href=""></a>    tercero <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb12-5"><a href=""></a>    quarto <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb12-6"><a href=""></a></span>
+<span id="cb12-7"><a href=""></a>    <span class="cf">return</span> tercero, quarto</span>
+<span id="cb12-8"><a href=""></a></span>
+<span id="cb12-9"><a href=""></a><span class="co"># example call</span></span>
+<span id="cb12-10"><a href=""></a>first_in <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb12-11"><a href=""></a>second_in <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb12-12"><a href=""></a>first_out, second_out <span class="op">=</span>  func(first_in, second_in)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inside here, primero is really first_in: 1 and 1</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="77206af6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="kw">def</span> func(primero, segundo):</span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a>    first_in <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-4"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f'Inside here, is primero really first_in? </span><span class="sc">{</span>primero<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>first_in<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb14-5"><a href=""></a>    tercero <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb14-6"><a href=""></a>    quarto <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb14-7"><a href=""></a></span>
+<span id="cb14-8"><a href=""></a>    <span class="cf">return</span> tercero, quarto</span>
+<span id="cb14-9"><a href=""></a></span>
+<span id="cb14-10"><a href=""></a>first_in <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb14-11"><a href=""></a>second_in <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb14-12"><a href=""></a>first_out, second_out <span class="op">=</span>  func(first_in, second_in)</span>
+<span id="cb14-13"><a href=""></a><span class="bu">print</span>(<span class="ss">f'Outside, first_in is </span><span class="sc">{</span>first_in<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inside here, is primero really first_in? 1 is 0
+Outside, first_in is 1</code></pre>
+</div>
+</div>
+<p>A new <code>first_in</code> variable is available, but only inside <code>func</code></p>
+<p>unless we specify <code>global</code> or <code>nonlocal</code> (not reccommended)</p>
 </section></section>
 <section>
 <section id="quizzes" class="title-slide slide level1 center">
@@ -414,7 +469,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<h4 id="quiz-answers">Quiz answers!</h4>
+<h4 id="answers">Answers:</h4>
 <p>What is the default return value …?</p>
 <ul>
 <li>None</li>

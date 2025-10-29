@@ -255,10 +255,10 @@ my_writers[1]['author'] = 'Stephen King'
 
 print(my_writers)
 
-[{'author':'Dickens', 'year_of_birth':1812}, 
- {'author':'Stephen King', 'year_of_birth':1947}, 
- {'author':'J.K. Rowling', 'year_of_birth':1965}, 
- {'author':'Agatha Christie', 'nickname':'Mary Westmacott', 'year_of_birth':1890}]
+[{'author':'Dickens', 'year_of_birth':1812}, 
+ {'author':'Stephen King', 'year_of_birth':1947}, 
+ {'author':'J.K. Rowling', 'year_of_birth':1965}, 
+ {'author':'Agatha Christie', 'nickname':'Mary Westmacott', 'year_of_birth':1890}]
 ```
 
 
