@@ -59,15 +59,15 @@ my_data = [
   
 - data is made permanent con computer devices via the *file system*
 
-- files have *format:* 
+- files have a *format* which 
   
-  f. plays a similar rolet to variable types: 
+  plays a similar role as types for variables
   
-  f. guides interpretation, memorization and exchange
+  guides interpretation, memorization and exchange
 
-However, in principle Python can open and read any file, 
+In principle Python can open *any* file, even AV ones
 
-f. (even AV ones) are seen as a mere succession of characters, terminated by the special character EOF 
+files are seen as a mere succession of characters, terminated by the special character EOF 
 
 ---
 
@@ -95,10 +95,12 @@ but only one `C:/Users/aless/git/learn-code/60-files/pg100.txt`
   - associates it with a *handler*
   
   ```python
+  MYWORKFOLDER = 'C:/Users/ale/Downloads/git/learn-coding/60-files'
+
   MYFILE = './data/incipt.txt'
 
   with open(MYFILE) as myhandler:
-    mytext = f.read()
+    mytext = myhandler.read()
   ```
 
   - the known file format determines what to do next

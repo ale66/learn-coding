@@ -242,16 +242,12 @@ ale66
 <ul>
 <li><p>Python run-time data structures are <em>impermanent:</em> they disappear as soon as the execution ends</p></li>
 <li><p>data is made permanent con computer devices via the <em>file system</em></p></li>
-<li><p>files have <em>format:</em></p>
-<ol start="6" type="a">
-<li><p>plays a similar rolet to variable types:</p></li>
-<li><p>guides interpretation, memorization and exchange</p></li>
-</ol></li>
+<li><p>files have a <em>format</em> which</p>
+<p>plays a similar role as types for variables</p>
+<p>guides interpretation, memorization and exchange</p></li>
 </ul>
-<p>However, in principle Python can open and read any file,</p>
-<ol start="6" type="a">
-<li>(even AV ones) are seen as a mere succession of characters, terminated by the special character EOF</li>
-</ol>
+<p>In principle Python can open <em>any</em> file, even AV ones</p>
+<p>files are seen as a mere succession of characters, terminated by the special character EOF</p>
 </section>
 <section id="files-1" class="slide level2">
 <h2>Files</h2>
@@ -275,10 +271,12 @@ ale66
 <li><p>copies the whole content from the permanet memory to the (volatile) work memory, and</p></li>
 <li><p>associates it with a <em>handler</em></p></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>MYFILE <span class="op">=</span> <span class="st">'./data/incipt.txt'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>MYWORKFOLDER <span class="op">=</span> <span class="st">'C:/Users/ale/Downloads/git/learn-coding/60-files'</span></span>
 <span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> myhandler:</span>
-<span id="cb3-4"><a href=""></a>  mytext <span class="op">=</span> f.read()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href=""></a>MYFILE <span class="op">=</span> <span class="st">'./data/incipt.txt'</span></span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(MYFILE) <span class="im">as</span> myhandler:</span>
+<span id="cb3-6"><a href=""></a>  mytext <span class="op">=</span> myhandler.read()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>the known file format determines what to do next</li>
 </ul>
@@ -431,7 +429,7 @@ ale66
 <section class="slide level2">
 
 <p>Python supports CVS files via a extra <em>module</em> (details later)</p>
-<div id="75650fbf" class="cell" data-execution_count="1">
+<div id="d79aa456" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">import</span> csv</span>
 <span id="cb13-2"><a href=""></a>FILE2 <span class="op">=</span> <span class="st">'./data/biostats.csv'</span></span>
 <span id="cb13-3"><a href=""></a></span>
@@ -476,7 +474,7 @@ ale66
 <section id="from-csv-to-dictionary" class="slide level2">
 <h2>From CSV to Dictionary</h2>
 <p>Function <code>DictReader</code> uses the first line to guide the creation of dictionaries</p>
-<div id="621f7d4f" class="cell" data-execution_count="2">
+<div id="9fe15cb5" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
 <span id="cb16-2"><a href=""></a></span>
 <span id="cb16-3"><a href=""></a>    lines <span class="op">=</span> csv.DictReader(f,  delimiter<span class="op">=</span><span class="st">','</span>)</span>
@@ -505,13 +503,13 @@ Patient: {'Name': 'Ruth', 'Sex': 'F', 'Age': '28', 'Height(in)': '65', 'Weight(l
 </div>
 </div>
 <p>A list of key names can also be supplied, to facilitate data migration</p>
-<div id="904dfde6" class="cell" data-execution_count="3">
+<div id="2d8f3c2f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>first_line <span class="op">=</span> [<span class="st">'Name'</span>, <span class="st">'Sex'</span>, <span class="st">'Age'</span>, <span class="st">'Height(in)'</span>, <span class="st">'Weight(lbs)'</span>]</span>
 <span id="cb18-2"><a href=""></a></span>
 <span id="cb18-3"><a href=""></a>mapping_es <span class="op">=</span> [<span class="st">'Nombre'</span>, <span class="st">'Sexo'</span>, <span class="st">'Edad'</span>, <span class="st">'Estatura(in)'</span>, <span class="st">'Peso(lbs)'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
-<div id="efd4f1e1" class="cell" data-execution_count="4">
+<div id="366acca9" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(FILE2) <span class="im">as</span> f:</span>
 <span id="cb19-2"><a href=""></a>  lines <span class="op">=</span> csv.DictReader(f,  fieldnames <span class="op">=</span> mapping_es, delimiter <span class="op">=</span> <span class="st">','</span>)</span>
 <span id="cb19-3"><a href=""></a>    </span>

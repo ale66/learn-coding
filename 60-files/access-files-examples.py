@@ -1,10 +1,11 @@
 # make sure that Python runs in the local folder!
+MYWORKFOLDER = 'C:/Users/ale/Downloads/git/learn-coding/60-files'
 
 MYFILE = './data/incipit.txt'
 
 
 '''
-with open(MYFILE) as f:
+with open(MYWORKFOLDER+MYFILE) as f:
     longstringwithnewlines = f.read()
 
 print(longstringwithnewlines)
@@ -22,11 +23,11 @@ with open(MYFILE) as f:
 
 import csv
 
-FILE = './data/biostats.csv'
+MYDATAFILE = './data/biostats.csv'
 
 
 '''
-with open(FILE) as f:
+with open(MYWORKFOLDER+MYDATAFILE) as f:
 
 	lines = csv.reader(f, delimiter=',')
 
@@ -35,7 +36,7 @@ with open(FILE) as f:
 '''
 
 '''
-with open(FILE) as f:
+with open(MYWORKFOLDER+MYDATAFILE) as f:
 
     lines = csv.reader(f, delimiter=',')
 
@@ -54,7 +55,7 @@ with open(FILE) as f:
 # import into dictionaries, use the schema on the first line
 
 '''
-with open(FILE) as f:
+with open(MYWORKFOLDER+MYDATAFILE) as f:
 
     lines = csv.DictReader(f,  delimiter=',')
 
@@ -70,7 +71,7 @@ first_line = ['Name', 'Sex', 'Age', 'Height(in)', 'Weight(lbs)']
 
 mapping_es = ['Nombre', 'Sexo', 'Edad', 'Estatura(in)', 'Peso(lbs)']
 
-with open(FILE) as f:
+with open(MYWORKFOLDER+MYDATAFILE) as f:
 
     lines = csv.DictReader(f,  fieldnames = mapping_es, delimiter = ',')
 
