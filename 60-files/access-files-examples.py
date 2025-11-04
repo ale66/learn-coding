@@ -12,11 +12,10 @@ print(longstringwithnewlines)
 '''
 
 '''
-with open(MYFILE) as f:
+with open(MYWORKFOLDER+MYFILE) as f:
   for line in f:
     print(line)
 '''
-
 
 
 # include foreign functions
@@ -47,10 +46,10 @@ with open(MYWORKFOLDER+MYDATAFILE) as f:
     print(header)
 
     print('These are the values:')
+
     for l in lines:
         print(l)
 '''
-
 
 # import into dictionaries, use the schema on the first line
 
@@ -75,6 +74,13 @@ with open(MYWORKFOLDER+MYDATAFILE) as f:
 
     lines = csv.DictReader(f,  fieldnames = mapping_es, delimiter = ',')
 
+    # consume one line of lines
+    header = next(lines)
+    print(header)
+
+    print('This is a presentation of the dataset with name, weight and age only.')
+
     for l in lines:
+        # l really is a dictionary: print specific values
         print(f'Paciente: {l['Nombre'], l['Peso(lbs)'], l['Edad']}')
 '''

@@ -55,9 +55,9 @@ my_data = [
 
 ## Further observations
 
-- Python run-time data structures are *impermanent:* they disappear as soon as the execution ends
+- data structures exist only at run-time: they disappear as soon as the execution ends
   
-- data is made permanent con computer devices via the *file system*
+- data is made permanent via the *file system*
 
 - files have a *format* which 
   
@@ -65,9 +65,9 @@ my_data = [
   
   guides interpretation, memorization and exchange
 
-In principle Python can open *any* file, even AV ones
+Yet, Python can open *any* file, even AV ones
 
-files are seen as a mere succession of characters, terminated by the special character EOF 
+File: a mere succession of characters, terminated by the special char. EOF 
 
 ---
 
@@ -94,16 +94,15 @@ but only one `C:/Users/aless/git/learn-code/60-files/pg100.txt`
 
   - associates it with a *handler*
   
-  ```python
-  MYWORKFOLDER = 'C:/Users/ale/Downloads/git/learn-coding/60-files'
-
+```python
   MYFILE = './data/incipt.txt'
 
-  with open(MYFILE) as myhandler:
-    mytext = myhandler.read()
-  ```
+  with open(MYWORKFOLDER+MYFILE) as myhandler:
 
-  - the known file format determines what to do next
+      mytext = myhandler.read()
+```
+
+By default the file content is read as text, `.txt` is not considered
 
 ---
 
@@ -136,6 +135,28 @@ print(mytext)
 ```
 The file handler `f` is accessible only from the block under `with`
 
+
+## The working directory
+
+VS Code normally starts in the top user folder/directory:
+
+```bash
+>pwd
+
+C:/Users/ale/
+```
+
+Manually set the absolute path to the data files:
+
+```python
+  MYWORKFOLDER = 'C:/Users/ale/Downloads/git/learn-coding/60-files'
+
+  MYFILE = './data/incipt.txt'
+
+  with open(MYWORKFOLDER+MYFILE) as myhandler:
+
+      mytext = myhandler.read()
+```
 
 ## Reading vs. writing
 
@@ -500,9 +521,7 @@ An informal introduction through a [real project](https://github.com/MillieClare
 
 ---
 
-## Challenge
-
-Can you get fresh data from [data.spectator.co.uk/category/energy](https://data.spectator.co.uk/category/energy) and diplay it?
+#### Challenge: can you get fresh data from [data.spectator.co.uk](https://data.spectator.co.uk/) and display it?
 
 
-
+[![](./imgs/the_spectator.png)](https://data.spectator.co.uk/category/energy)
