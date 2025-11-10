@@ -34,28 +34,54 @@ execute:
 ![](./imgs/modules.png)
 
 
----
+# Useful Python modules
 
-# Python modules: math
+## Math
 
 ::::{.columns}
-
 :::{.column width="35%"}
-```python
-import math
+  ```python
+  import math
 
-mynum = 10
+  mynum = 10
 
-# This will print 3.16
-print(math.sqrt(mynum))
-```
+  # This will print 3.16
+  print(math.sqrt(mynum))
+  ```
 :::
-
 :::{.column width="65%"}
-![](imgs/math.png)
+  ![](imgs/math.png)
 :::
-
 ::::
+
+---
+
+## RE
+
+Support text parsing an manipulation
+
+Example: find UK cell phone numbers, e.g., +44-7-449-001020, in a text
+
+```python
+import re
+
+PATTERN = r'+44-7-\d{3}-\d{6}'
+
+my_text = "..."
+
+phone = re.search(PATTERN, my_text)
+
+if phone:
+    print("First phone no.:", phone.group())
+```
+
+---
+
+## CSV
+
+Useful to import data files into our variables
+
+Examples are in the 'files' lecture
 
 
 # Random numbers
@@ -89,9 +115,7 @@ import random
 my_random_num = random.randint(1, 10)
 
 print(my_random_num)
-
 print(my_random_num)
-
 print(my_random_num)
 ```
 
@@ -172,7 +196,23 @@ for i in range(10):
   alist.append(random.randint(1, 10))
 
 print(alist)
+[3, 10, 2, 5, 2, 8, 8, 8, 7, 4]
+```
 
+This always prints the same sequence
+
+---
+
+```python
+random.seed(1)
+
+alist = list() # or []
+
+for i in range(10):
+  alist.append(random.randint(1, 10))
+
+print(alist)
+#--------------
 random.seed(2)
 
 # empty out the list
@@ -184,8 +224,7 @@ for i in range(10):
 print(alist)
 
 [3, 10, 2, 5, 2, 8, 8, 8, 7, 4]
-
 [1, 2, 2, 6, 3, 5, 5, 10, 4, 10]
 ```
 
-This always prints the same results!
+
