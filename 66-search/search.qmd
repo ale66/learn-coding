@@ -7,7 +7,7 @@ format:
     theme: [moon]
     preview-links: auto
     chalkboard: 
-      boardmarker-width: 5
+      boardmarker-width: 2
     mermaid:
       fontSize: 12
       theme: dark
@@ -69,7 +69,7 @@ A = [11, 6, 8, 2, 22, 16, 25]
 sort(A) = [2, 6, 8, 11, 16, 22, 25]
 ```
 
-$\pi(0) = 3:$ the elem. in position 1 now goes to pos. 3
+$\pi(0) = 3:$ the elem. in position 0 now goes to pos. 3
 
 $\pi(1) = 1:$ the elem. in pos. 1 remains there
 
@@ -77,6 +77,7 @@ $\pi(2) = 2:$ so does the elem. in pos. 2
 
 $\pi(3) = 0:$ the elem. in pos. 3 now goes to pos. 0
 
+...
 
 ---
 
@@ -89,7 +90,7 @@ Solvable within $Kn\log_2 n$ steps
 
 Even quicker when A is already half-sorted
 
-Python runs ``powersort()``, an optimised version of [TimSort](https://en.wikipedia.org/wiki/Timsort)
+Python runs `powersort()`, an optimised version of [TimSort](https://en.wikipedia.org/wiki/Timsort)
 
 ```python
 a = [11, 6, 8, 2, 22, 16, 25]
@@ -113,21 +114,22 @@ __Istance:__
 
 __Question:__ does k belong to the collection?
 
-
 ---
 
 ## Observations
 
-It can be generalised to data types that are ordered (strings have alphanumerical ordering)
+Strings and texts are searchable: alphanumerical ordering
 
-There is a simple algorithm that will answer after at most $n$ comparisons
+The textbook algo. takes up to $n$ comparisons
 
-this is a very basic problem which is used elsewhere: it is important that the implementation is quick and well-tested
+Search is everywhere: implementation must be 
 
+- quick, and 
+- reliable, hands negatives, 0s, `NaN`s, `None`s
 
 ---
 
-## Case study: Ego networks
+## Case study: Ego networks [Ferrara et al., 2011]
 
 - while less than N profiles collected
   - generate random FB ids (a fixed-lenght, 32-digits integer)
@@ -136,30 +138,29 @@ this is a very basic problem which is used elsewhere: it is important that the i
     - yes: expand the visit to the neighborood
     - no: go back to generating random ids
 
-Cost: up to $n$ comparisons
-
+Cost: at least $N$ generations+FB accesses; dN comparisons to check for duplicate ids
 
 ---
 
-## Simple solution
+## Vanilla solution: linear search
 
 ```python
-def search(a, k):
+def linSearch(data_list, search_key):
   '''Linear search'''
 
   found = False
-  n = len(a)
 
-  for elem in a:
-    if k == elem:
-      found = True
+  n = len(data_list)
+
+  for elem in data_list:
+
+      if elem == search_key:
+          found = True
 
   return found
 ```
 
-
 ---
-
 
 ## Exercise
 
@@ -167,24 +168,32 @@ Apply `while` instead of `for` to stop operations as soon as the key value is fo
 
 Return the position at which the key was found
 
+Model call: 
+
+```python
+my_data = [11, 6, 8, 2, 22, 16, 25]
+
+my_key = 42
+
+outcome = yourSolution(my_data, my_key)
+```
 
 ---
 
 ## Ordered sequences
 
-Special case: the input sequence A is already sorted, either in increasing or decreasing
+Special case: the input sequence is already sorted, either in increasing or decreasing order
 
-a *much more efficient* algorithm is available
+a *much more efficient* algorithm is available: Binary Search
 
-Binary_search, which is correct only for sorted sequences, will take *at most* $\log_2 n$ comparisons before we stop
+- only works for sorted sequences
+- top speed: *at most* $\log_2 n$ comparisons
 
-
-| items         | Linear         |  BS   |
-|--------------:|---------------:|------:|
-| 1,000         | 1,000          |    10 |
-| 1,000,000     | 1,000,000      |    20 |
-| 1,000,000,000 | 1,000,000,000  |    30 |
-
+| items         | Vanilla (linear) | BS |
+|--------------:|-----------------:|---:|
+| 1,000         | 1,000            | 10 |
+| 1,000,000     | 1,000,000        | 20 |
+| 1,000,000,000 | 1,000,000,000    | 30 |
 
 ---
 
