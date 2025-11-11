@@ -20,15 +20,14 @@ def main():
 		followed by CSV line-by-line reading
 	'''
 
-
 	# change to reflect the situation on your own computer!
 
 	# the double '\' is for Win systems, adapt as needed
-	TXT = 'C:\\Users\\aless\\git\\learn-coding\\70-modules\\data\\hamlet.txt'
+	TXT = 'C:\\Users\\ale\\Downloads\\git\\learn-coding\\70-modules\\data\\hamlet.txt'
 
-	CSV = 'C:\\Users\\aless\\git\\learn-coding\\70-modules\\data\\biostats.csv'
+	CSV = 'C:\\Users\\ale\\Downloads\\git\\learn-coding\\70-modules\\data\\biostats.csv'
 
-	loadtext(TXT, '\n')
+	loadtext(TXT, '.')
 
 	# uncomment as needed: why doesn't it work?
 	# loadcsv(CSV, ',')
@@ -40,7 +39,7 @@ def loadtext(my_file, my_delimit):
 		define the second parameter to delimit each line to be printed
 	'''
 
-	with open(my_file) as f:
+	with open(my_file, encoding='utf-8') as f:
 
 		read_text = csv.reader(f, delimiter = my_delimit)
 
