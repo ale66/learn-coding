@@ -6,8 +6,8 @@
 <script src="numpy_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="numpy_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="numpy_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="numpy_files/libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="numpy_files/libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="ale66">
   <title>Learn Coding</title>
@@ -223,10 +223,10 @@ ale66
 <h2>Arrays</h2>
 <p>A computer version of vectors and matrices: sequence of uniform-type values with indexing mechanism by integers.</p>
 <p>Numpy arrays have methods, applied element-wise, and functions that take into account the position of each element in the array.</p>
-<div id="1189ac3f" class="cell" data-execution_count="1">
+<div id="d515b2ee" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="7adae27b" class="cell" data-execution_count="2">
+<div id="b17f0f4b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># nr from 2 to 20 (excl.) with step 2</span></span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>b <span class="op">=</span> np.arange(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
@@ -239,7 +239,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="778fdc1b" class="cell" data-execution_count="3">
+<div id="6b18534b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># element-wise operations</span></span>
 <span id="cb5-2"><a href=""></a></span>
 <span id="cb5-3"><a href=""></a><span class="dv">2</span><span class="op">*</span>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -250,7 +250,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="a05c7b5c" class="cell" data-execution_count="4">
+<div id="ce46717b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># cumulative step-by-step sum</span></span>
 <span id="cb7-2"><a href=""></a>b.cumsum()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -279,7 +279,7 @@ ale66
 </section>
 <section id="d-numpy-arrays" class="slide level2">
 <h2>2-D Numpy Arrays</h2>
-<div id="e96cd71a" class="cell" data-execution_count="5">
+<div id="3fe7be6e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>c <span class="op">=</span> np.arange(<span class="dv">8</span>)</span>
 <span id="cb11-2"><a href=""></a></span>
 <span id="cb11-3"><a href=""></a>c</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -287,7 +287,7 @@ ale66
 <pre><code>array([0, 1, 2, 3, 4, 5, 6, 7])</code></pre>
 </div>
 </div>
-<div id="997d2756" class="cell" data-execution_count="6">
+<div id="6333eeb3" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># build a 2-dimensional array from a 1-d one</span></span>
 <span id="cb13-2"><a href=""></a>d <span class="op">=</span> np.array([c, c<span class="op">*</span><span class="dv">2</span>])</span>
 <span id="cb13-3"><a href=""></a></span>
@@ -297,7 +297,7 @@ ale66
        [ 0,  2,  4,  6,  8, 10, 12, 14]])</code></pre>
 </div>
 </div>
-<div id="244841fd" class="cell" data-execution_count="7">
+<div id="9d4070b0" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># count elements</span></span>
 <span id="cb15-2"><a href=""></a></span>
 <span id="cb15-3"><a href=""></a>d.size</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -305,7 +305,7 @@ ale66
 <pre><code>16</code></pre>
 </div>
 </div>
-<div id="eac8341d" class="cell" data-execution_count="8">
+<div id="9f3aad60" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co">#  size along each dimension</span></span>
 <span id="cb17-2"><a href=""></a></span>
 <span id="cb17-3"><a href=""></a>d.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -317,7 +317,7 @@ ale66
 <section id="axes" class="slide level2">
 <h2>Axes</h2>
 <p>Numpy arrays can have multiple dimensions</p>
-<div id="0955ccb7" class="cell" data-execution_count="9">
+<div id="827096a3" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># operations along columns</span></span>
 <span id="cb19-2"><a href=""></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -325,7 +325,7 @@ ale66
        [ 0,  2,  4,  6,  8, 10, 12, 14]])</code></pre>
 </div>
 </div>
-<div id="f5b42c41" class="cell" data-execution_count="10">
+<div id="1edf78e4" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># operations along columns</span></span>
 <span id="cb21-2"><a href=""></a>d.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -335,7 +335,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="1c9a707b" class="cell" data-execution_count="11">
+<div id="c735545a" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="co"># summing by row</span></span>
 <span id="cb23-2"><a href=""></a>d.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -343,7 +343,7 @@ ale66
 </div>
 </div>
 <p><strong>N. B.</strong> unlike Pandas, not specifying the axis will apply a function to the entire array.</p>
-<div id="b412324f" class="cell" data-execution_count="12">
+<div id="26bf5b50" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="co"># sum the whole content</span></span>
 <span id="cb25-2"><a href=""></a>d.<span class="bu">sum</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -354,7 +354,7 @@ ale66
 <section id="shapes" class="slide level2">
 <h2>Shapes</h2>
 <p>Using information about the shape we can create/manipulate (or reshape, or transpose) Numpy variables.</p>
-<div id="ea4e9f3a" class="cell" data-execution_count="13">
+<div id="a6e1acec" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="co"># Create 2x3 Numpy array and initialise it to 0s</span></span>
 <span id="cb27-2"><a href=""></a>e <span class="op">=</span> np.zeros((<span class="dv">2</span>, <span class="dv">3</span>), dtype <span class="op">=</span> <span class="st">'i'</span>)</span>
 <span id="cb27-3"><a href=""></a></span>
@@ -364,7 +364,7 @@ ale66
        [0, 0, 0]], dtype=int32)</code></pre>
 </div>
 </div>
-<div id="7a16dc42" class="cell" data-execution_count="14">
+<div id="acd39e2d" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="co"># Change the shape</span></span>
 <span id="cb29-2"><a href=""></a>e.reshape(<span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
@@ -376,7 +376,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="fcf7c3e2" class="cell" data-execution_count="15">
+<div id="c7fa39f7" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="co"># a new array with exactly the same shape as 'e' and type integer</span></span>
 <span id="cb31-2"><a href=""></a>f <span class="op">=</span> np.ones_like(e, dtype <span class="op">=</span> <span class="st">'i'</span>)</span>
 <span id="cb31-3"><a href=""></a>f</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -385,7 +385,7 @@ ale66
        [1, 1, 1]], dtype=int32)</code></pre>
 </div>
 </div>
-<div id="8f107035" class="cell" data-execution_count="16">
+<div id="047f66c9" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="co"># Transposition</span></span>
 <span id="cb33-2"><a href=""></a>g <span class="op">=</span> np.arange(<span class="dv">6</span>).reshape(<span class="dv">3</span>,<span class="dv">2</span>)</span>
 <span id="cb33-3"><a href=""></a>g</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -395,7 +395,7 @@ ale66
        [4, 5]])</code></pre>
 </div>
 </div>
-<div id="5746a82d" class="cell" data-execution_count="17">
+<div id="c4018bbf" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>g.T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>array([[0, 2, 4],
@@ -406,7 +406,7 @@ ale66
 <section id="stacking" class="slide level2">
 <h2>Stacking</h2>
 <p>2-D arrays with the same dimensions can be merged</p>
-<div id="e3df2fd3" class="cell" data-execution_count="18">
+<div id="f55166ef" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="co"># Create an identity matrix of order 5</span></span>
 <span id="cb37-2"><a href=""></a>i <span class="op">=</span> np.eye(<span class="dv">5</span>)</span>
 <span id="cb37-3"><a href=""></a></span>
@@ -422,7 +422,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="d13f4395" class="cell" data-execution_count="19">
+<div id="eb80e29c" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="co"># stacking combines two 2-d arrays: vertically</span></span>
 <span id="cb39-2"><a href=""></a>np.vstack((i, i))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
@@ -441,7 +441,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="0fd724f0" class="cell" data-execution_count="20">
+<div id="671da54c" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a><span class="co"># stacking combines two 2-d arrays: horizontally</span></span>
 <span id="cb41-2"><a href=""></a>np.hstack((i, i))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -457,7 +457,7 @@ ale66
 <h2>Detour: N-dimensional arrays</h2>
 <p>Numpy can handle multiple dimensions.</p>
 <p>This is useful when dealing with multivariate data, from time series to documents.</p>
-<div id="1148e2db" class="cell" data-execution_count="21">
+<div id="36615067" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a><span class="co"># N-dimensional array</span></span>
 <span id="cb43-2"><a href=""></a></span>
 <span id="cb43-3"><a href=""></a>g <span class="op">=</span> np.zeros((<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
@@ -477,48 +477,42 @@ ale66
 </section>
 <section id="slicing-by-boolean-filters" class="slide level2">
 <h2>Slicing by Boolean filters</h2>
-<p>Data can be selected according to specific conditions.</p>
-<p>The Boolean filter itself can be represented by a Numpy array</p>
-<div id="9bb4310c" class="cell" data-execution_count="22">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>l <span class="op">=</span> np.array(np.arange(<span class="dv">9</span>))</span>
-<span id="cb45-2"><a href=""></a></span>
-<span id="cb45-3"><a href=""></a>l</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>data can be selected according to specific conditions.</p>
+<p>A Boolean filter can winnow the array according to a yes/no, in/out condition</p>
+<p>a Bool. filter can be represented by a Numpy array!</p>
+<div id="2f56a7f1" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="co"># setup data</span></span>
+<span id="cb45-2"><a href=""></a>l <span class="op">=</span> np.array(np.arange(<span class="dv">9</span>))</span>
+<span id="cb45-3"><a href=""></a></span>
+<span id="cb45-4"><a href=""></a>l</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8])</code></pre>
 </div>
 </div>
-<div id="ab04c10f" class="cell" data-execution_count="23">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>l.reshape(<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb47-2"><a href=""></a></span>
-<span id="cb47-3"><a href=""></a>l</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8])</code></pre>
-</div>
-</div>
 </section>
-<section id="more-slicing" class="slide level2">
-<h2>More slicing</h2>
-<div id="fde4fc94" class="cell" data-execution_count="24">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="co"># Let's apply a high-pass filter</span></span>
-<span id="cb49-2"><a href=""></a></span>
-<span id="cb49-3"><a href=""></a>l[l<span class="op">&gt;</span><span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<section id="slicing" class="slide level2">
+<h2>Slicing</h2>
+<div id="8b099148" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="co"># Let's apply a high-pass filter</span></span>
+<span id="cb47-2"><a href=""></a></span>
+<span id="cb47-3"><a href=""></a>l[l<span class="op">&gt;</span><span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([5, 6, 7, 8])</code></pre>
 </div>
 </div>
-<div id="5a587f43" class="cell" data-execution_count="25">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="co"># Generate a Boolean array</span></span>
-<span id="cb51-2"><a href=""></a></span>
-<span id="cb51-3"><a href=""></a>(l<span class="op">&gt;</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="875cde0e" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="co"># Generate a Boolean array</span></span>
+<span id="cb49-2"><a href=""></a></span>
+<span id="cb49-3"><a href=""></a>(l<span class="op">&gt;</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>array([False, False, False, False, False,  True,  True,  True,  True])</code></pre>
 </div>
 </div>
-<div id="1d2c3bc0" class="cell" data-execution_count="26">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a><span class="co"># now with integers: False=0, True=1)</span></span>
-<span id="cb53-2"><a href=""></a></span>
-<span id="cb53-3"><a href=""></a>(l<span class="op">&gt;</span><span class="dv">4</span>).astype(<span class="bu">int</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div id="d266d76d" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="co"># now with integers: False=0, True=1)</span></span>
+<span id="cb51-2"><a href=""></a></span>
+<span id="cb51-3"><a href=""></a>(l<span class="op">&gt;</span><span class="dv">4</span>).astype(<span class="bu">int</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>array([0, 0, 0, 0, 0, 1, 1, 1, 1])</code></pre>
 </div>
 </div>

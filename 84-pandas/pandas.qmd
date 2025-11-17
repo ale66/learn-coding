@@ -74,7 +74,8 @@ s2
 Example: putting 10 quid a month into a savings account
 
 ```{python}
-my_savings = pd.Series([10, 20, 30, 40], index = ['jan', 'feb', 'mar', 'apr'])
+my_savings = pd.Series([10, 20, 30, 40], 
+             index = ['jan', 'feb', 'mar', 'apr'])
 
 my_savings
 ```
@@ -163,7 +164,7 @@ new_df['Floats'] = (1.5, 2.5, 3.5, 4.5)
 new_df
 ```
 
-## Data Structures: DataFrame - `loc`
+## Data Structures: DataFrame `loc`
 
 Select data according to their location label.
 
@@ -176,8 +177,14 @@ new_df.loc['c']
 ```{python}
 # here loc slices data using column name.
 
-new_df.loc[:, 'Integers'] #or new_df['numbers']
+new_df.loc[:, 'Integers']
 ```
+
+alternatively, use `new_df['Integers']`
+
+---
+
+Loc queries can be combined:
 
 ```{python}
 # here we use both index and column name.
@@ -187,7 +194,7 @@ new_df.loc['c', 'Integers']
 
 ## Data Structures: DataFrame - `iloc`
 
-Select a specific slice of data according to its position.
+Select a specific slice of data according to its position (index).
 
 
 ```{python}
@@ -271,9 +278,9 @@ new_df
 
 ## From Numpy to Pandas: `where()`
 
-Pandas executes `where()` differently
+In Numpy, the `where()` allows to describe actions associated to `True` and `False`
 
-Numpy allows specifying the respective action associated to `True` and `False`
+an if/then/else construct, essentially
 
 ```{python}
 l = np.arange(9).reshape((3, 3))
@@ -285,7 +292,18 @@ l
 np.where(l<5, l*2, l/2)
 ```
 
-Pandas assigns `n/a` when `False` 
+---
+
+P. executes `where()` differently: when `False` it assigns `n/a`  
+
+```{python}
+df_l = pd.DataFrame(l)
+df_l
+```
+
+```{python}
+df_l.where(df_l<5)
+```
 
 ---
 
@@ -394,22 +412,17 @@ df_bio2.loc['Bert']
 
 ---
 
-## Descriptive stats - `describe()`
+### Descriptive stats - `describe()`
+
+Compute the descriptive stats of quantitative variables
 
 ```{python}
-# Compute the descriptive stats of quantitative variables
-df_bio.describe() 
-```
 
-
----
-
-Also on selections:
-
-```{python}
 # Descriptive statistics for the Age variable
 df_bio['Age'].describe()
 ```
+
+try `df_bio.describe()` 
 
 ---
 

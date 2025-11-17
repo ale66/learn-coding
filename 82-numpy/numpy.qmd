@@ -245,25 +245,22 @@ Two samples, each with three rows and four columns.
 
 ## Slicing by Boolean filters
 
-Data can be selected according to specific conditions.
+data can be selected according to specific conditions.
 
-The Boolean filter itself can be represented by a Numpy array
+A Boolean filter can winnow the array according to a yes/no, in/out condition
+
+a Bool. filter can be represented by a Numpy array!
 
 ```{python}
+# setup data
 l = np.array(np.arange(9))
 
 l
 ```
-```{python}
-l.reshape(3, 3)
-
-l
-```
-
 
 ---
 
-## More slicing
+## Slicing
 
 ```{python}
 # Let's apply a high-pass filter
