@@ -13,8 +13,6 @@ execute:
   echo: true
 ---
 
----
-
 ## Pandas
 
 ::::{.columns}

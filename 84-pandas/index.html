@@ -233,16 +233,16 @@ ale66
 <h2>Series</h2>
 <p>A one-dimensional object containing values and associated labels, called Index.</p>
 <p>Unless we assign indices, Pandas will simply enumerate the items.</p>
-<div id="2d3b268f" class="cell" data-execution_count="1">
+<div id="d2dc321e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ca55be34" class="cell" data-execution_count="2">
+<div id="d24dc516" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># a simple series</span></span>
 <span id="cb3-2"><a href=""></a>s1 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>])</span>
 <span id="cb3-3"><a href=""></a></span>
 <span id="cb3-4"><a href=""></a>s1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="298">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>0    10
 1    20
 2    30
@@ -253,12 +253,12 @@ dtype: int64</code></pre>
 </section>
 <section class="slide level2">
 
-<div id="00ba3869" class="cell" data-execution_count="3">
+<div id="44cc0836" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># Assign explicit indices to our data</span></span>
 <span id="cb5-2"><a href=""></a>s2 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>], index <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
 <span id="cb5-3"><a href=""></a></span>
 <span id="cb5-4"><a href=""></a>s2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="299">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>a    10
 b    20
 c    30
@@ -267,12 +267,12 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Example: putting 10 quid a month into a savings account</p>
-<div id="3b4223eb" class="cell" data-execution_count="4">
+<div id="65b669a3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>my_savings <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>], </span>
 <span id="cb7-2"><a href=""></a>             index <span class="op">=</span> [<span class="st">'jan'</span>, <span class="st">'feb'</span>, <span class="st">'mar'</span>, <span class="st">'apr'</span>])</span>
 <span id="cb7-3"><a href=""></a></span>
 <span id="cb7-4"><a href=""></a>my_savings</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="300">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>jan    10
 feb    20
 mar    30
@@ -284,14 +284,14 @@ dtype: int64</code></pre>
 <section class="slide level2">
 
 <p>From dictionaries to Pandas series</p>
-<div id="f299d4d8" class="cell" data-execution_count="5">
+<div id="e480a134" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># keys correspond to indices.</span></span>
 <span id="cb9-2"><a href=""></a>my_dict <span class="op">=</span> {<span class="st">'a'</span>:<span class="dv">10</span>, <span class="st">'b'</span>:<span class="dv">20</span>, <span class="st">'c'</span>:<span class="dv">30</span>, <span class="st">'d'</span>:<span class="dv">40</span>}</span>
 <span id="cb9-3"><a href=""></a></span>
 <span id="cb9-4"><a href=""></a>s3 <span class="op">=</span> pd.Series(my_dict)</span>
 <span id="cb9-5"><a href=""></a></span>
 <span id="cb9-6"><a href=""></a>s3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="301">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>a    10
 b    20
 c    30
@@ -303,30 +303,30 @@ dtype: int64</code></pre>
 <section class="slide level2">
 
 <p>Use the index to select one or more specific values.</p>
-<div id="efdce22e" class="cell" data-execution_count="6">
+<div id="b7c249cc" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co"># Get the data on position 'a' of s3</span></span>
 <span id="cb11-2"><a href=""></a></span>
 <span id="cb11-3"><a href=""></a>s3[<span class="st">'a'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="302">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>np.int64(10)</code></pre>
 </div>
 </div>
-<div id="4df26973" class="cell" data-execution_count="7">
+<div id="f43756dd" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># Get the data indexed 'a' and 'c' of s3</span></span>
 <span id="cb13-2"><a href=""></a></span>
 <span id="cb13-3"><a href=""></a>s3[[<span class="st">'a'</span>, <span class="st">'c'</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="303">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>a    10
 c    30
 dtype: int64</code></pre>
 </div>
 </div>
 <p>Filter elements</p>
-<div id="3db832f7" class="cell" data-execution_count="8">
+<div id="881ee96d" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># Select data which is less than 25</span></span>
 <span id="cb15-2"><a href=""></a></span>
 <span id="cb15-3"><a href=""></a>s3[s3<span class="op">&lt;</span><span class="dv">25</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="304">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>a    10
 b    20
 dtype: int64</code></pre>
@@ -336,11 +336,11 @@ dtype: int64</code></pre>
 <section class="slide level2">
 
 <p>apply element-wise mathematical operations…</p>
-<div id="0842e111" class="cell" data-execution_count="9">
+<div id="a3a825dd" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># Square every element of s3</span></span>
 <span id="cb17-2"><a href=""></a></span>
 <span id="cb17-3"><a href=""></a>s3<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="305">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>a     100
 b     400
 c     900
@@ -349,11 +349,11 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>or a combination of both:</p>
-<div id="75757330" class="cell" data-execution_count="10">
+<div id="aca06ec4" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># Square every element of s3 smaller than 25</span></span>
 <span id="cb19-2"><a href=""></a></span>
 <span id="cb19-3"><a href=""></a>s3[s3<span class="op">&lt;</span><span class="dv">25</span>]<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="306">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>a    100
 b    400
 dtype: int64</code></pre>
@@ -368,13 +368,13 @@ dtype: int64</code></pre>
 <section id="dataframes" class="slide level2">
 <h2>Dataframes</h2>
 <p>2D structures where values are labelled by their index and column location.</p>
-<div id="dd44d22d" class="cell" data-execution_count="11">
+<div id="57b431b8" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># Notice how we specify columns.</span></span>
 <span id="cb21-2"><a href=""></a>new_df <span class="op">=</span> pd.DataFrame([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>], </span>
 <span id="cb21-3"><a href=""></a>                      columns <span class="op">=</span> [<span class="st">'Integers'</span>], </span>
 <span id="cb21-4"><a href=""></a>                      index <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
 <span id="cb21-5"><a href=""></a>new_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="307">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -423,12 +423,12 @@ dtype: int64</code></pre>
 </section>
 <section class="slide level2">
 
-<div id="9717a569" class="cell" data-execution_count="12">
+<div id="41b5c130" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="co"># Implicitly add a column.</span></span>
 <span id="cb22-2"><a href=""></a>new_df[<span class="st">'Floats'</span>] <span class="op">=</span> (<span class="fl">1.5</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="fl">4.5</span>)</span>
 <span id="cb22-3"><a href=""></a></span>
 <span id="cb22-4"><a href=""></a>new_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="308">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -483,21 +483,21 @@ dtype: int64</code></pre>
 <section id="data-structures-dataframe-loc" class="slide level2">
 <h2>Data Structures: DataFrame <code>loc</code></h2>
 <p>Select data according to their location label.</p>
-<div id="e6eb9abe" class="cell" data-execution_count="13">
+<div id="c56f6bde" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="co"># here loc slices data using index name.</span></span>
 <span id="cb23-2"><a href=""></a></span>
 <span id="cb23-3"><a href=""></a>new_df.loc[<span class="st">'c'</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="309">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>Integers    30.0
 Floats       3.5
 Name: c, dtype: float64</code></pre>
 </div>
 </div>
-<div id="1ee4fda1" class="cell" data-execution_count="14">
+<div id="048b5b19" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="co"># here loc slices data using column name.</span></span>
 <span id="cb25-2"><a href=""></a></span>
 <span id="cb25-3"><a href=""></a>new_df.loc[:, <span class="st">'Integers'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="310">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>a    10
 b    20
 c    30
@@ -510,11 +510,11 @@ Name: Integers, dtype: int64</code></pre>
 <section class="slide level2">
 
 <p>Loc queries can be combined:</p>
-<div id="b616c157" class="cell" data-execution_count="15">
+<div id="f86e5a2c" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="co"># here we use both index and column name.</span></span>
 <span id="cb27-2"><a href=""></a></span>
 <span id="cb27-3"><a href=""></a>new_df.loc[<span class="st">'c'</span>, <span class="st">'Integers'</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="311">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>np.int64(30)</code></pre>
 </div>
 </div>
@@ -522,19 +522,19 @@ Name: Integers, dtype: int64</code></pre>
 <section id="data-structures-dataframe---iloc" class="slide level2">
 <h2>Data Structures: DataFrame - <code>iloc</code></h2>
 <p>Select a specific slice of data according to its position (index).</p>
-<div id="ee699109" class="cell" data-execution_count="16">
+<div id="6f1551c4" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="co"># here loc slices data using index number.</span></span>
 <span id="cb29-2"><a href=""></a>new_df.iloc[<span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="312">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>Integers    30.0
 Floats       3.5
 Name: c, dtype: float64</code></pre>
 </div>
 </div>
-<div id="cf53b1b4" class="cell" data-execution_count="17">
+<div id="cfdc6a2c" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="co"># here loc slices data using column number.</span></span>
 <span id="cb31-2"><a href=""></a>new_df.iloc[:, <span class="dv">0</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="313">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>a    10
 b    20
 c    30
@@ -542,10 +542,10 @@ d    40
 Name: Integers, dtype: int64</code></pre>
 </div>
 </div>
-<div id="f03f1753" class="cell" data-execution_count="18">
+<div id="5bb5371d" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="co"># here we use both index and column number.</span></span>
 <span id="cb33-2"><a href=""></a>new_df.iloc[<span class="dv">2</span>, <span class="dv">0</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="314">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>np.int64(30)</code></pre>
 </div>
 </div>
@@ -553,9 +553,9 @@ Name: Integers, dtype: int64</code></pre>
 <section id="data-structures-dataframe---filters" class="slide level2">
 <h2>Data Structures: DataFrame - filters</h2>
 <p>Complex selection is achieved applying Boolean filters. Multiple conditions can be combined in one statement.</p>
-<div id="2c886c51" class="cell" data-execution_count="19">
+<div id="ae9ccb63" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>new_df[new_df[<span class="st">'Integers'</span>]<span class="op">&gt;</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="315">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -604,11 +604,11 @@ Name: Integers, dtype: int64</code></pre>
 </section>
 <section class="slide level2">
 
-<div id="67174389" class="cell" data-execution_count="20">
+<div id="c8c84445" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="co"># here we apply conditions to both columns.</span></span>
 <span id="cb36-2"><a href=""></a></span>
 <span id="cb36-3"><a href=""></a>new_df[(new_df.Integers<span class="op">&gt;</span><span class="dv">10</span>) <span class="op">&amp;</span> (new_df.Floats<span class="op">&gt;</span><span class="fl">2.5</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="316">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -655,18 +655,18 @@ Name: Integers, dtype: int64</code></pre>
 <p>DataFrames operate on 2 dimensions.</p>
 <p><code>Axis = 0</code> invokes functions across rows</p>
 <p>default behaviour when the axis is not specified.</p>
-<div id="a4f2f928" class="cell" data-execution_count="21">
+<div id="d0fd8c68" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>new_df.<span class="bu">sum</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="317">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>Integers    100.0
 Floats       12.0
 dtype: float64</code></pre>
 </div>
 </div>
 <p><code>Axis = 1</code> invokes functions across columns.</p>
-<div id="e6f1b7f7" class="cell" data-execution_count="22">
+<div id="e098815d" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>new_df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="318">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>a    11.5
 b    22.5
 c    33.5
@@ -679,11 +679,11 @@ dtype: float64</code></pre>
 
 <p>We can mix element-wise operations with axis functions</p>
 <p>Example: Create a column with the sum of squares of each row.</p>
-<div id="4bc7d2a7" class="cell" data-execution_count="23">
+<div id="09ac2d20" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a><span class="co"># Just one line of code!</span></span>
 <span id="cb41-2"><a href=""></a>new_df[<span class="st">'Sumsq'</span>] <span class="op">=</span> (new_df<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) </span>
 <span id="cb41-3"><a href=""></a>new_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="319">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -749,19 +749,19 @@ dtype: float64</code></pre>
 <h2>From Numpy to Pandas: <code>where()</code></h2>
 <p>In Numpy, the <code>where()</code> allows to describe actions associated to <code>True</code> and <code>False</code></p>
 <p>an if/then/else construct, essentially</p>
-<div id="bf33a0c6" class="cell" data-execution_count="24">
+<div id="64d1942a" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>l <span class="op">=</span> np.arange(<span class="dv">9</span>).reshape((<span class="dv">3</span>, <span class="dv">3</span>))</span>
 <span id="cb42-2"><a href=""></a>l</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="320">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>array([[0, 1, 2],
        [3, 4, 5],
        [6, 7, 8]])</code></pre>
 </div>
 </div>
-<div id="2f35c80d" class="cell" data-execution_count="25">
+<div id="7e604f78" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="co">#  If True then make it double, else halve it</span></span>
 <span id="cb44-2"><a href=""></a>np.where(l<span class="op">&lt;</span><span class="dv">5</span>, l<span class="op">*</span><span class="dv">2</span>, l<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="321">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>array([[0. , 2. , 4. ],
        [6. , 8. , 2.5],
        [3. , 3.5, 4. ]])</code></pre>
@@ -771,10 +771,10 @@ dtype: float64</code></pre>
 <section class="slide level2">
 
 <p>P. executes <code>where()</code> differently: when <code>False</code> it assigns <code>n/a</code></p>
-<div id="6fe3d438" class="cell" data-execution_count="26">
+<div id="869a2b97" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>df_l <span class="op">=</span> pd.DataFrame(l)</span>
 <span id="cb46-2"><a href=""></a>df_l</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="322">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -824,9 +824,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="48e67a38" class="cell" data-execution_count="27">
+<div id="da6f1024" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>df_l.where(df_l<span class="op">&lt;</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="323">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -879,12 +879,12 @@ dtype: float64</code></pre>
 </section>
 <section id="numpy-func.-to-pandas-objects" class="slide level2">
 <h2>Numpy func. to Pandas objects</h2>
-<div id="f314181c" class="cell" data-execution_count="28">
+<div id="8e66e317" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a><span class="co"># l is a Numpy matrix which readily interoperates with Pandas</span></span>
 <span id="cb48-2"><a href=""></a>my_df <span class="op">=</span> pd.DataFrame(l, columns<span class="op">=</span>[<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>])</span>
 <span id="cb48-3"><a href=""></a></span>
 <span id="cb48-4"><a href=""></a>my_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="324">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -934,10 +934,10 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="9aaa3085" class="cell" data-execution_count="29">
+<div id="3de9d2d1" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="co"># Extract the square root of each el. of column B (NB: my_df remains unchanged)</span></span>
 <span id="cb49-2"><a href=""></a>np.sqrt(my_df.B) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="325">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>0    1.000000
 1    2.000000
 2    2.645751
@@ -947,11 +947,11 @@ Name: B, dtype: float64</code></pre>
 </section>
 <section id="back-and-forth-bw-pandas-and-numpy" class="slide level2">
 <h2>Back and Forth b/w Pandas and Numpy</h2>
-<div id="be998a98" class="cell" data-execution_count="30">
+<div id="4880b789" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="co"># Extract the values back into a Numpy object</span></span>
 <span id="cb51-2"><a href=""></a>m <span class="op">=</span> my_df.values</span>
 <span id="cb51-3"><a href=""></a>m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="326">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>array([[0, 1, 2],
        [3, 4, 5],
        [6, 7, 8]])</code></pre>
@@ -979,7 +979,7 @@ Name: B, dtype: float64</code></pre>
 <section id="biostats-data---info" class="slide level2">
 <h2>Biostats data - <code>info()</code></h2>
 <p>The <code>info()</code> method outputs top-down information on the DataFrame</p>
-<div id="dd200632" class="cell" data-execution_count="31">
+<div id="1854a3ef" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a>MYDATA <span class="op">=</span> <span class="st">'data/biostats.csv'</span></span>
 <span id="cb54-2"><a href=""></a></span>
 <span id="cb54-3"><a href=""></a>df_bio <span class="op">=</span> pd.read_csv(MYDATA)</span>
@@ -1004,9 +1004,9 @@ memory usage: 852.0+ bytes</code></pre>
 <section id="biostats-data---head-and-tail" class="slide level2">
 <h2>Biostats data - <code>head()</code> and <code>tail()</code></h2>
 <p>Handy visualisation of first/last n rows (default = 5)</p>
-<div id="af766aaa" class="cell" data-execution_count="32">
+<div id="2e76604a" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>df_bio.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="328">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1083,9 +1083,9 @@ memory usage: 852.0+ bytes</code></pre>
 </section>
 <section class="slide level2">
 
-<div id="efd38dc5" class="cell" data-execution_count="33">
+<div id="7537da3f" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>df_bio.tail()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="329">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1164,12 +1164,12 @@ memory usage: 852.0+ bytes</code></pre>
 <h2>Biostats data - index column</h2>
 <p>Selecting the index column affects the structure of the DataFrame and thus information retrieval.</p>
 <p><strong>Caution:</strong> the index does not have to be unique. Multiple rows could have the same index name.</p>
-<div id="de4a2750" class="cell" data-execution_count="34">
+<div id="37c263d7" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a><span class="co"># here we set the Name column as the index</span></span>
 <span id="cb58-2"><a href=""></a>df_bio2 <span class="op">=</span> pd.read_csv(MYDATA, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb58-3"><a href=""></a></span>
 <span id="cb58-4"><a href=""></a>df_bio2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="330">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1226,10 +1226,10 @@ memory usage: 852.0+ bytes</code></pre>
 </section>
 <section class="slide level2">
 
-<div id="470285eb" class="cell" data-execution_count="35">
+<div id="62489d80" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a><span class="co">#It is now possible to use elements of the Name column to select an entire row</span></span>
 <span id="cb59-2"><a href=""></a>df_bio2.loc[<span class="st">'Bert'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="331">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>Sex              M
 Age             42
 Height(in)      68
@@ -1242,10 +1242,10 @@ Name: Bert, dtype: object</code></pre>
 
 <h3 id="descriptive-stats---describe">Descriptive stats - <code>describe()</code></h3>
 <p>Compute the descriptive stats of quantitative variables</p>
-<div id="6f9d0bd8" class="cell" data-execution_count="36">
+<div id="4b9872c7" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a><span class="co"># Descriptive statistics for the Age variable</span></span>
 <span id="cb61-2"><a href=""></a>df_bio[<span class="st">'Age'</span>].describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="332">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>count    18.000000
 mean     34.666667
 std       7.577055
@@ -1262,10 +1262,10 @@ Name: Age, dtype: float64</code></pre>
 <section id="descriptive-stats---categorical-vars" class="slide level2">
 <h2>Descriptive stats - categorical vars</h2>
 <p>The <code>value_counts()</code> method computes the unique values and how many times they occur.</p>
-<div id="3e924973" class="cell" data-execution_count="37">
+<div id="1b59e28f" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a><span class="co"># Descriptive statistics for the entire DataFrame</span></span>
 <span id="cb63-2"><a href=""></a>df_bio.Sex.value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="333">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>Sex
 M    11
 F     7
@@ -1282,7 +1282,7 @@ Name: count, dtype: int64</code></pre>
 
 <p>Pandas objects come with methods for visualisation</p>
 <p>they are built on top of matplotlib</p>
-<div id="364c7326" class="cell" data-execution_count="38">
+<div id="9999731d" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>df_bio[<span class="st">'Age'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>)</span>
 <span id="cb65-2"><a href=""></a></span>
 <span id="cb65-3"><a href=""></a><span class="co"># alternative syntax:</span></span>

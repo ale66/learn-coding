@@ -13,8 +13,8 @@ there are tears for things and mortal things touch the mind. \
 Release your fear; this fame will bring you some safety."
 
 # split it into separate words. 
-# Here '.' and ' ' are the delimiters 
-# TO DO: add ';'
+# Here '.' is the delimiter 
+# TO DO: manage ';'
 
 sentences = original.split('. ')
 
