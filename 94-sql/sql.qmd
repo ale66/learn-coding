@@ -1,0 +1,653 @@
+---
+title: 'Learn Coding'
+author: 'ale66'
+format: 
+  revealjs:
+    footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 2
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## This unit
+
+1. Introduction to Database Management systems
+   - Some theory on databases
+  
+2. Introduction to SQL and SQL by Python
+   - Introduction to structured vs. unstructured data, relational databases
+
+::: {.fragment}
+```sql
+SELECT Pizza
+FROM Freezer
+WHERE Pepperoni = 10
+AND Olives = 'Black'
+```
+:::
+
+## Data organisation
+
+**Structured data**
+
+- Clearly defined data types
+- A data model (called schema) defines the data
+- Data type (e.g. integer), data format (e.g. +44 (079) 444 4444)
+- Data model defines rules and constraints!
+- E.g. salary should be >0, first name cannot be empty etc.
+
+**Unstructured data**
+
+- Internal structure is not pre-defined
+- There is no data model
+
+## Structured vs Unstructured data
+
+::: {.columns}
+::: {.column width="50%"}
+**Structured data**
+
+- Resides in relational databases
+- A database structured to recognise relations between stored items of data
+:::
+
+::: {.column width="50%"}
+**Unstructured data**
+
+- Everything else!
+- Text files, emails, websites, media, social media etc.
+:::
+:::
+
+## In detail … Structured data
+
+- Clearly defined data types
+- Designed in a way to be easy to search data
+- Usually stored in relational databases
+  - Relational database management systems (RDBMS)
+- Fields (column titles) easy to manage using constraints
+- To interact with RDBMS we use the Structured Query Language (SQL)
+  - Extract and manipulate data based on queries
+  - The top programming language by mentions in job adverts for technical positions [IEEE Spectrum, Aug. 2023]
+
+## In detail … Unstructured data
+
+- Have some internal structure
+- There is no clear data model
+- It could be difficult to search
+- Unstructured data stored in NoSQL database systems
+
+**Examples:**
+
+- Text files
+- Emails
+
+## Structured vs Unstructured
+
+![](imgs/structured-vs-unstructured.jpeg)
+
+## Semi-structured data
+
+> Semi-structured data is a form of structured data that does not obey the formal structure of data models associated with relational databases or other forms of data tables, but nonetheless contains tags or other markers to separate semantic elements and enforce hierarchies of records and fields within the data. [Wikipedia]
+
+**Examples:**
+
+- JSON
+- XML
+
+**NoSQL systems:** Ideally systems to store Semi-structured data
+
+## Example of XML file
+
+Extensible Markup Language (XML) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
+
+```xml
+<note>
+  <to>User</to>
+  <from>System</from>
+  <heading>Reminder</heading>
+  <body>Example XML structure</body>
+</note>
+```
+
+Source: [Wikipedia](https://en.wikipedia.org/wiki/XML)
+
+## Example of JSON file
+
+JavaScript Object Notation (JSON) is an open-standard file format that uses human-readable text to transmit data objects consisting of attribute–value pairs and array data types.
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "age": 30,
+  "city": "New York"
+}
+```
+
+Source: [Wikipedia](https://en.wikipedia.org/wiki/JSON)
+
+## Summary
+
+**Structured data:**
+
+- Examples: Airline reservation system, Inventory control
+
+**Semi-structured data:**
+
+- Examples: Data generated from systems, Data collected from a pulse monitoring device
+
+**Unstructured data:**
+
+- Examples: Email clients, Word processing documents, Logs and reports
+
+## Relational databases
+
+::: {.columns}
+::: {.column width="60%"}
+- A logical view of the dataset
+- Data is structured in tables
+- Data is well organised
+- Much easier to control
+- Much easier to search
+- Almost impossible to scale
+- A table is a 2-D data structure, with rows (records) and columns (labels)
+:::
+
+::: {.column width="40%"}
+| User_id | Fname   | Lname      | Phone       |
+|---------|---------|------------|-------------|
+| 1001    | Stelios | Sotiriadis | 07912341234 |
+| 1002    | Niki    | Andrea     | 07976543421 |
+| 1003    | George  | Martin     | 07912341234 |
+:::
+:::
+
+## Table characteristics
+
+**A table includes attributes:**
+
+**Keys**
+
+- **Primary Key (PK):** An attribute that uniquely identifies any given entity (row of record)
+- Keys are used in all systems: Passport ID, NINO, NHS Number
+
+**Key characteristics:**
+
+- Cannot be empty for a record (Not Null)
+- Has to be unique!
+- No duplicated values are allowed
+- Very useful when you create relationships between tables
+- Helps to avoid redundancy (records that are repeated)
+
+## What is a data model (schema)?
+
+> A data model (or datamodel) is an abstract model that organizes elements of data and standardizes how they relate to one another and to the properties of real-world entities.
+
+## What is wrong with the following dataset?
+
+| Book_ID | Book_Title        | Book_Author | Author_Address | Authors_Phone_Number |
+|---------|-------------------|-------------|----------------|----------------------|
+| 1       | Hobbit            | Tolkien     | Bournemouth    | 01202 345234         |
+| 2       | LOTR 1            | Tolkien     | Bournemouth    | 01202 345234         |
+| 3       | LOTR 2            | Tolkien     | Bournemouth    | 01202 345234         |
+| 4       | LOTR 3            | Tolkien     | Bournemouth    | 01202 345234         |
+| 5       | The Silmarillion  | Tolkien     | Bournemouth    | 01202 345234         |
+
+5 rows × 5 columns = 25 data
+
+## Quiz 1: Can we redesign it?
+
+- Produce a better design
+- Define "better"…
+
+| Book_ID | Book_Title        | Book_Author | Author_Address | Authors_Phone_Number |
+|---------|-------------------|-------------|----------------|----------------------|
+| 1       | Hobbit            | Tolkien     | Bournemouth    | 01202 345234         |
+| 2       | LOTR 1            | Tolkien     | Bournemouth    | 01202 345234         |
+| 3       | LOTR 2            | Tolkien     | Bournemouth    | 01202 345234         |
+| 4       | LOTR 3            | Tolkien     | Bournemouth    | 01202 345234         |
+| 5       | The silmarillion  | Tolkien     | Bournemouth    | 01202 345234         |
+
+## Designing a "better" data model
+
+::: {.columns}
+::: {.column width="50%"}
+**Books Table**
+
+| Book_ID | Book_Title       | Author_ID |
+|---------|------------------|-----------|
+| 1       | Hobbit           | A1        |
+| 2       | LOTR 1           | A1        |
+| 3       | LOTR 2           | A1        |
+| 4       | LOTR 3           | A1        |
+| 5       | The silmarillion | A1        |
+
+5 rows × 3 columns = 15 data
+:::
+
+::: {.column width="50%"}
+**Authors Table**
+
+| Author_ID | Book_Author | Author_Address | Authors_Phone_Number |
+|-----------|-------------|----------------|----------------------|
+| A1        | Tolkien     | Bournemouth    | 01202 345234         |
+
+1 row × 4 columns = 4 data
+
+**Total: 19 data (less data…)**
+:::
+:::
+
+## Database creation
+
+- A database is an organized collection of structured information, or data, typically stored electronically in a computer system
+- A database is usually controlled by a (heavy) software called database management system (DBMS)
+- Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system, often shortened to just database
+
+## Popular RDBMSs
+
+- IBM DB2
+- Oracle
+- Microsoft SQL Server
+- MySQL
+- PostgreSQL
+- SQLite: a Python port
+- MongoDB: not a SQL database
+- Check the updated rankings
+
+## What is SQL
+
+- SQL (pronounced "ess-que-el") stands for Structured Query Language
+- SQL is used to communicate with a database
+- SQL provides a set of commands to interact with a database system
+
+## Create a database
+
+```sql
+CREATE DATABASE bl_data;
+```
+
+Create a database
+
+```sql
+DROP DATABASE bl_data;
+```
+
+Delete a database
+
+## Create a new table
+
+**Table Name: Cities**
+
+| city_id | name          | country |
+|---------|---------------|---------|
+| 1       | London        | GB      |
+| 2       | New York City | US      |
+
+```sql
+CREATE TABLE cities (
+  city_id INTEGER PRIMARY KEY,
+  name VARCHAR(24) NOT NULL,
+  country VARCHAR(2)
+);
+```
+
+## Create a new table (explained)
+
+We want to store data about urban areas:
+
+- `city_id` will be numeric (Integer) and my primary key
+  - No duplicates/Not Null values
+- `name` will be string (characters), in SQL called varchar!
+  - The size of the name could be up to 24 characters…
+  - name cannot be empty in my table!
+- `country` will be a varchar, up to 2 characters
+  - E.g. UK, US, GR, NL etc.
+
+Test it on [w3schools](https://www.w3schools.com/sql/)!
+
+## SQL Datatypes
+
+**VARCHAR(size):**
+
+- A VARIABLE length string (can contain letters, numbers, and special characters)
+- The size parameter specifies the maximum column length in characters - can be from 0 to 65535
+
+**TEXT:**
+
+- A field with a maximum length of 65535 characters
+
+**INTEGER(M):**
+
+- M is optional, and denotes the display length
+- Signed range is from -2147483648 to 2147483647
+
+**FLOAT(M,D):**
+
+- A floating-point number that cannot be unsigned
+- You can define the display length (M) and the number of decimals (D)
+
+## SQL Describe a table to see internal structure
+
+```sql
+DESCRIBE cities;
+```
+
+## SQL Insert data
+
+RDBMSs allow slightly different INSERT commands
+
+**MySQL:**
+
+```sql
+INSERT INTO cities (city_id, name, country) 
+VALUES (1,'London','GB');
+
+INSERT INTO cities (city_id, name, country) 
+VALUES (2,'New York City','US');
+```
+
+## SQL Insert data, 2
+
+When used from inside Python, PostgreSQL uses the following:
+
+```python
+"""INSERT INTO cities (city_id, name, country)
+VALUES (%s, %s, %s)""",
+(2,'New York City','US')
+```
+
+## Select data
+
+**Table Name: cities**
+
+| city_id | name          | country |
+|---------|---------------|---------|
+| 1       | London        | GB      |
+| 2       | New York City | US      |
+
+```sql
+SELECT * FROM cities;
+```
+
+```sql
+SELECT *
+FROM cities
+WHERE country = 'GB';
+```
+
+The SELECT statement is used to select data from a database.
+
+## Update data
+
+```sql
+UPDATE cities SET country='UK' WHERE city_id=1;
+```
+
+```sql
+SELECT * FROM cities;
+```
+
+## Quiz! Let's create another table
+
+```sql
+CREATE TABLE writers
+( 
+  writer_id INTEGER PRIMARY KEY,
+  writer_fname VARCHAR(24) NOT NULL,
+  writer_lname VARCHAR(24) NOT NULL,
+  writer_gender VARCHAR(1),
+  writer_birth_year INTEGER
+);
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| 103       | J.K.         | Rowling      | F             | 1965              |
+
+*Cannot be empty*
+
+## Insert data by the row
+
+```sql
+INSERT INTO WRITERS (WRITER_ID, WRITER_FNAME, WRITER_LNAME, 
+                     WRITER_GENDER, WRITER_BIRTH_YEAR)
+VALUES (100, 'AGATHA','CHRISTIE','F',1890);
+
+INSERT INTO WRITERS (WRITER_ID, WRITER_FNAME, WRITER_LNAME, 
+                     WRITER_GENDER, WRITER_BIRTH_YEAR)
+VALUES (101, 'J.R.R.','TOLKIEN','M',1892);
+
+INSERT INTO WRITERS (WRITER_ID, WRITER_FNAME, WRITER_LNAME, 
+                     WRITER_GENDER, WRITER_BIRTH_YEAR)
+VALUES (105, 'Rowland','Atkinson', NULL, NULL);
+```
+
+## Insert several rows
+
+```sql
+INSERT INTO writers (writer_id, writer_fname, writer_lname,
+                     writer_gender, writer_birth_year)
+VALUES (100, 'Agatha','Christie','F',1890),
+       (101, 'J.R.R.','Tolkien','M',1892),
+       (102, 'Charles','Dickens','M',1812),
+       (103,'J.K.', 'Rowling','F',1965);
+```
+
+## Quiz
+
+Let us assume that we have a customers table:
+
+- Identify the customers primary key
+- What is the data type of CustomerName?
+- What is the data type of Address?
+
+## Quiz solution
+
+Let us assume that we have a customers table:
+
+- Identify the customers primary key: **CustomerID**
+- What is the data type of CustomerName? **VARCHAR(25)**
+- What is the data type of Address? **TEXT**
+
+## Select data using WHERE clause to filter records
+
+```sql
+SELECT writer_fname, writer_lname
+FROM writers
+WHERE writer_gender = 'F' AND country = 'UK';
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| 103       | J.K.         | Rowling      | F             | 1965              |
+
+## Select data using WHERE clause (cont.)
+
+```sql
+SELECT writer_fname, writer_lname
+FROM writers
+WHERE writer_birth_year<1900;
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| 103       | J.K.         | Rowling      | F             | 1965              |
+
+## Select data using where and logical condition
+
+```sql
+SELECT writer_fname, writer_lname, writer_birth_year 
+FROM writers 
+WHERE writer_birth_year>1900 AND writer_gender='F';
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| 103       | J.K.         | Rowling      | F             | 1965              |
+
+## Quiz
+
+1. Select the "CustomerName" and "City" columns from the "Customers" table
+2. Select all the data from customer name, address and city for customers living in Berlin
+
+## Quiz solution
+
+1. Select the "CustomerName" and "City" columns from the "Customers" table
+
+```sql
+SELECT CustomerName, City FROM customers;
+```
+
+2. Select all the data from customer name, address and city for customers living in Berlin
+
+```sql
+SELECT CustomerName, Address FROM customers
+WHERE City='Berlin';
+```
+
+## Count data using count function
+
+```sql
+SELECT COUNT(writer_gender)
+FROM writers
+WHERE writer_birth_year>1900;
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| 103       | J.K.         | Rowling      | F             | 1965              |
+
+## More on Select data
+
+```sql
+SELECT writer_gender, COUNT(writer_gender) 
+FROM writers 
+GROUP BY writer_gender;
+```
+
+The "GROUP BY" statement groups rows that have the same values into summary rows: "count the number of genders"
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| 103       | J.K.         | Rowling      | F             | 1965              |
+
+## Delete data by filtering records
+
+```sql
+DELETE FROM writers
+WHERE writer_birth_year=1965;
+```
+
+```sql
+SELECT * FROM writers;
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year |
+|-----------|--------------|--------------|---------------|-------------------|
+| 100       | Agatha       | Christie     | F             | 1890              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              |
+| 102       | Charles      | Dickens      | M             | 1812              |
+| ~~103~~   | ~~J.K.~~     | ~~Rowling~~  | ~~F~~         | ~~1965~~          |
+
+## ALTER TABLE: Change the structure (schema)
+
+```sql
+ALTER TABLE writers ADD number_of_books INTEGER;
+```
+
+```sql
+DESCRIBE writers;
+```
+
+## Let's add new values (update…)
+
+```sql
+UPDATE writers
+SET number_of_books=73
+WHERE writer_id=100;
+
+UPDATE writers
+SET number_of_books=26
+WHERE WRITER_ID=101;
+
+UPDATE writers
+SET number_of_books=20
+WHERE writer_id=102;
+```
+
+## The AVG() function
+
+The AVG() function returns the average value of a numeric column.
+
+```sql
+SELECT AVG(number_of_books) 
+FROM writers 
+WHERE writer_gender='M';
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year | number_of_books |
+|-----------|--------------|--------------|---------------|-------------------|-----------------|
+| 100       | Agatha       | Christie     | F             | 1890              | 73              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              | 26              |
+| 102       | Charles      | Dickens      | M             | 1812              | 20              |
+
+## Summary on SQL functions
+
+- **COUNT()** - Returns the number of rows
+- **SUM()** - Returns the sum of values
+- **AVG()** - Returns the average value
+- **MIN()** - Returns the minimum value
+- **MAX()** - Returns the maximum value
+
+## Combine function with a group by…
+
+```sql
+SELECT AVG(number_of_books)
+FROM writers
+GROUP BY writer_gender;
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year | number_of_books |
+|-----------|--------------|--------------|---------------|-------------------|-----------------|
+| 100       | Agatha       | Christie     | F             | 1890              | 73              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              | 26              |
+| 102       | Charles      | Dickens      | M             | 1812              | 20              |
+
+## More on select…
+
+```sql
+SELECT writer_gender, SUM(number_of_books), 
+       AVG(number_of_books) 
+FROM writers 
+GROUP BY writer_gender;
+```
+
+| writer_id | writer_fname | writer_lname | writer_gender | writer_birth_year | number_of_books |
+|-----------|--------------|--------------|---------------|-------------------|-----------------|
+| 100       | Agatha       | Christie     | F             | 1890              | 73              |
+| 101       | J.R.R.       | Tolkien      | M             | 1892              | 26              |
+| 102       | Charles      | Dickens      | M             | 1812              | 20              |
