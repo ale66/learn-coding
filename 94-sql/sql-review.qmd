@@ -69,12 +69,9 @@ Silent conventions make such tables easy to recognise and work with
 * A *primary key* is an 'ID' column that is usually specified for search
 
 
-## SQL
-
+# SQL Tables
 
 ---
-
-## SQL Tables
 
 Careful planning of the table:
 
@@ -88,8 +85,7 @@ CREATE TABLE mywriters (
 );
 ```
 
-A table may have a lifespan of decades
-
+A table may have a lifespan of decades!
 
 ---
 
@@ -250,16 +246,17 @@ CREATE TABLE students(
     student_id: PRIMARY KEY int(6),
     ...
     // navigate to extra personal info
-    cod_fis: varchar(16) REFERENCES residents(cf)
+    nino: varchar(16) REFERENCES residents(nino)
 );
 ```
 
-only inserts and updates involving a *valid* fiscal code are allowed
-
+only inserts and updates involving a *valid* Nat'l insurance numbers are allowed
 
 ---
 
-## PostgreSQL
+# PostgreSQL
+
+---
 
 ```sql
 CREATE TABLE students(
@@ -293,6 +290,8 @@ Only inserts and updates involving three *valid* keys are allowed
 ---
 
 ## PostgreSQL
+
+An example with the Italian fiscal code (16 characters)
 
 ```sql
 CREATE TABLE students(
@@ -459,7 +458,6 @@ FROM   Actors AS A, Actors AS B
 WHERE  A.birth_city = B.birth_city;
 ```
 
-
 ---
 
 Select all pairs of actors who acted in the same film
@@ -477,7 +475,6 @@ WHERE  C.actor = A.actor_id
 
 ---
 
-
 Has anyone ever acted in a film taking place in their own birthplace?
 
 [we need to record the places where each film took place]
@@ -488,7 +485,5 @@ FROM   ...
 WHERE  ...
 ;
 ```
-
-
 
 ---

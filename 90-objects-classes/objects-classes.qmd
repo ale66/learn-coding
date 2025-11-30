@@ -74,9 +74,9 @@ objects can be understood as extensions of the now-familiar concept of Python va
 Objects of our new class `temperature`
 
 ```python
-temp_milan = temperature('22-nov-2024', 11, 'C')
+temp_milan = temperature('24-nov-2025', 11, 'C')
 
-temp_seattle = temperature('22-nov-2024', 50, 'F')
+temp_seattle = temperature('24-nov-2025', 50, 'F')
 ```
 
 Custom methods for the class
