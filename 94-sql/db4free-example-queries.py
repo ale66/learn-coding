@@ -3,6 +3,20 @@
 
 # Learn SQL SELECT queries and pandas integration
 
+'''
+To be learned:
+
+- SQL queries are embedded into Python code
+
+- we're engaging external operations that could go wrong:
+ the 'try/catch' diade
+
+- cursor is a magic device that, like 'with' returns data
+
+- advanced formatting with the f -for format printing
+
+'''
+
 # %%
 
 import mysql.connector
@@ -21,8 +35,8 @@ DB_CONFIG = {
     'host': 'db4free.net',
     'port': 3306,
     'database': 'learn_coding',  # from instructor
-    'user': 'instructor',     # from instructor
-    'password': 'Le@rn_cod1ng'  # from instructor
+    'user': '',     # ask instructor
+    'password': ''  # ask instructor
 }
 
 # %%
@@ -32,7 +46,7 @@ DB_CONFIG = {
 ### this functions is boilerplate: include and reuse
 
 def connect_to_database():
-    """Establish connection to the remote MySQL database"""
+    '''Establish connection to the remote MySQL database'''
 
     try:
         print("Connecting to the publisher database...")
@@ -60,6 +74,7 @@ conn = connect_to_database()
 
 # %%
 
+# the connection channel is live!
 if conn and conn.is_connected():
 
     cursor = conn.cursor()
@@ -79,7 +94,11 @@ if conn and conn.is_connected():
 
     # Query 2: View books
     
-    cursor.execute("SELECT title, genre, price FROM catalog LIMIT 10")
+    cursor.execute('''
+                    SELECT title, genre, price 
+                    FROM catalog 
+                    LIMIT 10;
+                   ''')
 
     results = cursor.fetchall()
     
@@ -93,8 +112,11 @@ if conn and conn.is_connected():
     cursor = conn.cursor()
     
     # Query 3: Filter by genre
-    cursor.execute("SELECT title, price FROM catalog WHERE genre = 'Mystery'")
-
+    cursor.execute('''
+                    SELECT title, price 
+                    FROM catalog 
+                    WHERE genre = 'Mystery'
+                   ''')
 
     results = cursor.fetchall()
     
@@ -109,9 +131,31 @@ if conn and conn.is_connected():
 
     # Query 4: Filter by gender: female novelists
     
-    cursor.execute("SELECT name, nationality FROM authors WHERE sex = 'F'")
+    cursor.execute('''
+                    SELECT name, nationality 
+                    FROM authors 
+                    WHERE sex = 'F'
+                   ''')
+    
+    
     results = cursor.fetchall()
     
     for row in results:
         print(f"{row[0]:<20} | {row[1]}")
+
+# %%
+
+if conn and conn.is_connected():
+
+    # Query 5: View the whole catalog
     
+    cursor.execute('''
+                    DESCRIBE catalog 
+                   ''')
+
+    results = cursor.fetchall()
+    
+    for row in results:
+        print(f"{row}")
+
+# %%
