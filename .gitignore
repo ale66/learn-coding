@@ -1,2 +1,4 @@
 ./42-loops/char-count-solved.py
 ./30-iterables/in-class-coding-13oct25.py
+/.quarto/
+**/*.quarto_ipynb

@@ -1,0 +1,90 @@
+---
+title: "Coding for Computational Social Science 2026-27"
+subtitle: 'v. of Sep. 15th'
+author: ''
+date: ''
+format:
+  html:
+    toc: false
+    toc-depth: 2
+    number-sections: true
+---
+
+This course introduces students to the principles and practice of Coding, with a focus on quantitative analysis of data for Sociology and Political Sciences. 
+
+All lecture materials, exercises, and boilerplate code
+are published in the course GitHub repository. 
+Please register for a [github.com/](https://github.com/) account using your *@studenti.unimi.it* account and join [https://github.com/education](https://github.com/education).
+
+
+## Online Course resources 
+
+| Resource | Link |
+|---|---|
+| Moodle (course page, quizzes, readings) | [myariel.unimi.it/course/view.php?id=12471](https://myariel.unimi.it/course/view.php?id=12471) |
+| MS Teams (live sessions, announcements, chat) | [MS Teams team](https://teams.microsoft.com/l/team/19%3AWCOL3hhAQnyi20EiQ34LvfqAsRXztUWlShtJpI7XzV41%40thread.tacv2/conversations?groupId=de0d1f6e-4066-41eb-b6b9-e360fae2fa51&tenantId=13b55eef-7018-4674-a3d7-cc0db06d545c) |
+| GitHub (lecture materials & code) | [github.com/ale66/learn-coding](https://github.com/ale66/learn-coding) |
+Python tutor (learn coding online) | [pythontutor.com/](https://pythontutor.com/) | 
+Memory graph (learn coding online) | [memory-graph.com/](https://memory-graph.com/) | 
+
+
+## Logistics
+
+Lectures take place Thursday, 16:30-18:30, in *Aula 27* and Friday, 10:30-12:30, in *Aula 24;* both are located on the first floor of the *Conservatorio* building. 
+A (low-fi) AV broadcast and lecture recording will be available.
+
+
+## Contacts
+
+Questions on course materials, coding etc.: please post on Teams so all benefit from the answer.
+
+Questions on personal project/studies: you may contact me on Teams anytime.
+
+In-person office hours: Friday after class and Saturday before class.
+
+
+
+## Software Tools
+
+Installed these to follow the course and complete exercises:
+
+- **Web browser** Firefox will be used in class. 
+
+- **Package manager** to quickly install/update software. For Win: install [chocolatey.org](https://chocolatey.org/); For Mac: install [brew.sh](https://brew.sh/).
+
+- **Python interpreter** [www.python.org/](https://www.python.org/)
+
+- **Code editor** [code.visualstudio.com/](https://code.visualstudio.com/); also available online at [vscode.dev/](https://vscode.dev/).
+- **Version control software** [git-scm.com/](https://git-scm.com/).
+- **A modern Git manager**, e.g., [fork.dev](https://fork.dev/). 
+
+
+## Calendar (TBC)
+
+| Week | Thursday | Friday |
+|-|------|------|
+| 0 | Onboarding | Simple syntax |
+|   | Os  | Google Colab |
+| 1 | Formal languages |    |
+|   | Version control |  |  
+| 2 | ... |  ...   |
+| 3 | ... |  ...   |
+| 4 | ...  |  ... |
+| 5 | ...  | ... |
+| 6 | ...    | ... |
+| 7 | ...  | ...   |
+| 8 | ...  | ...   |
+| 9 | ...  | ...  |
+
+
+## Exams
+
+Prepare and maintain on GitHub a coding project consisting of, e.g., a replication study from the CSS scientific literature or an analysis of open user-generated or admin data, e.g., from [gdeltproject.org/](https://gdeltproject.org/). 
+The instructor will present the project challenge in class. 
+The oral exam consists of presenting the technical side of your project and showing *ownership* of the code.
+
+**Exam dates** December 17-19 in person at the *Sala seminari* on the second floor of the *Passione* building (TBC). 
+Exam slots are bookable via Teams. Arrangements are available for Erasmus/exchange students who need to leave Milan earlier.
+For 2027, January 13 and 14 (TBC) and dates in March and July. 
+
+
