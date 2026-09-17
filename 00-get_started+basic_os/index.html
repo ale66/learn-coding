@@ -6,8 +6,8 @@
 <script src="get_started+basic-os_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="get_started+basic-os_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="get_started+basic-os_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="get_started+basic-os_files/libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="get_started+basic-os_files/libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="ale66">
   <title>Learn Coding</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="get_started+basic-os_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="get_started+basic-os_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="get_started+basic-os_files/libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
+  <link rel="stylesheet" href="get_started+basic-os_files/libs/revealjs/dist/theme/quarto-84b150702567ae7e15cad124fb9039e2.css">
   <link href="get_started+basic-os_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="get_started+basic-os_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="get_started+basic-os_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -200,7 +206,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-ale66 
+ale66
 </div>
 </div>
 </div>
@@ -282,33 +288,36 @@ ale66
 </section>
 <section id="algorithms-by-example" class="slide level2">
 <h2>Algorithms, by example</h2>
+<p><em>It’s nice and clear, and 25 degrees in Naples today. <em>No, it’s 77 in Naples (FL)</em></em></p>
+<div class="fragment">
 <p>the Farenheit temperature in Naples can be obtained by</p>
 <ol type="1">
 <li><p>taking the current temperature in Celsius degrees</p></li>
 <li><p>rescale it by <span class="math inline">\(\frac{9}{5}\)</span></p></li>
 <li><p>re-center it by adding 32</p></li>
 </ol>
+</div>
 </section>
 <section id="code" class="slide level2">
 <h2>Code</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>my_celsius <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Please enter the current temperature in Naples:'</span>))</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>my_farenheit <span class="op">=</span> (my_celsius <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> <span class="dv">32</span></span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a><span class="bu">print</span>(<span class="ss">f'Today we have </span><span class="sc">{</span>my_farenheit<span class="sc">}</span><span class="ss"> Farenheit degrees in Naples'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a>my_celsius <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Please enter the current temperature in Naples:'</span>))</span>
+<span id="cb1-2"><a href="" aria-label="2"></a></span>
+<span id="cb1-3"><a href="" aria-label="3"></a>my_farenheit <span class="op">=</span> (my_celsius <span class="op">*</span> <span class="dv">9</span><span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> <span class="dv">32</span></span>
+<span id="cb1-4"><a href="" aria-label="4"></a></span>
+<span id="cb1-5"><a href="" aria-label="5"></a><span class="bu">print</span>(<span class="ss">f'Today we have </span><span class="sc">{</span>my_farenheit<span class="sc">}</span><span class="ss"> Farenheit degrees in Naples'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Reading this syntax requires training.</p>
 </section>
 <section id="implementation-compilation" class="slide level2">
 <h2>Implementation: compilation</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="op">&gt;</span>python <span class="ex">-m</span> py_compile my_converter.py <span class="at">-o</span> converter.exe</span>
-<span id="cb2-2"><a href=""></a><span class="op">&gt;</span>converter.exe</span>
-<span id="cb2-3"><a href=""></a><span class="op">&gt;</span>Please <span class="ex">enter</span> the temperature in Naples now: </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>python <span class="ex">-m</span> py_compile my_converter.py <span class="at">-o</span> converter.exe</span>
+<span id="cb2-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>converter.exe</span>
+<span id="cb2-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>Please <span class="ex">enter</span> the temperature in Naples now: </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>file <a href="">converter.exe</a> is for computers, not humans.</p>
 </section>
 <section id="implementation-interpretation" class="slide level2">
 <h2>Implementation: interpretation</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="op">&gt;</span>python <span class="ex">my_converter.py</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">&gt;</span>Please <span class="ex">enter</span> the current temperature in Milan: </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>python <span class="ex">my_converter.py</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>Please <span class="ex">enter</span> the current temperature in Milan: </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="computers" class="title-slide slide level1 center">
@@ -379,9 +388,8 @@ ale66
 </ul>
 
 <img data-src="./imgs/manila-folders.png" class="r-stretch"><ul>
-<li>hyerarchy is not about importance. It rather creates <em>locality</em></li>
+<li>hierarchy is not about importance, it’s about creating <em>locality</em></li>
 </ul>
-<p>–</p>
 </section>
 <section id="the-file-system-1" class="slide level2">
 <h2>The file system</h2>
@@ -405,25 +413,48 @@ ale66
 <li>Linux/Android: <code>sh</code> or <code>bash</code></li>
 </ul>
 <p>Structure:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="op">&gt;</span>pwd</span>
-<span id="cb4-2"><a href=""></a><span class="op">&gt;</span>dir</span>
-<span id="cb4-3"><a href=""></a><span class="op">&gt;</span>notepad <span class="ex">my_converter.py</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">&gt;</span>cd <span class="ex">..</span></span>
-<span id="cb4-5"><a href=""></a><span class="op">&gt;</span>dir</span>
-<span id="cb4-6"><a href=""></a><span class="op">&gt;</span>pwd</span>
-<span id="cb4-7"><a href=""></a><span class="op">&gt;</span>notepad <span class="ex">my_converter.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>pwd</span>
+<span id="cb4-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>dir</span>
+<span id="cb4-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>notepad <span class="ex">my_converter.py</span></span>
+<span id="cb4-4"><a href="" aria-label="4"></a><span class="op">&gt;</span>cd <span class="ex">..</span></span>
+<span id="cb4-5"><a href="" aria-label="5"></a><span class="op">&gt;</span>dir</span>
+<span id="cb4-6"><a href="" aria-label="6"></a><span class="op">&gt;</span>pwd</span>
+<span id="cb4-7"><a href="" aria-label="7"></a><span class="op">&gt;</span>notepad <span class="ex">my_converter.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="paths" class="slide level2">
 <h2>Paths</h2>
 <p>File must have unique names</p>
 <p>No repeated names in the same folder</p>
 <p>Ok to repeated names in different folders, how?</p>
-<p><em>absolute path:</em> <code>C:\Users\ale\git\learn-coding\00-create_platform\my_converter.py</code></p>
 <p><em>relative path:</em> <code>.\my_converter.py</code></p>
-<p>More relative paths:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="op">&gt;</span>pwd</span>
-<span id="cb5-2"><a href=""></a><span class="ex">C:\Users\ale\git\learn-coding\10-first_steps</span></span>
-<span id="cb5-3"><a href=""></a><span class="op">&gt;</span>python <span class="ex">..\00-create_platform\my_converter.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>the absolute path:</em> <code>C:\Users\ale\_git\learn-coding\00-get_started+basic_os\converter.py</code></p>
+<p><em>another abs. path:</em> <code>C:\Users\ale\Downloads\converter.py</code></p>
+</section>
+<section id="more-relative-paths" class="slide level2">
+<h2>More relative paths:</h2>
+<p>Mac:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>pwd</span>
+<span id="cb5-2"><a href="" aria-label="2"></a><span class="ex">/home/ale/_git/learn-coding/02-get_started+syntax</span></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>python <span class="ex">../00-get_started+basic_os/example-temperature-converter/my_converter.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Win:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>cd</span>
+<span id="cb6-2"><a href="" aria-label="2"></a><span class="ex">C:\Users\aless\Downloads\_git\learn-coding\02-get_started+syntax</span></span>
+<span id="cb6-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>python <span class="ex">..\00-get_started+basic_os\example-temperature-converter\my_converter.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="try-it-out" class="slide level2">
+<h2>Try it out</h2>
+<p>Win:</p>
+<p>Start <code>cmd</code> or <code>Windows terminal</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>cd <span class="ex">..</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>dir</span>
+<span id="cb7-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>notepad <span class="ex">my_converter.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mac:</p>
+<p>Start the Terminal app from the tray</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>cd <span class="ex">..</span></span>
+<span id="cb8-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>pwd</span>
+<span id="cb8-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>ls <span class="ex">-lrt</span></span>
+<span id="cb8-4"><a href="" aria-label="4"></a><span class="op">&gt;</span>open <span class="ex">/System/Applications/TextEdit.app</span></span>
+<span id="cb8-5"><a href="" aria-label="5"></a><span class="op">&gt;</span>open <span class="ex">-e</span> my_converter.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </section></section>
     </div>
