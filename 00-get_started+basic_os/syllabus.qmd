@@ -21,7 +21,7 @@ Please register for a [github.com/](https://github.com/) account using your *@st
 | Resource | Link |
 |---|---|
 | Moodle (course page, quizzes, readings) | [myariel.unimi.it/course/view.php?id=12471](https://myariel.unimi.it/course/view.php?id=12471) |
-| MS Teams (live sessions, announcements, chat) | [MS Teams team](https://teams.microsoft.com/l/team/19%3AWCOL3hhAQnyi20EiQ34LvfqAsRXztUWlShtJpI7XzV41%40thread.tacv2/conversations?groupId=de0d1f6e-4066-41eb-b6b9-e360fae2fa51&tenantId=13b55eef-7018-4674-a3d7-cc0db06d545c) |
+| MS Teams (live sessions, announcements, chat) | [shorturl.at/BSzTQ](https://teams.microsoft.com/l/team/19%3AWCOL3hhAQnyi20EiQ34LvfqAsRXztUWlShtJpI7XzV41%40thread.tacv2/conversations?groupId=de0d1f6e-4066-41eb-b6b9-e360fae2fa51&tenantId=13b55eef-7018-4674-a3d7-cc0db06d545c) |
 | GitHub (lecture materials & code) | [github.com/ale66/learn-coding](https://github.com/ale66/learn-coding) |
 Python tutor (learn coding online) | [pythontutor.com/](https://pythontutor.com/) | 
 Memory graph (learn coding online) | [memory-graph.com/](https://memory-graph.com/) | 
@@ -54,8 +54,8 @@ Install these to follow the course and complete exercises:
 - **Python interpreter** [www.python.org/](https://www.python.org/)
 
 - **Code editor** [code.visualstudio.com/](https://code.visualstudio.com/); also available online at [vscode.dev/](https://vscode.dev/).
-- **Version control software** [git-scm.com/](https://git-scm.com/).
-- **A modern Git manager**, e.g., [fork.dev](https://fork.dev/). 
+- **Version control software** [git-scm.com/](https://git-scm.com/)
+- **A modern Git manager**, e.g., [fork.dev](https://fork.dev/)
 
 
 ## Calendar (TBC)
