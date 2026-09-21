@@ -111,6 +111,11 @@ Coding in some ways is like [music composition]{style="color:#cc0000"}
 
 ## Algorithms, by example
 
+
+*It's nice and clear, and 25 degrees in Naples today. _No, it's 77 in Naples (FL)_* 
+
+. . .
+
 the Farenheit temperature in Naples can be obtained by 
 
 1. taking the current temperature in Celsius degrees
@@ -242,10 +247,10 @@ Software
 
 ![](./imgs/manila-folders.png)
 
-- hyerarchy is not about importance. It rather creates *locality*
+- hierarchy is not about importance, it's about creating *locality*
   
 
---
+---
 
 ## The file system
 
@@ -291,14 +296,56 @@ No repeated names in the same folder
 
 Ok to repeated names in different folders, how?
 
-*absolute path:* ``C:\Users\ale\git\learn-coding\00-create_platform\my_converter.py``
-
 *relative path:* ``.\my_converter.py``
 
-More relative paths: 
+*the absolute path:* ``C:\Users\ale\_git\learn-coding\00-get_started+basic_os\converter.py``
+
+*another abs. path:* ``C:\Users\ale\Downloads\converter.py``
+
+---
+
+## More relative paths: 
+
+Mac:
 
 ```bash
 >pwd
-C:\Users\ale\git\learn-coding\10-first_steps
->python ..\00-create_platform\my_converter.py
+/home/ale/_git/learn-coding/02-get_started+syntax
+>python ../00-get_started+basic_os/example-temperature-converter/my_converter.py
 ```
+
+Win:
+
+```bash
+>cd
+C:\Users\aless\Downloads\_git\learn-coding\02-get_started+syntax
+>python ..\00-get_started+basic_os\example-temperature-converter\my_converter.py
+```
+
+---
+
+## Try it out
+
+Win:
+
+Start `cmd` or `Windows terminal`
+
+```bash
+>cd ..
+>dir
+>notepad my_converter.py
+```
+
+Mac:
+
+Start the Terminal app from the tray
+
+
+```bash
+>cd ..
+>pwd
+>ls -lrt
+>open /System/Applications/TextEdit.app
+>open -e my_converter.py
+```
+

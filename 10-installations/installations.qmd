@@ -15,12 +15,11 @@ execute:
 
 ## Resources
 
-::: {.incremental}
 - Online materials
-- install components :arrow_down:
-:::
 
-# Online materials
+- install components :arrow_down:
+
+
 
 ---
 
@@ -36,7 +35,7 @@ execute:
   
 - MS Teams channel
 
-- online textbook
+- online code execution with visualisation
 
 - GitHub presence
 
@@ -51,9 +50,9 @@ DM on Teams to request inclusion
 
 ---
 
-## online textbook
+## Online textbook
 
-As reference reading we will use an *Foundations of Python Programming,* a version of __Think Python__, from 
+For reference: *Foundations of Python Programming,* a version of __Think Python__, from 
 
 [Runestone academy](https://runestone.academy/ns/books/published/C4CSS-2024-25/index.html)
 
@@ -79,8 +78,6 @@ Step-by-step execution of simple codes with a nice visualisation of what happens
 ![](./imgs/pythontutor.png)
 
 
-# Install components
-
 ---
 
 ## Install components
@@ -91,24 +88,24 @@ Step-by-step execution of simple codes with a nice visualisation of what happens
 :::
 :::
 
-### Install needed components
+---
 
-The following presentation relates to Win 10 laptops. 
+## Install needed components
 
-For Win 11: you need to authorise installations. 
+For Win 11: you may need to authorise installations. 
 
-For MacOS: proceed to normal software dowload+installation. 
+For MacOS: proceed to normal app download+installation. 
 In the notes below substitute 
 
 *Windows Power Shell* by *terminal*
 
 *dir* by *ls -lrt*
 
-For Linux: you don't need me :-)
+For Linux: you don't need me :smile:
 
 ---
 
-#### Python
+## Python
 
 <img src="./imgs/python.png" height="150">
 
@@ -118,7 +115,7 @@ For Linux: you don't need me :-)
 
 ---
 
-#### VS Code
+## VS Code
 
 <img src="./imgs/vscode.png" height="300">
 
@@ -128,7 +125,7 @@ For Linux: you don't need me :-)
 
 ---
 
-###### VS Code Extensions
+## VS Code Extensions
 
 <img src="./imgs/vscode-extensions.png" height="120">
 
@@ -144,13 +141,13 @@ __CTRL+Shift+x__ to the markeplace
 
 ---
 
-#### PIP
+## PIP
 
 an external command for your Terminal/Powershell
 
-fetch+install *packages* containing Py. functions
+fetch+install *packages* containing needed Py. functions
 
-Python extensively relays on packages
+Now it's part of the distribution, read below for reference
 
 Get __get-pip.py__ from [the PIP web site](https://pip.pypa.io/en/stable/installation/).
 
@@ -164,7 +161,7 @@ Get __get-pip.py__ from [the PIP web site](https://pip.pypa.io/en/stable/install
 
 ---
 
-### Get essential modules
+## Get essential modules
 
 ```bash
 > pip install os
@@ -187,7 +184,7 @@ Get __get-pip.py__ from [the PIP web site](https://pip.pypa.io/en/stable/install
 
 ---
 
-#### [Chocolatey](https://chocolatey.org/)
+## [Chocolatey](https://chocolatey.org/)
 
 <img src="./imgs/chocolatey.png" height="180">
 
@@ -201,7 +198,7 @@ see ['individual installation'](https://chocolatey.org/install#individual).
 
 ---
 
-##### Example commands
+## Example commands
 
 ```bash
 > choco install python
@@ -226,7 +223,7 @@ see ['individual installation'](https://chocolatey.org/install#individual).
 
 ---
 
-#### [Home Brew](https://brew.sh/)
+## [Home Brew](https://brew.sh/)
 
 <img src="./imgs/homebrew.png" height="180">
 
@@ -255,6 +252,8 @@ N.B. to install Git on MacOs we need brew
 
 ---
 
+## GitHub
+
 [Github]() is a community repository for sharing code and open collaborations
 
 [download the Git app](https://git-scm.com/downloads)
@@ -266,7 +265,7 @@ General tendence: code is public but data is very private
 
 ---
 
-Git implements incremental/differential synchronisation
+## Incremental/differential synchronisation
 
 it's easy to synchronise your local copy of a repo with the Github version
 
@@ -284,7 +283,7 @@ it's easy to synchronise your local copy of a repo with the Github version
 
 ---
 
-#### Further tips
+## Further tips
 
 * try practicing daily, in your __zone__
 
@@ -293,3 +292,4 @@ it's easy to synchronise your local copy of a repo with the Github version
 * sign up to [Stack Overflow](https://stackoverflow.com/) to find solutions
 
 * *do not,* at any rate, watch Python videos on YouTube...
+

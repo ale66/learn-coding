@@ -12,8 +12,7 @@ format:
 
 This course introduces students to the principles and practice of Coding, with a focus on quantitative analysis of data for Sociology and Political Sciences. 
 
-All lecture materials, exercises, and boilerplate code
-are published in the course GitHub repository. 
+All lecture materials, exercises, and boilerplate codes are published in the course GitHub repository. 
 Please register for a [github.com/](https://github.com/) account using your *@studenti.unimi.it* account and join [https://github.com/education](https://github.com/education).
 
 
@@ -40,7 +39,7 @@ Questions on course materials, coding etc.: please post on Teams so all benefit 
 
 Questions on personal project/studies: you may contact me on Teams anytime.
 
-In-person office hours: Friday after class and Saturday before class.
+In-person office hours: Thursday after class and Friday before class.
 
 
 

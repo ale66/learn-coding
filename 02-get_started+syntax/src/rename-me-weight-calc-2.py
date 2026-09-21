@@ -24,11 +24,15 @@ height = int(input("and what's your height in inches? "))
 # MOD 1
 sex = input("Sex? (enter 'm' or 'f'): ")
 
+# body type?
+body = input("Great, and body type (male/female)? ")
+
+
 # compute the target 
 # https://www.bmi-calculator.net/ideal-weight-calculator/devine-formula/
 # the formula is
 
-if sex == 'm':
+if body == 'm' or body == 'male':
     # Men: Ideal Body Weight (kg) = 50 kg + 2.3 kg per inch over 5 feet.
 
     # not all height is used in the calculation, only that over 5 feet (= 60 inches):

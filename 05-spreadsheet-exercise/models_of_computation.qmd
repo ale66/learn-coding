@@ -1,0 +1,102 @@
+---
+title: "Learn Coding"
+author: "ale66"
+format: 
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [moon]
+    preview-links: auto
+    chalkboard: 
+      boardmarker-width: 5
+from: markdown+emoji
+execute:
+  echo: true
+---
+
+## Models of computation
+
+A general approach to agency [Simon, McCarthy]
+
+
+To act intelligently in its context, an [AI] agent needs to keep an internal representation of the world around by which it understands sensory inputs
+
+. . .
+
+see code and understand what it does *by running it in your mind*
+
+. . .
+
+Reason about a task, visualise a code in your mind, then write it (on VS Code) then run it. And it does.
+
+mental models must have a reasonable representation of computer's inner workings 
+
+## Mental models of computers
+
+- Computers are complex devices
+
+- almost no one fully understands their workings all the way down to electronics. 
+
+- we need abstractions
+
+  - inspired by human pen-and-paper computation
+
+  - support code comprehension
+
+--- 
+
+## Four models of computation
+
+<br/>
+
+::: {.incremental}
+1. human operations at the blackboard, with parentheses, etc.
+2. Spreadsheet operations: each cell computes a simple expression
+3. Central memory operations: traditional computation with program counter, iterations etc.
+4. Vectorial computation: linear algebra on GPU hardware
+:::
+
+--- 
+
+## Experience: blackboard computation
+
+- instructor write all data on board then rewrites it step by step
+
+- simple operations take place in your mind, longer operations are written down in a step by step fashion
+
+- only one person operates, he/she writes top-down, left-right
+
+--- 
+
+## Experience: Spreadsheet  computation
+
+- each cell has either a fixed input data or a formula
+
+- one formula cell can depend on many other cells, via aggregation/iteration (compute average, max, min etc.)
+  
+- when an input data cell changes, all formula cells are re-calculated
+  
+- any cell can use any other cell, even though we tend to arrange top-down, left-right computation  
+
+- no circular definitions please (``A1 = B1*1.22`` with ``B1=A1*0.82`` :bomb:)
+
+- funny ``=`` which actually means $\leftarrow$
+
+--- 
+
+## Experience: Central memory computation
+
+- no fixed cells, memory locations are introduced as we go along
+  
+- a hidden marker, the *program counter* points to the next operation to be executed
+
+- visualise it on [pythontutor.com/](https://pythontutor.com/) or Memory graph [memory-graph.com/](https://memory-graph.com/) 
+
+--- 
+
+## Experience: Vectorial computation
+
+- the basis of modern computation (AV streaming, Video Games, AI)
+  
+- implements vector/matrix algebra (instead of simple scalar algebra from school)
+
+- will see it, if time allows, at the end

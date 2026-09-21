@@ -13,15 +13,25 @@ execute:
   echo: true
 ---
 
+## The *Learn coding* module
+
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
-Module administration
 
+- only assumes basic computer familiarity
+
+- introduce coding and Python
+
+- focus on simple ways to develop software autonomously
+
+- deploys modern tools such as VS Code and Git
+
+- stresses code comprehension beyond GenAI shortcuts
 :::
 
-::: {.column width="50%"}
+::: {.column width="30%"}
 
 ![](./imgs/a-module_admin0.jpg)
 
@@ -31,18 +41,9 @@ Module administration
 
 ---
 
-## Elevator pitch
+## a rich, sequential menu
 
-- introduce coding and Python
-
-- focus on simple ways to develop software autonomously
-
-- We will learn programming with Python!
-
----
-
-- If time allows: basic Data Science methods 
-
+  - The thinking/writing/coding/debugging/testing praxis
   - Data types and data structures
   - Conditional and loops
   - User input output
@@ -50,15 +51,17 @@ Module administration
   - Functions
   - Data cleaning
   - Basic stats
-  - Relational databases and their Structured query language \(SQL\)
+  - Relational databases and their Structured query language \(SQL\) 
+  - If time allows: basic Data Science methods 
+
 
 ---
 
 ## On module completion you will be able to:
 
-- Write Python programs
+- Write simple Python programs
 
-- start personal projects
+- Start personal projects
 
 - Understand the basics of algorithms and coding
 
@@ -66,33 +69,32 @@ Module administration
 
 - Visualize data
 
-- use the SQL language to query relational databases; set up and run simple databases
+- Use SQL to query relational databases
+
 
 ---
 
 :::: {.columns}
-
 ::: {.column width="50%"}
 
-- hands-on Python
+- local VS Code + Python, GitHub interactions  
 
-- basic structures, iterations & functions
+- Basic structures, iterations & functions
 
 - List, Dictionaries, Sets and Tuples
 
-- Numerical functions: Numpy
+- Data visualisation: Matplotlib (w. some Seaborn)
 
-- Data visualisation: Matplotlib
+- Numerical functions: Numpy
 
 - Data ingestion, tables and time series: Pandas
 
 :::
-
 ::: {.column width="50%"}
 
-- Intro to SQL: Structured Query Language
+- Simple intro to relational DBMS
 
-- Creating simple SQL databases
+- SQL: Structured Query Language
 
 - writing SQL queries to extract data
 
@@ -101,7 +103,6 @@ Module administration
 -  Developing a Case Study with Python
 
 :::
-
 ::::
 
 
@@ -115,20 +116,22 @@ Module administration
 
 - __use the Teams channel for quick questions__ 
 
+- __have a Google and a GitHub account in your name__ 
+
 
 ---
 
-## instructor
+## instructors
 
 :::: {.columns}
 
 ::: {.column width="70%"}
 
-- Dr Alessandro Provetti
+- Alessandro Provetti
 
 - PhD on AI for simplifying programming languages 
 
-- Research on understanding user data in “Social web” platforms. 
+- Research on modeling user-generated data in *Social web* platforms
 
 - Started the [Birkbeck Institute for Data Analytics](http://www.bida.bbk.ac.uk/)
 
@@ -148,7 +151,7 @@ Module administration
 
 ::: {.column width="70%"}
 
-- Dr Alberto Matuozzo
+- Alberto Matuozzo
   
 - PhD in Machine Learning for Finance at Birkbeck, UK
 
@@ -171,7 +174,7 @@ Module administration
 
 ::: {.column width="70%"}
 
-- Dr Federico Pilati
+- Federico Pilati
 
 - PhD in Computational Social sciences at IULM, IT
 

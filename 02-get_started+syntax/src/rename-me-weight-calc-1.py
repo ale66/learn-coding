@@ -35,6 +35,7 @@ body = input("Great, and body type (male/female)? ")
 if body == 'male':
     ideal_weight = 50 + 2.3 * (height - 60)
 else:
+    # do this for 'female' or any other answer
     ideal_weight = 45.5 + 2.3 * (height - 60)
 
 
