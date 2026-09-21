@@ -1,6 +1,6 @@
 ---
 title: "Coding for Computational Social Science 2026-27"
-subtitle: 'v. of Sep. 15th'
+subtitle: 'v. of Sep. 21th'
 author: ''
 date: ''
 format:
@@ -46,7 +46,7 @@ In-person office hours: Friday after class and Saturday before class.
 
 ## Software Tools
 
-Installed these to follow the course and complete exercises:
+Install these to follow the course and complete exercises:
 
 - **Web browser** Firefox will be used in class. 
 
@@ -65,7 +65,7 @@ Installed these to follow the course and complete exercises:
 |-|------|------|
 | 0 | Onboarding | Simple syntax |
 |   | Os  | Google Colab |
-| 1 | Formal languages |    |
+| 1 | Formal languages | ...   |
 |   | Version control |  |  
 | 2 | ... |  ...   |
 | 3 | ... |  ...   |
@@ -83,7 +83,7 @@ Prepare and maintain on GitHub a coding project consisting of, e.g., a replicati
 The instructor will present the project challenge in class. 
 The oral exam consists of presenting the technical side of your project and showing *ownership* of the code.
 
-**Exam dates** December 17-19 in person at the *Sala seminari* on the second floor of the *Passione* building (TBC). 
+**Exam dates** December 17-19 in person at the *Sala seminari* on the second floor of the *Passione* building (i.e., above the *Laboratorio 2* computer lab). 
 Exam slots are bookable via Teams. Arrangements are available for Erasmus/exchange students who need to leave Milan earlier.
 For 2027, January 13 and 14 (TBC) and dates in March and July. 
 
