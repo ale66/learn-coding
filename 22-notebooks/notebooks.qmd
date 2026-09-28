@@ -23,6 +23,9 @@ execute:
 - Markdown
 :::
 
+
+__.ipynb:__ interactive python notebook
+
 # Outline
 
 ---
@@ -122,15 +125,7 @@ It is easy to [link text](https://www.markdownguide.org/basic-syntax/),
 [link text](https://www.markdownguide.org/basic-syntax/)
 ```
 
-include images and
-
-```markdown
-![](https://mdg.imgix.net/assets/images/tux.png)
-```
-
-![](https://mdg.imgix.net/assets/images/tux.png){height="15%"}
-
-code
+include code
 
 <pre>
 ```python
@@ -144,5 +139,11 @@ M = 0
 M = 0
 ```
 
+## include images
 
+```markdown
+![](https://commons.wikimedia.org/wiki/File:Python_3.13_Standrd_Type_Hierarchy-en.svg#/media/File:Python_3.13_Standrd_Type_Hierarchy-en.svg)
+```
+
+![](https://upload.wikimedia.org/wikipedia/commons/e/e0/Python_3.13_Standrd_Type_Hierarchy-en.svg){height="5%"}
 
