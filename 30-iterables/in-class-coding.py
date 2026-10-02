@@ -1,5 +1,11 @@
 # In-class work
 
+# Use this to experiment in class with 
+# the Microsoft Live Share extension:
+# https://visualstudio.microsoft.com/services/live-share/
+
+# TO DO: remove the triple quotes (''') in order to execute
+
 '''
 # assigned to
 # Print a string vertically (one character per line) in reverse order
