@@ -450,6 +450,50 @@ ale66
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="" aria-label="1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Alessandro Provetti"</span></span>
 <span id="cb8-2"><a href="" aria-label="2"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"alessandro.provetti@unimi.it"</span></span>
 <span id="cb8-3"><a href="" aria-label="3"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section>
+<section id="working-with-github" class="title-slide slide level1 center">
+<h1>Working with GitHub</h1>
+
+</section>
+<section id="start-of-the-day" class="slide level2">
+<h2>Start of the day</h2>
+<p>Open the folder that is versioned on GH</p>
+<p>Spin up a terminal that works <em>there</em></p>
+<p>Win:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>dir</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>MacOS:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>pwd</span>
+<span id="cb10-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>ls <span class="ex">-lrta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="get-in-synch-with-the-project" class="slide level2">
+<h2>Get in synch with the project</h2>
+<p>What did we do yesterday?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>git <span class="ex">status</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Update your copy of the repo to that on GH</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>git <span class="ex">pull</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Save your work into the project</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>git <span class="ex">commit</span> <span class="at">-a</span> <span class="at">-m</span> <span class="st">"This is what I did yesterday, It is ready for sharing"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="issues" class="slide level2">
+<h2>Issues</h2>
+<p>Several things can go wrong, when the code base changes quickly</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="" aria-label="1"></a><span class="ex">Updating</span> 4c7822c..5bbdd1b</span>
+<span id="cb14-2"><a href="" aria-label="2"></a><span class="ex">error:</span> Your local changes to the following files would be overwritten by merge:</span>
+<span id="cb14-3"><a href="" aria-label="3"></a>        <span class="ex">30-iterables/case-study.ipynb</span></span>
+<span id="cb14-4"><a href="" aria-label="4"></a><span class="ex">Please</span> commit your changes or stash them before you merge.</span>
+<span id="cb14-5"><a href="" aria-label="5"></a><span class="ex">Aborting</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<p>OK, stash my changes away in a safe place</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>git <span class="ex">stash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pull in the new version from GH</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>git <span class="ex">pull</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Put my changes back in</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="" aria-label="1"></a><span class="op">&gt;</span>git <span class="ex">stash</span> pop</span>
+<span id="cb17-2"><a href="" aria-label="2"></a><span class="op">&gt;</span>git <span class="ex">commit</span> <span class="at">-a</span> <span class="at">-m</span> <span class="st">"I incorporate my changes from yesterday"</span></span>
+<span id="cb17-3"><a href="" aria-label="3"></a><span class="op">&gt;</span>git <span class="ex">push</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </section></section>
     </div>

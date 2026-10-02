@@ -302,3 +302,90 @@ git config --global user.name "Alessandro Provetti"
 git config --global user.email "alessandro.provetti@unimi.it"
 git config --global init.defaultBranch main
 ```
+
+
+# Working with GitHub
+
+---
+
+## Start of the day
+
+Open the folder that is versioned on GH
+
+Spin up a terminal that works *there*
+
+Win:
+
+```bash
+>dir
+```
+
+MacOS:
+
+```bash
+>pwd
+>ls -lrta
+```
+
+---
+
+## Get in synch with the project
+
+What did we do yesterday?
+
+```bash
+>git status
+```
+
+Update your copy of the repo to that on GH
+
+```bash
+>git pull
+```
+
+Save your work into the project
+
+```bash
+>git commit -a -m "This is what I did yesterday, It is ready for sharing"
+```
+
+---
+
+## Issues
+
+Several things can go wrong, when the code base changes quickly
+
+```bash
+Updating 4c7822c..5bbdd1b
+error: Your local changes to the following files would be overwritten by merge:
+        30-iterables/case-study.ipynb
+Please commit your changes or stash them before you merge.
+Aborting
+```
+
+---
+
+
+OK, stash my changes away in a safe place
+
+```bash
+>git stash
+```
+
+Pull in the new version from GH
+
+```bash
+>git pull
+```
+
+Put my changes back in
+
+```bash
+>git stash pop
+>git commit -a -m "I incorporate my changes from yesterday"
+>git push
+```
+
+
+
+
