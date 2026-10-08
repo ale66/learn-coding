@@ -6,8 +6,8 @@
 <script src="iterables-solved_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="iterables-solved_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="iterables-solved_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="iterables-solved_files/libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="iterables-solved_files/libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="ale66">
   <title>Learn Coding</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="iterables-solved_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="iterables-solved_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="iterables-solved_files/libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
+  <link rel="stylesheet" href="iterables-solved_files/libs/revealjs/dist/theme/quarto-84b150702567ae7e15cad124fb9039e2.css">
   <link href="iterables-solved_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="iterables-solved_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="iterables-solved_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -200,7 +206,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-ale66 
+ale66
 </div>
 </div>
 </div>
@@ -220,16 +226,16 @@ ale66
 </section>
 <section id="exercise-a" class="slide level2">
 <h2>Exercise, a</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>print out the club names without the <code>FC</code> suffix</p>
 </section>
 <section id="exercise-a-solution" class="slide level2">
 <h2>Exercise, a: solution</h2>
-<div id="46c01470" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="cf">for</span> t <span class="kw">in</span> teams:</span>
-<span id="cb2-4"><a href=""></a>    <span class="bu">print</span>(t[:<span class="op">-</span><span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="1f1c3237" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-label="1"></a>teams <span class="op">=</span> [<span class="st">'Chelsea FC'</span>, <span class="st">'Arsenal FC'</span>, <span class="st">'Crystal Palace FC'</span>, <span class="st">'West Ham FC'</span>]</span>
+<span id="cb2-2"><a href="" aria-label="2"></a></span>
+<span id="cb2-3"><a href="" aria-label="3"></a><span class="cf">for</span> t <span class="kw">in</span> teams:</span>
+<span id="cb2-4"><a href="" aria-label="4"></a>    <span class="bu">print</span>(t[:<span class="op">-</span><span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Chelsea
 Arsenal
@@ -237,27 +243,41 @@ Crystal Palace
 West Ham</code></pre>
 </div>
 </div>
-<p>The <code>:</code> notation: nothing is the same as the extreme:</p>
+<div class="fragment">
+<p>The <code>:</code> notation: omitting a value is equivalent to taking its max value</p>
 <p><code>t[0:]</code> is the same as <code>t[:]</code> and <code>t</code></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>The <code>:</code> notation: omitting a value is equivalent to taking its max value</p>
+<p><code>t[0:]</code> is the same as <code>t[:]</code> and <code>t</code></p>
+<p><code>t[1:]</code>: drop the first char</p>
+<div class="fragment">
+<p><code>t[:-1]</code>: drop the last char</p>
+</div>
+<div class="fragment">
+<p><code>t[3:-3]</code>: drop the first three chars and the last three</p>
+</div>
 </section>
 <section id="exercise-b" class="slide level2">
 <h2>Exercise, b</h2>
 <p>Print available fruits but not bananas</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-label="1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>hint: use <code>continue</code></p>
 <p>type it then hover on it to get VS Code help</p>
 </section>
 <section id="exercise-b-solution" class="slide level2">
 <h2>Exercise, b: solution</h2>
 <p>Print available fruits but not bananas</p>
-<div id="5357510c" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
-<span id="cb5-4"><a href=""></a>    <span class="cf">if</span> f <span class="op">==</span> <span class="st">'banana'</span>:</span>
-<span id="cb5-5"><a href=""></a>        <span class="cf">continue</span> <span class="co"># do nothing</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb5-7"><a href=""></a>        <span class="bu">print</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="aa942d86" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span>
+<span id="cb5-2"><a href="" aria-label="2"></a></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
+<span id="cb5-4"><a href="" aria-label="4"></a>    <span class="cf">if</span> f <span class="op">==</span> <span class="st">'banana'</span>:</span>
+<span id="cb5-5"><a href="" aria-label="5"></a>        <span class="cf">continue</span> <span class="co"># do nothing</span></span>
+<span id="cb5-6"><a href="" aria-label="6"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-7"><a href="" aria-label="7"></a>        <span class="bu">print</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>apple
 cherry
@@ -267,12 +287,12 @@ blackcurrant</code></pre>
 </section>
 <section id="exercise-b-alternative-solution" class="slide level2">
 <h2>Exercise, b: alternative solution</h2>
-<div id="ea98b7f4" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
-<span id="cb7-4"><a href=""></a>    <span class="cf">if</span> f <span class="op">!=</span> <span class="st">'banana'</span>:</span>
-<span id="cb7-5"><a href=""></a>        <span class="bu">print</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="33853dd6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span>
+<span id="cb7-2"><a href="" aria-label="2"></a></span>
+<span id="cb7-3"><a href="" aria-label="3"></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>    <span class="cf">if</span> f <span class="op">!=</span> <span class="st">'banana'</span>:</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>        <span class="bu">print</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>apple
 cherry
@@ -283,23 +303,23 @@ blackcurrant</code></pre>
 <section id="exercise-c" class="slide level2">
 <h2>Exercise, c</h2>
 <p>Print available fruits but stop as soon as you find bananas</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-label="1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>hint: use <code>break</code></p>
 </section>
 <section id="exercise-c-solution" class="slide level2">
 <h2>Exercise, c: solution</h2>
 <p>Print available fruits but stop as soon as you find bananas</p>
 <p>It should only print <code>apple</code></p>
-<div id="5c51c35c" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
-<span id="cb10-4"><a href=""></a></span>
-<span id="cb10-5"><a href=""></a>  <span class="cf">if</span> f <span class="op">==</span> <span class="st">'banana'</span>:</span>
-<span id="cb10-6"><a href=""></a>    <span class="cf">break</span> <span class="co"># jump out of the iteration</span></span>
-<span id="cb10-7"><a href=""></a></span>
-<span id="cb10-8"><a href=""></a>  <span class="cf">else</span>:</span>
-<span id="cb10-9"><a href=""></a>    <span class="bu">print</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="a52befd0" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-label="1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'blackcurrant'</span>]</span>
+<span id="cb10-2"><a href="" aria-label="2"></a></span>
+<span id="cb10-3"><a href="" aria-label="3"></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
+<span id="cb10-4"><a href="" aria-label="4"></a></span>
+<span id="cb10-5"><a href="" aria-label="5"></a>  <span class="cf">if</span> f <span class="op">==</span> <span class="st">'banana'</span>:</span>
+<span id="cb10-6"><a href="" aria-label="6"></a>    <span class="cf">break</span> <span class="co"># jump out of the iteration</span></span>
+<span id="cb10-7"><a href="" aria-label="7"></a></span>
+<span id="cb10-8"><a href="" aria-label="8"></a>  <span class="cf">else</span>:</span>
+<span id="cb10-9"><a href="" aria-label="9"></a>    <span class="bu">print</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>apple</code></pre>
 </div>
