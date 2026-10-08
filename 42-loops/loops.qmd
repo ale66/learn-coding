@@ -49,7 +49,7 @@ increment is not automatic
 
 the expression is evaluated *before* executing the block
 
-Visualise the example above on [pythontutor.com](https://pythontutor.com/): 
+Visualise the example above on [pythontutor](https://pythontutor.com/visualize.html#code=i%20%3D%201%0A%0Awhile%20i%20%3C%206%3A%0A%20%20print%28i%29%0A%20%20i%20%2B%3D%201&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311): 
 
 which values will `i` take up? Which values will we see on the screen?
 
@@ -175,23 +175,33 @@ Use `while`
 
 ```python
 my_list = [1, 3, 7, 9]
-
-count = 0 # will work as index
-
-while(True):
-      print(my_list[count])
-
-      if (count == len(my_list) - 1):
-          print("end")
-          break
-
-      count += 1
 ```
+
+Print all but the last element, replace it by 'end'
 
 . . .
 
 ```python
-for n in my_list:
-        print(n)
+l = len(my_list)
+count = 0 # will work as index
+
+while(True):
+  print(my_list[count])
+  if (count == l-1):
+    print("end")
+    break
+
+  count += 1
+```
+
+visualise execution on [pythontutor](https://pythontutor.com/visualize.html#code=my_list%20%3D%20%5B1,%203,%207,%209%5D%0A%0Al%20%3D%20len%28my_list%29%0A%0Acount%20%3D%200%20%23%20will%20work%20as%20index%0A%0Awhile%28True%29%3A%0A%20%20%20%20%20%20print%28my_list%5Bcount%5D%29%0A%0A%20%20%20%20%20%20if%20%28count%20%3D%3D%20l-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20print%28%22end%22%29%0A%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20%20%20count%20%2B%3D%201&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311)
+
+. . .
+
+```python
+for elem in my_list[:-1]:
+  print(elem)
+
+print('end')
 ```
 
