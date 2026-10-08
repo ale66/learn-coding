@@ -33,7 +33,7 @@ execute:
 
 A variable, normally of type integer, that is incremented as we *parse* an iterable
 
-Example: compute list size/lenght
+Example: compute list size/length
 
 ```python
 l = 0
@@ -42,7 +42,7 @@ for f in fruits:
 
   l = l +1
 
-print(f'The lenght of list {fruits} is {l}')
+print(f'The length of list {fruits} is {l}')
 ```
 
 . . . 
@@ -103,16 +103,15 @@ A variable that *remembers* past values during an iteration
 Example: find the biggest *temperature increase* in a list 
 
 ```python
-maxincrease = 0
+# start with the minimum possible value
+max_day_on_day_change = 0
 
-trailer = temperaturelist[0]
+# initialise the trailer variable
+trailer = temperatures_this_month[0]
 
-for temp in temperaturelist:
+for temp in temperatures_this_month:
 
-  current_increase = temp - trailer
-  
-  if current_increase > maxincrease:
-    maxincrease = current_increase # a new max is found
+  # do your thing here...
 
   # we are finished with this value, assign it to the trailer
   trailer = temp
@@ -147,25 +146,40 @@ for today in temperaturelist:
 ## A more complete encoding
 
 ```python
-temperaturelist = [12, 16, 18, 16, 19, 18, 20, 21]
+temperatures_this_month = [27, 21, 16, 21, 19, 18, 19, 12, 15, 12]
 
-max_difference = 0
-
-yesterday = temperaturelist[0]
-
-for today in temperaturelist:
-
-  current_temp_difference = abs(today - yesterday)
-
-  if current_temp_difference > max_difference:
-      max_difference = current_temp_difference
-
-  yesterday =  today
-  
-print(max_difference)
+'''
+Question: 
+which day of the month has seen 
+the steepest temperature change (either increasing or decreasing)?
+'''
 ```
 
-Run it on [Pythontutor](https://pythontutor.com/render.html#code=temperaturelist%20%3D%20%5B12,%2016,%2018,%2016,%2019,%2018,%2020,%2021%5D%0A%0Amax_difference%20%3D%200%0A%0A%0Ayesterday%20%3D%20temperaturelist%5B0%5D%0A%0Afor%20today%20in%20temperaturelist%3A%0A%0A%20%20current_temp_difference%20%3D%20abs%28today%20-%20yesterday%29%0A%0A%20%20if%20current_temp_difference%20%3E%20max_difference%3A%0A%20%20%20%20%20%20max_difference%20%3D%20current_temp_difference%0A%0A%20%20yesterday%20%3D%20%20today%0A%20%20%0Aprint%28max_difference%29%0A%20%20&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false)
+---
+
+
+```python
+# start with the minimum possible value
+max_day_on_day_change = 0
+
+# initialise the trailer variable
+trailer = temperatures_this_month[0]
+
+for temp in temperatures_this_month:
+
+  current_change = temp - trailer
+  
+  if abs(current_change) > max_day_on_day_change:
+  
+    max_day_on_day_change = abs(current_change) # a new max is found
+
+  # we are finished with this value, assign it to the trailer
+  trailer = temp
+
+print(f'The maximum day-on-day increase has been {max_day_on_day_change} degrees')
+```
+
+Run it on [Pythontutor](https://pythontutor.com/visualize.html#code='''%0AFind%20the%20maximum%20%28resp.%20minimum%29%20value%20change%20in%20a%20sequence%0A%0AAlgorithmic%20technique%3A%20the%20trailer%20variable%0A'''%0A%0Atemperatures_this_month%20%3D%20%5B27,%2021,%2016,%2021,%2019,%2018,%2019,%2012,%2015,%2012%5D%0A%0A'''%0AQuestion%3A%20%0Awhich%20day%20of%20the%20month%20has%20seen%20%0Athe%20steepest%20temperature%20change%20%28either%20increasing%20or%20decreasing%29%3F%0A'''%0A%0A%23%20start%20with%20the%20minimum%20possible%20value%0Amax_day_on_day_change%20%3D%200%0A%0A%23%20initialise%20the%20trailer%20variable%0Atrailer%20%3D%20temperatures_this_month%5B0%5D%0A%0Afor%20temp%20in%20temperatures_this_month%3A%0A%0A%20%20current_change%20%3D%20temp%20-%20trailer%0A%20%20%0A%20%20if%20abs%28current_change%29%20%3E%20max_day_on_day_change%3A%0A%20%20%0A%20%20%20%20max_day_on_day_change%20%3D%20abs%28current_change%29%20%23%20a%20new%20max%20is%20found%0A%0A%20%20%23%20we%20are%20finished%20with%20this%20value,%20assign%20it%20to%20the%20trailer%0A%20%20trailer%20%3D%20temp%0A%0Aprint%28f'The%20maximum%20day-on-day%20increase%20has%20been%20%7Bmax_day_on_day_change%7D%20degrees'%29%0A%0A%0A%0A&curInstr=49&matrixMode=true&mode=display&origin=opt-frontend.js&py=311)
 
 ---
 

@@ -6,24 +6,49 @@
 
 # TO DO: remove the triple quotes (''') in order to execute
 
-'''
-# assigned to
+'''''''''''''''
+# assigned to: Julie, Sofus and Ida
 # Print a string vertically (one character per line) in reverse order
+'''
 mystring = 'Crystal Palace FC'
-'''
 
-'''
-# assigned to
+for letter in mystring:
+    print(letter[-1:-18])
+#option two?  
+n = -1
+for letter in mystring:
+    print(mystring(n))
+    n=n-1
+
+
+
+
+# assigned to Arianna, Lorenzo
 # print out the single string containing the names of each fruit without spaces
-fruitlist = ['apple', 'banana', 'cherry']
+fruitlist = ('apple', 'banana', 'cherry')
+print(''.join(fruitlist))
 
-print(fruitlist)
-'''
+
+
 
 '''
-# assigned to
+# assigned to christine, Villads, Mille
 # Alter lists: add newfruit to fruitlist only if not present already 
+
+another_fruitlist = ['apple' , 'banana' , 'cherry']
+
+
 newfruit = 'orange'
+for x in another_fruitlist:
+    if x == newfruit:
+        print('already present')
+        break
+    
+else:
+    print('not present')
+    another_fruitlist.append(newfruit)
+print(another_fruitlist)
+
 '''
 
 
@@ -38,17 +63,37 @@ for single_team in teams:
     # write here
     continue
 
-# assigned to
+# assigned to Alejandra & Paula
 # print w/o the ' FC' part!
+    print teams[-1:2]
+    .remove (' FC')
+    
 for single_team in teams:
     # write here
     continue
 
-# assigned to
+'''
+Model solution
+'''
+
+my_teams = ['Chelsea FC', 'Arsenal FC', 'Crystal Palace FC', 'West Ham FC']
+
+for t in my_teams:
+    print(t[0:-3])
+
+
+
+
+
+
+
+
+
+# assigned to Daniele
 # drop the FC part from the list permanently
 for i in range(howmany):
-    # write here
-    continue
+    teams[i] = teams[i].replace(' FC', '')
+    print(teams)
 
 # assigned to
 # Challenge: remove duplicates from a list
