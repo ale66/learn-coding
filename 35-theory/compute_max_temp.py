@@ -21,11 +21,11 @@ trailer = temperatures_this_month[0]
 
 for temp in temperatures_this_month:
 
-  current_change = temp - trailer
+  current_change = abs(temp - trailer)
   
-  if abs(current_change) > max_day_on_day_change:
+  if current_change > max_day_on_day_change:
   
-    max_day_on_day_change = abs(current_change) # a new max is found
+    max_day_on_day_change = current_change # a new max is found!
 
   # we are finished with this value, assign it to the trailer
   trailer = temp
