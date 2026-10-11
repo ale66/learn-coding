@@ -182,7 +182,7 @@ file [converter.exe]() is for computers, not humans.
 ::: columns
 ::: {.column width="33%"}
 ::: {style="font-size: 1em; text-align: center"}
-Electronics, <br /> networks
+Electronics, <br /> computer networks
 :::
 :::
 
