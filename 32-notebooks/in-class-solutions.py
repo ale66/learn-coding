@@ -1,5 +1,5 @@
 # ============== Exercise 15.a ===================================
-# find occurences of the value of CITY inside text
+# find occurrences of the value of CITY inside text
 
 text = '''Two households, both alike in dignity, 
           In fair Verona, where we lay our scene, 

@@ -6,8 +6,8 @@
 <script src="auxiliary-vars_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="auxiliary-vars_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="auxiliary-vars_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="auxiliary-vars_files/libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="auxiliary-vars_files/libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="ale66">
   <title>Learn Coding</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="auxiliary-vars_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="auxiliary-vars_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="auxiliary-vars_files/libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
+  <link rel="stylesheet" href="auxiliary-vars_files/libs/revealjs/dist/theme/quarto-84b150702567ae7e15cad124fb9039e2.css">
   <link href="auxiliary-vars_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="auxiliary-vars_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="auxiliary-vars_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -200,7 +206,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-ale66 
+ale66
 </div>
 </div>
 </div>
@@ -227,14 +233,14 @@ ale66
 <section class="slide level2">
 
 <p>A variable, normally of type integer, that is incremented as we <em>parse</em> an iterable</p>
-<p>Example: compute list size/lenght</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>l <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>  l <span class="op">=</span> l <span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a><span class="bu">print</span>(<span class="ss">f'The lenght of list </span><span class="sc">{</span>fruits<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Example: compute list size/length</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a>l <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a></span>
+<span id="cb1-3"><a href="" aria-label="3"></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
+<span id="cb1-4"><a href="" aria-label="4"></a></span>
+<span id="cb1-5"><a href="" aria-label="5"></a>  l <span class="op">=</span> l <span class="op">+</span><span class="dv">1</span></span>
+<span id="cb1-6"><a href="" aria-label="6"></a></span>
+<span id="cb1-7"><a href="" aria-label="7"></a><span class="bu">print</span>(<span class="ss">f'The length of list </span><span class="sc">{</span>fruits<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p>Syntax: <code>l += 1</code> is shorthand for <code>l = l + 1</code></p>
 </div>
@@ -243,13 +249,13 @@ ale66
 <h2>Anonymous variables</h2>
 <p>In fact, we are not operating on <code>f</code></p>
 <p>it can be omitted in favour of an <em>anonymous variable</em> <code>_</code></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>l <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="cf">for</span> _ <span class="kw">in</span> fruits:</span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a>  l <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb2-6"><a href=""></a></span>
-<span id="cb2-7"><a href=""></a><span class="bu">print</span>(<span class="ss">f'The lenght of list </span><span class="sc">{</span>fruits<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-label="1"></a>l <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-2"><a href="" aria-label="2"></a></span>
+<span id="cb2-3"><a href="" aria-label="3"></a><span class="cf">for</span> _ <span class="kw">in</span> fruits:</span>
+<span id="cb2-4"><a href="" aria-label="4"></a></span>
+<span id="cb2-5"><a href="" aria-label="5"></a>  l <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href="" aria-label="6"></a></span>
+<span id="cb2-7"><a href="" aria-label="7"></a><span class="bu">print</span>(<span class="ss">f'The lenght of list </span><span class="sc">{</span>fruits<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="accumulators" class="title-slide slide level1 center">
@@ -260,17 +266,17 @@ ale66
 
 <p>A variable to record quantities seen during the iteration</p>
 <p>Example: the average of an arbitrary list of positive numbers</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>l <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-2"><a href=""></a>accumulator <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="cf">for</span> val <span class="kw">in</span> mylist:</span>
-<span id="cb3-5"><a href=""></a>  l <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb3-6"><a href=""></a>  accumulator <span class="op">+=</span> val</span>
-<span id="cb3-7"><a href=""></a></span>
-<span id="cb3-8"><a href=""></a><span class="cf">if</span> l <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb3-9"><a href=""></a>  average <span class="op">=</span>  accumulator <span class="op">/</span> l <span class="co"># this will be a float</span></span>
-<span id="cb3-10"><a href=""></a></span>
-<span id="cb3-11"><a href=""></a><span class="bu">print</span>(<span class="ss">f'There are </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss"> values and their average is </span><span class="sc">{</span>average<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>l <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a>accumulator <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="" aria-label="3"></a></span>
+<span id="cb3-4"><a href="" aria-label="4"></a><span class="cf">for</span> val <span class="kw">in</span> mylist:</span>
+<span id="cb3-5"><a href="" aria-label="5"></a>  l <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-6"><a href="" aria-label="6"></a>  accumulator <span class="op">+=</span> val</span>
+<span id="cb3-7"><a href="" aria-label="7"></a></span>
+<span id="cb3-8"><a href="" aria-label="8"></a><span class="cf">if</span> l <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-9"><a href="" aria-label="9"></a>  average <span class="op">=</span>  accumulator <span class="op">/</span> l <span class="co"># this will be a float</span></span>
+<span id="cb3-10"><a href="" aria-label="10"></a></span>
+<span id="cb3-11"><a href="" aria-label="11"></a><span class="bu">print</span>(<span class="ss">f'There are </span><span class="sc">{</span>l<span class="sc">}</span><span class="ss"> values and their average is </span><span class="sc">{</span>average<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="trailing-variables" class="title-slide slide level1 center">
@@ -281,68 +287,79 @@ ale66
 
 <p>A variable that <em>remembers</em> past values during an iteration</p>
 <p>Example: find the biggest <em>temperature increase</em> in a list</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>maxincrease <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a>trailer <span class="op">=</span> temperaturelist[<span class="dv">0</span>]</span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a><span class="cf">for</span> temp <span class="kw">in</span> temperaturelist:</span>
-<span id="cb4-6"><a href=""></a></span>
-<span id="cb4-7"><a href=""></a>  current_increase <span class="op">=</span> temp <span class="op">-</span> trailer</span>
-<span id="cb4-8"><a href=""></a>  </span>
-<span id="cb4-9"><a href=""></a>  <span class="cf">if</span> current_increase <span class="op">&gt;</span> maxincrease:</span>
-<span id="cb4-10"><a href=""></a>    maxincrease <span class="op">=</span> current_increase <span class="co"># a new max is found</span></span>
-<span id="cb4-11"><a href=""></a></span>
-<span id="cb4-12"><a href=""></a>  <span class="co"># we are finished with this value, assign it to the trailer</span></span>
-<span id="cb4-13"><a href=""></a>  trailer <span class="op">=</span> temp</span>
-<span id="cb4-14"><a href=""></a></span>
-<span id="cb4-15"><a href=""></a><span class="bu">print</span>(<span class="ss">f'The maximum day-on-day increase has been </span><span class="sc">{</span>maxincrease<span class="sc">}</span><span class="ss"> degrees'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-label="1"></a><span class="co"># start with the minimum possible value</span></span>
+<span id="cb4-2"><a href="" aria-label="2"></a>max_day_on_day_change <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-3"><a href="" aria-label="3"></a></span>
+<span id="cb4-4"><a href="" aria-label="4"></a><span class="co"># initialise the trailer variable</span></span>
+<span id="cb4-5"><a href="" aria-label="5"></a>trailer <span class="op">=</span> temperatures_this_month[<span class="dv">0</span>]</span>
+<span id="cb4-6"><a href="" aria-label="6"></a></span>
+<span id="cb4-7"><a href="" aria-label="7"></a><span class="cf">for</span> temp <span class="kw">in</span> temperatures_this_month:</span>
+<span id="cb4-8"><a href="" aria-label="8"></a></span>
+<span id="cb4-9"><a href="" aria-label="9"></a>  <span class="co"># do your thing here...</span></span>
+<span id="cb4-10"><a href="" aria-label="10"></a></span>
+<span id="cb4-11"><a href="" aria-label="11"></a>  <span class="co"># we are finished with this value, assign it to the trailer</span></span>
+<span id="cb4-12"><a href="" aria-label="12"></a>  trailer <span class="op">=</span> temp</span>
+<span id="cb4-13"><a href="" aria-label="13"></a></span>
+<span id="cb4-14"><a href="" aria-label="14"></a><span class="bu">print</span>(<span class="ss">f'The maximum day-on-day increase has been </span><span class="sc">{</span>maxincrease<span class="sc">}</span><span class="ss"> degrees'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="programme-comprehension" class="slide level2">
 <h2>Programme comprehension</h2>
 <p>To grasp how trailers work, put extra <code>print()</code> commands to see what the variables contain</p>
 <p>Rename variables:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>yesterday <span class="op">=</span> temperaturelist[<span class="dv">0</span>]</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="cf">for</span> today <span class="kw">in</span> temperaturelist:</span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a>  current_increase <span class="op">=</span> today <span class="op">-</span> yesterday</span>
-<span id="cb5-6"><a href=""></a></span>
-<span id="cb5-7"><a href=""></a>  ...</span>
-<span id="cb5-8"><a href=""></a></span>
-<span id="cb5-9"><a href=""></a>  yesterday <span class="op">=</span>  today</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a>yesterday <span class="op">=</span> temperaturelist[<span class="dv">0</span>]</span>
+<span id="cb5-2"><a href="" aria-label="2"></a></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="cf">for</span> today <span class="kw">in</span> temperaturelist:</span>
+<span id="cb5-4"><a href="" aria-label="4"></a></span>
+<span id="cb5-5"><a href="" aria-label="5"></a>  current_increase <span class="op">=</span> today <span class="op">-</span> yesterday</span>
+<span id="cb5-6"><a href="" aria-label="6"></a></span>
+<span id="cb5-7"><a href="" aria-label="7"></a>  ...</span>
+<span id="cb5-8"><a href="" aria-label="8"></a></span>
+<span id="cb5-9"><a href="" aria-label="9"></a>  yesterday <span class="op">=</span>  today</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="a-more-complete-encoding" class="slide level2">
 <h2>A more complete encoding</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>temperaturelist <span class="op">=</span> [<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">21</span>]</span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a>max_difference <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-4"><a href=""></a></span>
-<span id="cb6-5"><a href=""></a>yesterday <span class="op">=</span> temperaturelist[<span class="dv">0</span>]</span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a><span class="cf">for</span> today <span class="kw">in</span> temperaturelist:</span>
-<span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a>  current_temp_difference <span class="op">=</span> <span class="bu">abs</span>(today <span class="op">-</span> yesterday)</span>
-<span id="cb6-10"><a href=""></a></span>
-<span id="cb6-11"><a href=""></a>  <span class="cf">if</span> current_temp_difference <span class="op">&gt;</span> max_difference:</span>
-<span id="cb6-12"><a href=""></a>      max_difference <span class="op">=</span> current_temp_difference</span>
-<span id="cb6-13"><a href=""></a></span>
-<span id="cb6-14"><a href=""></a>  yesterday <span class="op">=</span>  today</span>
-<span id="cb6-15"><a href=""></a>  </span>
-<span id="cb6-16"><a href=""></a><span class="bu">print</span>(max_difference)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Run it on <a href="https://pythontutor.com/render.html#code=temperaturelist%20%3D%20%5B12,%2016,%2018,%2016,%2019,%2018,%2020,%2021%5D%0A%0Amax_difference%20%3D%200%0A%0A%0Ayesterday%20%3D%20temperaturelist%5B0%5D%0A%0Afor%20today%20in%20temperaturelist%3A%0A%0A%20%20current_temp_difference%20%3D%20abs%28today%20-%20yesterday%29%0A%0A%20%20if%20current_temp_difference%20%3E%20max_difference%3A%0A%20%20%20%20%20%20max_difference%20%3D%20current_temp_difference%0A%0A%20%20yesterday%20%3D%20%20today%0A%20%20%0Aprint%28max_difference%29%0A%20%20&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Pythontutor</a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-label="1"></a>temperatures_this_month <span class="op">=</span> [<span class="dv">27</span>, <span class="dv">21</span>, <span class="dv">16</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">12</span>]</span>
+<span id="cb6-2"><a href="" aria-label="2"></a></span>
+<span id="cb6-3"><a href="" aria-label="3"></a><span class="co">'''</span></span>
+<span id="cb6-4"><a href="" aria-label="4"></a><span class="co">Question: </span></span>
+<span id="cb6-5"><a href="" aria-label="5"></a><span class="co">which day of the month has seen </span></span>
+<span id="cb6-6"><a href="" aria-label="6"></a><span class="co">the steepest temperature change (either increasing or decreasing)?</span></span>
+<span id="cb6-7"><a href="" aria-label="7"></a><span class="co">'''</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a><span class="co"># start with the minimum possible value</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a>max_day_on_day_change <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-3"><a href="" aria-label="3"></a></span>
+<span id="cb7-4"><a href="" aria-label="4"></a><span class="co"># initialise the trailer variable</span></span>
+<span id="cb7-5"><a href="" aria-label="5"></a>trailer <span class="op">=</span> temperatures_this_month[<span class="dv">0</span>]</span>
+<span id="cb7-6"><a href="" aria-label="6"></a></span>
+<span id="cb7-7"><a href="" aria-label="7"></a><span class="cf">for</span> temp <span class="kw">in</span> temperatures_this_month:</span>
+<span id="cb7-8"><a href="" aria-label="8"></a></span>
+<span id="cb7-9"><a href="" aria-label="9"></a>  current_change <span class="op">=</span> temp <span class="op">-</span> trailer</span>
+<span id="cb7-10"><a href="" aria-label="10"></a>  </span>
+<span id="cb7-11"><a href="" aria-label="11"></a>  <span class="cf">if</span> <span class="bu">abs</span>(current_change) <span class="op">&gt;</span> max_day_on_day_change:</span>
+<span id="cb7-12"><a href="" aria-label="12"></a>  </span>
+<span id="cb7-13"><a href="" aria-label="13"></a>    max_day_on_day_change <span class="op">=</span> <span class="bu">abs</span>(current_change) <span class="co"># a new max is found</span></span>
+<span id="cb7-14"><a href="" aria-label="14"></a></span>
+<span id="cb7-15"><a href="" aria-label="15"></a>  <span class="co"># we are finished with this value, assign it to the trailer</span></span>
+<span id="cb7-16"><a href="" aria-label="16"></a>  trailer <span class="op">=</span> temp</span>
+<span id="cb7-17"><a href="" aria-label="17"></a></span>
+<span id="cb7-18"><a href="" aria-label="18"></a><span class="bu">print</span>(<span class="ss">f'The maximum day-on-day increase has been </span><span class="sc">{</span>max_day_on_day_change<span class="sc">}</span><span class="ss"> degrees'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Run it on <a href="https://pythontutor.com/visualize.html#code='''%0AFind%20the%20maximum%20%28resp.%20minimum%29%20value%20change%20in%20a%20sequence%0A%0AAlgorithmic%20technique%3A%20the%20trailer%20variable%0A'''%0A%0Atemperatures_this_month%20%3D%20%5B27,%2021,%2016,%2021,%2019,%2018,%2019,%2012,%2015,%2012%5D%0A%0A'''%0AQuestion%3A%20%0Awhich%20day%20of%20the%20month%20has%20seen%20%0Athe%20steepest%20temperature%20change%20%28either%20increasing%20or%20decreasing%29%3F%0A'''%0A%0A%23%20start%20with%20the%20minimum%20possible%20value%0Amax_day_on_day_change%20%3D%200%0A%0A%23%20initialise%20the%20trailer%20variable%0Atrailer%20%3D%20temperatures_this_month%5B0%5D%0A%0Afor%20temp%20in%20temperatures_this_month%3A%0A%0A%20%20current_change%20%3D%20temp%20-%20trailer%0A%20%20%0A%20%20if%20abs%28current_change%29%20%3E%20max_day_on_day_change%3A%0A%20%20%0A%20%20%20%20max_day_on_day_change%20%3D%20abs%28current_change%29%20%23%20a%20new%20max%20is%20found%0A%0A%20%20%23%20we%20are%20finished%20with%20this%20value,%20assign%20it%20to%20the%20trailer%0A%20%20trailer%20%3D%20temp%0A%0Aprint%28f'The%20maximum%20day-on-day%20increase%20has%20been%20%7Bmax_day_on_day_change%7D%20degrees'%29%0A%0A%0A%0A&amp;curInstr=49&amp;matrixMode=true&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311">Pythontutor</a></p>
 </section>
 <section id="quiz" class="slide level2">
 <h2>Quiz</h2>
 <p>Complete code for searching a given number in a sequence</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>KEY <span class="op">=</span> <span class="dv">22</span></span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a>mylist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb7-4"><a href=""></a></span>
-<span id="cb7-5"><a href=""></a>___ item ___ mylist:</span>
-<span id="cb7-6"><a href=""></a>  <span class="cf">if</span> ___ <span class="op">==</span> ___:</span>
-<span id="cb7-7"><a href=""></a>    found <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb7-8"><a href=""></a>  <span class="cf">else</span>:</span>
-<span id="cb7-9"><a href=""></a>    found <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-label="1"></a>KEY <span class="op">=</span> <span class="dv">22</span></span>
+<span id="cb8-2"><a href="" aria-label="2"></a></span>
+<span id="cb8-3"><a href="" aria-label="3"></a>mylist <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb8-4"><a href="" aria-label="4"></a></span>
+<span id="cb8-5"><a href="" aria-label="5"></a>___ item ___ mylist:</span>
+<span id="cb8-6"><a href="" aria-label="6"></a>  <span class="cf">if</span> ___ <span class="op">==</span> ___:</span>
+<span id="cb8-7"><a href="" aria-label="7"></a>    found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb8-8"><a href="" aria-label="8"></a>  <span class="cf">else</span>:</span>
+<span id="cb8-9"><a href="" aria-label="9"></a>    found <span class="op">=</span> <span class="va">False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </section></section>
     </div>

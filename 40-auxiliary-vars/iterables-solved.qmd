@@ -49,12 +49,32 @@ for t in teams:
     print(t[:-3])
 ```
 
+. . .
 
-The `:` notation: nothing is the same as the extreme:
+
+The `:` notation: omitting a value is equivalent to taking its max value 
 
 `t[0:]` is the same as `t[:]` and `t`
 
 
+---
+
+The `:` notation: omitting a value is equivalent to taking its max value 
+
+`t[0:]` is the same as `t[:]` and `t`
+
+
+`t[1:]`: drop the first char
+
+. . .
+
+`t[:-1]`: drop the last char
+
+. . .
+
+`t[3:-3]`: drop the first three chars and the last three
+
+---
 
 ## Exercise, b
 

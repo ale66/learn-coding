@@ -156,7 +156,7 @@ file [converter.exe]() is for computers, not humans.
 
 ```bash
 >python my_converter.py
->Please enter the current temperature in Milan: 
+>Please enter the current temperature in Naples: 
 ```
 
 # Computers
