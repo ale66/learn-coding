@@ -6,8 +6,8 @@
 <script src="dictionaries_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="dictionaries_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="dictionaries_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="dictionaries_files/libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="dictionaries_files/libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="ale66">
   <title>Learn Coding</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="dictionaries_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="dictionaries_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="dictionaries_files/libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
+  <link rel="stylesheet" href="dictionaries_files/libs/revealjs/dist/theme/quarto-84b150702567ae7e15cad124fb9039e2.css">
   <link href="dictionaries_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="dictionaries_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="dictionaries_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -200,15 +206,15 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-ale66 
+ale66
 </div>
 </div>
 </div>
 
 </section>
 <section>
-<section id="lists-and-their-practical-limitations" class="title-slide slide level1 center">
-<h1>Lists and their practical limitations</h1>
+<section id="dimensional-lists-and-a-critique" class="title-slide slide level1 center">
+<h1>2-dimensional lists (and a critique)</h1>
 
 </section>
 <section id="so-far" class="slide level2">
@@ -225,61 +231,73 @@ ale66
 <p>Represent multi-dimensional data</p>
 <p>The meaning of data and the objective of the code guide the organization in lists and sublists</p>
 <p>Example: weekend temperatures in Naples (from Thur. to Sun.)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>my2Dlist <span class="op">=</span> [[<span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">20</span>, <span class="dv">26</span>], [<span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">21</span>], [<span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">21</span>, <span class="dv">20</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a>my2Dlist <span class="op">=</span> [[<span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">20</span>, <span class="dv">26</span>], [<span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">21</span>], [<span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">21</span>, <span class="dv">20</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <p>as with lists of strings, by simple nesting of indices we can access specific data points</p>
-<p>Temperature on the first Thursday of October?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="bu">print</span>(my2Dlist[<span class="dv">0</span>][<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Q: Temperature on the first Thursday of October?</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-label="1"></a><span class="bu">print</span>(my2Dlist[<span class="dv">0</span>][<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Visualise it on <a href="https://pythontutor.com/visualize.html#code=my2Dlist%20%3D%20%5B%5B18,%2022,%2020,%2026%5D,%20%5B26,%2027,%2028,%2021%5D,%20%5B18,%2016,%2021,%2020%5D%5D%0A%0A%23%20Q%3A%20Temperature%20on%20the%20first%20Thursday%20of%20October%3F%0A%0At%20%3D%20my2Dlist%5B0%5D%5B0%5D%0A%0Aprint%28t%29&amp;curInstr=0&amp;matrixMode=true&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311">Pythontutor</a></p>
+</div>
 </section>
 <section class="slide level2">
 
-<div id="6dcfd8ef" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>my2Dlist <span class="op">=</span> [[<span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">20</span>, <span class="dv">26</span>], [<span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">21</span>], [<span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">21</span>, <span class="dv">20</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f3dd98e9" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>my2Dlist <span class="op">=</span> [[<span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">20</span>, <span class="dv">26</span>], [<span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">21</span>], [<span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">21</span>, <span class="dv">20</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Average temperature on Thursday in October?</p>
-<div class="fragment">
-<div id="23d386fc" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>accumulator <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-2"><a href=""></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a><span class="cf">for</span> weekend <span class="kw">in</span> my2Dlist:</span>
-<span id="cb4-5"><a href=""></a>  accumulator <span class="op">+=</span> weekend[<span class="dv">0</span>]</span>
-<span id="cb4-6"><a href=""></a>  count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a><span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb4-9"><a href=""></a>  average_temp_thursday <span class="op">=</span> accumulator <span class="op">/</span> count</span>
-<span id="cb4-10"><a href=""></a><span class="cf">else</span>: </span>
-<span id="cb4-11"><a href=""></a>  <span class="co"># avoid 0 as it is a valid average temp.</span></span>
-<span id="cb4-12"><a href=""></a>  average_temp_thursday <span class="op">=</span> NaN</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Q: Average temperature on Thursday in October?</p>
+<ul>
+<li><p>use an accumulator variable</p></li>
+<li><p>go along the list, pick up the first item of each list</p></li>
+<li><p>accumulate it</p></li>
+<li><p>print the computed average (if it exists: what if it’s too early to tell?)</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div id="a1369d2c" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-label="1"></a>accumulator <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-2"><a href="" aria-label="2"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-3"><a href="" aria-label="3"></a></span>
+<span id="cb4-4"><a href="" aria-label="4"></a><span class="cf">for</span> weekend <span class="kw">in</span> my2Dlist:</span>
+<span id="cb4-5"><a href="" aria-label="5"></a>  accumulator <span class="op">+=</span> weekend[<span class="dv">0</span>]</span>
+<span id="cb4-6"><a href="" aria-label="6"></a>  count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-7"><a href="" aria-label="7"></a></span>
+<span id="cb4-8"><a href="" aria-label="8"></a><span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-9"><a href="" aria-label="9"></a>  average_temp_thursday <span class="op">=</span> accumulator <span class="op">/</span> count</span>
+<span id="cb4-10"><a href="" aria-label="10"></a><span class="cf">else</span>: </span>
+<span id="cb4-11"><a href="" aria-label="11"></a>  <span class="co"># avoid 0 as it is a valid average temp.</span></span>
+<span id="cb4-12"><a href="" aria-label="12"></a>  average_temp_thursday <span class="op">=</span> NaN</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
+<p>Visualise it on <a href="https://pythontutor.com/visualize.html#code=my2Dlist%20%3D%20%5B%5B18,%2022,%2020,%2026%5D,%20%5B26,%2027,%2028,%2021%5D,%20%5B18,%2016,%2021,%2020%5D%5D%0A%0A%23%20Average%20temperature%20on%20Thursday%20in%20October%3F%0A%0Aaccumulator%20%3D%200%0Acount%20%3D%200%0A%0Afor%20weekend%20in%20my2Dlist%3A%0A%20%20accumulator%20%2B%3D%20weekend%5B0%5D%0A%20%20count%20%2B%3D%201%0A%0Aif%20count%20%3E%200%3A%0A%20%20average_temp_thursday%20%3D%20accumulator%20/%20count%0Aelse%3A%20%0A%20%20%23%20avoid%200%20as%20it%20is%20a%20valid%20average%20temp.%0A%20%20average_temp_thursday%20%3D%20NaN&amp;curInstr=0&amp;matrixMode=true&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311">Pythontutor</a></p>
 </section>
 <section id="work-with-nested-lists" class="slide level2">
 <h2>Work with nested lists</h2>
 <p>Textual data sets may also be organized in 2-d lists</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>my_writers <span class="op">=</span> [</span>
-<span id="cb5-2"><a href=""></a>              [<span class="st">'Dickens'</span>, <span class="dv">1812</span>],</span>
-<span id="cb5-3"><a href=""></a>              [<span class="st">'King'</span>, <span class="dv">1947</span>],</span>
-<span id="cb5-4"><a href=""></a>              [<span class="st">'J.K. Rowling'</span>, <span class="dv">1965</span>],</span>
-<span id="cb5-5"><a href=""></a>              [<span class="st">'Christie'</span>, <span class="dv">1890</span>] </span>
-<span id="cb5-6"><a href=""></a>] </span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a><span class="cf">for</span> row <span class="kw">in</span> my_writers:</span>
-<span id="cb5-9"><a href=""></a>      <span class="bu">print</span>(row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a>my_writers <span class="op">=</span> [</span>
+<span id="cb5-2"><a href="" aria-label="2"></a>              [<span class="st">'Dickens'</span>, <span class="dv">1812</span>],</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>              [<span class="st">'King'</span>, <span class="dv">1947</span>],</span>
+<span id="cb5-4"><a href="" aria-label="4"></a>              [<span class="st">'J.K. Rowling'</span>, <span class="dv">1965</span>],</span>
+<span id="cb5-5"><a href="" aria-label="5"></a>              [<span class="st">'Christie'</span>, <span class="dv">1890</span>] </span>
+<span id="cb5-6"><a href="" aria-label="6"></a>] </span>
+<span id="cb5-7"><a href="" aria-label="7"></a></span>
+<span id="cb5-8"><a href="" aria-label="8"></a><span class="cf">for</span> row <span class="kw">in</span> my_writers:</span>
+<span id="cb5-9"><a href="" aria-label="9"></a>      <span class="bu">print</span>(row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here a clear semantic structure remains <em>latent</em> within the Python variables</p>
 </section>
 <section class="slide level2">
 
 <p>Print authors only:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="cf">for</span> row <span class="kw">in</span> my_writers:</span>
-<span id="cb6-2"><a href=""></a>  <span class="bu">print</span>(row[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-label="1"></a><span class="cf">for</span> row <span class="kw">in</span> my_writers:</span>
+<span id="cb6-2"><a href="" aria-label="2"></a>  <span class="bu">print</span>(row[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Print authors and they their year of birth?</p>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="cf">for</span> row <span class="kw">in</span> my_writers:</span>
-<span id="cb7-2"><a href=""></a>  <span class="cf">for</span> element <span class="kw">in</span> row:</span>
-<span id="cb7-3"><a href=""></a>      <span class="bu">print</span>(element)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a><span class="cf">for</span> row <span class="kw">in</span> my_writers:</span>
+<span id="cb7-2"><a href="" aria-label="2"></a>  <span class="cf">for</span> element <span class="kw">in</span> row:</span>
+<span id="cb7-3"><a href="" aria-label="3"></a>      <span class="bu">print</span>(element)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Spin it up on <a href="https://pythontutor.com/visualize.html#code=my_writers%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'Dickens',%201812%5D,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'King',%201947%5D,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'J.K.%20Rowling',%201965%5D,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'Christie',%201890%5D%20%0A%5D%20%0A%0Afor%20row%20in%20my_writers%3A%0A%20%20%20%20%20%20print%28row%29%0A%0Afor%20row%20in%20my_writers%3A%0A%20%20print%28row%5B0%5D%29%0A%0Afor%20row%20in%20my_writers%3A%0A%20%20for%20element%20in%20row%3A%0A%20%20%20%20%20%20print%28element%29%0A%0A&amp;curInstr=0&amp;matrixMode=true&amp;mode=display&amp;origin=opt-frontend.js&amp;py=311">Pythontutor</a></p>
 </div>
 </section>
 <section id="observations" class="slide level2">
@@ -304,10 +322,10 @@ ale66
 <div class="columns">
 <div class="column" style="width:70%;">
 <p>An unsorted <code>bag</code> of values, each with its own label, called <code>key</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>my_data <span class="op">=</span> {<span class="st">'author'</span>: <span class="st">'Agatha Christie'</span>, </span>
-<span id="cb8-2"><a href=""></a>            <span class="st">'nickname'</span>: <span class="st">'Mary Westmacott'</span>, </span>
-<span id="cb8-3"><a href=""></a>            <span class="st">'year_of_birth'</span>: <span class="dv">1890</span></span>
-<span id="cb8-4"><a href=""></a>          }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-label="1"></a>my_data <span class="op">=</span> {<span class="st">'author'</span>: <span class="st">'Agatha Christie'</span>, </span>
+<span id="cb8-2"><a href="" aria-label="2"></a>            <span class="st">'nickname'</span>: <span class="st">'Mary Westmacott'</span>, </span>
+<span id="cb8-3"><a href="" aria-label="3"></a>            <span class="st">'year_of_birth'</span>: <span class="dv">1890</span></span>
+<span id="cb8-4"><a href="" aria-label="4"></a>          }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:30%;">
 <p><img data-src="./imgs/purse.jpg"></p>
 </div></div>
@@ -325,80 +343,81 @@ ale66
 <section id="extensibility" class="slide level2">
 <h2>Extensibility</h2>
 <p>The more we have, the more we can put</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>my_writers <span class="op">=</span> [</span>
-<span id="cb9-2"><a href=""></a>  {<span class="st">'author'</span>:<span class="st">'Dickens'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1812</span>},</span>
-<span id="cb9-3"><a href=""></a>  {<span class="st">'author'</span>:<span class="st">'King'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1947</span>},</span>
-<span id="cb9-4"><a href=""></a>  {<span class="st">'author'</span>:<span class="st">'J.K. Rowling'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1965</span>},</span>
-<span id="cb9-5"><a href=""></a>  {<span class="st">'author'</span>:<span class="st">'Agatha Christie'</span>, <span class="st">'nickname'</span>:<span class="st">'Mary Westmacott'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1890</span>}</span>
-<span id="cb9-6"><a href=""></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-label="1"></a>my_writers <span class="op">=</span> [</span>
+<span id="cb9-2"><a href="" aria-label="2"></a>  {<span class="st">'author'</span>:<span class="st">'Dickens'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1812</span>},</span>
+<span id="cb9-3"><a href="" aria-label="3"></a>  {<span class="st">'author'</span>:<span class="st">'King'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1947</span>},</span>
+<span id="cb9-4"><a href="" aria-label="4"></a>  {<span class="st">'author'</span>:<span class="st">'J.K. Rowling'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1965</span>},</span>
+<span id="cb9-5"><a href="" aria-label="5"></a>  {<span class="st">'author'</span>:<span class="st">'Agatha Christie'</span>, <span class="st">'nickname'</span>:<span class="st">'Mary Westmacott'</span>,&nbsp;<span class="st">'year_of_birth'</span>:<span class="dv">1890</span>}</span>
+<span id="cb9-6"><a href="" aria-label="6"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="accessing-items" class="slide level2">
 <h2>Accessing items</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>my_dict <span class="op">=</span> {<span class="st">'author'</span>: <span class="st">'Agatha Christie'</span>, </span>
-<span id="cb10-2"><a href=""></a>          <span class="st">'nickname'</span>: <span class="st">'Mary Westmacott'</span>, </span>
-<span id="cb10-3"><a href=""></a>          <span class="st">'year_of_birth'</span>: <span class="dv">1890</span></span>
-<span id="cb10-4"><a href=""></a>}</span>
-<span id="cb10-5"><a href=""></a></span>
-<span id="cb10-6"><a href=""></a><span class="bu">print</span>(my_dict[<span class="st">'author'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-label="1"></a>my_dict <span class="op">=</span> {<span class="st">'author'</span>: <span class="st">'Agatha Christie'</span>, </span>
+<span id="cb10-2"><a href="" aria-label="2"></a>          <span class="st">'nickname'</span>: <span class="st">'Mary Westmacott'</span>, </span>
+<span id="cb10-3"><a href="" aria-label="3"></a>          <span class="st">'year_of_birth'</span>: <span class="dv">1890</span></span>
+<span id="cb10-4"><a href="" aria-label="4"></a>}</span>
+<span id="cb10-5"><a href="" aria-label="5"></a></span>
+<span id="cb10-6"><a href="" aria-label="6"></a><span class="bu">print</span>(my_dict[<span class="st">'author'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>NOW <span class="op">=</span> <span class="dv">2024</span></span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>delta <span class="op">=</span> NOW <span class="op">-</span> my_dict[<span class="st">'year_of_birth'</span>]</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="bu">print</span>(f{{my_dict[<span class="st">'author'</span>]} was born {delta} years ago.})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-label="1"></a>NOW <span class="op">=</span> <span class="dv">2024</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a></span>
+<span id="cb11-3"><a href="" aria-label="3"></a>delta <span class="op">=</span> NOW <span class="op">-</span> my_dict[<span class="st">'year_of_birth'</span>]</span>
+<span id="cb11-4"><a href="" aria-label="4"></a></span>
+<span id="cb11-5"><a href="" aria-label="5"></a><span class="bu">print</span>(f{{my_dict[<span class="st">'author'</span>]} was born {delta} years ago.})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="amending-values" class="slide level2">
 <h2>Amending values</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>my_dict[<span class="st">'year_of_birth'</span>] <span class="op">=</span> <span class="dv">2019</span></span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a><span class="bu">print</span>(my_dict[<span class="st">'year_of_birth'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-label="1"></a>my_dict[<span class="st">'year_of_birth'</span>] <span class="op">=</span> <span class="dv">2019</span></span>
+<span id="cb12-2"><a href="" aria-label="2"></a></span>
+<span id="cb12-3"><a href="" aria-label="3"></a><span class="bu">print</span>(my_dict[<span class="st">'year_of_birth'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>king <span class="op">=</span> my_writers[<span class="dv">1</span>]</span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a><span class="bu">print</span>(king[<span class="st">'author'</span>])</span>
-<span id="cb13-4"><a href=""></a></span>
-<span id="cb13-5"><a href=""></a>king[<span class="st">'author'</span>] <span class="op">=</span> <span class="st">'Stephen King'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="" aria-label="1"></a><span class="co">#</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a>king <span class="op">=</span> my_writers[<span class="dv">1</span>]</span>
+<span id="cb13-3"><a href="" aria-label="3"></a></span>
+<span id="cb13-4"><a href="" aria-label="4"></a><span class="bu">print</span>(king[<span class="st">'author'</span>])</span>
+<span id="cb13-5"><a href="" aria-label="5"></a></span>
+<span id="cb13-6"><a href="" aria-label="6"></a>king[<span class="st">'author'</span>] <span class="op">=</span> <span class="st">'Stephen King'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We have more information but <code>my_writers</code> is unchanged</p>
 </div>
 </section>
 <section id="combining-indices" class="slide level2">
 <h2>Combining indices</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>my_writers[<span class="dv">1</span>][<span class="st">'author'</span>] <span class="op">=</span> <span class="st">'Stephen King'</span></span>
-<span id="cb14-2"><a href=""></a></span>
-<span id="cb14-3"><a href=""></a><span class="bu">print</span>(my_writers)</span>
-<span id="cb14-4"><a href=""></a></span>
-<span id="cb14-5"><a href=""></a>[{<span class="st">'author'</span>:<span class="st">'Dickens'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1812</span>}, </span>
-<span id="cb14-6"><a href=""></a> {<span class="st">'author'</span>:<span class="st">'Stephen King'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1947</span>}, </span>
-<span id="cb14-7"><a href=""></a> {<span class="st">'author'</span>:<span class="st">'J.K. Rowling'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1965</span>}, </span>
-<span id="cb14-8"><a href=""></a> {<span class="st">'author'</span>:<span class="st">'Agatha Christie'</span>, <span class="st">'nickname'</span>:<span class="st">'Mary Westmacott'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1890</span>}]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-label="1"></a>my_writers[<span class="dv">1</span>][<span class="st">'author'</span>] <span class="op">=</span> <span class="st">'Stephen King'</span></span>
+<span id="cb14-2"><a href="" aria-label="2"></a></span>
+<span id="cb14-3"><a href="" aria-label="3"></a><span class="bu">print</span>(my_writers)</span>
+<span id="cb14-4"><a href="" aria-label="4"></a></span>
+<span id="cb14-5"><a href="" aria-label="5"></a>[{<span class="st">'author'</span>:<span class="st">'Dickens'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1812</span>}, </span>
+<span id="cb14-6"><a href="" aria-label="6"></a> {<span class="st">'author'</span>:<span class="st">'Stephen King'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1947</span>}, </span>
+<span id="cb14-7"><a href="" aria-label="7"></a> {<span class="st">'author'</span>:<span class="st">'J.K. Rowling'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1965</span>}, </span>
+<span id="cb14-8"><a href="" aria-label="8"></a> {<span class="st">'author'</span>:<span class="st">'Agatha Christie'</span>, <span class="st">'nickname'</span>:<span class="st">'Mary Westmacott'</span>, <span class="st">'year_of_birth'</span>:<span class="dv">1890</span>}]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="iteration" class="slide level2">
 <h2>Iteration</h2>
 <p>As the data structure is completely arbitrary, simple indexing (<code>i=0,1, ...</code>) does not work anymore.</p>
 <p>A lazy iterable, similar to <code>range</code>, will serve the <code>key:value</code> pairs on request</p>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># always key first</span></span>
-<span id="cb15-2"><a href=""></a><span class="cf">for</span> key, value <span class="kw">in</span> my_dict.items():</span>
-<span id="cb15-3"><a href=""></a>  <span class="bu">print</span>(key, value) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href=""></a>author Agatha Christie </span>
-<span id="cb16-2"><a href=""></a>nickname Mary Westmacott </span>
-<span id="cb16-3"><a href=""></a>year_of_birth 1890</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="" aria-label="1"></a><span class="co"># always key first</span></span>
+<span id="cb15-2"><a href="" aria-label="2"></a><span class="cf">for</span> key, value <span class="kw">in</span> my_dict.items():</span>
+<span id="cb15-3"><a href="" aria-label="3"></a>  <span class="bu">print</span>(key, value) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="" aria-label="1"></a>author Agatha Christie </span>
+<span id="cb16-2"><a href="" aria-label="2"></a>nickname Mary Westmacott </span>
+<span id="cb16-3"><a href="" aria-label="3"></a>year_of_birth 1890</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-key-and-value-variable-names" class="slide level2">
 <h2>The <code>key</code> and <code>value</code> variable names</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="cf">for</span> key <span class="kw">in</span> my_dict.items():</span>
-<span id="cb17-2"><a href=""></a>  <span class="bu">print</span>(key) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>author</span>
-<span id="cb18-2"><a href=""></a>nickname</span>
-<span id="cb18-3"><a href=""></a>year_of_birth</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="" aria-label="1"></a><span class="cf">for</span> key <span class="kw">in</span> my_dict.items():</span>
+<span id="cb17-2"><a href="" aria-label="2"></a>  <span class="bu">print</span>(key) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="" aria-label="1"></a>author</span>
+<span id="cb18-2"><a href="" aria-label="2"></a>nickname</span>
+<span id="cb18-3"><a href="" aria-label="3"></a>year_of_birth</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="cf">for</span> value <span class="kw">in</span> my_dict.items():</span>
-<span id="cb19-2"><a href=""></a>  <span class="bu">print</span>(key) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href=""></a>Agatha Christie </span>
-<span id="cb20-2"><a href=""></a>Mary Westmacott </span>
-<span id="cb20-3"><a href=""></a>1890</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="" aria-label="1"></a><span class="cf">for</span> value <span class="kw">in</span> my_dict.items():</span>
+<span id="cb19-2"><a href="" aria-label="2"></a>  <span class="bu">print</span>(key) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href="" aria-label="1"></a>Agatha Christie </span>
+<span id="cb20-2"><a href="" aria-label="2"></a>Mary Westmacott </span>
+<span id="cb20-3"><a href="" aria-label="3"></a>1890</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -408,77 +427,77 @@ ale66
 <img data-src="./imgs/list-vs-dict.jpg" class="r-stretch"></section>
 <section id="grow-a-list" class="slide level2">
 <h2>Grow a list</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>my_list <span class="op">=</span> []</span>
-<span id="cb21-2"><a href=""></a></span>
-<span id="cb21-3"><a href=""></a>my_list.append(<span class="dv">10</span>)</span>
-<span id="cb21-4"><a href=""></a></span>
-<span id="cb21-5"><a href=""></a>my_list.append(<span class="dv">20</span>)</span>
-<span id="cb21-6"><a href=""></a></span>
-<span id="cb21-7"><a href=""></a><span class="bu">print</span>(alist)</span>
-<span id="cb21-8"><a href=""></a></span>
-<span id="cb21-9"><a href=""></a>[<span class="dv">10</span>, <span class="dv">20</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="" aria-label="1"></a>my_list <span class="op">=</span> []</span>
+<span id="cb21-2"><a href="" aria-label="2"></a></span>
+<span id="cb21-3"><a href="" aria-label="3"></a>my_list.append(<span class="dv">10</span>)</span>
+<span id="cb21-4"><a href="" aria-label="4"></a></span>
+<span id="cb21-5"><a href="" aria-label="5"></a>my_list.append(<span class="dv">20</span>)</span>
+<span id="cb21-6"><a href="" aria-label="6"></a></span>
+<span id="cb21-7"><a href="" aria-label="7"></a><span class="bu">print</span>(alist)</span>
+<span id="cb21-8"><a href="" aria-label="8"></a></span>
+<span id="cb21-9"><a href="" aria-label="9"></a>[<span class="dv">10</span>, <span class="dv">20</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Direct access is always possible:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="bu">print</span>(my_list[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb22-2"><a href=""></a></span>
-<span id="cb22-3"><a href=""></a><span class="dv">20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-label="1"></a><span class="bu">print</span>(my_list[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb22-2"><a href="" aria-label="2"></a></span>
+<span id="cb22-3"><a href="" aria-label="3"></a><span class="dv">20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="grow-a-dictionary" class="slide level2">
 <h2>Grow a dictionary</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>my_dict <span class="op">=</span> {}</span>
-<span id="cb23-2"><a href=""></a></span>
-<span id="cb23-3"><a href=""></a>my_dict[<span class="st">'name'</span>] <span class="op">=</span> <span class="st">'Tom'</span></span>
-<span id="cb23-4"><a href=""></a></span>
-<span id="cb23-5"><a href=""></a>my_dict[<span class="st">'age'</span>] <span class="op">=</span> <span class="dv">35</span></span>
-<span id="cb23-6"><a href=""></a></span>
-<span id="cb23-7"><a href=""></a><span class="bu">print</span>(my_dict)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href=""></a>{'name':'Tom', 'age':35}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="bu">print</span>(my_dict[<span class="st">'name'</span>])</span>
-<span id="cb25-2"><a href=""></a></span>
-<span id="cb25-3"><a href=""></a>Tom</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="" aria-label="1"></a>my_dict <span class="op">=</span> {}</span>
+<span id="cb23-2"><a href="" aria-label="2"></a></span>
+<span id="cb23-3"><a href="" aria-label="3"></a>my_dict[<span class="st">'name'</span>] <span class="op">=</span> <span class="st">'Tom'</span></span>
+<span id="cb23-4"><a href="" aria-label="4"></a></span>
+<span id="cb23-5"><a href="" aria-label="5"></a>my_dict[<span class="st">'age'</span>] <span class="op">=</span> <span class="dv">35</span></span>
+<span id="cb23-6"><a href="" aria-label="6"></a></span>
+<span id="cb23-7"><a href="" aria-label="7"></a><span class="bu">print</span>(my_dict)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href="" aria-label="1"></a>{'name':'Tom', 'age':35}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="" aria-label="1"></a><span class="bu">print</span>(my_dict[<span class="st">'name'</span>])</span>
+<span id="cb25-2"><a href="" aria-label="2"></a></span>
+<span id="cb25-3"><a href="" aria-label="3"></a>Tom</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Disadvantage: dictionaries are inherently unordered</p>
 </section>
 <section id="one-key-many-values" class="slide level2">
 <h2>one key, many values</h2>
 
-<img data-src="./imgs/1-key-many-vals.png" class="r-stretch"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>my_python <span class="op">=</span> {<span class="st">'Student_ID'</span>:[<span class="st">'S1'</span>,<span class="st">'S2'</span>], </span>
-<span id="cb26-2"><a href=""></a>            <span class="st">'Student_Name'</span>:[<span class="st">'John'</span>, <span class="st">'Mary'</span>]</span>
-<span id="cb26-3"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<img data-src="./imgs/1-key-many-vals.png" class="r-stretch"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="" aria-label="1"></a>my_python <span class="op">=</span> {<span class="st">'Student_ID'</span>:[<span class="st">'S1'</span>,<span class="st">'S2'</span>], </span>
+<span id="cb26-2"><a href="" aria-label="2"></a>            <span class="st">'Student_Name'</span>:[<span class="st">'John'</span>, <span class="st">'Mary'</span>]</span>
+<span id="cb26-3"><a href="" aria-label="3"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="recap-common-operations" class="slide level2">
 <h2>Recap: common operations</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="co"># create an empty dictionary</span></span>
-<span id="cb27-2"><a href=""></a>my_dict <span class="op">=</span> {}</span>
-<span id="cb27-3"><a href=""></a></span>
-<span id="cb27-4"><a href=""></a><span class="co"># create a new dict with 3 items</span></span>
-<span id="cb27-5"><a href=""></a>my_dict <span class="op">=</span> {<span class="st">'one'</span>:<span class="dv">1</span>, <span class="st">'two'</span>:<span class="dv">2</span>, <span class="st">'three'</span>:<span class="dv">3</span>}</span>
-<span id="cb27-6"><a href=""></a></span>
-<span id="cb27-7"><a href=""></a><span class="co"># access an element</span></span>
-<span id="cb27-8"><a href=""></a><span class="bu">print</span>(my_dict[<span class="st">'two'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="" aria-label="1"></a><span class="co"># create an empty dictionary</span></span>
+<span id="cb27-2"><a href="" aria-label="2"></a>my_dict <span class="op">=</span> {}</span>
+<span id="cb27-3"><a href="" aria-label="3"></a></span>
+<span id="cb27-4"><a href="" aria-label="4"></a><span class="co"># create a new dict with 3 items</span></span>
+<span id="cb27-5"><a href="" aria-label="5"></a>my_dict <span class="op">=</span> {<span class="st">'one'</span>:<span class="dv">1</span>, <span class="st">'two'</span>:<span class="dv">2</span>, <span class="st">'three'</span>:<span class="dv">3</span>}</span>
+<span id="cb27-6"><a href="" aria-label="6"></a></span>
+<span id="cb27-7"><a href="" aria-label="7"></a><span class="co"># access an element</span></span>
+<span id="cb27-8"><a href="" aria-label="8"></a><span class="bu">print</span>(my_dict[<span class="st">'two'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Data updates:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="co"># add an entry</span></span>
-<span id="cb28-2"><a href=""></a>my_dict[<span class="st">'four'</span>] <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb28-3"><a href=""></a></span>
-<span id="cb28-4"><a href=""></a><span class="co"># change an entry</span></span>
-<span id="cb28-5"><a href=""></a>my_dict[<span class="st">'one'</span>] <span class="op">=</span> <span class="st">'uno'</span></span>
-<span id="cb28-6"><a href=""></a></span>
-<span id="cb28-7"><a href=""></a><span class="co"># count items</span></span>
-<span id="cb28-8"><a href=""></a>howmany <span class="op">=</span> <span class="bu">len</span>(my_dict)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="" aria-label="1"></a><span class="co"># add an entry</span></span>
+<span id="cb28-2"><a href="" aria-label="2"></a>my_dict[<span class="st">'four'</span>] <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb28-3"><a href="" aria-label="3"></a></span>
+<span id="cb28-4"><a href="" aria-label="4"></a><span class="co"># change an entry</span></span>
+<span id="cb28-5"><a href="" aria-label="5"></a>my_dict[<span class="st">'one'</span>] <span class="op">=</span> <span class="st">'uno'</span></span>
+<span id="cb28-6"><a href="" aria-label="6"></a></span>
+<span id="cb28-7"><a href="" aria-label="7"></a><span class="co"># count items</span></span>
+<span id="cb28-8"><a href="" aria-label="8"></a>howmany <span class="op">=</span> <span class="bu">len</span>(my_dict)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="keys-and-values" class="slide level2">
 <h2><code>keys</code> and <code>values</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="co"># iterate over keys</span></span>
-<span id="cb29-2"><a href=""></a><span class="cf">for</span> item <span class="kw">in</span> my_dict.keys():</span>
-<span id="cb29-3"><a href=""></a>  <span class="bu">print</span> (item)</span>
-<span id="cb29-4"><a href=""></a></span>
-<span id="cb29-5"><a href=""></a><span class="co"># iterate over values</span></span>
-<span id="cb29-6"><a href=""></a><span class="cf">for</span> item <span class="kw">in</span> my_dict.values():</span>
-<span id="cb29-7"><a href=""></a>  <span class="bu">print</span>(item)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="" aria-label="1"></a><span class="co"># iterate over keys</span></span>
+<span id="cb29-2"><a href="" aria-label="2"></a><span class="cf">for</span> item <span class="kw">in</span> my_dict.keys():</span>
+<span id="cb29-3"><a href="" aria-label="3"></a>  <span class="bu">print</span> (item)</span>
+<span id="cb29-4"><a href="" aria-label="4"></a></span>
+<span id="cb29-5"><a href="" aria-label="5"></a><span class="co"># iterate over values</span></span>
+<span id="cb29-6"><a href="" aria-label="6"></a><span class="cf">for</span> item <span class="kw">in</span> my_dict.values():</span>
+<span id="cb29-7"><a href="" aria-label="7"></a>  <span class="bu">print</span>(item)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Inspect the data structure:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="co"># list out the keys</span></span>
-<span id="cb30-2"><a href=""></a>my_dict.keys()</span>
-<span id="cb30-3"><a href=""></a></span>
-<span id="cb30-4"><a href=""></a><span class="co"># list out the values</span></span>
-<span id="cb30-5"><a href=""></a>my_dict.values()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="" aria-label="1"></a><span class="co"># list out the keys</span></span>
+<span id="cb30-2"><a href="" aria-label="2"></a>my_dict.keys()</span>
+<span id="cb30-3"><a href="" aria-label="3"></a></span>
+<span id="cb30-4"><a href="" aria-label="4"></a><span class="co"># list out the values</span></span>
+<span id="cb30-5"><a href="" aria-label="5"></a>my_dict.values()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="quiz" class="title-slide slide level1 center">

@@ -16,7 +16,7 @@ execute:
   echo: true
 ---
 
-# Lists and their practical limitations
+# 2-dimensional lists (and a critique)
 
 
 ---
@@ -54,12 +54,14 @@ my2Dlist = [[18, 22, 20, 26], [26, 27, 28, 21], [18, 16, 21, 20]]
 
 as with lists of strings, by simple nesting of indices we can access specific data points
 
-Temperature on the first Thursday of October?
+Q: Temperature on the first Thursday of October?
+
+. . .
 
 ```python
 print(my2Dlist[0][0])
 ```
-
+Visualise it on [Pythontutor](https://pythontutor.com/visualize.html#code=my2Dlist%20%3D%20%5B%5B18,%2022,%2020,%2026%5D,%20%5B26,%2027,%2028,%2021%5D,%20%5B18,%2016,%2021,%2020%5D%5D%0A%0A%23%20Q%3A%20Temperature%20on%20the%20first%20Thursday%20of%20October%3F%0A%0At%20%3D%20my2Dlist%5B0%5D%5B0%5D%0A%0Aprint%28t%29&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311)
 
 ---
 
@@ -67,9 +69,18 @@ print(my2Dlist[0][0])
 my2Dlist = [[18, 22, 20, 26], [26, 27, 28, 21], [18, 16, 21, 20]]
 ```
 
-Average temperature on Thursday in October?
+Q: Average temperature on Thursday in October?
 
-. . .
+- use an accumulator variable
+
+- go along the list, pick up the first item of each list 
+
+- accumulate it
+
+- print the computed average (if it exists: what if it's too early to tell?)
+
+
+---
 
 ```{python}
 accumulator = 0
@@ -86,6 +97,7 @@ else:
   average_temp_thursday = NaN
 ```
 
+Visualise it on [Pythontutor](https://pythontutor.com/visualize.html#code=my2Dlist%20%3D%20%5B%5B18,%2022,%2020,%2026%5D,%20%5B26,%2027,%2028,%2021%5D,%20%5B18,%2016,%2021,%2020%5D%5D%0A%0A%23%20Average%20temperature%20on%20Thursday%20in%20October%3F%0A%0Aaccumulator%20%3D%200%0Acount%20%3D%200%0A%0Afor%20weekend%20in%20my2Dlist%3A%0A%20%20accumulator%20%2B%3D%20weekend%5B0%5D%0A%20%20count%20%2B%3D%201%0A%0Aif%20count%20%3E%200%3A%0A%20%20average_temp_thursday%20%3D%20accumulator%20/%20count%0Aelse%3A%20%0A%20%20%23%20avoid%200%20as%20it%20is%20a%20valid%20average%20temp.%0A%20%20average_temp_thursday%20%3D%20NaN&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311)
 
 ---
 
@@ -126,6 +138,8 @@ for row in my_writers:
   for element in row:
       print(element)
 ```
+
+Spin it up on [Pythontutor](https://pythontutor.com/visualize.html#code=my_writers%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'Dickens',%201812%5D,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'King',%201947%5D,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'J.K.%20Rowling',%201965%5D,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B'Christie',%201890%5D%20%0A%5D%20%0A%0Afor%20row%20in%20my_writers%3A%0A%20%20%20%20%20%20print%28row%29%0A%0Afor%20row%20in%20my_writers%3A%0A%20%20print%28row%5B0%5D%29%0A%0Afor%20row%20in%20my_writers%3A%0A%20%20for%20element%20in%20row%3A%0A%20%20%20%20%20%20print%28element%29%0A%0A&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311)
 
 
 ---
@@ -237,6 +251,7 @@ print(my_dict['year_of_birth'])
 . . .
 
 ```python
+#
 king = my_writers[1]
 
 print(king['author'])
