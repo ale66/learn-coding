@@ -1,4 +1,4 @@
-# statistical analysis of Shakespeare's text:
+# Statistical analysis of Shakespeare's text:
 # Question: which character did he use most frequently?
 
 # A large stats from the British Library corpora suggests that 
