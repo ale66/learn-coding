@@ -110,3 +110,35 @@ for key, val in sorted_stats_en:
 
 print(sorted_stats_en)
 '''
+
+# --- For Reference: Data visualisation
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+keys = sorted(mystats)
+
+# how many pairs are in the dictionary?
+l = len(keys)
+
+# enumerate the 'x' positions on the diagram: 0, 1, ... l-1
+pos = np.arange(l)
+
+# fix the width of each bar
+bar_width = 0.5
+
+plt.figure(figsize=(14, 5))
+plt.bar(pos, [mystats[k] for k in keys], bar_width, label="EN")
+
+# Compare with another language!
+# copy+paste the code above to run for a second language, obtain, e.g., mystats_it
+# change B -> your language code
+# plt.bar(pos, [mystats_it[k] for k in keys], bar_width, label="IT")
+# make it look better by pos -> pos+0.2 or something like that
+
+
+plt.xticks(pos, keys)
+plt.ylabel("frequency")
+plt.legend()
+plt.tight_layout()
+plt.show()
