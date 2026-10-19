@@ -76,7 +76,7 @@ Functions should be defined every time a block of code is required to appear mor
 
 - improve readability
 
-- improve maintainance
+- improve maintenance
 
 
 # Syntax
@@ -184,9 +184,38 @@ what are the bindings?
 
 ---
 
-## Function nesting 
+## For reference: list-specific built-in functions
 
-Example: compute some stats at once
+Essentially, work with list is implemented already
+
+```python
+l = len(my_list)
+
+min_val = min(my_temperatures_list)
+
+max_val = max(my_temperatures_list)
+
+avg_val = sum(my_temperatures_list) / l
+```
+
+---
+
+## Function nesting
+
+Example: compute summary stats for temperatures in a given month of the year. 
+
+Let's package up the list built-in functions to compute summary stats in a *tidy* code
+
+```python
+october = [25, 26, 23, 18, 18, 19, 23, 22]
+
+monthly_min, monthly_max, monthly_avg, days = find_tendencies(october)
+```
+
+define `find_tendencies()` by combining the built-ins. 
+
+
+--- 
 
 ```python
 def find_tendencies(my_temperatures_list):
@@ -207,7 +236,10 @@ def find_tendencies(my_temperatures_list):
       return None, None, None, 0
 ```
 
-Notice the multiple exit points with two or more `return`s
+Notice the multiple exit points with two `return` points
+
+Visualise it on [Pythontutor](https://pythontutor.com/visualize.html#code=def%20find_tendencies%28my_temperatures_list%29%3A%0A%20%20%20%20'''Compute%20some%20stats%20on%20a%20list%20of%20temperatures'''%0A%0A%20%20%20%20l%20%3D%20len%28my_temperatures_list%29%0A%0A%20%20%20%20if%20l%20%3E%200%3A%0A%20%20%20%20%20%20%20%20min_val%20%3D%20min%28my_temperatures_list%29%0A%20%20%20%20%20%20%20%20max_val%20%3D%20max%28my_temperatures_list%29%0A%20%20%20%20%20%20%20%20avg_val%20%3D%20sum%28my_temperatures_list%29%20/%20l%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%23%20Return%20multiple%20values%20separated%20by%20commas%20%28creates%20a%20tuple%29%0A%20%20%20%20%20%20%20%20return%20min_val,%20max_val,%20avg_val,%20l%0A%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20print%28'Empty%20input%20data,%20defaulting%20to%20None'%29%0A%20%20%20%20%20%20return%20None,%20None,%20None,%200%0A%20%20%20%20%20%20%0Aoctober%20%3D%20%5B25,%2026,%2023,%2018,%2018,%2019,%2023,%2022%5D%0A%0Amonthly_min,%20monthly_max,%20monthly_avg,%20days%20%3D%20find_tendencies%28october%29%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311){target="_blank"}
+
 
 ---
 
@@ -235,6 +267,9 @@ print(average_of_three(square(10), square(20), square(30)))
 
 ::::
 
+
+# Functions and Visibility 
+
 ---
 
 ## Visibility of variables
@@ -254,7 +289,7 @@ Try to make no assumption on who's calling
 
 F. execute in a separated environment with *private* variables
 
-External vars. (from the caller) may be read but not changed
+External vars. (from the caller) may be read __but not changed__
 
 ```{python}
 def func(primero, segundo):
@@ -268,8 +303,11 @@ def func(primero, segundo):
 # example call
 first_in = 1
 second_in = 2
+
 first_out, second_out =  func(first_in, second_in)
 ```
+
+Visualise it on [Pythontutor](https://pythontutor.com/visualize.html#code=def%20func%28primero,%20segundo%29%3A%0A%0A%20%20%20%20print%28f'Inside%20here,%20primero%20is%20really%20first_in%3A%20%7Bprimero%7D%20and%20%7Bfirst_in%7D'%29%0A%20%20%20%20tercero%20%3D%203%0A%20%20%20%20quarto%20%3D%204%0A%0A%20%20%20%20return%20tercero,%20quarto%0A%0A%23%20example%20call%0Afirst_in%20%3D%201%0Asecond_in%20%3D%202%0A%0Afirst_out,%20second_out%20%3D%20%20func%28first_in,%20second_in%29&curInstr=0&matrixMode=true&mode=display&origin=opt-frontend.js&py=311){target="_blank"}
 
 ---
 
@@ -285,13 +323,15 @@ def func(primero, segundo):
 
 first_in = 1
 second_in = 2
+
 first_out, second_out =  func(first_in, second_in)
+
 print(f'Outside, first_in is {first_in}')
 ```
 
 A new `first_in` variable is available, but only inside `func`
 
-unless we specify `global` or `nonlocal` (not reccommended)
+unless we specify `global` or `nonlocal` (not recommended)
 
 
 
