@@ -7,8 +7,15 @@
 # 
 # is this the case for Shakespeare's writings? 
 # 
-# is this also true for Italian?
-
+# is this also true for, e.g., Italian?
+#
+# For reference: 
+# "Scholars conclude ‘beyond doubt’ that Shakespeare was main author of Edward III"
+# The Guardian, 18th Oct. 20226
+# https://www.theguardian.com/culture/2026/oct/18/scholars-conclude-beyond-doubt-that-shakespeare-was-main-author-of-edward-iii
+#
+#
+#
 # From the Gutenberg project
 EN = '''Two households, both alike in dignity,
 In fair Verona, where we lay our scene,
@@ -56,12 +63,26 @@ mytext = EN
 
 text_length = len(mytext)
 
+# prepare a dictionary to store the counting as we go down the text
 mystats = {}
 
 # First, count occurrences 
 for c in mytext:
     continue
     # your solution here
+
+
+
+
+
+
+
+
+
+# Now, compute relative frequencies
+
+
+
 
 
 

@@ -7,8 +7,15 @@
 # 
 # is this the case for Shakespeare's writings? 
 # 
-# is this also true for Italian?
-
+# is this also true for, e.g., Italian?
+#
+# For reference: 
+# "Scholars conclude ‘beyond doubt’ that Shakespeare was main author of Edward III"
+# The Guardian, 18th Oct. 20226
+# https://www.theguardian.com/culture/2026/oct/18/scholars-conclude-beyond-doubt-that-shakespeare-was-main-author-of-edward-iii
+#
+#
+#
 # From the Gutenberg project
 EN = '''Two households, both alike in dignity,
 In fair Verona, where we lay our scene,
@@ -46,10 +53,11 @@ in questo racconto.'''
 # toggle this to run on different languages
 mytext = EN
 
-# --- Coding exercise: 
+
+# --------- Coding exercise! ---------------------- 
+
 # extract a text morphology 
 # by counting relative character frequencies
-
 
 # some baseline code, edit it to solve the challenge
 
@@ -59,7 +67,7 @@ text_length = len(mytext)
 mystats = {}
 
 
-# Count occurrences 
+# First, count occurrences 
 for c in mytext:
 
     if c in mystats:
@@ -71,8 +79,7 @@ for c in mytext:
 
 print('Morphology by char. frequency in English:')
 
-# Computing relative frequencies
-
+# Now, compute relative frequencies
 if text_length > 0:
 
     # mind the variable names
