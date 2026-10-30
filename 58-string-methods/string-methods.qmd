@@ -24,18 +24,15 @@ execute:
 
 Real data rarely arrives in the shape we need
 
-- a log line: `"2026-10-29 ERROR disk full"`
-- a CSV row: `"Milan,1.4,Italy"`
-- a chat message: `"ciao a tutti, buona giornata"`
-- a file path: `"data/raw/channel_01.json"`
+- a log line: `'2026-10-29 ERROR disk full'`
+- a CSV row: `'Milan,1.4,Italy'`
+- a chat message: `'ciao a tutti, buona giornata'`
+- a file path: `'data/raw/channel_01.json'`
 
-::: {.fragment}
 Splitting turns **one string** into **a list of pieces** we can count, filter and analyse.
-:::
 
-::: notes
-Link to text analysis: tokenising a message is the first step of almost every NLP pipeline.
-:::
+
+Tokenising a message is the first step of almost every NLP pipeline.
 
 ---
 
@@ -188,11 +185,11 @@ two_pieces = the_file_name.split('.')
 print(two_pieces)
 ```
 
---ke
+---
 
 keep the actual name (first ele. of the list) and change the suffix
 
-``{python}
+```{python}
 new_name = two_pieces[0] + '.docx'
 
 print(new_name)
@@ -247,6 +244,7 @@ print(mystring)
 words = ['to', 'be', 'or', 'not', 'to', 'be']
 
 mysentence = ' '.join(words)
+
 print(mysentence)
 ```
 
@@ -259,7 +257,7 @@ test = 'a,b,c'
 
 recombined = ','.join(test.split(",")) 
 
-print (reconstructed)
+print (recombined)
 ```
 
 ---
