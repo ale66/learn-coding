@@ -4,7 +4,7 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [solarized]
     preview-links: auto
     chalkboard: 
       boardmarker-width: 3
@@ -488,12 +488,6 @@ These examples are from Wikipedia
   ], ...}
   ```
 
-
-
-
-
-
-
 ## Non-text files
 
 By default, `open()` simply reads __text files__
@@ -519,9 +513,36 @@ Images, sound and video are treated as binary
 An informal introduction through a [real project](https://github.com/MillieClare/mastersProject/blob/master/.ipynb_checkpoints/Normalisation%20investigation-checkpoint.ipynb) on *Green finance*: look at cells up to [5].
 
 
+# In-class mini-coding project: data journalism
+
 ---
 
 #### Challenge: can you get fresh data from [data.spectator.co.uk](https://data.spectator.co.uk/) and display it?
 
 
-[![](./imgs/the_spectator.png)](https://data.spectator.co.uk/category/energy)
+[![](./imgs/the_spectator.png)](https://data.spectator.co.uk/category/energy){width="80%"}
+
+
+---
+
+- Pair coding: one writes codes, the other writes comments
+
+- download the dataset on irregular migrants to the UK (or one you are specifically interested in)
+
+- download the file in an easy-to-reach position, e.g., `60-files/data`
+
+- make a copy of `access-files-examples.py`, e.g., `myproject.py`
+
+---
+
+#### On VS Code 
+
+- set the MYWORKFOLDER and FILE constants to the needed values
+
+- comment/delete all but the file access part you need to open your datafile, amend as needed
+
+- add code for visualisation, e.g., a small table 
+  
+- or compute some summary data, e.g., 
+  - net Albanian irregular migration to the UK in the last 5 years.
+  - irregular Albanians as a percentage of UK residents
