@@ -284,6 +284,14 @@ The sum of all taken quantities must not exceed C
 
 ![](https://files.codingninjas.in/article_images/objective-of-the-knapsack-problem-4-1674054631.webp)
 
+
+---
+
+## An example from the Ali Baba novel
+
+![](./imgs/knapsack.png)
+
+
 ---
 
 ## Formulation, III

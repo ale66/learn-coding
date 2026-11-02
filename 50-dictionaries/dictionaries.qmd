@@ -129,7 +129,7 @@ for row in my_writers:
   print(row[0])
 ```
 
-Print authors and they their year of birth?
+Print authors and their year of birth?
 
 . . .
 
@@ -301,7 +301,7 @@ year_of_birth 1890
 
 ---
 
-## The ``key`` and ``value`` variable names
+## The `key` and `value` variable names
 
 ```python
 for key in my_dict.items():
@@ -318,7 +318,7 @@ year_of_birth
 
 ```python
 for value in my_dict.items():
-  print(key) 
+  print(value) 
 ```
 
 ```text
