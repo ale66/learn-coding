@@ -189,7 +189,7 @@ what are the bindings?
 Essentially, work with list is implemented already
 
 ```python
-l = len(my_list)
+l = len(my_temperatures_list)
 
 min_val = min(my_temperatures_list)
 
