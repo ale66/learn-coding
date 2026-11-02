@@ -4,7 +4,7 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [serif]
     preview-links: auto
     chalkboard: 
       boardmarker-width: 3

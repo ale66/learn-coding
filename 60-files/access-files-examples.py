@@ -1,5 +1,5 @@
 # make sure that Python runs in the local folder!
-MYWORKFOLDER = 'C:/Users/ale/Downloads/git/learn-coding/60-files'
+MYWORKFOLDER = 'C:/Users/aless/Downloads/_git/learn-coding/60-files'
 
 MYFILE = './data/incipit.txt'
 
@@ -22,17 +22,17 @@ with open(MYWORKFOLDER+MYFILE) as f:
 
 import csv
 
-MYDATAFILE = './data/biostats.csv'
+MYDATAFILE = '/data/biostats.csv'
 
 
-'''
+
 with open(MYWORKFOLDER+MYDATAFILE) as f:
 
 	lines = csv.reader(f, delimiter=',')
 
 	for l in lines:
 		print(l)
-'''
+
 
 '''
 with open(MYWORKFOLDER+MYDATAFILE) as f:
@@ -84,3 +84,10 @@ with open(MYWORKFOLDER+MYDATAFILE) as f:
         # l really is a dictionary: print specific values
         print(f'Paciente: {l['Nombre'], l['Peso(lbs)'], l['Edad']}')
 '''
+
+MYNEWFILE = "iamanewfilename.txt"
+
+with open(MYWORKFOLDER+MYNEWFILE, 'w') as f:
+
+    for num in range(10):
+        f.write(f'This is value {num}\n')
