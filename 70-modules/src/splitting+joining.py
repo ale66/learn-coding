@@ -16,13 +16,20 @@ Release your fear; this fame will bring you some safety."
 # Here '.' is the delimiter 
 # TO DO: manage ';'
 
-sentences = original.split('. ')
+sentences = translation.split()
+
+print(sentences)
+
+for s in sentences:
+    finer_split_list = s.split(';')
+
+print(finer_split_list)
 
 # prepare the result list
 result_list = []
 
 # now, send each sentence to be transformed
-for sent in sentences:
+for sent in finer_split_list:
 
     # test: does the sentence start with uppercase?
     if sent[0] == sent[0].upper():

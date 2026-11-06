@@ -1,0 +1,220 @@
+---
+title: "The `wget` library"
+author: "ale66"
+format:
+  revealjs:
+    footer: "[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;"
+    theme: [beige]
+    preview-links: auto
+    chalkboard:
+      boardmarker-width: 5
+from: markdown+emoji
+jupyter: python3
+execute:
+  echo: true
+  warning: false
+---
+
+# Getting data from the Web
+
+---
+
+## Motivations
+
+::: {.incremental}
+- data is often made available on the Web as `.txt` or `.csv` or `.json` 
+- clicking "Save as..." does not scale: 1 file is fine, 14 are a chore
+- updates may not be un-announced (pull model)
+- Code documents *where* the data comes from :mag:
+- Re-running the script gives you today's version of the file
+- The Spectator tracker is "updated daily": perfect for this
+:::
+
+---
+
+## Idea: code the download
+
+Initial set-up may take time, but
+
+::: {.incremental}
+- code documents *provenance*
+- re-running updates our version automatically
+- replicability of the study
+:::
+
+---
+
+## Examples
+
+[data.spectator.co.uk/migration](https://data.spectator.co.uk/migration)
+
+- each chart has a CSV with its data.
+
+- updated daily
+
+---
+
+## Examples, cont'd
+
+Political and societal data analyses on
+[elpais.com](https://elpais.com/autor/francisco-llaneras-estrada/)
+
+- by [kiko.llaneras.es/en/](https://kiko.llaneras.es/en/)
+
+
+# The wget module
+
+---
+
+## Install
+
+In a terminal:
+
+```bash
+pip install wget
+```
+
+In a notebook cell:
+
+```bash
+!pip install wget
+```
+
+---
+
+## First download
+
+A complex, three-steps setup is needed.
+
+First, set up the working directory
+
+```{python}
+import os
+os.chdir(r"C:\Users\aless\Downloads\_git\learn-coding\76-matplotlib")
+```
+
+---
+
+Second, set up Web operations to make them look as if it's a human with a browser reaching for the data
+
+```{python}
+import urllib.request
+
+myopener = urllib.request.build_opener()
+
+myopener.addheaders = [
+    ("User-Agent", "Mozilla/5.0"),
+    ("Referer", "https://data.spectator.co.uk/"),
+]
+
+urllib.request.install_opener(myopener)
+```
+
+---
+
+Third, data downloading can take place
+
+```{python}
+import wget
+
+
+# data of the "small boat crossings" chart on data.spectator.co.uk/migration
+url = "https://datawrapper.dwcdn.net/58WcU/22/dataset.csv"
+
+os.makedirs("data", exist_ok=True)
+
+if os.path.exists("data/small-boats.csv"):
+    os.remove("data/small-boats.csv")
+
+fname = wget.download(url, out="data/small-boats.csv")
+
+print("saved as:", fname)
+```
+
+::: {.incremental}
+- `wget.download(url, out=...)` fetches the URL and **returns the file name**
+- It also prints a progress bar while downloading
+- we still need to supply the exact URL (web address)
+:::
+
+---
+
+## Anatomy of the call
+
+```python
+fname = wget.download(url, out=None)
+```
+
+::: {.incremental}
+- `url`: the address of the file, as a string
+- `out`: optional where to save it (file name, or an existing folder)
+- return value: the path of the saved file
+:::
+
+::: {.fragment}
+Without `out`, the name is taken from the URL: too many `dataset.csv`files around
+
+A web error page may be saved as `.csv`:eyes:
+:::
+
+---
+
+## Data inspection
+
+```{python}
+print(os.path.getsize(fname), "bytes")
+
+N = 5
+
+with open(fname, encoding="utf-8") as f:
+    for i, line in enumerate(f):
+        
+        print(line.rstrip())
+
+        if i == N:
+            break
+```
+
+
+# Data retrieval campaigns
+
+---
+
+## All the charts of the page
+
+The Spectator's migration page embeds 14 charts. 
+
+Each has an identifier in its address
+
+functional printing: the passed string is substituted for `{}`
+
+```{python}
+chart_ids = ["2h3tA", "OsQzm", "58WcU", "Qvue0", "i8VXw", "gU5L1", "6lN3a",
+             "MzPZj", "Zukux", "6Xjfq", "0MwP8", "OFMdp", "krdVn", "VsPQo"]
+
+base = "https://datawrapper.dwcdn.net/{}/22/dataset.csv"
+
+print(base.format(chart_ids[0]))
+```
+
+deploy in a `for` cycle to download them all
+
+---
+
+## Limitations
+
+- the `try`/`except` Python commands are needed to keep the loop going when one URL fails
+- Column names differ chart by chart: read them before analysing
+- modern Python modules, e.g. `urllib` or `requests` handle authentication, find the URLs etc.
+
+---
+
+## Exercise :muscle:
+
+0. form pairs
+1. Visit [data.spectator.co.uk/migration](https://data.spectator.co.uk/migration) and pick **one** chart
+2. copy the code here, download the CSV file with `wget.download`, choose a meaningful name
+3. inspect the first rows
+4. compute some interesting data, e.g., Albanians as a pc of all migrants
+5. see examples from [matplotlib.org/stable/plot_types/](https://matplotlib.org/stable/plot_types/index.html)
+6. copy/paste/adapt code to plot the original data *and* your computed stats 
