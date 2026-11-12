@@ -263,12 +263,13 @@ ale66
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="" aria-label="1"></a><span class="ex">pip</span> install wget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In a notebook cell:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="" aria-label="1"></a><span class="ex">!pip</span> install wget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Get pip on your laptop from <a href="https://pip.pypa.io/en/stable/installation/">pip.pypa.io/en/stable/installation/</a></p>
 </section>
 <section id="first-download" class="slide level2">
 <h2>First download</h2>
 <p>A complex, three-steps setup is needed.</p>
 <p>First, set up the working directory</p>
-<div id="6e8246f3" class="cell" data-execution_count="1">
+<div id="965f0bd8" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a><span class="im">import</span> os</span>
 <span id="cb3-2"><a href="" aria-label="2"></a>os.chdir(<span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="ch">\a</span><span class="vs">less</span><span class="dv">\D</span><span class="vs">ownloads</span><span class="ch">\_</span><span class="vs">git</span><span class="er">\</span><span class="vs">learn-coding</span><span class="ch">\76</span><span class="vs">-matplotlib"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -276,7 +277,7 @@ ale66
 <section class="slide level2">
 
 <p>Second, set up Web operations to make them look as if it’s a human with a browser reaching for the data</p>
-<div id="de25c5d9" class="cell" data-execution_count="2">
+<div id="4b594c9a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-label="1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb4-2"><a href="" aria-label="2"></a></span>
 <span id="cb4-3"><a href="" aria-label="3"></a>myopener <span class="op">=</span> urllib.request.build_opener()</span>
@@ -292,7 +293,7 @@ ale66
 <section class="slide level2">
 
 <p>Third, data downloading can take place</p>
-<div id="202949f3" class="cell" data-execution_count="3">
+<div id="b314e459" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a><span class="im">import</span> wget</span>
 <span id="cb5-2"><a href="" aria-label="2"></a></span>
 <span id="cb5-3"><a href="" aria-label="3"></a></span>
@@ -332,7 +333,7 @@ ale66
 </section>
 <section id="data-inspection" class="slide level2">
 <h2>Data inspection</h2>
-<div id="3538f76c" class="cell" data-execution_count="4">
+<div id="a51f29bd" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-label="1"></a><span class="bu">print</span>(os.path.getsize(fname), <span class="st">"bytes"</span>)</span>
 <span id="cb8-2"><a href="" aria-label="2"></a></span>
 <span id="cb8-3"><a href="" aria-label="3"></a>N <span class="op">=</span> <span class="dv">5</span></span>
@@ -340,10 +341,11 @@ ale66
 <span id="cb8-5"><a href="" aria-label="5"></a><span class="cf">with</span> <span class="bu">open</span>(fname, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
 <span id="cb8-6"><a href="" aria-label="6"></a>    <span class="cf">for</span> i, line <span class="kw">in</span> <span class="bu">enumerate</span>(f):</span>
 <span id="cb8-7"><a href="" aria-label="7"></a>        </span>
-<span id="cb8-8"><a href="" aria-label="8"></a>        <span class="bu">print</span>(line.rstrip())</span>
-<span id="cb8-9"><a href="" aria-label="9"></a></span>
-<span id="cb8-10"><a href="" aria-label="10"></a>        <span class="cf">if</span> i <span class="op">==</span> N:</span>
-<span id="cb8-11"><a href="" aria-label="11"></a>            <span class="cf">break</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-8"><a href="" aria-label="8"></a>        <span class="co"># strip away extra spaces and \n at the right end of the line</span></span>
+<span id="cb8-9"><a href="" aria-label="9"></a>        <span class="bu">print</span>(line.rstrip())</span>
+<span id="cb8-10"><a href="" aria-label="10"></a></span>
+<span id="cb8-11"><a href="" aria-label="11"></a>        <span class="cf">if</span> i <span class="op">==</span> N:</span>
+<span id="cb8-12"><a href="" aria-label="12"></a>            <span class="cf">break</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>547 bytes
     Albanian    Total less Albanian
@@ -365,7 +367,7 @@ ale66
 <p>The Spectator’s migration page embeds 14 charts.</p>
 <p>Each has an identifier in its address</p>
 <p>functional printing: the passed string is substituted for <code>{}</code></p>
-<div id="998ee932" class="cell" data-execution_count="5">
+<div id="714da31b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-label="1"></a>chart_ids <span class="op">=</span> [<span class="st">"2h3tA"</span>, <span class="st">"OsQzm"</span>, <span class="st">"58WcU"</span>, <span class="st">"Qvue0"</span>, <span class="st">"i8VXw"</span>, <span class="st">"gU5L1"</span>, <span class="st">"6lN3a"</span>,</span>
 <span id="cb10-2"><a href="" aria-label="2"></a>             <span class="st">"MzPZj"</span>, <span class="st">"Zukux"</span>, <span class="st">"6Xjfq"</span>, <span class="st">"0MwP8"</span>, <span class="st">"OFMdp"</span>, <span class="st">"krdVn"</span>, <span class="st">"VsPQo"</span>]</span>
 <span id="cb10-3"><a href="" aria-label="3"></a></span>
@@ -391,13 +393,176 @@ ale66
 <ol start="0" type="1">
 <li>form pairs</li>
 <li>Visit <a href="https://data.spectator.co.uk/migration">data.spectator.co.uk/migration</a> and pick <strong>one</strong> chart</li>
-<li>copy the code here, download the CSV file with <code>wget.download</code>, choose a meaningful name</li>
-<li>inspect the first rows</li>
+<li>use the code here to download the data file, inspect the first rows</li>
+<li>baseline code with the original plot: <code>76-matplotlib/src/</code></li>
 <li>compute some interesting data, e.g., Albanians as a pc of all migrants</li>
 <li>see examples from <a href="https://matplotlib.org/stable/plot_types/index.html">matplotlib.org/stable/plot_types/</a></li>
 <li>copy/paste/adapt code to plot the original data <em>and</em> your computed stats</li>
 </ol>
 
+</section></section>
+<section>
+<section id="getting-data-from-the-web-1" class="title-slide slide level1 center">
+<h1>Getting data from the Web</h1>
+
+</section>
+<section id="motivations-1" class="slide level2">
+<h2>Motivations</h2>
+<ul>
+<li class="fragment">data is often made available on the Web as <code>.txt</code> or <code>.csv</code> or <code>.json</code></li>
+<li class="fragment">clicking “Save as…” does not scale: 1 file is fine, 14 are a chore</li>
+<li class="fragment">updates may not be un-announced (pull model)</li>
+<li class="fragment">Code documents <em>where</em> the data comes from <span class="emoji" data-emoji="mag">🔍</span></li>
+<li class="fragment">Re-running the script gives you today’s version of the file</li>
+<li class="fragment">The Spectator tracker is “updated daily”: perfect for this</li>
+</ul>
+</section>
+<section id="idea-code-the-download-1" class="slide level2">
+<h2>Idea: code the download</h2>
+<p>Initial set-up may take time, but</p>
+<ul>
+<li class="fragment">code documents <em>provenance</em></li>
+<li class="fragment">re-running updates our version automatically</li>
+<li class="fragment">replicability of the study</li>
+</ul>
+</section>
+<section id="examples-1" class="slide level2">
+<h2>Examples</h2>
+<p><a href="https://data.spectator.co.uk/migration">data.spectator.co.uk/migration</a></p>
+<ul>
+<li><p>each chart has a CSV with its data.</p></li>
+<li><p>updated daily</p></li>
+</ul>
+</section>
+<section id="examples-contd-1" class="slide level2">
+<h2>Examples, cont’d</h2>
+<p>Political and societal data analyses on <a href="https://elpais.com/autor/francisco-llaneras-estrada/">elpais.com</a></p>
+<ul>
+<li>by <a href="https://kiko.llaneras.es/en/">kiko.llaneras.es/en/</a></li>
+</ul>
+</section></section>
+<section>
+<section id="the-wget-module-1" class="title-slide slide level1 center">
+<h1>The wget module</h1>
+
+</section>
+<section id="install-1" class="slide level2">
+<h2>Install</h2>
+<p>In a terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="" aria-label="1"></a><span class="ex">pip</span> install wget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In a notebook cell:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="" aria-label="1"></a><span class="ex">!pip</span> install wget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Get pip on your laptop from <a href="https://pip.pypa.io/en/stable/installation/">pip.pypa.io/en/stable/installation/</a></p>
+</section>
+<section id="first-download-1" class="slide level2">
+<h2>First download</h2>
+<p>A complex, three-steps setup is needed.</p>
+<p>First, set up the working directory</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {python} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="" aria-label="1"></a>import os</span>
+<span id="cb14-2"><a href="" aria-label="2"></a>os.chdir(r"C:\Users\aless\Downloads\_git\learn-coding\76-matplotlib")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<p>Second, set up Web operations to make them look as if it’s a human with a browser reaching for the data</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {python} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="" aria-label="1"></a>import urllib.request</span>
+<span id="cb15-2"><a href="" aria-label="2"></a></span>
+<span id="cb15-3"><a href="" aria-label="3"></a>myopener = urllib.request.build_opener()</span>
+<span id="cb15-4"><a href="" aria-label="4"></a></span>
+<span id="cb15-5"><a href="" aria-label="5"></a>myopener.addheaders = [</span>
+<span id="cb15-6"><a href="" aria-label="6"></a>    ("User-Agent", "Mozilla/5.0"),</span>
+<span id="cb15-7"><a href="" aria-label="7"></a>    ("Referer", "https://data.spectator.co.uk/"),</span>
+<span id="cb15-8"><a href="" aria-label="8"></a>]</span>
+<span id="cb15-9"><a href="" aria-label="9"></a></span>
+<span id="cb15-10"><a href="" aria-label="10"></a>urllib.request.install_opener(myopener)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<p>Third, data downloading can take place</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource {python} number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="" aria-label="1"></a>import wget</span>
+<span id="cb16-2"><a href="" aria-label="2"></a></span>
+<span id="cb16-3"><a href="" aria-label="3"></a></span>
+<span id="cb16-4"><a href="" aria-label="4"></a># data of the "small boat crossings" chart on data.spectator.co.uk/migration</span>
+<span id="cb16-5"><a href="" aria-label="5"></a>url = "https://datawrapper.dwcdn.net/58WcU/22/dataset.csv"</span>
+<span id="cb16-6"><a href="" aria-label="6"></a></span>
+<span id="cb16-7"><a href="" aria-label="7"></a>os.makedirs("data", exist_ok=True)</span>
+<span id="cb16-8"><a href="" aria-label="8"></a></span>
+<span id="cb16-9"><a href="" aria-label="9"></a>if os.path.exists("data/small-boats.csv"):</span>
+<span id="cb16-10"><a href="" aria-label="10"></a>    os.remove("data/small-boats.csv")</span>
+<span id="cb16-11"><a href="" aria-label="11"></a></span>
+<span id="cb16-12"><a href="" aria-label="12"></a>fname = wget.download(url, out="data/small-boats.csv")</span>
+<span id="cb16-13"><a href="" aria-label="13"></a></span>
+<span id="cb16-14"><a href="" aria-label="14"></a>print("saved as:", fname)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li class="fragment"><code>wget.download(url, out=...)</code> fetches the URL and <strong>returns the file name</strong></li>
+<li class="fragment">It also prints a progress bar while downloading</li>
+<li class="fragment">we still need to supply the exact URL (web address)</li>
+</ul>
+</section>
+<section id="anatomy-of-the-call-1" class="slide level2">
+<h2>Anatomy of the call</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="" aria-label="1"></a>fname <span class="op">=</span> wget.download(url, out<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li class="fragment"><code>url</code>: the address of the file, as a string</li>
+<li class="fragment"><code>out</code>: optional where to save it (file name, or an existing folder)</li>
+<li class="fragment">return value: the path of the saved file</li>
+</ul>
+<div class="fragment">
+<p>Without <code>out</code>, the name is taken from the URL: too many <code>dataset.csv</code>files around</p>
+<p>A web error page may be saved as <code>.csv</code><span class="emoji" data-emoji="eyes">👀</span></p>
+</div>
+</section>
+<section id="data-inspection-1" class="slide level2">
+<h2>Data inspection</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource {python} number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="" aria-label="1"></a>print(os.path.getsize(fname), "bytes")</span>
+<span id="cb18-2"><a href="" aria-label="2"></a></span>
+<span id="cb18-3"><a href="" aria-label="3"></a>N = 5</span>
+<span id="cb18-4"><a href="" aria-label="4"></a></span>
+<span id="cb18-5"><a href="" aria-label="5"></a>with open(fname, encoding="utf-8") as f:</span>
+<span id="cb18-6"><a href="" aria-label="6"></a>    for i, line in enumerate(f):</span>
+<span id="cb18-7"><a href="" aria-label="7"></a>        </span>
+<span id="cb18-8"><a href="" aria-label="8"></a>        # strip away extra spaces and \n at the right end of the line</span>
+<span id="cb18-9"><a href="" aria-label="9"></a>        print(line.rstrip())</span>
+<span id="cb18-10"><a href="" aria-label="10"></a></span>
+<span id="cb18-11"><a href="" aria-label="11"></a>        if i == N:</span>
+<span id="cb18-12"><a href="" aria-label="12"></a>            break</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section>
+<section id="data-retrieval-campaigns-1" class="title-slide slide level1 center">
+<h1>Data retrieval campaigns</h1>
+
+</section>
+<section id="all-the-charts-of-the-page-1" class="slide level2">
+<h2>All the charts of the page</h2>
+<p>The Spectator’s migration page embeds 14 charts.</p>
+<p>Each has an identifier in its address</p>
+<p>functional printing: the passed string is substituted for <code>{}</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource {python} number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href="" aria-label="1"></a>chart_ids = ["2h3tA", "OsQzm", "58WcU", "Qvue0", "i8VXw", "gU5L1", "6lN3a",</span>
+<span id="cb19-2"><a href="" aria-label="2"></a>             "MzPZj", "Zukux", "6Xjfq", "0MwP8", "OFMdp", "krdVn", "VsPQo"]</span>
+<span id="cb19-3"><a href="" aria-label="3"></a></span>
+<span id="cb19-4"><a href="" aria-label="4"></a>base = "https://datawrapper.dwcdn.net/{}/22/dataset.csv"</span>
+<span id="cb19-5"><a href="" aria-label="5"></a></span>
+<span id="cb19-6"><a href="" aria-label="6"></a>print(base.format(chart_ids[0]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>deploy in a <code>for</code> cycle to download them all</p>
+</section>
+<section id="limitations-1" class="slide level2">
+<h2>Limitations</h2>
+<ul>
+<li>the <code>try</code>/<code>except</code> Python commands are needed to keep the loop going when one URL fails</li>
+<li>Column names differ chart by chart: read them before analysing</li>
+<li>modern Python modules, e.g.&nbsp;<code>urllib</code> or <code>requests</code> handle authentication, find the URLs etc.</li>
+</ul>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise <span class="emoji" data-emoji="muscle">💪</span></h2>
+<ol start="0" type="1">
+<li>form pairs</li>
+<li>Visit <a href="https://data.spectator.co.uk/migration">data.spectator.co.uk/migration</a> and pick <strong>one</strong> chart</li>
+<li>use the code here to download the data file, inspect the first rows</li>
+<li>baseline code with the original plot: <code>76-matplotlib/src/</code></li>
+<li>compute some interesting data, e.g., Albanians as a pc of all migrants</li>
+<li>see examples from <a href="https://matplotlib.org/stable/plot_types/index.html">matplotlib.org/stable/plot_types/</a></li>
+<li>copy/paste/adapt code to plot the original data <em>and</em> your computed stats</li>
+</ol>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

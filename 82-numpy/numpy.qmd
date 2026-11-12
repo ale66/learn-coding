@@ -4,7 +4,7 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [beige]
     preview-links: auto
     chalkboard: 
       boardmarker-width: 2
@@ -13,12 +13,15 @@ execute:
   echo: true
 ---
 
-# Numpy
+#
 
+![](./imgs/numpy-icon.svg)
+
+---
 
 ## Motivations
 
-Python does not cover the data structures normally used in science/engineering
+Python does not cover the data structures normally used in science/engineering.
 
 Numpy comes in to support data manipulation of n-dimensional arrays.
 
@@ -30,36 +33,35 @@ Comprehensive collection of mathematical operations.
 pip install numpy
 ```
 
+See [numpy.org/](https://numpy.org/){target="_blank"} for a comprehensive introduction
 
 ---
 
 ## Arrays
 
-A computer version of vectors and matrices: sequence of uniform-type values with indexing mechanism by integers.
+The computer version of vectors and matrices from Maths
 
-Numpy arrays have methods, applied element-wise, and functions that take into account the position of each element in the array.
+a sequence of uniform-type values, indexed by integers.
 
 ```{python}
 import numpy as np
 ```
 
 ```{python}
-# nr from 2 to 20 (excl.) with step 2
+# the sequence of integers, from 2 to 20 (excl.) with step 2
 
-b = np.arange(2, 20, 2)
+b = np.arange(2, 18, 2)
 
 b
 ```
 
 ---
 
+Numpy arrays have methods and functions that computed element-wise:
 ```{python}
 # element-wise operations
-
 2*b
 ```
-
----
 
 ```{python}
 # cumulative step-by-step sum
@@ -70,7 +72,9 @@ b.cumsum()
 
 ## Lists vs. Arrays
 
-Same indexing notation:
+A list is a generic sequence of heterogenous objects.
+
+So, strings, numbers, characters, file name, URLs can be all mixed up!
 
 ```python
 mylist[0]
@@ -78,16 +82,49 @@ mylist[0]
 mylistoflists[0][1]
 ```
 
-A list is a generic sequence of heterogenous objects.
-
-So, strings, numbers, characters, file name, URLs can be all mixed up!
-
 An array is a sequence of strictly-homogenous objects, normally `int` or `float`
 
-```python
-myarray[1]
+Same indexing notation as lists:
 
-mymatrix[1][3]
+```python
+my_array[1]
+
+my_matrix[1][3]
+```
+
+---
+
+```{python}
+# a regular list
+a = [3.14, 3.15, 3.16, 3.17, 3.18]
+
+# a NumPy array
+b = np.array([3.14, 3.15, 3.16, 3.17, 3.18])
+
+2*b
+```
+
+
+```{python}
+2*a
+```
+
+. . .
+
+```{python}
+a+a
+```
+
+. . .
+
+```{python}
+b+b
+```
+
+. . .
+
+```{python}
+a+b
 ```
 
 ---
@@ -103,6 +140,7 @@ mymatrix[1][3]
 ---
 
 ## 2-D Numpy Arrays
+
 ```{python}
 c = np.arange(8)
 
@@ -133,7 +171,10 @@ d.shape
 
 ## Axes
 
-Numpy arrays can have multiple dimensions
+Arrays can have more than 2 dimensions
+
+Each is called *axis*
+
 
 ```{python}
 # operations along columns
@@ -181,10 +222,26 @@ e.reshape(3, 2)
 -----
 
 ```{python}
+data = np.array([1, 2, 3, 4, 5, 6])
+```
+
+![](./imgs/np_reshape.png)
+
+-----
+
+## Keeping shapes uniform
+
+Array operations are defined only between objects of the same shape
+
+```{python}
 # a new array with exactly the same shape as 'e' and type integer
 f = np.ones_like(e, dtype = 'i')
 f
 ```
+
+
+---
+
 
 ```{python}
 # Transposition
@@ -223,33 +280,42 @@ np.vstack((i, i))
 np.hstack((i, i))
 ```
 
+
+# N-dimensional arrays
+
 ---
 
-## Detour: N-dimensional arrays
+## Motivations
+
+Physics/Engineering often uses 4-dimensional tensors: 3 space coordinates + time
 
 Numpy can handle multiple dimensions.
 
 This is useful when dealing with multivariate data, from time series to documents.
 
+---
+
+Example: collect `N` interviews, there are 2 questions and for each there is a score from the respondent and a score from the interviewer:
+
 ```{python}
 # N-dimensional array
+import numpy as np
+N = 4
 
-g = np.zeros((2, 3, 4))
+g = np.zeros((2, 2, N), dtype='i')
 
 g
 ```
-
-Two samples, each with three rows and four columns.
 
 ---
 
 ## Slicing by Boolean filters
 
-data can be selected according to specific conditions.
+Select data according to specific conditions
 
 A Boolean filter can winnow the array according to a yes/no, in/out condition
 
-a Bool. filter can be represented by a Numpy array!
+a Boolean filter can be represented by a Numpy array!
 
 ```{python}
 # setup data
@@ -260,7 +326,7 @@ l
 
 ---
 
-## Slicing
+## More slicing
 
 ```{python}
 # Let's apply a high-pass filter
@@ -280,4 +346,7 @@ l[l>4]
 (l>4).astype(int)
 ```
 
+---
+
+![](./imgs/numpy-logo-good.jpeg)
 
