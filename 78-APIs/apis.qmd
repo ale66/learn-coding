@@ -1,0 +1,344 @@
+---
+title: "Accessing Web APIs with Python"
+subtitle: "An introduction using the GDELT DOC 2.0 API"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: slides.css
+    link-external-newwindow: true
+---
+
+# Introduction
+
+## Objectives
+
+By the end of this session, students will be able to:
+
+- explain what a web API is and how a client interacts with it
+- issue a request from Python using `wget`, and manage files with `os`
+- read the JSON response using the standard `json` module
+- query the GDELT DOC 2.0 API and summarise the results
+- anticipate and handle the most common failures
+
+**Prerequisites:** variables, lists, dictionaries, functions, files, the `os` and `wget` modules. Pandas is *not* required.
+
+## Course map
+
+![](imgs/01-course-map.svg){fig-alt="Course map" width="95%" fig-align="center"}
+
+## The GDELT Project
+
+- GDELT: *Global Database of Events, Language and Tone*
+- Monitors print, broadcast and web news from around the world, in over 100 languages
+- Open data, freely available, updated continuously
+- The DOC 2.0 API searches a rolling window of the most recent three months of news coverage; no registration or API key is required
+
+![GDELT Project home page](imgs/gdelt-home.png){fig-alt="Screenshot of the GDELT Project home page" width="70%"}
+
+::: {.refs}
+Sources: [gdeltproject.org](https://www.gdeltproject.org/) · [GDELT on Wikipedia](https://en.wikipedia.org/wiki/GDELT_Project)
+:::
+
+## The DOC 2.0 API documentation
+
+![GDELT DOC 2.0 API documentation](imgs/gdelt-doc-api-docs.png){fig-alt="Screenshot of the GDELT DOC 2.0 API documentation" width="70%"}
+
+::: {.refs}
+Reference: [GDELT DOC 2.0 API announcement and documentation](https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/)
+:::
+
+# API basics and their implementation in Python
+
+## Definition
+
+An **Application Programming Interface (API)** is a defined set of requests that one program may make to another, together with the form of the responses.
+
+![](imgs/02-client-server.svg){fig-alt="Client and server" width="80%" fig-align="center"}
+
+The client never accesses the database directly; it uses only the operations that the API exposes.
+
+::: {.refs}
+Further reading: [API (Wikipedia)](https://en.wikipedia.org/wiki/API)
+:::
+
+## Web APIs and HTTP
+
+Web APIs use the **Hypertext Transfer Protocol (HTTP)**: the client sends a request to a URL, and the server returns a response with a status code and a body.
+
+![](imgs/03-http-sequence.svg){fig-alt="HTTP request and response" width="70%" fig-align="center"}
+
+::: {.refs}
+Further reading: [HTTP (Wikipedia)](https://en.wikipedia.org/wiki/HTTP) · [List of HTTP status codes (Wikipedia)](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+:::
+
+## Anatomy of a request URL
+
+```
+https://api.gdeltproject.org/api/v2/doc/doc?query=migration&mode=ArtList&format=json
+```
+
+![](imgs/04-url-anatomy.svg){fig-alt="Anatomy of a request URL" width="75%" fig-align="center"}
+
+Parameters are written as `name=value` pairs separated by `&`.
+
+::: {.refs}
+Further reading: [URL (Wikipedia)](https://en.wikipedia.org/wiki/URL) · [Query string (Wikipedia)](https://en.wikipedia.org/wiki/Query_string)
+:::
+
+## Python toolbox
+
+```python
+import os                           # files and folders
+import time                         # pauses between requests
+import json                         # reading JSON
+import wget                         # downloading a URL to a file
+from urllib.parse import urlencode  # building query strings
+```
+
+The `wget` module is installed once with:
+
+```
+pip install wget
+```
+
+## A first request
+
+```python
+import os
+import wget
+
+url = ("https://api.gdeltproject.org/api/v2/doc/doc"
+       "?query=migration&mode=ArtList&maxrecords=10&format=json")
+
+filename = wget.download(url, out="migration.json")
+print()  # wget's progress bar does not end the line
+print(filename, os.path.getsize(filename), "bytes")
+```
+
+- `out=` fixes the name of the local file
+- `os.path.getsize` verifies that the file is not empty
+
+# JSON reminder
+
+## JavaScript Object Notation
+
+JSON is a lightweight text format for structured data. Its structure maps directly onto Python types.
+
+| JSON | Python |
+|---|---|
+| object `{ }` | `dict` |
+| array `[ ]` | `list` |
+| string | `str` |
+| number | `int` or `float` |
+| `true`, `false`, `null` | `True`, `False`, `None` |
+
+::: {.refs}
+Further reading: [JSON (Wikipedia)](https://en.wikipedia.org/wiki/JSON)
+:::
+
+## Structure of a GDELT article list
+
+![](imgs/05-json-structure.svg){fig-alt="Structure of a GDELT article list" width="75%" fig-align="center"}
+
+## Reading JSON in Python
+
+```python
+import json
+
+with open("migration.json") as f:
+    data = json.load(f)
+
+print(type(data))              # <class 'dict'>
+print(list(data.keys()))       # ['articles']
+print(len(data["articles"]))   # number of articles returned
+print(data["articles"][0])     # the first article, a dict
+```
+
+![The JSON response displayed in a web browser](imgs/gdelt-json-response.png){fig-alt="Screenshot of the JSON response in a browser" width="60%"}
+
+# Example: querying GDELT
+
+## Request parameters
+
+| Parameter | Meaning | Example |
+|---|---|---|
+| `query` | search terms and filters | `"climate change" sourcelang:english` |
+| `mode` | type of output | `ArtList`, `TimelineVol` |
+| `maxrecords` | number of articles (maximum 250) | `50` |
+| `timespan` | look-back window | `1d`, `1week`, `3months` |
+| `format` | output format | `json` |
+
+::: {.refs}
+Complete list of parameters and query operators: [GDELT DOC 2.0 API documentation](https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/)
+:::
+
+## Building the URL
+
+Query strings must be percent-encoded; `urlencode` performs this automatically.
+
+```python
+from urllib.parse import urlencode
+
+BASE = "https://api.gdeltproject.org/api/v2/doc/doc"
+
+params = {
+    "query": '"climate change" sourcelang:english',
+    "mode": "ArtList",
+    "maxrecords": 20,
+    "timespan": "1week",
+    "format": "json",
+}
+url = BASE + "?" + urlencode(params)
+print(url)
+```
+
+## A reusable function
+
+```python
+def gdelt_search(query, filename, maxrecords=20, timespan="1week"):
+    """Return the list of articles matching query, caching on disk."""
+    if not os.path.exists(filename):
+        time.sleep(5)  # GDELT requests one query every five seconds
+        params = {"query": query, "mode": "ArtList",
+                  "maxrecords": maxrecords, "timespan": timespan,
+                  "format": "json"}
+        wget.download(BASE + "?" + urlencode(params), out=filename)
+        print()
+    with open(filename) as f:
+        return json.load(f).get("articles", [])
+```
+
+The function combines the three tools: `urlencode`, `wget` and `os`, plus `json`.
+
+## Listing the articles
+
+```python
+articles = gdelt_search("migration", "migration.json")
+
+for a in articles:
+    print(a["seendate"], "|", a["domain"], "|", a["sourcecountry"])
+    print("    ", a["title"])
+```
+
+![Terminal output of the listing](imgs/terminal-output.png){fig-alt="Screenshot of the terminal output" width="60%"}
+
+## Counting articles by source country
+
+```python
+counts = {}
+for a in articles:
+    country = a.get("sourcecountry", "unknown")
+    counts[country] = counts.get(country, 0) + 1
+
+for country, n in sorted(counts.items(), key=lambda kv: kv[1], reverse=True):
+    print(f"{country:25s} {n}")
+```
+
+A dictionary used as a counter is sufficient: no Pandas needed.
+
+## Other output modes
+
+`mode=TimelineVol` returns the volume of coverage over time instead of articles.
+
+```python
+params["mode"] = "TimelineVol"
+```
+
+The structure of the JSON differs from `ArtList`. As a general rule, always inspect a new response first:
+
+```python
+print(data.keys())
+```
+
+# Failure and robustness
+
+## What can go wrong?
+
+![](imgs/06-failure-paths.svg){fig-alt="Possible failure points" width="95%" fig-align="center"}
+
+::: {.refs}
+Further reading: [List of HTTP status codes (Wikipedia)](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+:::
+
+## Network and HTTP errors
+
+`wget.download` relies on `urllib`, which signals problems with exceptions.
+
+```python
+from urllib.error import HTTPError, URLError
+
+try:
+    wget.download(url, out="migration.json")
+except HTTPError as e:
+    print("The server replied with status", e.code)
+except URLError as e:
+    print("The server could not be reached:", e.reason)
+```
+
+`HTTPError` is a subclass of `URLError`, so it must be listed first.
+
+## Invalid or empty responses
+
+On errors or rate-limiting, the server may return a plain-text message instead of JSON; an empty body may also be returned when nothing matches.
+
+```python
+def load_articles(filename):
+    if os.path.getsize(filename) == 0:
+        os.remove(filename)          # do not cache an empty file
+        return []
+    try:
+        with open(filename) as f:
+            data = json.load(f)
+    except ValueError:               # includes json.JSONDecodeError
+        os.remove(filename)          # do not cache an invalid file
+        raise
+    return data.get("articles", [])  # a missing key means no articles
+```
+
+## Rate limiting and caching
+
+![](imgs/07-caching-flow.svg){fig-alt="Caching and rate limiting" width="95%" fig-align="center"}
+
+- Cache every response on disk with `os.path.exists`
+- Pause between requests with `time.sleep`
+- Delete invalid files, so that a failure is not cached
+
+## Good practice
+
+- Inspect a new response (`print(data.keys())`) before writing analysis code
+- Use `.get()` rather than `[]` for keys that may be absent
+- Keep requests small: restrict `maxrecords` and `timespan`
+- Record the query and the date with the saved data, so that results can be reproduced
+- Consult the provider's terms of use before large-scale or repeated collection
+
+## Exercises
+
+1. Run two queries on topics of your choice and save each response in its own file
+2. Print the five most recent titles of each, together with `domain`
+3. Count the articles per `language`
+4. Reproduce a failure on purpose (misspelled host, malformed query) and handle it with `try`/`except`
+5. Compare the counts obtained with `timespan="1d"` and `timespan="1week"`
+
+## Summary
+
+![](imgs/08-summary-pipeline.svg){fig-alt="Summary pipeline" width="95%" fig-align="center"}
+
+## References
+
+::: {.refs}
+**GDELT**
+
+- [GDELT Project home page](https://www.gdeltproject.org/)
+- [GDELT DOC 2.0 API announcement and documentation](https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/)
+- [GDELT data sets](https://www.gdeltproject.org/data.html)
+
+**Wikipedia**
+
+- [GDELT Project](https://en.wikipedia.org/wiki/GDELT_Project)
+- [API](https://en.wikipedia.org/wiki/API)
+- [HTTP](https://en.wikipedia.org/wiki/HTTP) · [List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+- [URL](https://en.wikipedia.org/wiki/URL) · [Query string](https://en.wikipedia.org/wiki/Query_string)
+- [JSON](https://en.wikipedia.org/wiki/JSON)
+:::
