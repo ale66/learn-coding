@@ -232,7 +232,7 @@ ale66
 <section id="a-slightly-simpler-task" class="slide level2">
 <h2>A slightly simpler task</h2>
 <p>Compute the squares of the first five non-zero natural numbers</p>
-<div id="cf1b7fa0" class="cell" data-execution_count="1">
+<div id="d891f1cf" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-label="1"></a>N <span class="op">=</span><span class="dv">5</span></span>
 <span id="cb2-2"><a href="" aria-label="2"></a></span>
 <span id="cb2-3"><a href="" aria-label="3"></a>squared_values <span class="op">=</span> []</span>
@@ -261,7 +261,7 @@ ale66
 <section id="mapping-functions-to-lists" class="slide level2">
 <h2>Mapping functions to lists</h2>
 <p><code>map()</code> creates an <em>iterable</em> that returns the result of applying a given function to a sequence of values</p>
-<div id="515cecce" class="cell" data-execution_count="2">
+<div id="3bb1fa70" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a><span class="kw">def</span> my_new_func(base: <span class="bu">int</span>)<span class="op">-&gt;</span><span class="bu">int</span>:</span>
 <span id="cb5-2"><a href="" aria-label="2"></a></span>
 <span id="cb5-3"><a href="" aria-label="3"></a>    <span class="cf">return</span> base<span class="op">**</span><span class="dv">2</span></span>
@@ -274,7 +274,7 @@ ale66
 </section>
 <section class="slide level2">
 
-<div id="5f440088" class="cell" data-execution_count="3">
+<div id="133e713c" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-label="1"></a><span class="kw">def</span> my_new_func(base: <span class="bu">int</span>)<span class="op">-&gt;</span><span class="bu">int</span>:</span>
 <span id="cb6-2"><a href="" aria-label="2"></a></span>
 <span id="cb6-3"><a href="" aria-label="3"></a>    <span class="cf">return</span> base<span class="op">**</span><span class="dv">2</span></span>
@@ -334,7 +334,7 @@ ale66
 <section id="examples" class="slide level2">
 <h2>Examples</h2>
 <p>with strings, looking for names beginning by ‘A’</p>
-<div id="cb8df65c" class="cell" data-execution_count="4">
+<div id="50d44edc" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-label="1"></a>names <span class="op">=</span> [<span class="st">'Alessandro'</span>,<span class="st">'Alberto'</span>, <span class="st">'Erin'</span>, <span class="st">'Nicola'</span>]</span>
 <span id="cb10-2"><a href="" aria-label="2"></a></span>
 <span id="cb10-3"><a href="" aria-label="3"></a>A_names <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> names <span class="cf">if</span> n[<span class="dv">0</span>] <span class="op">==</span> <span class="st">'A'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -344,7 +344,7 @@ ale66
 
 <p>List comprehension can be nested, iterating twice in the same line of code</p>
 <p>Here we look for names containing ‘o’</p>
-<div id="1900e97a" class="cell" data-execution_count="5">
+<div id="3789405e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-label="1"></a>o_in_name <span class="op">=</span> [n <span class="cf">for</span> n <span class="kw">in</span> names <span class="cf">for</span> ch <span class="kw">in</span> n <span class="cf">if</span> ch <span class="op">==</span> <span class="st">'o'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>this nested list comprehension <em>saves</em> two nested cycles</p>

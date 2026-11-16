@@ -106,7 +106,7 @@ tick_pos = []
 tick_names = []
 
 for i in x:
-    if i % 8 == 0:  # one label every two years
+    if i % 4 == 0:  # one label every two years
         tick_pos.append(i)
         tick_names.append(labels[i])
 
@@ -163,7 +163,7 @@ ax.legend(loc="lower left", bbox_to_anchor=(-0.05, 1.0), ncol=2, frameon=False,
 ax.bar(x, albanians, width=0.65, color="tomato", label="Albanians")
 
 # uncomment to also draw the data about all others
-# ax.bar(x, others, width=0.65, color="deepskyblue", label="Others", bottom=albanians)
+ax.bar(x, others, width=0.65, color="deepskyblue", label="Others", bottom=albanians)
 
 
 #%%

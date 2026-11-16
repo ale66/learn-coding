@@ -350,3 +350,48 @@ l[l>4]
 
 ![](./imgs/numpy-logo-good.jpeg)
 
+
+---
+
+## Inspecting the passed values
+
+A function can examine the values received with the call and decide a course of action
+
+
+```python
+def myfunc(*args):
+    ''' Study the received values '''
+
+    for a in args:
+        print(a)
+```
+
+
+# Learn with data challenges
+
+
+---
+
+![](./imgs/spectator.png)
+
+Get fresh data from [data.spectator.co.uk/migration](https://data.spectator.co.uk/migration){target="_blank"}
+
+Compute some interesting value, e.g.,
+
+- Albanians as a pc of all migrants (bars? pies?)
+- annual totals (per type)
+- the Q. with most arrivals (Summer?)
+- average Albanians/month
+- Albanians vs. Others (x,y scatterplot)
+  
+---
+
+## Exercise :muscle:
+
+0. form pairs
+1. Visit [data.spectator.co.uk/migration](https://data.spectator.co.uk/migration) and pick **one** chart
+2. use the code here to download the data file, inspect the first rows
+3. baseline code with the original plot: `76-matplotlib/src/`
+4. compute some interesting value, e.g., Albanians as a pc of all migrants
+5. see examples from [matplotlib.org/stable/plot_types/](https://matplotlib.org/stable/plot_types/index.html)
+6. copy/paste/adapt code to plot the original data *and* your computed stats 
