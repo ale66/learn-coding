@@ -1,0 +1,24 @@
+{
+    "articles": [
+        {
+            "url": "https://spectator.com/article/the-return-of-migration-centrism/",
+            "url_mobile": "",
+            "title": "Small boat crossings: what the quarterly figures show",
+            "seendate": "20251117T093000Z",
+            "socialimage": "",
+            "domain": "spectator.com",
+            "language": "English",
+            "sourcecountry": "United Kingdom"
+        },
+        {
+            "url": "https://spectator.com/article/frances-migration-hypocrisy/",
+            "url_mobile": "",
+            "title": "France’s migration hypocrisy",
+            "seendate": "20260410T093000Z",
+            "socialimage": "",
+            "domain": "spectator.com",
+            "language": "English",
+            "sourcecountry": "United Kingdom"
+        },
+    ]
+}
