@@ -8,7 +8,7 @@ Complete the cells
 
 # Setup phase: change as needed
 
-MYWORKDIR = "C:\\Users\\aless\\Downloads\\_git\\learn-coding\\76-matplotlib"
+MYWORKDIR = "C:\\Users\\ale\\Downloads\\_git\\learn-coding\\76-matplotlib"
 
 #%%
 import os

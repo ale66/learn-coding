@@ -4,8 +4,10 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [beige]
     preview-links: auto
+    link-external-newwindow: true
+    slide-number: c/t
     chalkboard: 
       boardmarker-width: 2
 from: markdown+emoji
