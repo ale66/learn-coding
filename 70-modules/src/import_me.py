@@ -23,9 +23,9 @@ def main():
 	# change to reflect the situation on your own computer!
 
 	# the double '\' is for Win systems, adapt as needed
-	TXT = 'C:\\Users\\ale\\Downloads\\git\\learn-coding\\70-modules\\data\\hamlet.txt'
+	TXT = 'C:\\Users\\aless\\Downloads\\_git\\learn-coding\\70-modules\\data\\hamlet.txt'
 
-	CSV = 'C:\\Users\\ale\\Downloads\\git\\learn-coding\\70-modules\\data\\biostats.csv'
+	CSV = 'C:\\Users\\aless\\Downloads\\_git\\learn-coding\\70-modules\\data\\biostats.csv'
 
 	loadtext(TXT, '.')
 

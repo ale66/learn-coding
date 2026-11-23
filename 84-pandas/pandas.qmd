@@ -4,8 +4,10 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [beige]
     preview-links: auto
+    link-external-newwindow: true
+    slide-number: c/t
     chalkboard: 
       boardmarker-width: 2
 from: markdown+emoji
@@ -447,5 +449,58 @@ df_bio['Age'].plot(kind = 'hist')
 
 # alternative syntax:
 # df_bio.Age.plot(kind = 'hist')
+```
+
+# Polars
+
+---
+
+![](./imgs/logo.svg){.absolute top=20 right=20 width=120}
+
+
+An optimised implementation for *big data* scenarios
+
+Very similar syntax (but better), see [pola.rs/](https://pola.rs/)
+
+```python
+import pandas as pd
+
+import polars as pl
+```
+
+. . . 
+
+```python
+filtered = df[df['amount'] > 1000]
+multi = df[(df['amount'] > 1000) & (df['region'] == 'US')]
+```
+. . .
+
+```python
+pl_filtered = df.filter(pl.col('amount') > 1000)
+pl_multi = df.filter((pl.col('amount') > 1000) & (pl.col('region') == 'US'))
+```
+---
+
+## More examples 
+
+See [scihub101.com/data-science/polars-vs-pandas](https://scihub101.com/data-science/polars-vs-pandas)
+
+
+![](./imgs/logo.svg){.absolute top=20 right=20 width=120}
+
+
+```python
+df['total'] = df['quantity'] * df['price']
+df['discounted'] = df['total'] * 0.9
+```
+
+. . .
+
+```python
+df = df.with_columns(
+    total=pl.col('quantity') * pl.col('price'),
+    discounted=(pl.col('quantity') * pl.col('price')) * 0.9
+)
 ```
 

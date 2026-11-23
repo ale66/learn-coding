@@ -4,7 +4,7 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [beige]
     preview-links: auto
     chalkboard: 
       boardmarker-width: 2
@@ -18,58 +18,59 @@ execute:
 
 ---
 
-## mapping function on sequences
+## A simple task
+
+Given a list of metric distances, write a function to compute their squares
 
 ```python
 my_values = [1, 2, 3, 4, 5]
-```
 
-Compute the squares of the first five non-zero natural numbers
-
-```python
-l = len(my_values)
-
-squared_values = []
-
-for i in range(l):
-    s = my_values[i]**2
-
-    squared_values.append(s)
-
-print(squared_values)
+print(my_new_func(my_values))
 
 [1, 4, 9, 16, 25]
 ```
+
+Spin up VS Code, create a `.py` or `.ipynb` file
+
+for `.py` deploy `#%%` for step-by-step exec. 
+
+define and test `my_new_func`, why should it come before invocation? 
 
 
 ---
 
-Compute the squares of those integers inside `my_values`
+## A slightly simpler task
 
-```python
-squared_values = list()
+Compute the squares of the first five non-zero natural numbers
 
-for val in my_values:
-    squared_values.append(val**2)
+```{python}
+N =5
+
+squared_values = []
+
+# b and s are used only locally: short names
+for b in range(N):
+    s = b**2
+
+    squared_values.append(s)
 
 print(squared_values)
-
-[1, 4, 9, 16, 25]
 ```
 
-A local, *list processing* activity
+Essentially, a *local, list processing* task
 
 
 ## Functors
 
 ```python
-def my_square(base: int)->int:
+def my_new_func(base: int)->int:
 
     return base**2
 ```
 
-here `my_square` is a *functor:* the name of the function itself
+here `my_new_func` is a *functor:* the name of the function itself
 
+Python treats it as it does for variable names (sometimes)
 
 ---
 
@@ -77,22 +78,32 @@ here `my_square` is a *functor:* the name of the function itself
 
 `map()` creates an *iterable* that returns the result of applying a given function to a sequence of values
 
-```python
-my_iterable = map(my_square, my_list)
+```{python}
+def my_new_func(base: int)->int:
 
+    return base**2
+
+my_values = [1, 2, 3, 4, 5]
+
+my_iterable = map(my_new_func, my_values)
 ```
 
 *query* `my_iterable` to get a sequence with 1, 4, 9 etc.
 
-. . .
+---
 
-```python
+```{python}
+def my_new_func(base: int)->int:
+
+    return base**2
+
+my_values = [1, 2, 3, 4, 5]
+
+my_iterable = map(my_new_func, my_values)
 
 for el in my_iterable:
     print(el)
-
 ```
-
 
 ---
 
@@ -112,14 +123,15 @@ down into the Python runtime management
 
 # List comprehensions
 
-
 ---
 
-Define lists by the properties of their members, not by explict membership
+Define lists by the properties of their members, not by explicit membership
 
 Styles:
 
 - *extensional:* name the items that make up the list
+
+    `my_values = [1, 2, 3, 4, 5]`
 
 - *intensional:* give the formula/condition that items must satisfy to be into the list
 
@@ -130,7 +142,7 @@ $\{1, 4, 9, 16, 25\}\ =\ \{x\ :\ \exists y\: \in\: {\cal N}. x = y^2 \wedge 0<y 
 
 ---
 
-list comprehension brings list definition closer to natural language specification
+list comprehension brings lists closer to a natural language specification
 
 ```python
 extensional = [1, 2, 3, 4, 5]
@@ -141,7 +153,7 @@ intensional = [x**2 for x in extensional]
 
 A shorter notation, closer to Mathematics
 
-(Data Science code tends to avoid nesting of `for` and `while` cycles)
+(Data Science codes tend to avoid nesting of `for` and `while` cycles)
 
 
 ---
@@ -150,12 +162,10 @@ A shorter notation, closer to Mathematics
 
 with strings, looking for names beginning by 'A'
 
-```python
+```{python}
 names = ['Alessandro','Alberto', 'Erin', 'Nicola']
 
 A_names = [n for n in names if n[0] == 'A']
-
-['Alessandro', 'Alberto']
 ```
 
 
@@ -165,17 +175,14 @@ List comprehension can be nested, iterating twice in the same line of code
 
 Here we look for names containing 'o'
 
-``` python
+``` {python}
 o_in_name = [n for n in names for ch in n if ch == 'o']
-
-['Alessandro', 'Alberto', 'Nicola']
 ```
 
-this nested list comprehension 'saves' us from two nested cycles
+this nested list comprehension *saves* two nested cycles
 
 
 # lambda definitions
-
 
 ---
 
@@ -375,9 +382,26 @@ def myfunc(*args):
 
 ---
 
-
 ![](./imgs/spectator.png)
 
+Get fresh data from [data.spectator.co.uk/migration](https://data.spectator.co.uk/migration){target="_blank"}
 
-can you [get fresh data](https://data.spectator.co.uk/category/energy) and display it?
+Compute some interesting value, e.g.,
 
+- Albanians as a pc of all migrants (bars? pies?)
+- annual totals (per type)
+- the Q. with most arrivals (Summer?)
+- average Albanians/month
+- Albanians vs. Others (x,y scatterplot)
+  
+---
+
+## Exercise :muscle:
+
+0. form pairs
+1. Visit [data.spectator.co.uk/migration](https://data.spectator.co.uk/migration) and pick **one** chart
+2. use the code here to download the data file, inspect the first rows
+3. baseline code with the original plot: `76-matplotlib/src/`
+4. compute some interesting value, e.g., Albanians as a pc of all migrants
+5. see examples from [matplotlib.org/stable/plot_types/](https://matplotlib.org/stable/plot_types/index.html)
+6. copy/paste/adapt code to plot the original data *and* your computed stats 

@@ -1,0 +1,31 @@
+/* Mermaid label clipping fixes for Reveal.js */
+.reveal .mermaid p {
+    margin: 0 !important;
+}
+
+.reveal .mermaid .nodeLabel,
+.reveal .mermaid .edgeLabel,
+.reveal .mermaid .label {
+    line-height: 1.2 !important;
+}
+
+.reveal .mermaid foreignObject {
+    overflow: visible !important;
+}
+
+.reveal .mermaid svg {
+    overflow: visible !important;
+}
+
+/* Compact code and references */
+.reveal pre code {
+    max-height: 560px;
+}
+
+.reveal .refs {
+    font-size: 0.6em;
+}
+
+.reveal figcaption {
+    font-size: 0.6em;
+}

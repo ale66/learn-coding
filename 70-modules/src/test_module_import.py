@@ -9,10 +9,12 @@ import import_me as me
 # me.loadtext('..\data\hamlet.txt', '\n')
 
 # for VS Code excution edit the absolute path to the source text
-HAMLET = "C:\\Users\\ale\\Downloads\\git\\learn-coding\\70-modules\\data\\hamlet.txt"
+HOME_DIR = "C:\\Users\\aless\\Downloads\\_git\\learn-coding\\70-modules\\"
+ 
+TEXT_EXAMPLE = "data\\hamlet.txt"
 
-me.loadtext(HAMLET, '.')
+me.loadtext(HOME_DIR+TEXT_EXAMPLE, '.')
 
-# uncomment to run
-# DATA = '../data/biostats.csv'
-# me.loadcsv(DATA, ',')
+# uncomment to fix & run
+# DATA_EXAMPLE = '../data/biostats.csv'
+# me.loadcsv(DATA_EXAMPLE, ',')

@@ -1,18 +1,18 @@
 # make sure that Python runs in the local folder!
-MYWORKFOLDER = 'C:/Users/aless/Downloads/_git/learn-coding/60-files'
+MYWORKFOLDER = 'C://Users/ale/Downloads/_git/learn-coding/60-files'
 
-MYFILE = './data/incipit.txt'
-
+MYFILE = './data/pg100.txt'
 
 '''
-with open(MYWORKFOLDER+MYFILE) as f:
+with open(MYWORKFOLDER+MYFILE, encoding='utf-8') as f:
+
     longstringwithnewlines = f.read()
 
 print(longstringwithnewlines)
 '''
 
 '''
-with open(MYWORKFOLDER+MYFILE) as f:
+with open(MYWORKFOLDER+MYFILE, encoding='utf-8') as f:
   for line in f:
     print(line)
 '''
@@ -22,17 +22,17 @@ with open(MYWORKFOLDER+MYFILE) as f:
 
 import csv
 
+
 MYDATAFILE = '/data/biostats.csv'
 
-
-
+'''
 with open(MYWORKFOLDER+MYDATAFILE) as f:
 
 	lines = csv.reader(f, delimiter=',')
 
 	for l in lines:
 		print(l)
-
+'''
 
 '''
 with open(MYWORKFOLDER+MYDATAFILE) as f:
@@ -65,7 +65,7 @@ with open(MYWORKFOLDER+MYDATAFILE) as f:
 
 # data migration: use a Spanish-language schema
 
-'''
+
 first_line = ['Name', 'Sex', 'Age', 'Height(in)', 'Weight(lbs)']
 
 mapping_es = ['Nombre', 'Sexo', 'Edad', 'Estatura(in)', 'Peso(lbs)']
@@ -83,11 +83,15 @@ with open(MYWORKFOLDER+MYDATAFILE) as f:
     for l in lines:
         # l really is a dictionary: print specific values
         print(f'Paciente: {l['Nombre'], l['Peso(lbs)'], l['Edad']}')
-'''
 
+    # what is this printing?
+    print(l)
+
+'''
 MYNEWFILE = "iamanewfilename.txt"
 
 with open(MYWORKFOLDER+MYNEWFILE, 'w') as f:
 
     for num in range(10):
         f.write(f'This is value {num}\n')
+'''

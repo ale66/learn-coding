@@ -79,9 +79,9 @@ The OS maintains
 - unique names in each folder
 - changeable content but permanent memorisation
 
-There could be two or more copies ot `pg100.txt` 
+There could be two or more copies of `pg100.txt` 
 
-but only one `C:/Users/aless/git/learn-code/60-files/pg100.txt` 
+but only one `C:/Users/ale/_git/learn-code/60-files/pg100.txt` 
 
 
 # Handling files with Python
