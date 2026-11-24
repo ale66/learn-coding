@@ -4,7 +4,7 @@ author: "ale66"
 format: 
   revealjs:
     footer: "[github.com/ale66/learn-web](https://github.com/ale66/learn-web)&nbsp;&nbsp;&nbsp;"
-    theme: [moon]
+    theme: [beige]
     transition: slide
     preview-links: auto
     chalkboard: 
@@ -96,6 +96,8 @@ Extends to general editing (thesis), collaborative, distributed
 
 Underpins Cloud versioning (MS OneDrive, Dropbox, PCloud, Google Drive)
 
+![](./imgs/git-basics.png)
+
 ---
 
 ## Storing versions: deltas
@@ -105,7 +107,7 @@ Classic VCS store, for each file, the list of *changes* over a base version
 ![](./imgs/deltas.png){fig-alt="Delta-based version storage" width="85%"}
 
 
-(all images from [git-scm.com/book](https://git-scm.com/book/en/v2))
+(images from [git-scm.com/book](https://git-scm.com/book/en/v2))
 
 ---
 
