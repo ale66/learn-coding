@@ -155,7 +155,7 @@ https://api.gdeltproject.org/api/v2/doc/doc?query=migration&mode=ArtList&format=
 
 Parameters are written as `name=value` pairs separated by `&`.
 
-Try this out on your browser to check *liveness*
+Try this out on your browser to check *liveness:* use `http` as plan b.
 
 
 
