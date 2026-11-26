@@ -4,8 +4,10 @@ author: 'ale66'
 format: 
   revealjs:
     footer: '[github.com/ale66/learn-coding](https://github.com/ale66/learn-coding)&nbsp;&nbsp;&nbsp;'
-    theme: [moon]
+    theme: [beige]
     preview-links: auto
+    link-external-newwindow: true
+    slide-number: c/t
     chalkboard: 
       boardmarker-width: 2
 from: markdown+emoji
@@ -74,9 +76,9 @@ objects can be understood as extensions of the now-familiar concept of Python va
 Objects of our new class `temperature`
 
 ```python
-temp_milan = temperature('24-nov-2025', 11, 'C')
+temp_milan = temperature('24-nov-2026', 11, 'C')
 
-temp_seattle = temperature('24-nov-2025', 50, 'F')
+temp_seattle = temperature('24-nov-2026', 50, 'F')
 ```
 
 Custom methods for the class
@@ -203,9 +205,9 @@ class temperature:
 ## Create instances
 
 ```python
-temp_milan = temperature('22-nov-2024', 11, 'C')
+temp_milan = temperature('22-nov-2026', 11, 'C')
 
-temp_seattle = temperature('22-nov-2024', 50, 'F')
+temp_seattle = temperature('22-nov-2026', 50, 'F')
 ```
 
 
